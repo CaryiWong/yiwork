@@ -1,0 +1,882 @@
+body {
+    background-color: #f7f7f7;
+}
+
+/*      slide       */
+.slide {
+    height: 400px;
+    margin: -50px 0 30px;
+    position: relative;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.slide-area {
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.slide-list {
+    width: 9999px;
+    position: relative;
+}
+
+.slide-item {
+    height: 400px;
+    width: 950px;
+    position: relative;
+    float: left;
+}
+
+.slide-item-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-item-info {
+    position: relative;
+    display: none;
+}
+
+.slide-item-text {
+    display: inline-block;
+    padding: 15px;
+    color: #fff;
+    font-size: 24px;
+    line-height: 32px;
+    margin: 90px 0 0;
+    background: rgba(0, 0, 0, .7);
+}
+
+.slide-item-button {
+    display: block;
+    width: 140px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    background-color: #7eb615;
+    margin: 20px 0 0;
+    cursor: pointer;
+}
+
+.slide-item-button:hover {
+    text-decoration: none;
+}
+
+.slide-switchButtons {
+    position: relative;
+    top: -250px;
+}
+
+.slide-switch-button {
+    padding: 0;
+    background-color: #8d938f;
+    color: #fff;
+    border: 0;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    width: 40px;
+    height: 100px;
+}
+
+.slide-switch-button:focus {
+    outline: 0;
+}
+
+.slide-switch-button.left {
+    left: -80px;
+}
+
+.slide-switch-button.right {
+    right: -80px;
+}
+
+.slide-buttonGroup {
+    position: absolute;
+    top: 320px;
+    text-align: center;
+    width: 100%;
+}
+
+.slide-button {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.slide-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-button-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.slide-button.active {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #fff;
+}
+
+.slide-button.active .slide-button-mask {
+    background-color: transparent;
+}
+
+/*      activities      */
+.activities {
+    padding: 0 0 30px;
+    min-height: 600px;
+}
+
+.activities .panel-header {
+    padding-bottom: 10px;
+}
+
+.activities .panel-header-text {
+    font-weight: bold;
+}
+
+.panel-header-button.add {
+    font-size: 12px;
+    border: 1px solid #d9d9da;
+}
+
+.activities-nav {
+    font-size: 14px;
+}
+
+.activities-nav-link {
+    font-size: 14px;
+    color: #777;
+    padding: 0 0 0 14px;
+}
+
+.activities-nav-link:first-child {
+    padding-left: 0;
+}
+
+.activities .panel-content {
+    margin: 20px 0 0;
+}
+
+.activities-view {
+    margin: 14px 0 0;
+}
+
+/*      group      */
+.activity-group {
+    padding: 20px 0 0;
+}
+
+.activity-nav {
+
+}
+
+.activity-nav-link {
+    color: #333;
+    padding: 0 30px 0 0;
+    font-size: 14px;
+}
+
+.activity-nav-link i {
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.activity-nav-link.active {
+    font-weight: bold;
+}
+
+.activity-nav-link:hover {
+    text-decoration: none;
+}
+
+.groupArea {
+    margin: 30px 0;
+}
+
+.group-img {
+    width: 194px;
+    height: 170px;
+    background: url(../../images/pages/activity/activity_access.png);
+}
+
+.group-img.noAccess {
+    background: url(../../images/pages/activity/activity_no.png) no-repeat;
+}
+
+.group-content {
+    margin: 50px 0 0 30px;
+}
+
+.group-title {
+    font-size: 28px;
+    padding: 0 0 10px;
+}
+
+.group-intro {
+    color: #999;
+    margin: 0 0 25px;
+}
+
+.group-buttonGroup {
+
+}
+
+.group-button {
+    width: 80px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 15px 0 0;
+}
+
+/*      create      */
+.activity-create {
+    padding: 20px 0 0;
+}
+
+.create-form {
+    width: 710px;
+}
+
+.activity-create .form-control {
+    padding: 5px 0;
+}
+
+.activity-create .form-control-label {
+    width: 15%;
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: top;
+    padding: 10px 0 0 0;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.activity-create .form-control-input {
+    display: inline-block;
+    width: 85%;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0 0 0 -3px;
+    position: relative;
+}
+
+.activity-create .form-control-text {
+    width: 100%;
+    height: 30px;
+}
+
+.activity-create .form-control-value {
+    font-size: 14px;
+    display: inline-block;
+    padding: 10px 0 0;
+}
+
+.activity-create .form-control-textarea {
+    width: 100%;
+    height: 80px;
+    text-indent: 0;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 5px 8px;
+}
+
+.activity-create .form-control.date .form-control-text {
+    width: 35%;
+    margin: 0 0 10px 0;
+}
+
+.activity-create .form-control.people .form-control-text {
+    width: 15%;
+}
+
+.activity-create .form-control.phone .form-control-text {
+    width: 70%;
+}
+
+.activity-create .form-control-calendar {
+    position: relative;
+}
+
+.activity-create .form-control-calendar i {
+    position: absolute;
+    left: 190px;
+    top: 8px;
+}
+
+.form-control-fileArea {
+    width: 100%;
+    height: 300px;
+    background-color: #e5e5e5;
+    border: 1px solid #dddddd;
+    text-align: center;
+    position: relative;
+}
+
+.form-control.cover .form-control-fileArea {
+    height: 260px;
+    width: 185px;
+}
+
+.form-control.activityDetail .form-control-fileArea {
+    height: 260px;
+    width: 510px;
+    margin: 0 0 0 5px;
+}
+
+.form-control-file-content {
+    font-size: 14px;
+    color: #999;
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+}
+
+.form-control-file-tip {
+    font-size: 12px;
+}
+
+.form-control-fileCustom {
+    padding: 5px 12px;
+    position: relative;
+    margin: 10px 0 0;
+}
+
+.form-control-fileCustom .form-control-file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.activity-create .image-preview-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.activity-create .image-preview-area img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.activity-create .form-control.buttonGroup {
+    padding: 20px 0 50px;
+}
+
+.activity-create .form-button {
+    width: 80px;
+    height: 35px;
+    margin: 0 0 0 5px;
+}
+
+.form-base {
+    padding: 35px 0 0;
+}
+
+.form-base-title {
+    font-size: 18px;
+    margin: 0 0 15px 0;
+}
+
+.form-control-customCheckbox {
+    background-color: transparent;
+    margin: 5px 2px 5px 0;
+    padding: 2px 6px;
+    position: relative;
+}
+
+.activity-create .form-control.pay .form-control-customCheckbox {
+    padding: 5px 15px;
+}
+
+.activity-create .form-control.pay .form-control-label {
+    padding-top: 13px;
+}
+
+.activity-create .valid-error {
+    padding: 0 0 0 10px;
+    font-size: 12px;
+}
+
+.activity-create .name .valid-error {
+    position: absolute;
+    right: -70px;
+    top: 10px;
+}
+
+.activity-create .intro .valid-error {
+    position: absolute;
+    right: -95px;
+    top: 10px;
+}
+
+.activity-create .people .valid-error {
+    position: absolute;
+    left: 115px;
+    top: 10px;
+}
+
+.activity-create .domain .valid-error {
+    position: absolute;
+    right: -105px;
+    top: 2px;
+    width: 100px;
+}
+
+.activity-create .pay .valid-error {
+    position: absolute;
+    right: -105px;
+    top: 5px;
+    width: 100px;
+}
+
+.activity-create .form-control-file + .valid-error {
+    position: absolute;
+    left: 0;
+    top: 35px;
+    width: 200px;
+    text-align: left;
+    padding: 0;
+}
+
+/*      activity-detail     */
+.activity-content {
+    padding: 20px 0 0;
+}
+
+.activity-detail {
+    width: 600px;
+    padding: 0 25px 0 0;
+}
+
+.activity-articleInfo {
+
+}
+
+.info-header {
+    position: relative;
+}
+
+.info-poster {
+    width: 100%;
+    height: 300px;
+}
+
+.info-header-operate {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: rgba(0, 0, 0, .8);
+}
+
+.info-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    padding: 0 0 0 20px;
+}
+
+.info-apply {
+    width: 100px;
+    height: 100%;
+    font-size: 18px;
+    line-height: 50px;
+}
+
+.info-text {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 14px 0 20px;
+}
+
+.info-list {
+
+}
+
+.info-list-item {
+    padding: 0 0 20px;
+    font-size: 14px;
+}
+
+.info-list-item:last-child {
+    padding-bottom: 0;
+}
+
+.info-list-item i {
+    margin: 0 5px 0 0;
+    position: relative;
+    top: 3px;
+}
+
+.info-tags {
+    padding: 10px 0;
+    border-top: 1px solid #b1b1b1;
+    border-bottom: 1px solid #b1b1b1;
+    font-size: 14px;
+    margin: 14px 0 0;
+}
+
+.info-tag {
+    display: inline-block;
+    padding: 3px 5px;
+    border: 1px solid #b1b1b1;
+    margin: 0 4px 0 0;
+}
+
+.activity-review {
+    border: 0;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.activity-review-mobile {
+    display: none;
+}
+
+/*      activity-detail  mobile     */
+@media all and (max-width: 640px) {
+    .container {
+        width: 100%;
+    }
+
+    .activity-content {
+        display: none;
+    }
+
+    .activity-review-mobile {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        background: #fff;
+        z-index: 100;
+    }
+}
+
+/*      activity-tabs       */
+.activity-detail .tab {
+    padding: 15px 0 0;
+}
+
+.activity-detail .tab-buttons {
+
+}
+
+.activity-detail .tab-button {
+    padding: 6px 7px;
+    margin: 0 10px 0 0;
+    background: #fff;
+    color: #333;
+}
+
+.activity-detail .tab-button.active {
+    background: #333;
+    color: #fff;
+}
+
+.activity-comments {
+
+}
+
+.comment {
+    padding: 20px 0;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.comment:after {
+    content: "";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.comment-head {
+    width: 60px;
+    height: 60px;
+    float: left;
+}
+
+.comment-content {
+    float: left;
+    margin: 0 0 0 20px;
+    width: 85%;
+}
+
+.comment-name {
+    color: #42a3f0;
+    font-size: 14px;
+}
+
+.comment-text {
+    padding: 5px 0;
+    line-height: 20px;
+}
+
+.comment-img img {
+    width: 80px;
+    height: 80px;
+    margin: 0 3px 5px 0;
+}
+
+.comment-operate {
+    float: right;
+    padding: 5px 0 0;
+}
+
+.comment-reply {
+    cursor: pointer;
+    padding: 0 17px 0 0;
+    border: 0;
+    background-color: transparent;
+    outline: 0;
+}
+
+.comment-reply i {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.comment-reply.active {
+    color: #5bb6fa;
+}
+
+.comment-time {
+    color: #aaa;
+}
+
+.comment-control {
+    clear: both;
+    width: 100%;
+    padding: 10px 0 0;
+    display: none;
+}
+
+.comment-reply-text {
+    width: 90%;
+    height: 35px;
+    border-color: #dcdcdc;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+}
+
+.comment-reply-button {
+    width: 10%;
+    height: 35px;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    position: relative;
+    z-index: 9;
+    color: #333
+}
+
+.comment-reply-list {
+    clear: both;
+    padding: 10px 0;
+}
+
+.reply-item {
+    padding: 7px 12px;
+    background: #fff;
+    display: block;
+}
+
+.reply-item:first-child {
+    padding-top: 12px;
+}
+
+.reply-item.more {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.reply-item.more a {
+    color: #5bb6fa;
+}
+
+.reply-name {
+    color: #5bb6fa;
+}
+
+.activity-comment-form {
+    padding: 60px 0;
+}
+
+.activity-comment-title {
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+
+.activity-comment-img {
+    width: 80%;
+}
+
+.activity-comment-img .image-preview-area {
+    width: 100px;
+    height: 100px;
+    margin: 5px 5px 0 0;
+    position: relative;
+    display: inline-block;
+}
+
+.activity-comment-img .image-preview-area img {
+    width: 100%;
+    height: 100%;
+}
+
+.activity-editor {
+    border: 1px solid #999;
+    margin: 15px 0;
+    height: 200px;
+    width: 100%;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 10px;
+}
+
+.wysihtml5-sandbox {
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.activity-comment-button {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.activity-members {
+    width: 300px;
+}
+
+.members-header {
+    font-size: 14px;
+    padding: 0 0 10px;
+    border-bottom: 1px solid #b1b1b1;
+    margin: 0 0 10px 0;
+}
+
+.member {
+    float: left;
+    width: 60px;
+    height: 60px;
+}
+
+.member-header {
+    width: 100%;
+    height: 100%;
+}
+
+.member-info {
+    float: left;
+    margin: 0 0 0 10px;
+}
+
+.member-name {
+    font-size: 14px;
+    padding: 0 0 8px;
+}
+
+.member-job {
+    color: #999;
+}
+
+.member-more {
+    border-bottom: 1px solid #b1b1b1;
+    padding: 10px 0;
+    margin: 15px 0 0;
+    display: block;
+}
+
+.member-more-link {
+    color: #333;
+}
+
+/*      apply-dialog        */
+.apply-dialog {
+    width: 300px;
+    background: #fff;
+}
+
+.apply-dialog-text {
+    padding: 25px 0;
+    text-align: center;
+    display: block;
+}
+
+.apply-dialog-buttons {
+    text-align: center;
+    padding-bottom: 25px;
+    width: 200px;
+}
+
+.apply-dialog-button {
+    width: 80px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.apply-dialog-sure {
+    margin: 0 0 0 20px;
+}

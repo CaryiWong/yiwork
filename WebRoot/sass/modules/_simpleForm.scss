@@ -1,0 +1,162 @@
+@import 'util';
+
+.panel {
+
+}
+
+.panel-header {
+    border-bottom: 1px solid #d1d1d1;
+    position: relative;
+    height: 25px;
+    padding-bottom: 12px;
+
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .panel-header-text {
+        font-size: 18px;
+        color: #333;
+        position: absolute;
+        top: 5px;
+        left: 0;
+    }
+}
+
+.panel-header-buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .panel-header-button {
+        border: 0;
+        background: 0;
+        font-size: 16px;
+        cursor: pointer;
+
+        &.disabled {
+            color: #d1d1d1;
+        }
+    }
+
+    .panel-header-buttonLink {
+        font-size: 12px;
+        padding: 8px 0 0;
+    }
+}
+
+.panel-content {
+    margin: 15px 0 0;
+
+    &:after {
+        @include clearfixDefined;
+    }
+}
+
+.form-control {
+    min-height: 30px;
+    padding: 0 0 18px;
+
+    &:after {
+        @include clearfixDefined;
+    }
+}
+
+.form-control-head {
+    width: 180px;
+    height: 180px;
+}
+
+.form-control-label {
+    float: left;
+    width: 60px;
+    text-align: right;
+    padding: 0 30px 0 0;
+    position: relative;
+    font-size: 14px;
+}
+
+.form-control-input {
+    width: 320px;
+    float: left;
+    font-size: 14px;
+    position: relative;
+    top: -8px;
+}
+
+.form-control-value {
+    float: left;
+    width: 320px;
+    position: relative;
+    font-size: 14px;
+}
+
+.form-control-text {
+    width: 100%;
+    height: 25px;
+    border: 1px solid #dcdcdc;
+    text-indent: 5px;
+    font-size: 14px;
+    padding: 1px;
+}
+
+.form-control-select {
+    position: relative;
+    top: 4px;
+}
+
+/*      simpleForm       */
+.simpleForm {
+    padding: 20px 0 0;
+}
+
+.simpleForm .panel-header {
+    border-bottom: 0;
+}
+
+.simpleForm .panel-content {
+    width: 270px;
+}
+
+.simpleForm .form-control {
+    padding: 0 0 20px;
+}
+
+.simpleForm .form-control-label {
+    width: 100%;
+    float: none;
+    text-align: left;
+    padding: 0 0 14px;
+}
+
+.simpleForm .form-control-input {
+    float: none;
+    top: 0;
+    width: 100%;
+}
+
+.simpleForm .form-control-text {
+    height: 30px;
+}
+
+.simpleForm .form-control-textarea {
+    height: 80px;
+    width: 100%;
+    padding: 5px;
+    text-indent: 0;
+}
+
+.simpleForm .form-control-buttons {
+    padding: 0 0 0 89px;
+}
+
+.simpleForm .valid-error {
+    position: absolute;
+    left: 290px;
+    top: 7px;
+    width: 200px;
+}

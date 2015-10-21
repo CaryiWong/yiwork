@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>阿尔勒工作营</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="/styles/house/bootstrap_base.css"/>
+    <link rel="stylesheet" href="/styles/house/icons.css"/>
+    <link rel="stylesheet" href="/styles/house/app.css"/>
+</head>
+<body class="house-order">
+<div class="order-title">
+    订单详情
+</div>
+<div class="order-list">
+    <!--<div class="order-item">-->
+        <!--<div class="order-header">-->
+            <!--<div class="header-info">-->
+                <!--订单号：<span class="order-id">24432332222</span>-->
+            <!--</div>-->
+            <!--<div class="order-state order-red">未消费</div>-->
+        <!--</div>-->
+
+        <!--<div class="order-content clearfix">-->
+
+            <!--<div class="order-info row">-->
+                <!--<img class="order-img col-xs-5" src="/images/house/demo/demo_03.jpg" alt=""/>-->
+
+                <!--<div class="info-item col-xs-7">-->
+                    <!--<div class="order-name col-xs-12">阳光套房</div>-->
+                    <!--<div class="info-group col-xs-12">-->
+                        <!--<div class="order-num pull-left">2人/3天</div>-->
+                        <!--<div class="order-price pull-right">￥1888888</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="book-paper house-coupon">-->
+                <!--<div class="coupon-border"></div>-->
+                <!--<span class="coupon-name">优惠券号</span>-->
+                <!--<span class="coupon-id house-red">3433334321234444</span>-->
+            <!--</div>-->
+
+            <!--<a class="house-button order-phone pull-right">电话预定</a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="order-item">-->
+        <!--<div class="order-header">-->
+            <!--<div class="header-info">-->
+                <!--订单号：<span class="order-id">24432332222</span>-->
+            <!--</div>-->
+            <!--<div class="order-state">已消费</div>-->
+        <!--</div>-->
+
+        <!--<div class="order-content clearfix">-->
+
+            <!--<div class="order-info row">-->
+                <!--<img class="order-img col-xs-5" src="/images/house/demo/demo_03.jpg" alt=""/>-->
+
+                <!--<div class="info-item col-xs-7">-->
+                    <!--<div class="order-name col-xs-12">阳光套房</div>-->
+                    <!--<div class="info-group col-xs-12">-->
+                        <!--<div class="order-num pull-left">2人/3天</div>-->
+                        <!--<div class="order-price pull-right">￥1888888</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="book-paper house-coupon">-->
+                <!--<div class="coupon-border"></div>-->
+                <!--<span class="coupon-name">优惠券号</span>-->
+                <!--<span class="coupon-id house-red">3433334321234444</span>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+</div>
+<script type="template" id="order-template">
+    <div class="order-item" data-timestamp="{timestamp}"
+         data-nonceStr="{nonceStr}" data-package="{package}"
+         data-signType="{signType}" data-paySign="{sign}"
+        >
+        <div class="order-header">
+            <div class="header-info">
+                订单号：<span class="order-id">{id}</span>
+            </div>
+            <div class="order-state">{inntype}</div>
+        </div>
+
+        <div class="order-content container-fluid clearfix">
+            dsdsds
+            <div class="order-info row">
+                <img class="order-img col-xs-5" src="{img}" alt=""/>
+
+                <div class="info-item col-xs-7">
+                    <div class="order-name col-xs-12">{name}</div>
+                    <div class="info-group col-xs-12">
+                        <div class="order-num pull-left">{person}人/{days}天</div>
+                        <div class="order-price pull-right">￥ {price}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-paper house-coupon">
+                <div class="coupon-border"></div>
+                <span class="coupon-name">优惠券号</span>
+                <span class="coupon-id house-red">{number}</span>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/javascript" data-main="order" src="/scripts/components/require.js"></script>
+<script type="text/javascript" src="/scripts/require_config.js"></script>
+
+</body>
+</html>

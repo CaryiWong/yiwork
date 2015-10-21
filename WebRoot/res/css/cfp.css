@@ -1,0 +1,828 @@
+#balance {
+	float: left
+}
+
+#balance .count {
+	font-size: 18px;
+	font-weight: normal
+}
+
+hr {
+	clear: both;
+	border: none;
+	border-top: 1px dotted #ccc
+}
+
+.btn,
+.btn span{ border: 0; background: url(/images/user-center/buttons.png) no-repeat; cursor: pointer; }
+.btn-pay{ display: inline-block; *display: inline; width: 78px; height: 28px; text-indent: -1000px; *zoom: 1; overflow: hidden; }
+.btn-white{ padding: 0 0 0 10px; height: 27px; background-position: 0 -35px; color: #000; text-shadow: 1px 1px 0 #FFF; }
+.btn-white span{ float: left; padding: 5px 11px 6px 0; height: 16px; background-position: 100% -35px; line-height: 16px; cursor: pointer; }
+.btn-white-disabled,.btn-white-disabled:hover{cursor:default; text-decoration:none;}
+.btn-white-disabled span,.btn-white-disabled span:hover{ color:#999999; cursor:default; text-decoration:none;}
+.btn-addsub{ width: 110px; height: 27px; background-position: 0 -110px; text-indent: -1000px; overflow: hidden; }
+.btn-newexclusive{width:130px;height:27px;background-position: 0 -150px;text-indent: -1000px; overflow: hidden;}
+.btn-grey,.btn-grey:hover,
+.btn-yellow,.btn-yellow:hover{width:78px; height:27px; display: inline-block; *display: inline; *zoom: 1; overflow:hidden; background-position:0px -192px; text-align:center; line-height:27px; color:#FFF; text-decoration:none; margin-right:16px; text-shadow: 1px 1px 1px #555;}
+.btn-yellow,.btn-yellow:hover{ margin-right:10px; background-position:0px -72px;}
+
+
+#remind {
+	float: right;
+	padding: 20px;
+	background-color: #f7f9fb
+}
+
+#remind dt {
+	font-size: 16px;
+	font-weight: normal
+}
+
+#remind dd {
+	line-height: 25px;
+	height: 25px
+}
+
+#on-off {
+	width: 59px;
+	height: 27px;
+	text-indent: -1000px;
+	margin-right: 12px;
+	background-image: url(../images/on-off.png)
+}
+
+a.off {
+	background-position: 0px 0px
+}
+
+a.on {
+	background-position: 0px -27px
+}
+
+#balanceDetail li {
+	float: left;
+	width: 250px;
+	height: 30px;
+	line-height: 30px
+}
+
+.balance-tip-icon{
+    cursor: pointer;
+  }
+  .balance-tip{
+    position: absolute;
+    border: 5px  solid #F0F0F0;
+    padding: 10px;
+    background: #fff;
+    /*left: 335px;*/
+    right: 0px;
+    top: 75px;
+    width: 230px;
+  }
+
+.inline-block {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	*vertical-align: auto;
+	zoom: 1;
+	*display: inline
+}
+
+.fb {
+	font-weight: bold
+}
+
+input[type="radio"] {
+	vertical-align: middle;
+	height: 16px;
+	line-height: 16px
+}
+
+#balance {
+	float: left;
+	position: relative
+}
+
+#balance .count {
+	font-size: 18px;
+	font-weight: normal
+}
+
+hr {
+	clear: both;
+	border: none;
+	border-top: 1px dotted #ccc
+}
+
+#remind {
+	float: right;
+	padding: 15px;
+	background-color: #f7f9fb
+}
+
+#remind dt {
+	font-size: 14px;
+	font-weight: normal
+}
+
+#remind dd {
+	line-height: 25px;
+	height: 25px
+}
+
+#on-off {
+	width: 59px;
+	height: 27px;
+	text-indent: -1000px;
+	margin-right: 12px;
+	background-image: url(../images/on-off.png)
+}
+
+a.off {
+	background-position: 0px 0px
+}
+
+a.on {
+	background-position: 0px -27px
+}
+
+#J_countTooltip {
+	position: absolute;
+	top: -32px;
+	left: 120px;
+	background-color: #fbfaed;
+	color: #ff7f01;
+	padding: 3px;
+	width: 150px;
+	border: #ffe5a0 solid 1px
+}
+
+#J_countTooltip .border {
+	width: 0;
+	position: absolute;
+	left: 30%;
+	bottom: -16px;
+	margin-left: -8px;
+	border: 8px solid transparent;
+	border-top-color: #ffe5a0
+}
+
+#J_countTooltip .tip {
+	position: absolute;
+	left: 30%;
+	bottom: -12px;
+	margin-left: -6px;
+	border: 6px solid transparent;
+	border-top-color: #fbfaed
+}
+
+#balanceDetail li {
+	float: left;
+	width: 250px;
+	height: 30px;
+	line-height: 30px
+}
+
+.btn_normal2 {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	*vertical-align: auto;
+	zoom: 1;
+	*display: inline;
+	background-image: url(../images/button2.png);
+	width: 63px;
+	height: 26px;
+	text-align: center;
+	line-height: 26px;
+	text-decoration: none;
+	font-size: 14px
+}
+
+.btn_normal4 {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	*vertical-align: auto;
+	zoom: 1;
+	*display: inline;
+	background-image: url(../images/button4.png);
+	border: none;
+	width: 75px;
+	height: 26px;
+	color: #666;
+	text-decoration: none;
+	overflow: hidden;
+	text-align: center;
+	line-height: 26px
+}
+.btn_normal6 {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	*vertical-align: auto;
+	zoom: 1;
+	*display: inline;
+	background-image: url(../images/button6.jpg);
+	border: none;
+	width: 123px;
+	height: 28px;
+	color: #666;
+	text-decoration: none;
+	overflow: hidden;
+	text-align: center;
+	line-height: 28px
+}
+
+.btn_confirm {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	*vertical-align: auto;
+	zoom: 1;
+	*display: inline;
+	background-image: url(../images/submit.png);
+	width: 66px;
+	height: 26px;
+	line-height: 26px;
+	color: #fff;
+	margin: 0 10px;
+	text-shadow: 1px 1px 1px #f60;
+	text-decoration: none;
+	text-align: center
+}
+
+#content{
+	height: auto!important;
+	height: 300px;
+	min-height: 300px;
+}
+
+#content h3 {
+	position: relative
+}
+
+a.backlist {
+	position: absolute;
+	right: 0
+}
+
+#choosedList {
+	border: 10px solid #ebebeb;
+	padding: 20px
+}
+
+#choosedList h3 {
+	font-weight: normal;
+	margin-bottom: 10px
+}
+
+#choosedList li {
+	height: 23px;
+	line-height: 23px
+}
+
+#choosedList li span {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	*vertical-align: auto;
+	zoom: 1;
+	*display: inline;
+	width: 210px
+}
+
+.invoiceTablefont {
+	font-weight: bold;
+}
+
+.tip {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	*vertical-align: auto;
+	zoom: 1;
+	*display: inline;
+	width: 9px;
+	height: 9px;
+	background: url(../images/tip.png) 0 0;
+	margin-left: 10px;
+	position: relative
+}
+
+.tip span {
+	position: absolute;
+	left: 10px;
+	top: -10px;
+	z-index: 2
+}
+
+.tip:hover span {
+	display: block !important
+}
+
+#success_op {
+	float: left;
+	width: 60px;
+	height: 85px;
+	background-image: url(../images/success.png);
+	background-repeat: no-repeat;
+}
+
+#fail_op {
+	float: left;
+	width: 60px;
+	height: 85px;
+	background-image: url(../images/fail.png);
+	background-repeat: no-repeat;
+}
+
+#succinone {
+	float: left;
+}
+
+.succin {
+	height: 35px;
+}
+
+.tableLoading {
+	height: 35px;
+	background-image: url(../images/loading_32.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.detailsFail {
+	height: 35px;
+}
+
+.alipayDispalyList {
+	padding-left: 40px;
+}
+
+#innerList {
+	padding-top: 10px;
+}
+
+#innerList li {
+	height: 30px;
+}
+
+#innerList li label {
+	padding-left: 5px;
+}
+
+.btn-submitting {
+	width: 78px;
+	height: 27px;
+	display: inline-block;
+	overflow: hidden;
+	background-position: 0px -192px;
+	text-align: center;
+	line-height: 27px;
+	color: #FFF;
+	text-decoration: none;
+	margin-right: 16px;
+	margin-left: 160px;
+}
+
+#moneyTips {
+	padding-left: 10px;
+	padding-top: 4px;
+	width: 205px;
+	height: 35px;
+	position: relative;
+	margin-top: -185px;
+	margin-left: 170px;
+	background-repeat: no-repeat;
+	background-image: url(../images/u35_normal.png);
+}
+
+#closeTips {
+	height: 25px;
+	width: 30px;
+	position: absolute;
+	left: 180px;
+	top: 0px;
+}
+
+.default{
+	background-color: #fffce6;
+	border: 1px solid #ffe5a0;
+}
+#invoiceAddressList tr{
+	height:31px;
+}
+#invoiceAddressList tr>td:first-child {
+	padding: 5px;
+}
+#addaddressDIV{
+	padding-top: 15px;
+}
+.backLink_a{
+	font-size: 12px;
+    font-weight: normal;
+}
+#invoiceInfoDetails{
+	border-top:1px dotted #ccc;
+	border-bottom:1px dotted #ccc;
+	margin-top: 10px;
+	padding-top: 10px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+.my-assets-ac{
+	float: left; 
+	height: 165px;
+	padding: 0 10px;
+}
+.my-assets-ac table{ width: 100%; }
+.my-assets-ac td{ padding:5px 0; }
+#inv-tips {
+padding-left: 65px;
+}
+
+.fm-title-s{width: 215px;float: left;text-align: right;overflow: hidden;padding: 4px 8px 4px 0px;}
+.fm-field-s{width: 400px;float: left;padding: 4px 0px;}
+#bank-select{height:30px;}
+#bank-select label{padding-right:10px;}
+#b-s-list{width:660px;}
+#b-s-list tr{height:40px;}
+#b-s-list tr>td:first-child{padding: 5px;}
+#b-s-send{padding:10px 0px;}
+#h-k-model{	
+	height:335px;
+	background-repeat: no-repeat;
+	background-image: url(../images/remitaccountphoto.jpg);}
+	
+
+#银行充值
+/* background */
+.bank-alipay,
+.bank-icbc,
+.bank-ccb,
+.bank-abchina,
+.bank-psbc,
+.bank-bankcomm,
+.bank-cmbchina,
+.bank-boc,
+.bank-cebbank,
+.bank-ecitic,
+.bank-spdb,
+.bank-cmbc,
+.bank-cib,
+.bank-pingan,
+.bank-cgbchina,
+.bank-srcb,
+.bank-bankofshanghai,
+.bank-nbcb,
+.bank-hccb,
+.bank-bankofbeijing,
+.bank-bjrcb,
+.bank-fudian-bank,
+.bank-wzcb{background: url("//gtms04.alicdn.com/tps/i4/T17IKqFbXeXXbb9.QQ-442-311.png") no-repeat;}
+
+body{color: #333;}        	
+.mt20{margin-top: 20px;}
+.ml4{margin-left: 4px;}
+.ml10{margin-left: 10px;}
+.ml20{margin-left: 20px;}
+.cny{font-family: Arial;}
+.lnk:link,
+.lnk:visited{color: #06c;}
+.lnk:hover{color: #06c; text-decoration: underline;}
+.uc-order .vouchers-box .row-1-height,
+.uc-order .order-info .row-1-height{height: 30px;}
+.uc-order .vouchers-box .row-2-height,
+.uc-order .order-info .row-2-height{height: 60px;}
+.uc-order .vouchers-box .row-3-height,
+.uc-order .order-info .row-3-height{height: 90px;}
+.uc-order .vouchers-box .row-4-height,
+.uc-order .order-info .row-4-height{height: 120px;}
+.uc-order .vouchers-box .row-5-height,
+.uc-order .order-info .row-5-height{height: 150px;}
+
+.uc-process .w307{width: 307px;}
+.uc-process .w306{width: 306px;}
+.uc-process .arrow,
+.uc-process .arrow-current,
+.uc-process .arrow-complete,
+.uc-process .arrow-past{width: 10px;}
+
+.uc-order{border: solid 1px #e6e6e6;}
+
+.order-info{padding: 0 10px 20px; border-bottom: solid 3px #ddd;}
+.order-info .title{height: 36px; padding: 6px 10px; border-bottom: dashed 1px #d6d6d6; line-height: 36px;}
+.order-info .title strong{font-weight: normal; font-size: 18px; line-height: 2; color: #333;}
+.order-info .title .product-name{margin-left: 10px; font-size: 14px; color: #666;}
+.order-info .title .total{float: right; display: inline; color: #999; font: bold 18px/2 Tahoma;}
+.order-info .title .total .cny{margin-right: 2px; font-family: Arial;}
+.order-info .content{margin-top: 20px; padding: 0 0px;}
+.order-info .content-scroll{height: 145px; overflow: auto;}
+.order-info .uc-table td{padding: 5px 10px; border-width: 0;}
+.order-info .uc-table td .cny{margin-right: 1px;}
+.order-info .align-right{text-align: right;}
+.order-info .content strong{color: #333; font-weight: normal;}
+.order-info .content span{color: #999;}
+
+.vouchers-box{margin-top: 20px; padding: 0 10px 10px;}
+.vouchers-box .empty{height: 18px; padding: 4px 10px;}
+.vouchers-box .title{height: 28px; padding: 6px 10px 6px 7px; background: #fff; border-left: solid 3px #fff;
+	-webkit-transition: all .3s; -moz-transition: all .3s; -ms-transition: all .3s; -o-transition: all .3s;
+}
+.vouchers-box .title input{float: left; display: inline; width: 13px; height: 13px; overflow: hidden; margin: 8px 6px 0 0;}
+.vouchers-box .title .info{float: left; display: inline; font-size: 12px; color: #999; line-height: 1.5; margin-top: 5px;}
+.vouchers-box .title label,
+.vouchers-box .title strong{float: left; display: inline; font-size: 14px; line-height: 2; color: #333; font-weight: normal;}
+.vouchers-box .title .deductible{float: right; display: none;}
+.vouchers-box .title .total{float: right; display: inline; color: #f60; font: 18px/28px Tahoma;}
+.vouchers-box .title .total .cny{margin-right: 2px; font-family: Arial;}
+.vouchers-box .title .total-text{float: right; display: inline; margin: 5px 10px 0 0; color: #333;}
+.uc-order .current .title{background: #f7f7f7; border-left-color: #ff9a00;}
+.vouchers-box .add{height: 26px; padding: 10px 10px 10px 29px; background: #fafafa; overflow: hidden;
+	-webkit-transition: all .3s; -moz-transition: all .3s; -ms-transition: all .3s; -o-transition: all .3s;
+}
+.vouchers-box .add label{float: left; display: inline; margin-top: 4px;}
+.vouchers-box .add .uc-input{float: left; display: inline; width: 150px;}
+.vouchers-box .add button{float: left; display: inline; width: 64px;}
+.vouchers-box .add .lnk{float: left; display: inline; margin-top: 4px;}
+.vouchers-box .add .tip{float: left; display: inline; margin-top: 4px; color: #666;}
+.vouchers-box .add .tip .icon-wrong,
+.vouchers-box .add .tip .icon-yes2{float: left; display: inline; margin: 4px 4px 0 0; font-size: 12px; color: #faa62f;}
+.vouchers-box .add .tip .icon-yes2{color: #78d10f;}
+.vouchers-box .add-hide{height: 0; padding: 0 10px 0 29px; overflow: hidden;}
+.vouchers-box .content{margin-top: 10px; /*width: 100%; */overflow: hidden;}
+.uc-order .vouchers-box .content-hide{margin-top: 0; height: 0; overflow: hidden;}
+.vouchers-box .content-transition{-webkit-transition: height .3s; -moz-transition: height .3s; -ms-transition: height .3s; -o-transition: height .3s;}
+.vouchers-box .content-scroll{height: 120px; overflow: auto;}
+.vouchers-box .uc-table td{padding: 5px 10px; border: none; height: 18px; border-bottom: dashed 1px #f6f6f6;}
+.vouchers-box .uc-table .first{padding-left: 29px;}
+.vouchers-box .uc-table .last{width: 50%;}
+.vouchers-box .uc-table .first input{float: left; display: inline; width: 13px; height: 13px; overflow: hidden; margin: 3px 10px 0 0;}
+.vouchers-box .uc-table .cny{margin-right: 1px;}
+
+.cash-box{margin-top: 20px; padding: 0 10px 10px;}
+.cash-box .title{height: 28px; padding: 6px 10px 6px 7px; background: #fff; border-left: solid 3px #fff;
+	-webkit-transition: all .3s; -moz-transition: all .3s; -ms-transition: all .3s; -o-transition: all .3s;
+}
+.cash-box .title .ck-cash{float: left; display: inline; width: 13px; height: 13px; overflow: hidden; margin: 8px 6px 0 0;}
+.cash-box .title .info{float: left; display: inline; font-size: 12px; color: #999; line-height: 1.5; margin-top: 5px;}
+.cash-box .title label,
+.cash-box .title strong{float: left; display: inline; font-size: 14px; line-height: 2; color: #333; font-weight: normal;}
+.cash-box .title .deductible{float: right; display: none;}
+.cash-box .title .total{float: right; display: inline; color: #f60; font: 18px/28px Tahoma;}
+.cash-box .title .total .cny{margin-right: 2px; font-family: Arial;}
+.cash-box .title .total-text{float: right; display: inline; margin: 5px 10px 0 0; color: #333;}
+.cash-box .title .cny{margin-right: 1px;}
+.cash-box .title .uc-input{float: left; display: inline; margin-top: 1px; width: 64px; text-align: center;
+	-webkit-transition: color .3s; -moz-transition: color .3s; -ms-transition: color .3s; -o-transition: color .3s;
+}
+.cash-box .title .uc-input-disabled{color: #999;}
+.cash-box .title .warning{float: left; display: inline; margin-top: 5px; color: #f60;}
+
+.other-box{margin-top: 20px; padding: 0 10px 10px;}
+.other-box .title{position: relative; height: 28px; padding: 6px 10px 6px 7px; background: #fff; border-left: solid 3px #fff; border-bottom: solid 1px #fff;
+	-webkit-transition: background .3s; -moz-transition: background .3s; -ms-transition: background .3s; -o-transition: background .3s;
+}
+.other-box .title-hide{height: 0; padding: 0 10px 0 7px; overflow: hidden;}
+.other-box .title input{float: left; display: inline; width: 13px; height: 13px; overflow: hidden; margin: 8px 6px 0 0;}
+.other-box .title .info{float: left; display: inline; font-size: 12px; color: #999; line-height: 1.5; margin-top: 5px;}
+.other-box .title label,
+.other-box .title strong{float: left; display: inline; font-size: 14px; line-height: 2; color: #333; font-weight: normal;}
+.other-box .title label{margin-left: 19px;}
+.other-box .title .deductible{float: right; display: none;}
+.other-box .title .total{float: right; display: inline; color: #f60; font: 18px/28px Tahoma;}
+.other-box .title .total .cny{margin-right: 2px; font-family: Arial;}
+.other-box .title .total-text{float: right; display: inline; margin: 5px 10px 0 0; color: #333;}
+.other-box .title ul{display: none; position: absolute; left: 134px; top: 0;}
+.uc-order .current .title ul{display: block;}
+.uc-order .other-box.current .title{border-bottom: solid 1px #f0f0f0;}
+.other-box .title li{float: left; display: inline; margin-right: 10px;}
+.other-box .title li a{-webkit-transition: all .3s; -moz-transition: all .3s; -ms-transition: all .3s; -o-transition: all .3s;}
+.other-box .title li a:link,
+.other-box .title li a:visited{display: inline-block; background: #f7f7f7; height: 18px; padding: 9px 18px 11px; border: solid 1px #f7f7f7; border-top-width: 2px; border-bottom-color: #f0f0f0; color: #666;}
+.other-box .title li a:hover{text-decoration: none; color: #333;}
+.other-box .title .current-li a:link,
+.other-box .title .current-li a:visited,
+.other-box .title .current-li a:hover{background: #fff; border-color: #f60 #f0f0f0 #fff; color: #333;}
+.uc-order .current .title .deductible{display: inline;}
+
+.other-box .content{padding: 20px 0 10px 29px;overflow: hidden;
+	-webkit-transition: all .3s; -moz-transition: all .3s; -ms-transition: all .3s; -o-transition: all .3s;
+}
+.other-box .content-hide{padding: 0 0 0 29px; height: 0; overflow: hidden;}
+.other-box .content .alipay-list{width: 660px; height: 50px;}
+.other-box .content .bank-list{width: 660px; height: 350px;}
+.other-box .content li{float: left; display: inline; height: 33px; width: 218px; padding-bottom: 10px;}
+.other-box .content li input{float: left; display: inline; width: 13px; height: 13px; margin: 10px 10px 0 0;}
+.other-box .content li label{float: left; display: inline; width: 142px; height: 31px; border: solid 1px #ddd;}
+
+.bank-alipay,
+.bank-icbc,
+.bank-ccb,
+.bank-abchina,
+.bank-psbc,
+.bank-bankcomm,
+.bank-cmbchina,
+.bank-boc,
+.bank-cebbank,
+.bank-ecitic,
+.bank-spdb,
+.bank-cmbc,
+.bank-cib,
+.bank-pingan,
+.bank-cgbchina,
+.bank-srcb,
+.bank-bankofshanghai,
+.bank-nbcb,
+.bank-hccb,
+.bank-bankofbeijing,
+.bank-bjrcb,
+.bank-fudian-bank,
+.bank-wzcb{width: 142px; height: 31px; overflow: hidden;}
+
+.bank-alipay{background-position: 0 0;}
+.bank-icbc{background-position: -150px 0;}
+.bank-ccb{background-position: -300px 0;}
+.bank-abchina{background-position: 0 -40px;}
+.bank-psbc{background-position: -150px -40px;}
+.bank-bankcomm{background-position: -300px -40px;}
+.bank-cmbchina{background-position: 0 -80px;}
+.bank-boc{background-position: -150px -80px;}
+.bank-cebbank{background-position: -300px -80px;}
+.bank-ecitic{background-position: 0 -120px;}
+.bank-spdb{background-position: -150px -120px;}
+.bank-cmbc{background-position: -300px -120px;}
+.bank-cib{background-position: 0 -160px;}
+.bank-pingan{background-position: -150px -160px;}
+.bank-cgbchina{background-position: -300px -160px;}
+.bank-srcb{background-position: 0 -200px;}
+.bank-bankofshanghai{background-position: -150px -200px;}
+.bank-nbcb{background-position: -300px -200px;}
+.bank-hccb{background-position: 0 -240px;}
+.bank-bankofbeijing{background-position: -150px -240px;}
+.bank-bjrcb{background-position: -300px -240px;}
+.bank-fudian-bank{background-position: 0 -280px;}
+.bank-wzcb{background-position: -150px -280px;}
+
+.submit-box{padding: 0 0 40px; margin: 0 10px; border-top: dashed 1px #d6d6d6;}
+.submit-box .info-row{height: 36px; padding: 20px 10px 10px; text-align: right;}
+.submit-box .info-row .info{color: #666;}
+.submit-box .total{color: #f60; font: 24px/1.5 Tahoma;}
+.submit-box .total .cny{margin-right: 3px; font-family: Arial;}
+.submit-box .total .total-text{margin-right: 8px; font-size: 14px; color: #333; font-family: "\5fae\8f6f\96c5\9ed1","\534e\6587\7ec6\9ed1",tahoma,arial,"\5b8b\4f53";}
+.submit-box .button-row{padding: 0 10px; text-align: right;}
+.submit-box .info-row .info .cny{margin-right: 1px;}
+
+.vouchers-box .add .fn-hide{display: none;}
+
+#b-s-list label{float: left; display: inline; width: 142px; height: 31px; border: solid 1px #ddd;margin-right:10px;}
+
+.mgtp10{ margin-top:10px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.luck-payfree{
+    margin:20px 10px 0 10px;
+    background-color:#f4f4f4;
+    padding: 10px 155px 10px;
+}
+.luck-payfree .mod-mess{
+    height:65px;
+    margin-left:20px;
+}
+.luck-payfree .mod-mess img{
+    float:left;
+    height:65px;
+}
+.luck-payfree p.tips{
+    height:65px;
+    line-height:65px;
+    float:left;
+    font-size:16px;
+    color:#333;
+    padding-left:10px;
+    padding-right:10px;
+    font-weight:normal;
+}
+.luck-payfree p.tips em{
+    font-weight:normal;
+    padding-left:4px;
+    padding-right:4px;
+}
+/*
+ *按钮样式
+ */
+a.payfree{
+    display:inline-block;
+    margin-top:15px;
+    float:left;
+}
+
+/* line 6, ../sass/modules/button.scss */
+.y-btn * {
+  margin: 0;
+  padding: 0; }
+
+/* line 8, ../sass/modules/button.scss */
+.y-btn::-moz-focus-inner, .y-btn::-moz-focus-inner {
+  border: 0; }
+
+/* line 11, ../sass/modules/button.scss */
+.y-btn {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  padding: 0;
+  margin: 0;
+  height: 36px;
+  line-height: 36px;
+  width: 140px;
+  border: none;
+ 
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  *overflow: visible;
+  font-family: \5FAE\8F6F\96C5\9ED1, \5B8B\4F53 ;
+  outline: none;
+  background-color: #00a2c9;
+  color: #fff;
+  font-size: 14px; }
+  /* line 32, ../sass/modules/button.scss */
+.y-btn:hover {
+  text-decoration: none !important;
+  background-color: #33b5d4;
+  color: #fff; }
+
+/* line 37, ../sass/modules/button.scss */
+.y-btn:active {
+  position: relative;
+  top: 1px;
+  background-color: #20a5c5; }
+
+/* line 43, ../sass/modules/button.scss */
+.y-btn-mini {
+  height: 26px;
+  line-height: 26px;
+  width: 80px;
+  font-size: 12px; }
+
+/* line 50, ../sass/modules/button.scss */
+.y-btn-disabled {
+  color: #ccc !important;
+ 
+  box-shadow: inset 0 2px 2px rgba(45, 177, 209, 0.5); }
+ 
+  background-color: #999999 !important;
+  cursor: default; }
+
+/* line 55, ../sass/modules/button.scss */
+.y-btn-disabled:active {
+  top: 0; }
+
+/* line 59, ../sass/modules/button.scss */
+.y-btn-white {
+  border: 1px solid #33b5d4;
+  background-color: #fff;
+  color: #00a2c9; }
+
+/* line 64, ../sass/modules/button.scss */
+.y-btn-white:active {
+  -webkit-box-shadow: inset 0 2px 2px rgba(45, 177, 209, 0.5);
+  -moz-box-shadow: inset 0 2px 2px rgba(45, 177, 209, 0.5);
+}
+
+#receipt_form .ucform .fm-title,#send_form .ucform .fm-title{width:160px;}
+
+#receipt_form .ucform .fm-field,#send_form .ucform .fm-field{width:552px;}
+.ptop15{padding-top:15px;}
+.tabs .rt-btn{float:right;line-height:38px;padding-top:2px\9;}
+.appbtn{float:right;}

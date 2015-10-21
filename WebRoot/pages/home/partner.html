@@ -1,0 +1,150 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 ltc-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>一起开工社区</title>
+    <meta name="description" content="">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="/styles/app.css">
+</head>
+<body class="detail">
+<div class="container-fluid detail-header">
+    <div class="header-bg bg-partner"></div>
+    <div class="header-area">
+        <div class="header-icon">
+            <img src="/images/home/mobile_icons/partner.png"/>
+        </div>
+        <div class="header-title">社区伙伴</div>
+        <div class="header-en">Community Partner</div>
+        <div class="header-desc">如果你有可以提供给社区会员的服务/产品/机会，欢迎成为社区伙伴，一起给会员们一个惊喜。</div>
+        <div class="header-buttons">
+            <div class="label label-white" data-toggle="modal" data-target=".partner-modal">成为社区伙伴</div>
+        </div>
+    </div>
+</div>
+<div class="detail-content">
+    <ul class="content-feature-list">
+        <li class="feature-item">
+            <div class="feature-name"><span>1.</span>提供服务/产品/机会</div>
+            <div class="feature-desc">可将服务/产品/机会优先或免费（优惠）提供至“一起”会员使用</div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>2.</span>合作发布</div>
+            <div class="feature-desc">通过“一起”自媒体对社区伙伴合作内容进行发布介绍</div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>3.</span>线下实体展示</div>
+            <div class="feature-desc">“一起”线下空间指定位置展示社区伙伴服务/产品/机会的相关资料</div>
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade partner-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title text-center">请填写你的产品/服务的基本信息
+                </div>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+                <form class="modal-form form-horizontal partner-form" novalidate>
+                    <div class="form-group">
+                        <label class="col-xs-2">姓名</label>
+
+                        <div class="col-xs-10">
+                            <input type="text" name="name" class="form-control valid-input"
+                                   data-valid-rule="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">电话</label>
+
+                        <div class="col-xs-10">
+                            <input type="text" name="phone_number" class="form-control valid-input"
+                                   data-valid-rule="required,phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">邮箱</label>
+
+                        <div class="col-xs-10">
+                            <input type="text" name="email" class="form-control valid-input"
+                                   data-valid-rule="required,email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">是否“一起”会员</label>
+
+                        <div class="radio-area col-xs-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="is_member" value="1" checked> 是
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="is_member" value="0"> 否
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">公司/组织名称</label>
+
+                        <div class="col-xs-10">
+                            <input class="form-control valid-input"
+                                   name="organization_name"
+                                   type="text"
+                                   data-valid-rule="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">产品/服务名称</label>
+
+                        <div class="col-xs-10">
+                            <input class="form-control valid-input"
+                                   name="product_name"
+                                   type="text"
+                                   data-valid-rule="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">产品/服务简介</label>
+
+                        <div class="col-xs-10">
+                            <textarea class="form-control valid-input"
+                                      name="product_introduction"
+                                      data-valid-rule="required"
+                                      cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">合作想法</label>
+
+                        <div class="col-xs-10">
+                            <textarea class="form-control valid-input"
+                                      name="idea"
+                                      data-valid-rule="required"
+                                      cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <small class="form-tip">我们将会尽快与你联系，探讨合作细节</small>
+                    <button class="label label-black form-button">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/scripts/app.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:9002/livereload.js"></script>
+</body>
+</html>

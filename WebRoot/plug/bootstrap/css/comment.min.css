@@ -1,0 +1,7 @@
+@charset "utf-8";
+/* CSS Document */
+.contentBorder{border-bottom:1px solid #ddd; border-left:1px solid #ddd; border-right:1px solid #ddd; margin-top:45px;}
+.txtCenter{text-align:center;}
+.txtRight{text-align:right;}
+.noMargin{margin:0 0 0 0;}
+

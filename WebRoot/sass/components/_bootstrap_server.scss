@@ -1,0 +1,33 @@
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+$font-defined: Heiti SC, Microsoft Yahei, SimSun;
+$font-defined-mobile: Heiti SC, STHeiti, Droidsansfallback, Dengxian;
+
+button {
+  cursor: pointer;
+  font-family: $font-defined;
+}
+
+select {
+  font-family: $font-defined;
+}
+
+body {
+  font-family: $font-defined;
+}
+
+@media all and (max-width: 720px) {
+  body, button, select {
+    font-family: $font-defined-mobile;
+  }
+}

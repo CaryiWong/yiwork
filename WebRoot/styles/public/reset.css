@@ -1,0 +1,116 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, ul, ol, li, form, textarea, th, td, span, img, dl, dt, dd {
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+}
+
+input {
+    margin: 0;
+    font-family: Heiti SC, Microsoft Yahei, SimSun;
+}
+
+@media screen\0  {
+    input {
+        line-height: 28px;
+    }
+}
+
+button {
+    cursor: pointer;
+    font-family: Heiti SC, Microsoft Yahei, SimSun;
+}
+
+select {
+    font-family: Heiti SC, Microsoft Yahei, SimSun;
+}
+
+body {
+    font: normal 12px Heiti SC, Microsoft Yahei, SimSun;
+    color: #333;
+    background: #f7f7f7;
+}
+
+@media all and (max-width: 720px) {
+    body, button, select {
+        font-family: STHeiti, Droidsansfallback, Dengxian;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: 100%;
+}
+
+hr {
+    color: #000;
+    background-color: #000;
+    height: 1px;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a, a:link, a:visited, a:active {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a img {
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+.middle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.clearLeft {
+    clear: left;
+}
+
+.clearRight {
+    clear: right;
+}
+
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}

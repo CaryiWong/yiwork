@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN" >
+<head>
+    <meta charset="utf-8">
+    <title>娉ㄥ唽</title>
+    <!--[if lte IE 8]>
+    <script type="text/javascript" src="../scripts/components/html5/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../styles/public/reset.css"/>
+    <link rel="stylesheet" href="../styles/public/public.css"/>
+    <link rel="stylesheet" href="../styles/pages/sign_login.css"/>
+</head>
+<body>
+    <!--    header    -->
+    <header class="header">
+        <div class="container clearfix">
+            <a class="icon fl" href="#"></a>
+            <ul class="header-nav fl">
+                <li class="header-nav-item"><a class="header-nav-link" href="#">绌洪棿</a></li>
+                <li class="header-nav-item"><a class="header-nav-link" href="#">娲诲姩</a></li>
+                <li class="header-nav-item"><a class="header-nav-link" href="#">鍏充簬鎴戜滑</a></li>
+            </ul>
+            <div class="header-status fr">
+                <a href="#" class="header-status-link" >fdonian鐨勮处鍙�/a>
+                <a class="header-status-link" href="#">閫�嚭</a>
+                <div class="header-search ">
+                    <input class="header-search-text" />
+                    <button class="header-search-button" ></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--    header    -->
+
+    <!--    content   -->
+    <section class="sign container ">
+        <div class="title">娉ㄥ唽</div>
+        <div class="sign-step">
+            <div class="sign-step-item base active">
+                <b class="sign-step-index">1.</b> 鍩烘湰淇℃伅
+            </div>
+            <div class="sign-step-item interest">
+                <b class="sign-step-index">2.</b> 鑱屼笟锛忛鍩燂紝瀹屾垚
+            </div>
+        </div>
+        <form class="sign-form clearfix" novalidate >
+            <div class="sign-form-step base">
+                <div class="form-control">
+                    <input placeholder="閭" class="form-control-text valid-input" type="email" name="email"
+                           data-valid-rule="required,email"
+                           data-valid-text='{"required":"璇峰～鍐欓偖绠�,"email":"璇峰～鍐欐纭殑閭鏍煎紡"}' />
+                </div>
+                <div class="form-control">
+                    <input placeholder="鐢ㄦ埛鍚� class="form-control-text valid-input" type="text" name="name"
+                            data-valid-rule="required"
+                            data-valid-text='{"required":"璇峰～鍐欑敤鎴峰悕"}'/>
+                </div>
+                <div class="form-control">
+                    <select name="province" class="form-control-select province valid-input"
+                            data-valid-group="location" >
+                        <option value="">鐪佷唤</option>
+                    </select>
+                    <select name="city" class="form-control-select city valid-input"
+                            data-valid-rule="required" data-valid-group="location"
+                            data-valid-text='{"required":"璇烽�鎷╁湴鍖轰俊鎭�}'>
+                        <option value="">鍩庡競</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <input class="form-control-text password valid-input" placeholder="瀵嗙爜" type="password" name="password"
+                            data-valid-rule="required,min" data-valid-min="6"
+                            data-valid-text='{"required":"璇峰～鍐欏瘑鐮�,"min":"瀵嗙爜涓暟涓嶈兘灏戜簬鍏綅"}'/>
+                </div>
+                <div class="form-control">
+                    <input class="form-control-text valid-input" placeholder="鍐嶈緭鍏ヤ竴娆″瘑鐮� type="password" name="password_again"
+                            data-valid-rule="required,same" data-valid-same=".form-control-text.password"
+                            data-valid-text='{"required":"璇峰啀涓�濉啓瀵嗙爜","same":"涓ゆ濉啓鐨勫瘑鐮佷笉涓�嚧"}'/>
+                </div>
+
+
+                <div class="form-buttonArea clearfix">
+                    <input type="button" class="form-button" value="涓嬩竴姝� />
+                </div>
+            </div>
+
+            <div class="sign-form-step interest hide">
+                <div class="form-control">
+                    <label class="form-control-label">璇烽�鎷╀綘鐨勮亴涓�/label>
+                    <select name="business" class="form-control-select valid-input"
+                            data-valid-group="business" >
+                        <option value="">琛屼笟</option>
+                        <option value="1">琛屼笟A</option>
+                    </select>
+                    <select name="job" class="form-control-select valid-input"
+                            data-valid-rule="required" data-valid-group="business"
+                            data-valid-text='{"required":"璇烽�鎷╄亴涓�}'>
+                        <option value="">涓�/option>
+                        <option value="2">鑱屼笟B</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label class="form-control-label" >璇烽�鎷╀綘鍏虫敞鐨勯鍩燂紙鍙閫夛級</label>
+                    <div class="form-control-checkboxGroup">
+                        <div class="form-control-customCheckbox custom-checkbox ">
+                            <label class="form-control-customCheckbox-label">浜掕仈缃�/label>
+                            <input type="checkbox" class="form-control-checkbox valid-input " name="domain"
+                                    data-valid-group="domain"  />
+                        </div>
+                        <div class="form-control-customCheckbox custom-checkbox "><label
+                                class="form-control-customCheckbox-label"
+                                >璁捐</label><input
+                                class="form-control-checkbox valid-input" type="checkbox" name="domain"
+                                data-valid-group="domain"/></div>
+                        <div class="form-control-customCheckbox custom-checkbox "><label
+                                class="form-control-customCheckbox-label"
+                                >鏃呰</label><input
+                                class="form-control-checkbox valid-input" type="checkbox" name="domain"
+                                data-valid-group="domain"/></div>
+                        <div class="form-control-customCheckbox custom-checkbox "><label
+                                class="form-control-customCheckbox-label"
+                                >鏅鸿兘纭欢</label><input
+                                class="form-control-checkbox valid-input" type="checkbox" name="domain"
+                                data-valid-group="domain"/></div>
+                        <div class="form-control-customCheckbox custom-checkbox "><label
+                                class="form-control-customCheckbox-label"
+                                >鎶曡瀺璧�/label><input
+                                class="form-control-checkbox valid-input" type="checkbox" name="domain"
+                                data-valid-group="domain" data-valid-rule="required,max" data-valid-max="3"
+                                data-valid-text='{"required":"璇烽�鎷╁叴瓒�,"max":"閫夋嫨鐨勫叴瓒ｄ笉鑳藉浜庝笁椤�}'/></div>
+
+                    </div>
+                </div>
+                <div class="form-buttonArea clearfix">
+                    <input type="submit" class="form-button" value="瀹屾垚" />
+                </div>
+            </div>
+        </form>
+
+    </section>
+    <!--    content   -->
+
+
+    <!--    footer    -->
+    <footer class="footer">
+        <ul class="footer-nav">
+            <li class="footer-nav-item"><a class="footer-nav-link" href="#">鍏充簬鎴戜滑</a></li>
+            <li class="footer-nav-item"><a class="footer-nav-link" href="#">鐗堟潈璇存槑</a></li>
+            <li class="footer-nav-item"><a class="footer-nav-link" href="#">鑱旂郴鎴戜滑</a></li>
+            <li class="footer-nav-item"><a class="footer-nav-link" href="#">鎰忚鍙嶉</a></li>
+        </ul>
+        <div class="footer-text">
+            骞垮窞鍏徃
+        </div>
+    </footer>
+    <!--    footer    -->
+
+    <script type="text/javascript" src="../scripts/components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/components/validation/validation.js"></script>
+    <script type="text/javascript" src="../scripts/components/location/location.js"></script>
+    <script type="text/javascript" src="../scripts/components/customUI/customUI.js"></script>
+    <script type="text/javascript" src="../scripts/pages/sign_login.js"></script>
+
+</body>
+</html>

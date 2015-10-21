@@ -1,0 +1,55 @@
+{
+    "cord": 0,
+    "data": {
+        "childtemplates": [],
+        "createtime": "2014-11-18 15:28:02",
+        "ename": "indexTemp",
+        "id": "temp1416295682494",
+        "options": [
+            {
+                "ename": "indextitle",
+                "id": "option1416295144152",
+                "options": "",
+                "optionslist": [],
+                "optiontype": "text",
+                "zname": "首页标题"
+            },
+            {
+                "ename": "indextitle1",
+                "id": "option1417057932536",
+                "options": "",
+                "optionslist": [],
+                "optiontype": "text",
+                "zname": "首页标题1"
+            },
+            {
+                "ename": "indeximg",
+                "id": "option1417057964158",
+                "options": "",
+                "optionslist": [],
+                "optiontype": "text",
+                "zname": "首页标题图片"
+            }
+        ],
+        "optionsstor": "option1416295144152,option1417057932536,option1417057964158",
+        "optionszdysx": "<h1 class='text-center' editable-text='basic.title'></h1>,<h2 class='text-center' editable-text='page.texts[0]'></h2>,<div class='page-image' editable-image='page.images[0]'></div>",
+        "optionszdysxlist": [
+            "<h1 class='text-center' editable-text='basic.title'></h1>",
+            "<h2 class='text-center' editable-text='page.texts[0]'></h2>",
+            "<div class='page-image' editable-image='page.images[0]'></div>"
+        ],
+        "pid": "temp1417076291670",
+        "templatenum": 1,
+        "tempsx": "shouyemoban",
+        "zname": "首页模版"
+    },
+    "data2": {},
+    "method": "gettemplate",
+    "msg": "",
+    "nowdatetime": "2014-11-28 11:18:08",
+    "nowtime": 1417144688549,
+    "pagecount": 0,
+    "pagenum": 0,
+    "pagesum": 12,
+    "total": 0
+}

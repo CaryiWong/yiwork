@@ -1,0 +1,248 @@
+@import "../modules/reset";
+@import "../modules/public";
+@import "../modules/yiqi_icon";
+@import "../modules/resultList";
+@import "../modules/ui";
+
+/*      chrome transition hack    */
+.header-nav-link {
+    -webkit-transition-property: color;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+.sign {
+    padding: 54px 0 0;
+    min-height: 600px;
+}
+
+.title {
+    font-size: 18px;
+    padding: 0 0 10px 0;
+}
+
+.sign-step {
+    font-size: 14px;
+
+    .sign-step-item {
+        color: #999;
+        display: inline-block;
+        margin: 0 12px 0 0;
+        -webkit-transition: all .2s ease;
+        -moz-transition: all .2s ease;
+        -ms-transition: all .2s ease;
+        -o-transition: all .2s ease;
+        transition: all .2s ease;
+        font-size: 12px;
+        vertical-align: bottom;
+        font-family: "Microsoft YaHei";
+
+        &.active {
+            color: #fff;
+            background: #bfbfbf;
+            height: 38px;
+            line-height: 38px;
+
+            .sign-step-index {
+                font-size: 26px;
+                background: #333;
+                height: 100%;
+                display: inline-block;
+                padding: 0 10px;
+            }
+
+            .sign-step-text {
+                padding: 0 15px;
+                vertical-align: top;
+                top: 0;
+            }
+        }
+    }
+
+    .sign-step-index {
+        font-size: 20px;
+        padding: 0 3px 0 0;
+    }
+
+    .sign-step-text {
+        position: relative;
+        top: -1px;
+    }
+}
+
+.sign-form {
+    padding: 38px 0 0;
+
+    .sign-form-step {
+        float: left;
+        clear: both;
+    }
+
+    .form-control {
+        margin: 10px 0;
+
+        &:after {
+            @include clearfixDefined
+        }
+    }
+
+    .form-control-label {
+        font-size: 14px;
+        padding: 0 10px 0 0;
+        float: left;
+        width: 70px;
+        text-align: right;
+        position: relative;
+        top: 11px;
+    }
+
+    .form-control-input {
+        float: left;
+        padding: 0 0 0 10px;
+    }
+
+    .form-control-text {
+        border: 1px solid #cbcbcb;
+        width: 280px;
+        height: 38px;
+        padding: 0 5px;
+
+        .lt-ie9 & {
+            line-height: 38px;
+        }
+
+        &:focus {
+            border-color: #7fb715;
+            box-shadow: 0 0 5px 1px #7fb715;
+            outline: 0;
+        }
+    }
+
+    .form-control-customSelect {
+        width: 138px;
+        margin: 0 8px 0 0;
+        border-color: #cdcdcd;
+
+        &:focus {
+            outline: 0;
+        }
+
+        .form-control-customSelect-button {
+            border-color: #cdcdcd;
+        }
+
+        .valid-error {
+            position: absolute;
+            right: -94px;
+            top: 11px;
+        }
+    }
+
+    .form-buttonArea {
+        padding: 20px 0 0;
+
+        .form-button {
+            padding: 0;
+            width: 80px;
+            height: 34px;
+            line-height: 34px;
+
+            &.gray {
+                margin: 0 5px 0 0;
+            }
+        }
+    }
+
+    .form-control-deal-checkbox {
+        display: block;
+        padding-bottom: 15px;
+        position: relative;
+
+        input {
+            position: relative;
+            top: 1px;
+            margin-right: 3px;
+        }
+        .valid-error {
+            position: absolute;
+            right: -75px;
+            top: 0;
+        }
+    }
+
+    .form-control-checkboxGroup {
+        padding: 20px 0 0;
+        width: 450px;
+    }
+
+    .form-control-customCheckbox {
+        width: 75px;
+        height: 35px;
+        line-height: 35px;
+        margin: 0 5px 5px 0;
+
+        .form-control-checkbox {
+            width: 77px;
+            height: 37px;
+        }
+
+        .valid-error {
+            position: absolute;
+            left: 90px;
+            width: 200px;
+            text-align: left;
+        }
+    }
+
+    .form-control-customSelect .valid-error {
+        position: absolute;
+        right: -94px;
+        top: 11px;
+    }
+
+    .valid-error {
+        padding: 0 5px;
+    }
+
+    .sign-form-step.base {
+
+        .form-buttonArea {
+            padding: 30px 0 0 213px;
+        }
+    }
+
+    .sign-form-step.interest {
+
+        .form-control {
+            margin: -5px 0 0;
+        }
+
+        .form-control-label {
+            display: block;
+            float: none;
+            width: auto;
+            font-size: 18px;
+            text-align: left;
+            top: 0;
+        }
+
+        .form-control-input {
+            float: none;
+            padding-left: 0;
+        }
+
+        .form-buttonArea {
+            text-align: center;
+            padding: 30px 0 0 262px;
+        }
+
+        .form-control.job {
+            margin-bottom: 50px;
+            .form-control-label {
+                padding: 0 0 15px;
+            }
+        }
+    }
+}

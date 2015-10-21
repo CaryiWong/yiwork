@@ -1,0 +1,32 @@
+@import "compass/css3";
+
+body {
+    padding: 400px 0;
+}
+
+.rect {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #333;
+    margin: 0 auto 300px auto;
+}
+
+.rect1 {
+    -skrollr-animation-name: animation1;
+    background: #46a546;
+}
+
+@-skrollr-keyframes animation1 {
+    skrollr-0 {
+        @include transform(translate(50px, 0px) rotate(0deg) scale(1, 1));
+    }
+
+    skrollr-50 {
+        @include transform(translate(-140px, -80px) rotate(90deg) scale(1, 1));
+
+    }
+
+    skrollr-150 {
+        @include transform(translate(0px, 150px) rotate(530deg) scale(3, 3));
+    }
+}

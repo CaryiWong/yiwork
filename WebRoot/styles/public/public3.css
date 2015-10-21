@@ -1,0 +1,598 @@
+body {
+    padding-top: 55px;
+}
+
+.container {
+    width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hide {
+    display: none;
+}
+
+.logo {
+    display: block;
+    width: 24px;
+    height: 33px;
+    background: url(../../images/public/logo.png);
+    position: relative;
+    top: 1px;
+}
+
+/*      header      */
+.header {
+    background-color: rgba(0, 0, 0, .8);
+    padding: 11px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-nav {
+    margin: 10px 0 0 50px;
+}
+
+.header-nav-item {
+    float: left;
+}
+
+.header-nav-link {
+    font-size: 16px;
+    color: #999;
+    padding: 0 30px;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+}
+
+.header-nav-link.active {
+    color: #fff;
+    padding-bottom: 7px;
+    border-bottom: 4px solid #fff;
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+    .header-nav-link.active {
+        padding-bottom: 13px;
+    }
+}
+
+.header-nav-link:hover {
+    color: #fff;
+}
+
+.header-nav-link:hover {
+    text-decoration: none;
+}
+
+.header-status {
+    font-size: 14px;
+    padding: 5px 0 0;
+}
+
+.header-status-link {
+    color: #999;
+    position: relative;
+    float: left;
+}
+
+.header-status-link:hover {
+    text-decoration: none;
+}
+
+.status-link-login, .status-link-sign {
+    padding: 5px 20px 0 5px;
+}
+
+.status-link-head {
+    padding-right: 25px;
+}
+
+.status-link-head img {
+    position: relative;
+    top: -2px;
+}
+
+.status-link-notice {
+    padding-right: 25px;
+}
+
+.status-link-notice .yiqi-icon-notice {
+    color: #ccc;
+    font-size: 20px;
+}
+
+.status-link-notice .yiqi-icon-circle {
+    font-size: 12px;
+    color: #f8030a;
+    position: absolute;
+    top: -6px;
+    left: 18px;
+}
+
+.header-user {
+    width: 25px;
+    height: 25px;
+}
+
+.header-search {
+    position: relative;
+    display: inline-block;
+}
+
+.header-search-text {
+    border: 0;
+    height: 24px;
+    width: 160px;
+    text-indent: 5px;
+}
+
+.header-search-button {
+    position: absolute;
+    right: 5px;
+    top: 1px;
+    border: 0;
+    cursor: pointer;
+    background: transparent;
+    font-size: 14px;
+    color: #999;
+    padding: 0;
+}
+
+/*      banner      */
+.banner {
+    background-color: #da474c;
+    height: 350px;
+}
+
+.banner-text {
+    font-size: 18px;
+    color: #fff;
+    line-height: 32px;
+    padding: 40px 0 0;
+    text-shadow: 0 0 25px #333;
+}
+
+.banner-button {
+    background: 0;
+    border: 2px solid #fff;
+    height: 60px;
+    font-size: 18px;
+    color: #fff;
+    margin: 20px 0 0;
+    width: 200px;
+}
+
+/*      panel       */
+.panel {
+
+}
+
+.panel-header {
+    border-bottom: 1px solid #d1d1d1;
+    position: relative;
+    height: 30px;
+}
+
+.panel-header:after {
+    content: '';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.panel-header-text {
+    font-size: 18px;
+    color: #333;
+    position: absolute;
+    top: 5px;
+    left: 0;
+}
+
+.panel-header-buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.panel-header-button {
+    border: 0;
+    background: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.panel-header-buttonLink {
+    font-size: 12px;
+    padding: 8px 0 0;
+}
+
+.panel-header-button.disabled {
+    color: #d1d1d1;
+}
+
+.panel-content {
+    margin: 15px 0 0;
+}
+
+.panel-content:after {
+    content: '';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+/*      activity        */
+
+.activity {
+    float: left;
+    width: 220px;
+    height: 280px;
+    position: relative;
+    margin: 10px 8px;
+    overflow: hidden;
+}
+
+.activity-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.activity-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.activity-time {
+    width: 35%;
+    text-align: center;
+    background: rgba(255, 255, 255, .5);
+    color: #333;
+    display: inline-block;
+    height: 100%;
+    float: left;
+    font-family: Tahmoa;
+}
+
+.activity-time-year {
+    display: block;
+    font-size: 18px;
+    padding: 10px 0 5px;
+}
+
+.activity-time-date {
+    display: block;
+    font-size: 48px;
+    line-height: 32px;
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+    .activity-time-date {
+        line-height: 48px;
+    }
+}
+
+.activity-title {
+    display: inline-block;
+    background: rgba(0, 0, 0, .8);
+    width: 65%;
+    height: 100%;
+    float: left;
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 8px;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.activity-apply {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: #fff;
+    padding: 8px 10px;
+    background: transparent;
+}
+
+.activity-apply.going {
+    background: rgba(236, 77, 65, .9);
+}
+
+.activity-apply.end {
+    background: rgba(0, 0, 0, .5);
+}
+
+.activity-apply.edit {
+    background: rgba(0, 0, 0, .2);
+    padding: 5px;
+    cursor: pointer;
+}
+
+/*      footer      */
+.footer {
+    background-color: #272728;
+    text-align: center;
+}
+
+.footer-nav {
+    padding: 25px 0 0;
+}
+
+.footer-nav-item {
+    padding: 0 25px;
+    display: inline-block;
+}
+
+.footer-nav-link {
+    color: #fff;
+}
+
+.footer-text {
+    padding: 30px 0;
+    color: #fff;
+}
+
+/*      resultList      */
+.resultList {
+
+}
+
+.resultList-item {
+    border-bottom: 1px solid #dedede;
+    padding: 18px 0;
+}
+
+.resultList-item:first-child{
+    border-top: 1px solid #dedede;
+}
+
+/*      valid       */
+.valid-error {
+    color: #f76d30;
+}
+
+/*      input      */
+.button {
+    border: 0;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    line-height: 150%;
+}
+
+.button:focus {
+    outline: 0;
+}
+
+.button-link {
+    border: 0;
+    background: transparent;
+    color: #358ced;
+}
+
+.button-link:hover {
+    text-decoration: underline;
+}
+
+.button-link:focus {
+    outline: 0;
+}
+
+.button:hover {
+    text-decoration: none;
+}
+
+.button.gray {
+    background-color: #bbb;
+}
+
+.button.black {
+    background-color: #333;
+}
+
+.text {
+    border: 1px solid #dcdcdc;
+    text-indent: 10px;
+    padding: 0;
+}
+
+.text:focus {
+    border-color: #7fb715;
+    box-shadow: 0 0 5px 1px #7fb715;
+    outline: 0;
+}
+
+.text[readonly] {
+    color: #999;
+    cursor: not-allowed;
+}
+
+/*      customUI        */
+/*      customUI-checkbox        */
+.form-control-customCheckbox {
+    display: inline-block;
+    text-align: center;
+    line-height: 150%;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid transparent;
+    -webkit-transition: color, background-color .2s linear;
+    -moz-transition: color, background-color .2s linear;
+    -ms-transition: color, background-color .2s linear;
+    -o-transition: color, background-color .2s linear;
+    transition: color, background-color .2s linear;
+}
+
+.form-control-customCheckbox.disabled {
+    background: #bbb;
+    color: #fff;
+}
+
+.form-control-customCheckbox .form-control-customCheckbox-label {
+    cursor: pointer;
+}
+
+.form-control-customCheckbox .form-control-customCheckbox-label i {
+    font-size: 18px;
+}
+
+.form-control-customCheckbox:hover {
+    border: 1px solid #96c900;
+    background: #fff;
+    color: #333;
+}
+
+.form-control-customCheckbox.active {
+    background: #333;
+    color: #fff;
+}
+
+.form-control-customCheckbox.active:hover {
+    border: 1px solid #333;
+}
+
+.form-control-customCheckbox.black {
+    background: #333;
+    color: #fff;
+}
+
+.form-control-customCheckbox.disabled:hover {
+    border: 1px solid transparent;
+}
+
+.form-control-customCheckbox .form-control-checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+    padding: 0;
+}
+
+/*      image-preview       */
+.image-preview-area {
+    position: relative;
+}
+
+.image-preview-remove {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: rgba(0, 0, 0, .8);
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.image-preview-remove i {
+    color: #fff;
+    display: block;
+    margin: 10px auto 0 auto;
+}
+
+/*      picture     */
+.picture-dialog {
+    padding: 0 70px;
+}
+
+.picture-dialog.single {
+    padding: 0;
+}
+
+.picture-switch {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+}
+
+.picture-dialog.single .picture-switch {
+    display: none;
+}
+
+.picture-switch button {
+    position: absolute;
+    background: transparent;
+    border: 0;
+    font-size: 48px;
+    top: 40%;
+    color: #fff;
+}
+
+.picture-switch button:focus {
+    outline: 0;
+}
+
+.picture-switch .left {
+    left: 0;
+}
+
+.picture-switch .right {
+    right: -0;
+}
+
+.picture-imgs {
+    position: relative;
+}
+
+.picture-dialog-remove {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: rgba(0, 0, 0, .8);
+    top: 10px;
+    right: 80px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.picture-dialog.single .picture-dialog-remove {
+    right: 10px;
+}
+
+.picture-dialog-remove i {
+    color: #fff;
+    display: block;
+    margin: 10px auto 0 auto;
+}
+
+.picture-imgs img {
+    display: none;
+}
+
+.picture-imgs img.active {
+    display: block;
+}

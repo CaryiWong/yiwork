@@ -1,0 +1,24 @@
+@import "../../modules/reset";
+@import "../../modules/public";
+@import "../../modules/yiqi_icon";
+@import "myNotice";
+
+.myNotice-detail-title{
+    font-size: 18px;
+}
+
+.myNotice-detail-time{
+    display: block;
+    color: #b5b5b5;
+    padding: 8px 0 0;
+    font-weight: normal;
+}
+
+.myNotice-detail-content{
+    margin: 20px 0;
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    padding: 15px 0;
+    line-height: 24px;
+    font-size: 12px;
+}

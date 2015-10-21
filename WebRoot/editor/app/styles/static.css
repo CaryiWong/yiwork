@@ -1,0 +1,17 @@
+/* line 1, ../sass/static.scss */
+.list-area {
+  padding-top: 70px;
+}
+
+/* line 6, ../sass/static.scss */
+.list-nav .navbar-form {
+  width: 40%;
+}
+/* line 8, ../sass/static.scss */
+.list-nav .navbar-form .form-group {
+  width: 100%;
+}
+/* line 10, ../sass/static.scss */
+.list-nav .navbar-form .form-group .input-group {
+  width: 100%;
+}

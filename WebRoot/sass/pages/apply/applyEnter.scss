@@ -1,0 +1,47 @@
+@import "../../modules/reset";
+@import "../../modules/public";
+@import "../../modules/yiqi_icon";
+@import "../../modules/ui";
+@import "../../components/datepicker/classic";
+@import "../../modules/apply";
+
+.apply-form-enter {
+    width: 490px;
+
+    .form-control {
+        width: 100%;
+
+        &.intro .form-control-input {
+            width: 400px;
+        }
+
+        &.type .form-control-customSelect {
+            width: 48%;
+        }
+
+    }
+
+    .form-control-label {
+        width: 90px;
+    }
+
+    .valid-error {
+        width: 200px;
+        position: absolute;
+        right: -210px;
+        text-align: left;
+        top: 9px;
+    }
+}
+
+@media all and (max-width: 720px) {
+
+    .apply-form-enter {
+
+        width: 100%;
+        .form-control.intro .form-control-input {
+            width: 100%;
+        }
+    }
+
+}

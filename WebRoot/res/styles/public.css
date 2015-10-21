@@ -1,0 +1,265 @@
+iframe {
+    padding: 0;
+    border: 0;
+}
+
+.valid-error {
+    color: #a94442;
+}
+
+.row-flow {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.nav-list .panel-title a {
+    display: block;
+}
+
+.nav-list .panel-title a:hover {
+    text-decoration: none;
+}
+
+.nav-list .panel-body {
+    padding: 0;
+}
+
+.nav-list .panel-body li {
+    margin: 5px 0;
+}
+
+.nav-list .panel-body a {
+    border-radius: 0;
+}
+
+/*      search      */
+
+#search-condition.search .panel-heading {
+    display: block;
+}
+
+#search-condition.panel-primary .panel-heading {
+    background: #428bca;
+    color: #fff;
+}
+
+#search-condition.search .panel-heading:hover {
+    text-decoration: none;
+}
+
+#search-condition .search-checkboxGroup .checkbox {
+    margin: 0 5px 0;
+}
+
+#search-condition .search-checkboxGroup input {
+    margin-right: 3px;
+}
+
+#search-condition .search-otherGroup {
+    padding: 10px 0 0;
+}
+
+#search-condition .search-otherGroup .form-group {
+    margin: 0 5px 0 0;
+}
+
+#search-condition .search-otherGroup select {
+    width: 150px;
+}
+
+#search-condition .search-otherGroup .checkbox {
+    margin: 0 8px 0 0;
+}
+
+#search-condition .search-otherGroup .btn {
+    margin: 0 0 0 20px;
+    width: 200px;
+}
+
+.pagination {
+    margin: 0;
+}
+
+/*      admin       */
+.admin {
+    margin-top: 50px;
+}
+
+.admin .admin-form-title {
+    margin-bottom: 35px;
+}
+
+.admin .admin-code-group {
+    padding-left: 0;
+}
+
+.admin-code-group .form-control {
+    width: 40%;
+    display: inline-block;
+}
+
+/*      member-add      */
+.member-add .valid-error {
+    position: absolute;
+    right: -100px;
+    top: 7px;
+}
+
+.member-add .form-inline .checkbox {
+    padding-right: 10px;
+}
+
+/*      member-apply      */
+.member-apply .valid-error {
+    position: absolute;
+    right: 20px;
+    top: 34px;
+    font-size: 12px;
+}
+
+/*      member-list     */
+.member-list .search .panel-heading {
+    display: block;
+}
+
+.member-list .search .panel-heading:hover {
+    text-decoration: none;
+}
+
+.member-list .search-checkboxGroup .checkbox {
+    margin: 0 5px 0;
+}
+
+.member-list .search-otherGroup {
+    padding: 10px 0 0;
+}
+
+.member-list .search-otherGroup .form-group {
+    margin: 0 5px 0 0;
+}
+
+.member-list .search-otherGroup select {
+    width: 150px;
+}
+
+.member-list .search-otherGroup .checkbox {
+    margin: 0 8px 0 0;
+}
+
+.member-list .search-otherGroup .btn {
+    margin: 0 0 0 20px;
+    width: 200px;
+}
+
+.member-list .member-table td input {
+    position: relative;
+    top: -1px;
+}
+
+.member-list .member-table td .checkbox {
+    padding: 0 8px 0 0;
+}
+
+.member-list .page-jump input {
+
+}
+
+/*      enter-list      */
+.enter-list .enter-list-operate {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.enter-list .enter-list-operate button {
+    margin: 0 10px 0 0;
+    width: 120px;
+}
+
+.enter-list-item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 115px;
+}
+
+.enter-list-item img {
+    padding: 0;
+    height: 100%;
+}
+
+.enter-list-item .enter-item-index {
+    font-size: 48px;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+}
+
+/*      space       */
+.space .space-imgList li {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.space .space-imgList .space-imgList-item-remove {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3);
+    text-align: center;
+    color: #333;
+    line-height: 120px;
+    font-size: 80px;
+    opacity: 0;
+}
+
+.space .space-imgList .space-imgList-item-remove:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.space .space-imgList li img {
+    width: 100%;
+    height: 100%;
+}
+
+.space .space-upload-img {
+
+}
+
+.space .space-upload-img .image-preview-area {
+    display: inline-block;
+    margin: 0 6px 0 0;
+}
+
+.space .space-upload-img .space-upload-button {
+    position: relative;
+}
+
+.space .space-upload-img .space-upload-button input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/*      version     */
+.version-detail .valid-error {
+    position: absolute;
+    right: -100px;
+    top: 7px;
+}
+
+/*      pay     */
+.form-group.pay .pay-item{
+    margin-top: 10px;
+}
+
+.form-group.pay .valid-error{
+    z-index: 10;
+}

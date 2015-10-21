@@ -1,0 +1,14 @@
+@import "compass/utilities/sprites";
+
+$add-icon-spacing: 5px;
+$add-icon-layout: smart;
+$add-icon-sprite-dimensions: true;
+$add-icon-sprite-base-class: '.add-icon';
+
+.add-icon{
+    display: inline-block;
+}
+
+@import "public/add-icon/*.png";
+
+@include all-add-icon-sprites;

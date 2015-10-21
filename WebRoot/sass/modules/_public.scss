@@ -1,0 +1,337 @@
+@import "util";
+@import "compass/css3";
+
+.container {
+    width: 950px;
+    @include middle;
+}
+
+.hide {
+    display: none;
+}
+
+body {
+    padding-top: 55px;
+}
+
+.logo {
+    display: block;
+    width: 24px;
+    height: 33px;
+    background: image-url('public/logo.png');
+    position: relative;
+    top: 1px;
+}
+
+/*      header      */
+.header {
+    background-color: rgba(0, 0, 0, .8);
+    padding: 11px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    + .container {
+        min-height: 800px;
+    }
+
+    .lt-ie9 & {
+        filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc000000, endcolorstr=#cc000000, gradientType=1);
+    }
+}
+
+.header-nav {
+    margin: 0 0 0 50px;
+    position: absolute;
+    bottom: 0;
+    .header-nav-item {
+        float: left;
+        .header-nav-link {
+            font-size: 16px;
+            color: #999;
+            padding: 0 30px 14px 30px;
+            @include transition(all .2s ease);
+            display: block;
+            margin: 0 5px;
+            &.active {
+                color: #fff;
+                border-bottom: 4px solid #fff;
+            }
+            &:hover {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.header-status {
+    font-size: 14px;
+    padding: 5px 0 0;
+    .header-status-link {
+        color: #999;
+        position: relative;
+        float: left;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .status-link-login, .status-link-sign {
+        padding: 5px 20px 0 5px;
+    }
+
+    .status-link-head {
+        padding-right: 25px;
+        img {
+            position: relative;
+            top: -2px;
+        }
+        .header-user {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    .status-link-notice {
+        padding-right: 25px;
+        .yiqi-icon-notice {
+            color: #ccc;
+            font-size: 20px;
+        }
+        .yiqi-icon-circle {
+            font-size: 12px;
+            color: #f8030a;
+            position: absolute;
+            top: -6px;
+            left: 18px;
+        }
+    }
+}
+
+.header-search {
+    position: relative;
+    display: inline-block;
+    .header-search-text {
+        border: 0;
+        height: 24px;
+        width: 160px;
+        text-indent: 5px;
+
+        .lt-ie9 & {
+            line-height: 24px;
+        }
+    }
+    .header-search-button {
+        position: absolute;
+        right: 5px;
+        top: 0;
+        border: 0;
+        cursor: pointer;
+        background: transparent;
+        font-size: 14px;
+        color: #999;
+        padding: 0;
+        height: 100%;
+        i {
+            vertical-align: middle;
+        }
+    }
+}
+
+.header-xs {
+    display: none;
+}
+
+@media all and (max-width: 720px) {
+    .container {
+        width: 100%;
+        margin: 0;
+    }
+
+    header.header {
+        display: none;
+    }
+
+    .logo {
+        background: none;
+        position: relative;
+        i {
+            position: absolute;
+            font-size: 48px;
+            color: #fff;
+            top: -13px;
+            left: 0;
+        }
+    }
+
+    .header-xs {
+        display: block;
+        background-color: rgba(0, 0, 0, .8);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        color: #fff;
+
+        .container {
+            padding: 11px 15px;
+            position: relative;
+            @include box-sizing(border-box);
+        }
+
+        .header-linkGroup {
+            font-size: 16px;
+            padding: 6px 15px 0 0;
+            .header-link {
+                padding-right: 5px;
+            }
+        }
+
+        .header-status {
+            padding-right: 18px;
+
+            .header-status-link {
+                padding-right: 15px;
+            }
+        }
+
+        .header-nav-button {
+            color: #fff;
+            font-size: 18px;
+            margin: 5px 0 0;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+        }
+
+        .header-nav {
+            width: 100%;
+            margin: 0;
+            z-index: -1;
+            @include box-sizing(border-box);
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            @include transition(all .3s ease);
+            top: -90px;
+
+            &.active {
+                top: 100%;
+                opacity: 1;
+            }
+
+            .header-nav-item {
+                display: block;
+                background-color: rgba(0, 0, 0, .8);
+                float: none;
+                width: 100%;
+                margin: 0;
+                padding: 10px 0;
+                text-align: center;
+                border-top: 1px groove #999;
+
+                .header-nav-link {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                    color: #fff;
+                }
+            }
+        }
+
+        .header-search {
+            width: 90%;
+
+            .header-search-text {
+                width: 100%;
+                height: 30px;
+            }
+        }
+    }
+}
+
+/*      footer      */
+.footer {
+    background-color: #333;
+    text-align: center;
+
+    .footer-nav {
+        padding: 25px 0 0;
+
+        .footer-nav-item {
+            padding: 0 25px;
+            display: inline-block;
+
+            .footer-nav-link {
+                color: #fff;
+            }
+        }
+
+        .footer-text {
+            padding: 30px 0;
+            color: #fff;
+        }
+    }
+}
+
+@media all and (max-width: 720px) {
+    .footer-nav {
+        padding: 20px 0;
+        .footer-nav-item {
+            padding: 0 10px;
+        }
+    }
+
+    .footer-text {
+        display: none;
+    }
+}
+
+/*      分页 pages       */
+.pages {
+    text-align: center;
+    padding: 15px 0 5px 0;
+
+    .page-item {
+        display: inline-block;
+        padding: 5px 8px;
+        border: 1px solid #ccc;
+        color: #000;
+        margin: 0 3px;
+
+        &.active {
+            border-color: transparent;
+            font-weight: bold;
+        }
+    }
+}
+
+/*      loading     */
+/*      loading animate     */
+@include keyframes(loadingAnimate) {
+    from {
+        @include transform(rotate(0deg));
+    }
+    to {
+        @include transform(rotate(360deg));
+    }
+}
+
+.loading {
+    color: #fff;
+    text-align: center;
+    width: 64px;
+    height: 94px;
+
+    .loading-icon {
+        font-size: 64px;
+        @include animation(loadingAnimate infinite 2s linear);
+        display: block;
+    }
+
+    .loading-text {
+        padding: 5px 0;
+    }
+}

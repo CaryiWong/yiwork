@@ -1,0 +1,273 @@
+<section class="flex-area">
+
+    <ul class="list-unstyled tool-list clearfix">
+        <li class="active tool-list-item">
+            <i class="tool-icon"></i>
+            <a href="#tool-regular" data-toggle="tab">常规模板</a></li>
+        <li class="tool-list-item">
+            <i class="tool-icon"></i>
+            <a href="#tool-my" data-toggle="tab">我的模板</a></li>
+        <li class="tool-list-item">
+            <i class="tool-icon"></i>
+            <a href="#tool-resource" data-toggle="tab">我的素材</a></li>
+    </ul>
+
+    <div class="tab-content template-list clearfix">
+        <div class="tab-pane active template-group template-group-interact"
+             id="tool-regular">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <div ng-hide="showPage.type"
+                             class="template-itemGroup template-itemGroupHead">
+                            <div ng-repeat="tType in templateTypes"
+                                 type-template="showPage"
+                                 data-type-name="{{ tType.name }}"
+                                 class="template-type">
+                                <span ng-bind="tType.desc"></span>
+                            </div>
+                        </div>
+
+                        <div ng-repeat="tType in templateTypes"
+                             ng-show="showPage.type.name === tType.name"
+                             class="template-itemGroup">
+                            <div class="template-itemGroup-title">{{ tType.desc }}模板</div>
+                            <div class="template-itemGroup-list" ng-switch="tType.type">
+                                <!-- 模板类型判断，表单类出可拖曳 -->
+                                <div ng-switch-default
+                                     ng-repeat="file in tType.files"
+                                     data-template-name="{{ file.id }}"
+                                     data-template-url="{{ interactPath }}?id={{ file.id }}"
+                                     tool-template="showPage"
+                                     class="template-item thumbs-{{ label }}-{{ file.name }}">
+                                    <!--<img src="images/file.png" class="img-thumbnail"/>-->
+                                    <!--<span ng-bind="file"></span>-->
+
+                                </div>
+
+                                <div ng-switch-when="form"
+                                     ng-repeat="file in tType.files"
+                                     drag-template
+                                     data-template-name="{{ file.id }}  "
+                                     data-template-type="{{ tType.name }}"
+                                     data-template-url="{{ interactPath }}?id={{ file.id }}"
+                                     data-drag-action="createFormElement"
+                                     class="col-xs-3 template-item thumbs-{{ label }}-{{ file.name }}">
+                                    <!--<img src="images/file.png" class="img-thumbnail"/>-->
+                                    <!--<span ng-bind="file"></span>-->
+
+                                </div>
+                                <!-- ngSwitch end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="tab-pane" id="tool-my">p</div>
+        <div class="tab-pane" id="tool-resource">m</div>
+    </div>
+
+    <div class="editorScroll">
+        <div class="editorMain" ng-hide="showIndex !== 0 || editType === 'form'" >
+            <input type="text" class="editorMain-title"
+                   ng-model="basic.title"/>
+
+            <div class="clearfix">
+                <div class="editorMain-cover page-image pull-left"
+                     data-tip="选择封面"
+                     editable-image="basic.cover"></div>
+
+                <div class="editorMain-webImg page-image pull-right"
+                     data-tip="选择网页小图片"
+                     editable-image="basic.webImg"></div>
+            </div>
+        </div>
+
+        <div class="editorArea editorArea-interact">
+
+            <div class="pageArea"
+                 ng-repeat="page in pages"
+                 ng-switch="page.type.type"
+                 ng-show="page === showPage">
+
+                <button editor-add
+                        data-pages="pages"
+                        data-show-page="$parent.showPage"
+                        data-add-index="{{ $index }}"
+                        class="page-area-add">
+                    <i class="icons-add"></i> 点击添加一页
+                </button>
+
+                <button class="page-area-remove" editor-remove
+                        data-remove-index="{{ $index }}">
+                    <i class="icons-trash"></i>
+                </button>
+
+                <!-- 非表单类型全页显示 -->
+                <div class="page"
+                     ng-switch-default
+                     ng-html-compile="page.html">
+                    <!-- 模板默认值 -->
+                    <div class="page-chooseType">请选择模板类型</div>
+                </div>
+
+                <!-- 表单类型用elements元素堆砌 -->
+                <form class="page" ng-class="page.type.name"
+                      ng-switch-when="form">
+                    <div class="dragArea"
+                         data-index="0"
+                         data-pages="page.elements"
+                         drag-area></div>
+                    <div ng-repeat="element in page.elements"
+                         data-pages="page.elements"
+                         drag-page="element" class="dragPage">
+                        <div draggable="true"
+                             drag-switch="element"
+                             data-drag-action="changeArticle"
+                             class="dragSwitch">
+                            <div ng-html-compile="element.html"></div>
+                            <div class="dragPage-buttons clearfix">
+                                <button class="dragPage-move">
+                                    <i class="iconfont-move"></i></button>
+                                <button class="dragPage-remove">
+                                    <i class="iconfont-remove"></i></button>
+                            </div>
+                        </div>
+
+                        <div drag-area data-pages="page.elements"
+                             data-index="{{$index+1}}" class="dragArea"></div>
+                    </div>
+                    <!-- 不同表格的预加载 -->
+                    <div class="page-form-default" ng-switch="page.type.name">
+                        <!-- 报名表 -->
+                        <div ng-switch-when="h5sign">
+                            <div static-name></div>
+                            <div static-phone></div>
+                            <div static-vip></div>
+                            <div static-button></div>
+                        </div>
+                        <!-- 报名表 -->
+
+                        <!-- 调查问卷 -->
+                        <div ng-switch-when="h5survey">
+                            <div static-button></div>
+                        </div>
+                        <!-- 调查问卷 -->
+                    </div>
+                </form>
+                <!-- ngSwitch end -->
+
+                <div class="page-area-pages"
+                     ng-bind-template="{{ $index+1 }}/{{ pages.length }}">1/10
+                </div>
+                <button editor-add
+                        data-pages="pages"
+                        data-show-page="$parent.showPage"
+                        data-add-index="{{ $index+1 }}"
+                        class="page-area-add">
+                    <i class="icons-add"></i> 点击添加一页
+                </button>
+            </div>
+
+            <!-- 带上基本标题和封面，以供特殊页面 -->
+            <div class="page page-main" style="display: none">
+                <h1 ng-bind="basic.title"></h1>
+                <img class="page-cover" ng-src="{{ imgPath(basic.cover) }}" alt=""/>
+            </div>
+            <!-- END -->
+        </div>
+    </div>
+
+    <ul class="thumbList list-unstyled">
+        <li class="thumbList-item" editor-switch
+            data-index="{{ $index }}"
+            ng-class="{active: thumb === showPage}"
+            ng-repeat="thumb in pages">
+            <div class="thumbList-item-img icons-thumbImg"></div>
+            <div class="thumbList-item-page"
+                 ng-bind-template="{{ $index+1 }}/{{ pages.length }}"></div>
+        </li>
+        <li class="thumbList-add"
+            editor-add
+            data-pages="pages"
+            data-show-page="showPage"
+            data-add-index="{{ pages.length }}">
+            <div class="icons-addPage"></div>
+        </li>
+    </ul>
+</section>
+
+<form class="detailForm"
+      novalidate>
+    <div class="form-group">
+        <label>活动收费</label>
+
+        <div class="formDetail-payArea">
+            <label class="radio-inline">
+                <input type="radio" name="pay"
+                       ng-model="basic.pay"
+                       value="0"> 免费
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="pay"
+                       ng-model="basic.pay"
+                       value="1"> 收费
+            </label>
+        </div>
+    </div>
+    <div class="form-group" ng-show="basic.pay === '1'">
+        <div class="formDetail-moneyType formDetail-moneyType-single"
+             ng-show="basic.payType === '0'">
+            <label class="btn-link" ng-click="basic.payType = '1'">
+                分类型收费
+            </label>
+
+            <div class="input-group">
+                <input type="text" class="form-control"
+                       ng-model="basic.money"/>
+                <span class="input-group-addon">元</span>
+            </div>
+        </div>
+        <div class="formDetail-moneyType formDetail-moneyType-multiple"
+             ng-show="basic.payType === '1'">
+            <label class="btn-link" ng-click="basic.payType = '0'">
+                统一收费
+            </label>
+
+            <div class="formDetail-moneyType-area"
+                 ng-repeat="money in basic.moneyPair">
+                <!-- 多项收费必须填写会员价和非会员价 -->
+                <input type="text" ng-model="money.name" class="form-control"
+                       ng-disabled="$index === 1 || $index === 0"/> :
+                <input type="text" ng-model="money.value" class="form-control"/>
+                <button class="btn btn-link"
+                        remove-money-pair
+                        data-money="basic.moneyPair"
+                        data-index="{{ $index }}"
+                        ng-show="!$first">
+                    <i class="iconfont-remove"></i>
+                </button>
+            </div>
+            <button add-money-pair
+                    data-money="basic.moneyPair"
+                    class="btn btn-block btn-default">
+                <i class="iconfont-add"></i>
+            </button>
+        </div>
+    </div>
+    <div class="clearfix formDetail-buttons">
+        <button class="custom-button custom-button-black pull-left"
+                close-dialog>取消
+        </button>
+        <button class="custom-button custom-button-red pull-right"
+                close-dialog>确定
+        </button>
+    </div>
+</form>
+
+<a class="typeSwitch" switch-type href="#article" ng-if="editType !== 'form'">
+    转换成图文 &gt;
+</a>

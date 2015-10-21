@@ -1,0 +1,174 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 ltc-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>一起开工社区</title>
+    <meta name="description" content="">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="/styles/app.css">
+</head>
+<body class="detail">
+<div class="container-fluid detail-header">
+    <div class="header-bg bg-theme"></div>
+    <div class="header-area">
+        <div class="header-icon">
+            <img src="/images/home/mobile_icons/cloud.png"/>
+        </div>
+        <div class="header-title">主题社群</div>
+        <div class="header-en">Community</div>
+        <div class="header-desc">如果你致力发展一个以某一特定领域为主题，且有持续发展计划的组织，欢迎加入社群共建计划，新的尝试新的收获</div>
+        <div class="header-buttons">
+            <div class="label label-white" data-toggle="modal" data-target=".theme-modal">加入社群</div>
+        </div>
+    </div>
+</div>
+<div class="detail-content">
+    <ul class="content-feature-list">
+        <li class="feature-item">
+            <div class="feature-name"><span>1.</span>扩大核心受众</div>
+            <div class="feature-desc">可以通过“一起”平台，寻找并扩大社群的高质量核心受众</div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>2.</span>社群跨界合作</div>
+            <div class="feature-desc">与“一起”会员，社群跨界合作，收获更多智慧</div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>3.</span>开展主题活动</div>
+            <div class="feature-desc">每年6次使用“一起”场地开展60人以内的主题活动</div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>4.</span>自媒体传播</div>
+            <div class="feature-desc">结合每次活动，“一起”自媒体平台配合传播
+            </div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>5.</span>线下实体展示</div>
+            <div class="feature-desc">在“一起”线下空间制定位置展示社群资料或产品</div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>6.</span>优惠权利</div>
+            <div class="feature-desc">可8折使用“一起”的其它付费产品与服务
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade theme-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title text-center">申请加入社群共建计划
+                </div>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+                <form class="modal-form form-horizontal theme-form" novalidate>
+                    <div class="form-group">
+                        <label class="col-xs-2">姓名</label>
+
+                        <div class="col-xs-10">
+                            <input type="text" name="name" class="form-control valid-input"
+                                   data-valid-rule="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">电话</label>
+
+                        <div class="col-xs-10">
+                            <input type="text" name="phone_number" class="form-control valid-input"
+                                   data-valid-rule="required,phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">邮箱</label>
+
+                        <div class="col-xs-10">
+                            <input type="text" name="email" class="form-control valid-input"
+                                   data-valid-rule="required,email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">是否“一起”会员</label>
+
+                        <div class="radio-area col-xs-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="is_member" value="1" checked> 是
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="is_member" value="0"> 否
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">社群名字</label>
+
+                        <div class="col-xs-10">
+                            <input class="form-control valid-input"
+                                   name="tribe_name"
+                                   type="text"
+                                   data-valid-rule="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">社群介绍</label>
+
+                        <div class="col-xs-10">
+                            <textarea class="form-control valid-input"
+                                      name="tribe_introduction"
+                                      data-valid-rule="required"
+                                      cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">社群发展规划（简单写写面向人群、活动形式、发展目标等）</label>
+
+                        <div class="col-xs-10">
+                            <textarea class="form-control valid-input"
+                                      name="plan"
+                                      data-valid-rule="required"
+                                      cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">发起人/发起团队介绍</label>
+
+                        <div class="col-xs-10">
+                                               <textarea class="form-control valid-input"
+                                                         name="creator_introduction"
+                                                         data-valid-rule="required"
+                                                         cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">为什么想加入“社群共建计划</label>
+
+                        <div class="col-xs-10">
+                                               <textarea class="form-control valid-input"
+                                                         name="reason"
+                                                         data-valid-rule="required"
+                                                         cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <small class="form-tip">抢先申请加入“社群共建计划”，我们将会尽快与你联系，并适当筛选.</small>
+                    <button class="label label-black form-button">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/scripts/app.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:9002/livereload.js"></script>
+</body>
+</html>

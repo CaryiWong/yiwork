@@ -1,0 +1,72 @@
+/*
+Syntax error: Invalid US-ASCII character "\xE5"
+        on line 302 of ../modules/public.scss
+        from line 2 of sign.scss
+
+297:     .footer-text {
+298:         display: none;
+299:     }
+300: }
+301: 
+302: /*      分页 pages       *\/
+303: .pages {
+304:     text-align: center;
+305:     padding: 15px 0 5px 0;
+306: 
+307:     .page-item {
+
+Backtrace:
+../modules/public.scss:302
+sign.scss:2
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/engine.rb:440:in `block in check_encoding!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/util.rb:769:in `rescue in block in check_encoding'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/util.rb:766:in `block in check_encoding'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/util.rb:765:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/util.rb:765:in `each_with_index'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/util.rb:765:in `check_encoding'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/util.rb:819:in `check_sass_encoding'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/engine.rb:439:in `check_encoding!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/engine.rb:406:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/engine.rb:305:in `to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:295:in `block in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/stack.rb:88:in `block in with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/stack.rb:121:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/stack.rb:88:in `with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:294:in `visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/stack.rb:121:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:52:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:151:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/tree/root_node.rb:20:in `render'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/engine.rb:274:in `render'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:378:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:186:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/plugin.rb:82:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/exec.rb:489:in `watch_or_update'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/exec.rb:346:in `process_result'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/exec.rb:43:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/lib/sass/exec.rb:22:in `parse!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.9/bin/scss:13:in `<top (required)>'
+/usr/bin/scss:23:in `load'
+/usr/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid US-ASCII character \"\xE5\"\A         on line 302 of ../modules/public.scss\A         from line 2 of sign.scss\A \A 297:     .footer-text {\A 298:         display: none;\A 299:     }\A 300: }\A 301: \A 302: /*      分页 pages       */\A 303: .pages {\A 304:     text-align: center;\A 305:     padding: 15px 0 5px 0;\A 306: \A 307:     .page-item {"; }

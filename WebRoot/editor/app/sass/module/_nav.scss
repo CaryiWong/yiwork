@@ -1,0 +1,42 @@
+$navHeight: 83px;
+
+.editor-nav {
+    background: #000;
+    color: #fff;
+    height: $navHeight;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .editor-nav-title {
+        font-size: 24px;
+        margin: 28px 0 0 40px;
+    }
+
+    .editor-nav-buttonList {
+        font-size: 14px;
+        margin: 24px 0;
+
+        .nav-button {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .nav-button-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            background: #e95643;
+        }
+
+        .nav-button-text {
+            padding: 0 0 0 10px;
+            display: inline-block;
+            width: 80px;
+            position: relative;
+            top: -10px;
+        }
+    }
+}

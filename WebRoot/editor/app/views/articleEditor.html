@@ -1,0 +1,254 @@
+<section class="flex-area">
+
+    <div class="editorCustom">
+        <form class="editorMain detailForm hide1">
+
+            <div class="form-group">
+                <label>标题</label>
+                <input type="text" class="form-control" ng-model="basic.title"/>
+            </div>
+
+            <div class="form-image clearfix">
+                <div class="editorMain-cover page-image pull-left"
+                     data-tip="选择封面"
+                     editable-image="basic.cover"></div>
+
+                <!--<div class="editorMain-webImg page-image pull-right"-->
+                <!--data-tip="选择网页小图片"-->
+                <!--editable-image="basic.webImg"></div>-->
+            </div>
+
+            <div class="form-group">
+                <label>日期/时间</label>
+
+                <div class="detailForm-dateArea">
+                    <input type="text" class="form-control dateStart"
+                           placeholder="开始时间"
+                           ng-model="basic.startTime"
+                           date-picker/>
+                    <input type="text" class="timePicker" time-picker/>
+                </div>
+                <div class="detailForm-dateArea">
+                    <input type="text" class="form-control dateEnd"
+                           placeholder="结束时间"
+                           ng-model="basic.endTime"
+                           date-picker/>
+                    <input type="text" class="timePicker" time-picker/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>地点</label>
+                <select class="form-control" ng-model="basic.address"
+                        ng-options="address.name for address in selectData.address">
+                </select>
+            </div>
+            <!-- todo 只用临时领域 -->
+            <div class="form-group hide">
+                <label>领域</label>
+                <select class="form-control" ng-model="basic.domain"
+                        ng-options="domain.name for domain in selectData.domain">
+                    <option value="1">设计与艺术</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>参加人数</label>
+                <input type="text" class="form-control" ng-model="basic.people"/>
+            </div>
+            <div class="form-group">
+                <label>联系电话</label>
+                <input type="text" class="form-control" ng-model="basic.phone"/>
+            </div>
+            <div class="form-group">
+                <label>活动收费</label>
+
+                <div class="formDetail-payArea">
+                    <label class="radio-inline">
+                        <input type="radio" name="pay"
+                               ng-model="basic.pay"
+                               value="0"> 免费
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="pay"
+                               ng-model="basic.pay"
+                               value="1"> 收费
+                    </label>
+                </div>
+            </div>
+            <div class="form-group" ng-show="basic.pay === '1'">
+                <div class="formDetail-moneyType formDetail-moneyType-single"
+                     ng-show="basic.activityType === 'single'">
+                    <label class="btn-link" ng-click="basic.activityType = 'set'; basic.isVip = '0'">
+                        切换到摊位收费
+                    </label>
+
+                    <div class="formDetail-moneyType-area"
+                         ng-repeat="money in basic.moneyPair">
+                        <label ng-bind="money.name" class="formDetail-moneyType-label"></label> :
+                        <input type="text" ng-model="money.value" class="form-control formDetail-moneyType-value"/>
+                    </div>
+                    <div class="formDetail-moneyType-area">
+
+                        <label class="formDetail-moneyType-label">会员独占</label> :
+                        <label class="radio-inline">
+                            <input type="radio" name="pay"
+                                   ng-model="basic.isVip"
+                                   value="0"> 否
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="pay"
+                                   ng-model="basic.isVip"
+                                   value="1"> 是
+                        </label>
+                    </div>
+                </div>
+                <div class="formDetail-moneyType formDetail-moneyType-multiple"
+                     ng-show="basic.activityType === 'set'">
+                    <label class="btn-link" ng-click="basic.activityType = 'single'">
+                        切换到统一收费
+                    </label>
+
+                    <div class="formDetail-moneyType-child"
+                         ng-repeat="child in basic.childActivity">
+                        <div class="formDetail-moneyType-area">
+                            <label class="formDetail-moneyType-label">摊位名</label> :
+                            <input type="text" ng-model="child.name" class="form-control formDetail-moneyType-value"/>
+                        </div>
+                        <div class="formDetail-moneyType-area">
+                            <label class="formDetail-moneyType-label">人数</label> :
+                            <input type="text" ng-model="child.people" class="form-control formDetail-moneyType-value"/>
+                        </div>
+                        <div class="formDetail-moneyType-area"
+                             ng-repeat="money in child.moneyPair">
+                            <label ng-bind="money.name" class="formDetail-moneyType-label"></label> :
+                            <input type="text" ng-model="money.value" class="form-control formDetail-moneyType-value"/>
+                            <button class="btn btn-link"
+                                    remove-child-activity
+                                    data-activity="basic.childActivity"
+                                    data-index="{{ $index }}"
+                                    ng-show="!$first">
+                                <i class="iconfont-remove"></i>
+                            </button>
+                        </div>
+                        <hr ng-show="!$last"/>
+                    </div>
+                    <button add-child-activity
+                            data-activity="basic.childActivity"
+                            class="btn btn-block btn-default">
+                        <i class="iconfont-add"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>详情页面链接</label>
+                <input type="text" class="form-control" ng-model="basic.imgtexturl"/>
+            </div>
+            <div class="form-group">
+                <label>回顾页面链接</label>
+                <input type="text" class="form-control" ng-model="basic.huiguurl"/>
+            </div>
+        </form>
+        <!--<div class="editorCustom-detail">-->
+        <!--<label>编辑详情</label>-->
+        <!--<div class="form-detail summernote" summernote>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <div class="editorForm container" ng-controller="InteractController">
+            <div class="row">
+                <div class="template-itemGroup col-xs-3" roll-static>
+                    <div class="template-itemGroup-list">
+                        <div ng-repeat="t in formTemplates"
+                             drag-template
+                             data-template-name="{{ t.name }}"
+                             data-drag-action="createFormElement"
+                             class="template-item thumbs-{{ label }}-{{ t.name }}">
+                            <img src="images/template/{{ t.name }}.png" class="img-thumbnail"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="editorArea editorArea-interact">
+                    <div class="pageArea">
+                        <div class="pageArea-title">编辑报名表</div>
+                        <form class="page h5apply activityInfo">
+                            <div class="dragArea"
+                                 data-index="0"
+                                 data-pages="applyForm.elements"
+                                 drag-area></div>
+                            <div ng-repeat="element in applyForm.elements"
+                                 data-pages="applyForm.elements"
+                                 drag-page="element" class="dragPage">
+                                <div draggable="true"
+                                     drag-switch="element"
+                                     data-drag-action="changeArticle"
+                                     class="dragSwitch">
+                                    <div ng-html-compile="element.html"></div>
+                                </div>
+                                <div drag-area data-pages="applyForm.elements"
+                                     data-index="{{$index+1}}" class="dragArea"></div>
+                            </div>
+                            <div class="page-form-default">
+                                <!-- todo 价格选择 -->
+                                <div ng-if="basic.activityType === 'set'"
+                                     class="page-checkboxes form-group interact-form interact-form-checkboxes">
+                                    <label>请选择你要购买的类型</label>
+
+                                    <div ng-repeat="child in basic.childActivity">
+                                        <input type="checkbox" class="price-checkbox"
+                                               data-activity-name="{{ child.name }}"
+                                               data-child="{{ child.name }}" name="buy"
+                                               value="{{ text }}">
+                                        <!-- todo 活动创建后补充子活动id到value -->
+                                        <span class="inline-text" ng-bind="child.name"></span>
+                                    </div>
+                                </div>
+                                <div static-name></div>
+                                <div static-phone></div>
+                                <div static-email></div>
+                                <div static-button></div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="pageArea">
+                        <div class="pageArea-title">编辑活动反馈表</div>
+                        <form class="page h5feedback">
+                            <div class="dragArea"
+                                 data-index="0"
+                                 data-pages="feedbackForm.elements"
+                                 drag-area></div>
+                            <div ng-repeat="element in feedbackForm.elements"
+                                 data-pages="feedbackForm.elements"
+                                 drag-page="element" class="dragPage">
+                                <div draggable="true"
+                                     drag-switch="element"
+                                     data-drag-action="changeArticle"
+                                     class="dragSwitch">
+                                    <div ng-html-compile="element.html"></div>
+                                </div>
+                                <div drag-area data-pages="feedbackForm.elements"
+                                     data-index="{{$index+1}}" class="dragArea"></div>
+                            </div>
+                            <div class="page-form-default">
+                                <div class="page-radios form-group interact-form interact-form-radio">
+                                    <label>满意度</label>
+
+                                    <div class="form-radio"
+                                         data-name="满意度"
+                                         editable-radios="[{text: '超不满意'},{text: '不满意'},{text: '还好'},{text: '满意'}, {text: '超满意'}]"></div>
+                                </div>
+                                <div class="page-text form-group interact-form interact-form-text">
+                                    <label>请提意见</label>
+                                    <textarea class="form-control" name="idea"></textarea>
+                                </div>
+                                <div static-button></div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

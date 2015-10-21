@@ -1,0 +1,17 @@
+{
+  "name": "demo",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "bootstrap-sass": "~3.3.5"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  }
+}

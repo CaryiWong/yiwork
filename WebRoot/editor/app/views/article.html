@@ -1,0 +1,222 @@
+<section class="flex-area">
+<ul class="list-unstyled tool-list clearfix">
+    <li class="active tool-list-item">
+        <i class="tool-icon"></i>
+        <a href="#tool-regular" data-toggle="tab">常规模板</a></li>
+    <li class="tool-list-item">
+        <i class="tool-icon"></i>
+        <a href="#tool-my" data-toggle="tab">我的模板</a></li>
+    <li class="tool-list-item">
+        <i class="tool-icon"></i>
+        <a href="#tool-resource" data-toggle="tab">我的素材</a></li>
+</ul>
+<div class="tab-content template-list clearfix">
+    <div class="tab-pane active template-group" id="tool-regular">
+        <div class="panel-group">
+            <div ng-repeat="template in typeTemplates"
+                 class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a data-toggle="collapse"
+                           ng-bind="template.desc"
+                           href="#tool-regular-{{ template.name }}"
+                           ng-class="{collapsed: !$first}">
+                        </a>
+                        <div class="panel-title-arrowArea">
+                            <div class="panel-title-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tool-regular-{{ template.name }}"
+                     class="panel-collapse collapse in"
+                     ng-class="{in: $first}">
+                    <div class="panel-body">
+                        <!-- 模板判断，详情类不用输出文件选择 -->
+                        <div class="template-item thumbs-{{ label }}-{{ file.name }}"
+                             ng-repeat="file in template.files"
+                             data-template-name="{{ file.id }}"
+                             data-template-url="{{ articlePath }}?id={{ file.id }}"
+                             data-template-type="{{ template.name }}"
+                             data-drag-action="{{ getDragAction(template.name) }}"
+                             drag-template>
+                            <!--<img src="images/file.png" class="img-thumbnail"/>-->
+                        </div>
+
+                        <!-- ngSwitch end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" id="tool-my">p</div>
+    <div class="tab-pane" id="tool-resource">m</div>
+</div>
+
+<div class="editorScroll editorScroll-article">
+    <div class="editorMain" ng-hide="editType === 'blog'">
+        <input type="text" class="editorMain-title"
+               ng-model="basic.title"/>
+
+        <div class="clearfix">
+            <div class="editorMain-cover page-image pull-left"
+                 data-tip="选择封面"
+                 editable-image="basic.cover"></div>
+
+            <div class="editorMain-webImg page-image pull-right"
+                 data-tip="选择网页小图片"
+                 editable-image="basic.webImg"></div>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="useCover"/> 封面图片显示在正文中
+            </label>
+        </div>
+    </div>
+    <div class="editorArea editorArea-article">
+        <div class="page page-article">
+            <!-- 带上基本标题和封面，以供特殊页面 -->
+            <h1 class="basic-title" ng-bind="basic.title" style="display: none"></h1>
+            <img class="page-cover basic-cover" ng-src="{{ imgPath(basic.cover) }}" alt="" ng-show="useCover"/>
+            <!-- END -->
+            <div drag-area
+                 data-pages="pages"
+                 data-index="0" class="dragArea"></div>
+            <div ng-repeat="page in pages"
+                 ng-init="page.index = $index"
+                 data-pages="pages"
+                 drag-page="page" class="dragPage">
+                <div draggable="true"
+                     drag-switch="page"
+                     data-drag-action="changeArticle"
+                     class="dragSwitch">
+                    <div ng-html-compile="page.html"></div>
+                    <div class="dragPage-buttons clearfix">
+                        <button class="dragPage-move">
+                            <i class="iconfont-move"></i></button>
+                        <button class="dragPage-remove">
+                            <i class="iconfont-remove"></i></button>
+                    </div>
+                </div>
+                <div drag-area data-pages="pages"
+                     data-index="{{$index+1}}" class="dragArea"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form class="detailForm"
+      novalidate>
+    <div class="form-group">
+        <label>日期/时间</label>
+        <div class="detailForm-dateArea">
+            <input type="text" class="form-control dateStart"
+                   placeholder="开始时间"
+                   ng-model="basic.startTime"
+                   date-picker/>
+            <input type="text" class="timePicker" time-picker/>
+        </div>
+        <div class="detailForm-dateArea">
+            <input type="text" class="form-control dateEnd"
+                   placeholder="结束时间"
+                   ng-model="basic.endTime"
+                   date-picker/>
+            <input type="text" class="timePicker" time-picker/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>地点</label>
+        <select class="form-control" ng-model="basic.address"
+                ng-init="basic.address = selectData.address[0]"
+                ng-options="address.name for address in selectData.address">
+        </select>
+    </div>
+    <div class="form-group">
+        <label>领域</label>
+        <select class="form-control" ng-model="basic.domain"
+                ng-init="basic.domain = selectData.domain[0]"
+                ng-options="domain.name for domain in selectData.domain">
+        </select>
+    </div>
+    <div class="form-group">
+        <label>参加人数</label>
+        <input type="text" class="form-control" ng-model="basic.people"/>
+    </div>
+    <div class="form-group">
+        <label>联系电话</label>
+        <input type="text" class="form-control" ng-model="basic.phone"/>
+    </div>
+    <div class="form-group">
+        <label>活动收费</label>
+
+        <div class="formDetail-payArea">
+            <label class="radio-inline">
+                <input type="radio" name="pay"
+                       ng-model="basic.pay"
+                       value="0"> 免费
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="pay"
+                       ng-model="basic.pay"
+                       value="1"> 收费
+            </label>
+        </div>
+    </div>
+    <div class="form-group" ng-show="basic.pay === '1'">
+        <div class="formDetail-moneyType formDetail-moneyType-single"
+             ng-show="basic.payType === '0'">
+            <label class="btn-link" ng-click="basic.payType = '1'">
+                分类型收费
+            </label>
+
+            <div class="input-group">
+                <input type="text" class="form-control"
+                       ng-model="basic.money"/>
+                <span class="input-group-addon">元</span>
+            </div>
+        </div>
+        <div class="formDetail-moneyType formDetail-moneyType-multiple"
+             ng-show="basic.payType === '1'">
+            <label class="btn-link" ng-click="basic.payType = '0'">
+                统一收费
+            </label>
+
+            <div class="formDetail-moneyType-area"
+                 ng-repeat="money in basic.moneyPair">
+                <!-- 多项收费必须填写会员价和非会员价 -->
+                <input type="text" ng-model="money.name" class="form-control"
+                       ng-disabled="$index === 1 || $index === 0"/> :
+                <input type="text" ng-model="money.value" class="form-control"/>
+                <button class="btn btn-link"
+                        remove-money-pair
+                        data-money="basic.moneyPair"
+                        data-index="{{ $index }}"
+                        ng-show="!$first">
+                    <i class="iconfont-remove"></i>
+                </button>
+            </div>
+            <button add-money-pair
+                    data-money="basic.moneyPair"
+                    class="btn btn-block btn-default">
+                <i class="iconfont-add"></i>
+            </button>
+        </div>
+    </div>
+    <!--<div class="form-group">-->
+        <!--<label>活动介绍</label>-->
+        <!--<textarea class="form-control" ng-model="basic.introduce"></textarea>-->
+    <!--</div>-->
+    <div class="clearfix formDetail-buttons">
+        <button class="custom-button custom-button-black pull-left"
+                close-dialog>取消
+        </button>
+        <button class="custom-button custom-button-red pull-right"
+                close-dialog>确定
+        </button>
+    </div>
+</form>
+</section>
+
+<a class="typeSwitch" switch-type href="#interact" ng-if="editType !== 'blog'">
+    转换成HTML5 &gt;
+</a>

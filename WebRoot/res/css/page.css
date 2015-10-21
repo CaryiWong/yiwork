@@ -1,0 +1,38 @@
+.pages {
+	margin:10px auto;
+	zoom:1;
+	overflow:hidden;
+}
+
+.pages .page_l {
+	float:left;
+	margin:5 100px;
+}
+
+.pages .page_r {
+	float: right;
+	text-align: right;
+	margin:0 100px;
+	line-height: 25px;
+}
+
+.pages .page_l span {
+	margin-right: 5px;
+	display: inline-block; *
+	display: inline;
+	zoom: 1;
+}
+
+.pages .page_l span a {
+	border: 1px #ccc solid;
+	border-radius: 5px;
+	padding: 0 8px;
+}
+
+.pages .page_l a:hover {
+	color: #333;
+	text-decoration: none;
+	border: 1px #138 solid;
+}
+
+/*content end*/

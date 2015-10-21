@@ -1,0 +1,107 @@
+@import "../../modules/reset";
+@import "../../modules/public";
+@import "../../modules/yiqi_icon";
+@import "../../modules/ui";
+@import "../../modules/apply";
+
+/*      activity      */
+.apply-form-activity {
+    width: 275px;
+
+    .apply-activity-name {
+        width: 100%;
+        background: #333;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px;
+        box-sizing: border-box;
+        -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        margin: 0 0 10px;
+    }
+
+    .form-control-textarea-label {
+        top: 0;
+    }
+
+    .form-control-buttonGroup {
+        padding: 10px 0;
+    }
+
+    .form-button-cancel {
+        float: left;
+        margin: 0;
+    }
+
+    .form-control-link {
+        text-decoration: underline;
+        color: #f60;
+        top: 6px;
+        position: relative;
+    }
+
+    .valid-error {
+        width: 200px;
+        position: absolute;
+        right: -210px;
+        text-align: left;
+        top: 9px;
+    }
+
+    /*      form-control 独立情况       */
+    .form-control {
+
+        &.reason {
+            .form-control-label {
+                width: 100%;
+            }
+            .form-control-input {
+                width: 100%;
+                padding: 10px 0 0;
+            }
+            .valid-error {
+                top: 15px;
+            }
+        }
+
+        &.sex,
+        &.job {
+            .form-control-customSelect {
+                width: 48%;
+            }
+
+        }
+
+        &.pay {
+            .form-control-customCheckbox {
+                padding: 5px 0;
+                width: 100%;
+                margin: 0 0 5px;
+            }
+
+            .form-control-money {
+                font-size: 18px;
+                span {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 720px) {
+    .apply-form-activity{
+        width: 100%;
+
+        .apply-activity-name {
+            width: 100%;
+            padding: 30px 0;
+            text-align: center;
+            margin: 0 0 20px 0;
+            font-size: 24px;
+        }
+    }
+
+}

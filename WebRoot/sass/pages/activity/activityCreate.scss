@@ -1,0 +1,444 @@
+@import "../../modules/reset";
+@import "../../modules/public";
+@import "../../modules/yiqi_icon";
+@import "../../components/datepicker/classic";
+@import "../../modules/ui";
+
+.activity-create {
+    padding: 20px 0 0;
+
+    .create-form {
+        width: 710px;
+    }
+
+    .form-base {
+        padding: 35px 0 0;
+
+        .form-base-title {
+            font-size: 18px;
+            margin: 0 0 15px 0;
+        }
+    }
+
+    .form-control {
+        padding: 5px 0;
+    }
+
+    .form-control-label {
+        width: 15%;
+        display: inline-block;
+        font-size: 14px;
+        vertical-align: top;
+        padding: 10px 0 0 0;
+        @include box-sizing(border-box);
+    }
+
+    .form-control-input {
+        display: inline-block;
+        width: 80%;
+        @include box-sizing(border-box);
+        margin: 0 0 0 -3px;
+        position: relative;
+    }
+
+    .form-control-value {
+        font-size: 14px;
+        display: inline-block;
+        padding: 10px 0 0;
+    }
+
+    .form-control-text {
+        width: 100%;
+        height: 30px;
+
+        .lt-ie9 & {
+            line-height: 30px;
+        }
+    }
+
+    .form-control-textarea {
+        width: 100%;
+        height: 280px;
+        text-indent: 0;
+        @include box-sizing(border-box);
+        padding: 5px 8px;
+    }
+
+    .form-control-calendar {
+        position: relative;
+
+        i {
+            position: absolute;
+            left: 190px;
+            top: 8px;
+        }
+    }
+
+    .form-control-fileArea {
+        width: 100%;
+        height: 300px;
+        background-color: #e5e5e5;
+        border: 1px solid #dddddd;
+        text-align: center;
+        position: relative;
+
+        .form-control-file-content {
+            font-size: 14px;
+            color: #999;
+            position: absolute;
+            top: 45%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-control-file-tip {
+            font-size: 12px;
+        }
+
+        .form-control-fileCustom {
+            padding: 5px 12px;
+            position: relative;
+            margin: 10px 0 0;
+
+            .form-control-file {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                @include opacity(0);
+                cursor: pointer;
+
+                & + .valid-error {
+                    position: absolute;
+                    left: 0;
+                    top: 35px;
+                    width: 200px;
+                    text-align: left;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .image-preview-area {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .form-button {
+        width: 80px;
+        height: 35px;
+        margin: 0 0 0 5px;
+    }
+
+    /*   多项支付   */
+    .form-control-input.money {
+        width: 100%;
+        display: none;
+        margin: 10px 0;
+
+        .valid-error {
+            top: 25px;
+            left: 55%;
+        }
+
+        .form-control-text {
+            width: 40%;
+        }
+
+        .form-control-button {
+            padding: 0 0 5px;
+            color: #42a3f0;
+            cursor: pointer;
+            width: 80px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .money-item {
+            padding: 0 0 5px;
+            width: 65%;
+            position: relative;
+            float: left;
+
+            .valid-error {
+                left: 69%;
+                top: 11px;
+            }
+
+            input[name=moneyName] + .valid-error {
+                left: 25%;
+            }
+        }
+
+        .money-multiple-button {
+            float: left;
+            width: 60px;
+            height: 100%;
+            margin: 4px 0 0;
+        }
+
+        .money-multiple-remove {
+            color: #f8030a;
+            cursor: pointer;
+        }
+    }
+
+    .valid-error {
+        padding: 0 0 0 10px;
+        font-size: 12px;
+    }
+}
+
+@mixin typeControl($type) {
+    .form-control#{$type} {
+        @content
+    }
+}
+
+@include typeControl('.name') {
+    .valid-error {
+        position: absolute;
+        right: -70px;
+        top: 10px;
+    }
+
+}
+
+@include typeControl('.type') {
+    .form-control-label {
+        padding-top: 14px;
+    }
+}
+
+@include typeControl('.pay') {
+    .form-control-label {
+        padding-top: 14px;
+    }
+    .valid-error {
+        position: absolute;
+        left: 60%;
+        top: 5px;
+        width: 100px;
+    }
+}
+
+@include typeControl('.date') {
+    .form-control-text {
+        width: 38%;
+        margin: 0 0 10px 0;
+    }
+}
+
+@include typeControl('.people') {
+    .form-control-text {
+        width: 15%;
+    }
+    .valid-error {
+        position: absolute;
+        left: 115px;
+        top: 10px;
+    }
+}
+
+@include typeControl('.phone') {
+    .form-control-text {
+        width: 70%;
+    }
+}
+
+@include typeControl('.buttonName') {
+    .form-control-text {
+        width: 70%;
+    }
+}
+
+@include typeControl('.buttonGroup') {
+    padding: 20px 0 50px;
+}
+
+@include typeControl('.url') {
+    .form-control-text {
+        width: 70%;
+    }
+}
+
+@include typeControl('.cover') {
+    .form-control-fileArea {
+        height: 260px;
+        width: 185px;
+    }
+}
+
+@include typeControl('.domain') {
+    .valid-error {
+        position: absolute;
+        right: -105px;
+        top: 2px;
+        width: 100px;
+    }
+}
+
+@include typeControl('.intro') {
+    .valid-error {
+        position: absolute;
+        right: -95px;
+        top: 10px;
+    }
+}
+
+@include typeControl('.activityDetail') {
+    .form-control-fileArea {
+        height: 260px;
+        width: 510px;
+        margin: 0 0 0 5px;
+    }
+}
+
+@include typeControl('.pay'){
+    &:after{
+        @include clearfixDefined;
+    }
+}
+
+.form-control-customCheckbox {
+    background-color: transparent;
+    margin: 5px 2px 5px 0;
+    padding: 2px 6px;
+    position: relative;
+
+    &.custom-radio {
+        padding: 5px 15px;
+
+        .form-control-label {
+            padding-top: 13px;
+        }
+    }
+}
+
+@media all and (max-width: 720px) {
+    .activity-create {
+        .create-form {
+            width: 100%;
+            @include box-sizing(border-box);
+            padding: 0 10px;
+        }
+
+        .form-base {
+            padding-top: 20px;
+
+            .form-base-title {
+                text-align: center;
+                margin: 0;
+            }
+        }
+
+        .form-control {
+            width: 100%;
+
+            .form-control-label {
+                width: 100%;
+                display: block;
+                font-size: 14px;
+                padding-bottom: 3px;
+            }
+
+            .form-control-input {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .form-control-text {
+                width: 100%;
+            }
+
+            .form-control-union {
+                display: none;
+            }
+
+            .form-control-value {
+                display: block;
+            }
+
+            .form-control-fileArea {
+                height: 200px;
+                width: 100%;
+                margin: 0;
+            }
+        }
+
+        .form-control-input.money {
+            width: 100%;
+            margin-left: 0;
+
+            .money-item{
+                width: 100%;
+            }
+            .form-control-text {
+                width: 40%;
+            }
+        }
+
+        .custom-radio {
+            width: 48%;
+            @include box-sizing(border-box);
+        }
+
+        .form-control-calendar i {
+            left: auto;
+            right: 10px;
+        }
+
+        .form-button {
+            width: 100%;
+            margin-left: 0;
+
+            &.gray {
+                display: none;
+            }
+        }
+
+        .valid-error {
+            position: static;
+            top: auto;
+            left: auto;
+            padding: 3px 0 3px 3px;
+            display: inline-block;
+
+        }
+    }
+
+    .activity-create {
+
+        .form-control-calendar & {
+            position: relative;
+            top: -10px;
+        }
+
+        .form-control-fileArea & {
+            position: absolute;
+            top: 30px;
+            left: 0;
+        }
+
+        .form-control-customCheckbox & {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 50px;
+            padding: 0;
+        }
+    }
+}

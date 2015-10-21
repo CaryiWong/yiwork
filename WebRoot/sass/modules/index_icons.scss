@@ -1,0 +1,10 @@
+@import "compass/utilities/sprites";
+$icons-layout: smart;
+$icons-use-percentages: true; // 使用百分比位置
+$icons-sprite-dimensions: true; // 输出精灵尺寸
+
+@import "home/icons/*.png";
+@include all-icons-sprites;
+
+
+@import "add_icons";

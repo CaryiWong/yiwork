@@ -1,0 +1,221 @@
+@font-face {font-family: 'yiqifont';
+    src: url('../../../fonts/iconfont.eot');  /* IE9 */
+    src: url('../../../fonts/iconfont.eot?#iefix') format('embedded-opentype'),  /* IE6-IE8 */
+    url('../../../fonts/iconfont.woff') format('woff'),  /* chrome、firefox */
+    url('../../../fonts/iconfont.ttf') format('truetype'),  /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../../../fonts/iconfont.svg#uxiconfont') format('svg');  /* iOS 4.1- */
+}
+
+i[class|="yiqi-icon"]{
+    font-family: yiqifont;
+    font-style: normal;
+}
+
+.yiqi-icon-qq:after{
+    content: '\343c';
+}
+
+.yiqi-icon-sina:after{
+    content: '\3448';
+}
+
+.yiqi-icon-douban:after{
+    content: '\3438';
+}
+
+.yiqi-icon-renren:after{
+    content: '\3435';
+}
+
+.yiqi-icon-close:after{
+    content: '\f00b3';
+}
+
+.yiqi-icon-lClose:after{
+    content: '\f000e';
+}
+
+.yiqi-icon-plus:after{
+    content: '\3433';
+}
+
+.yiqi-icon-lPlus:after{
+    content: '\f0001';
+}
+
+.yiqi-icon-search:after{
+    content: '\f012c';
+}
+
+.yiqi-icon-smile:after{
+    content: '\f0133';
+}
+
+.yiqi-icon-time:after{
+    content: '\34a2';
+}
+
+.yiqi-icon-right:after{
+    content: '\344a';
+}
+
+.yiqi-icon-sLeft:after{
+    content: "\3447";
+}
+
+.yiqi-icon-sRight:after{
+    content: "\3449";
+}
+
+.yiqi-icon-place:after{
+    content: '\f0009';
+}
+
+.yiqi-icon-comment:after{
+    content: '\f0004';
+}
+
+.yiqi-icon-phone:after{
+    content: '\f0032';
+}
+
+.yiqi-icon-money:after{
+    content: '\f00ab';
+}
+
+.yiqi-icon-walk:after{
+    content: '\f0007';
+}
+
+.yiqi-icon-sLeft:after{
+    content: '\3449';
+}
+
+.yiqi-icon-sRight:after{
+    content: '\3447';
+}
+
+.yiqi-icon-slLeft:after{
+    content: '\3432';
+}
+
+.yiqi-icon-slRight:after{
+    content: '\f0005';
+}
+
+.yiqi-icon-card:after{
+    content: '\f0008';
+}
+
+.yiqi-icon-tool:after{
+    content: '\f000a';
+}
+
+.yiqi-icon-logo:after{
+    content: '\f000c';
+}
+
+.yiqi-icon-notice:after{
+    content: '\f0013';
+}
+
+.yiqi-icon-circle:after{
+    content: '\f0010';
+}
+
+.yiqi-icon-loading:after{
+    content: '\f004a';
+}
+
+i[class|="add-icon"]{
+    background-image: url(../../../images/public/icon_add.png);
+    display: inline-block;
+}
+
+.add-icon-close{
+    width: 20px;
+    height: 20px;
+    background-position: -32px -25px;
+}
+
+.add-icon-calendar{
+    width: 16px;
+    height: 15px;
+    display: inline-block;
+    background-position: 0 0;
+}
+
+.add-icon-lClose{
+    width: 22px;
+    height: 22px;
+    background-position: 0 -25px;
+}
+
+.add-icon-place{
+    width: 16px;
+    height: 18px;
+    background-position: -32px 0;
+}
+
+.add-icon-clock{
+    width: 18px;
+    height: 18px;
+    background-position: -58px 0;
+}
+
+.add-icon-money{
+    width: 18px;
+    height: 18px;
+    background-position: -84px 0;
+}
+
+.add-icon-phone{
+    width: 18px;
+    height: 18px;
+    background-position: -109px 0;
+}
+
+.add-icon-smile{
+    width: 18px;
+    height: 18px;
+    background-position: -135px 0;
+}
+
+.add-icon-comment{
+    width: 14px;
+    height: 14px;
+    background-position: -161px 0;
+}
+
+.add-icon-left{
+    width: 18px;
+    height: 53px;
+    background-position: 0 -58px;
+}
+
+.add-icon-right{
+    width: 18px;
+    height: 53px;
+    background-position: -39px -58px;
+}
+
+.add-icon-successForget{
+    width: 49px;
+    height: 49px;
+    background-position: -68px -57px;
+}
+
+.add-icon-loading{
+    width: 64px;
+    height: 64px;
+    background-size: contain;
+    background-image: url(../../../images/public/loading.gif) !important;
+    background-repeat: no-repeat;
+}
+
+@media all and (max-width:720px){
+    .add-icon-loading{
+        width: 48px;
+        height: 48px;
+    }
+}

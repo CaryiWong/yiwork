@@ -1,0 +1,40 @@
+<div class="connectArea container"
+     ng-init="choose = 'activity'"
+     ng-switch="choose">
+
+    <div class="connect-title">选择对应的活动/课程</div>
+
+    <div class="connect-choose">
+        <button choose-button="activity" class="custom-button custom-button-red">活动</button>
+        <button choose-button="course" class="custom-button custom-button-transparent">课程</button>
+    </div>
+
+    <div class="connect-list clearfix" ng-switch-when="activity">
+        <div class="connect-content"
+             ng-repeat="ac in activity"
+             connect-content data-id="{{ ac.id }}">
+            <div class="connect-name" ng-bind="ac.title"></div>
+            <div class="connect-address" ng-bind="ac.address"></div>
+            <div class="connect-time" ng-bind="ac.time"></div>
+        </div>
+    </div>
+
+    <div class="connect-list clearfix" ng-switch-when="course">
+        <div class="connect-content"
+             ng-repeat="co in course"
+             connect-content data-id="{{ co.id }}">
+            <div class="connect-name" ng-bind="co.title"></div>
+            <div class="connect-address" ng-bind="co.address"></div>
+            <div class="connect-time" ng-bind="co.time"></div>
+        </div>
+    </div>
+
+    <div class="connect-buttons">
+        <button class="custom-button custom-button-black" url-back>取消</button>
+        <button class="custom-button custom-button-red"
+                data-action="{{ editType }}"
+                connect-create>确定
+        </button>
+    </div>
+</div>
+

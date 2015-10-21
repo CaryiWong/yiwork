@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>创建活动</title>
+    <!--[if lte IE 8]>
+    <script type="text/javascript" src="../../scripts/components/html5/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../../styles/public/reset.css"/>
+    <link rel="stylesheet" href="../../styles/components/icon/yiqi_icon.css"/>
+    <link rel="stylesheet" href="../../styles/public/public.css"/>
+    <link rel="stylesheet" href="../../styles/pages/my.css"/>
+</head>
+<body>
+<!--    header    -->
+<header class="header">
+    <div class="container clearfix">
+        <a class="icon fl" href="#"></a>
+        <ul class="header-nav fl">
+            <li class="header-nav-item"><a class="header-nav-link" href="#">空间</a></li>
+            <li class="header-nav-item"><a class="header-nav-link" href="#">活动</a></li>
+            <li class="header-nav-item"><a class="header-nav-link" href="#">关于我们</a></li>
+        </ul>
+        <div class="header-status fr">
+            <a href="#" class="header-status-link login">登录</a>
+            <a class="header-status-link" href="#">注册</a>
+
+            <div class="header-search ">
+                <input class="header-search-text"/>
+                <button class="header-search-button"></button>
+            </div>
+        </div>
+    </div>
+</header>
+<!--    header    -->
+
+<!--    content   -->
+<div class="container info clearfix">
+    <div class="panel info-panel">
+        <div class="panel-header">
+            <div class="panel-header-text">基本信息</div>
+            <div class="panel-header-buttons now">
+                <button class="button-link edit panel-header-buttonLink">编辑资料</button>
+            </div>
+            <div class="panel-header-buttons edit hide">
+                <button class="button-link cancel panel-header-buttonLink">取消</button>
+                <button class="button-link save panel-header-buttonLink">保存</button>
+            </div>
+        </div>
+        <form class="panel-content info-form" novalidate>
+            <div class="form-control head">
+                <div class="form-control-label">个人头像</div>
+                <div class="form-control-value">
+                    <img src="../../images/demo_imgs/4.jpg" class="form-control-head" />
+                </div>
+            </div>
+            <div class="form-control email">
+                <div class="form-control-label">登录邮箱</div>
+                <div class="form-control-value">
+                    12456655xx@qq.com
+                </div>
+                <div class="form-control-input">
+                    <input type="email" class="form-control-text text" name="email"/>
+                </div>
+
+            </div>
+            <div class="form-control name">
+                <div class="form-control-label">用户名</div>
+                <div class="form-control-value">
+                    老油条
+                </div>
+                <div class="form-control-input">
+                    <input type="text" name="name" class="form-control-text  text"/>
+                </div>
+            </div>
+            <div class="form-control password">
+                <div class="form-control-label">密码</div>
+                <div class="form-control-value">
+                    <a class="passwordLink" href="#">修改密码</a>
+                </div>
+            </div>
+            <div class="form-control address">
+                <div class="form-control-label">所在地</div>
+                <div class="form-control-value">
+                    广东省，广州市，荔湾区，中山七路68号，301室
+                </div>
+                <div class="form-control-input">
+                    <input type="text" name="address" class="form-control-text  text"/>
+                </div>
+            </div>
+            <div class="form-control sex">
+                <div class="form-control-label">性别</div>
+                <div class="form-control-value" data-switch-value="1" >
+                    男
+                </div>
+                <div class="form-control-input">
+                    <select class="form-control-select" name="sex">
+                        <option value="1">男</option>
+                        <option value="0">女</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-control job">
+                <div class="form-control-label">职业</div>
+                <div class="form-control-value">
+                </div>
+                <div class="form-control-input">
+                    <input type="text" name="job" class="form-control-text  text"/>
+                </div>
+            </div>
+            <div class="form-control phone">
+                <div class="form-control-label">电话</div>
+                <div class="form-control-value">
+                </div>
+                <div class="form-control-input">
+                    <input type="text" name="phone" class="form-control-text  text"/>
+                </div>
+            </div>
+            <div class="form-control domain">
+                <div class="form-control-label">关注领域</div>
+                <div class="form-control-value">
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">互联网</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">创新</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">文章</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">马蹄糕</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">心理学</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">旅行</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">徒步</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">道德</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">沦丧</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">人情</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">冷暖</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">丧心</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                    <div class="form-control-customCheckbox custom-checkbox disabled">
+                        <label class="form-control-customCheckbox-label">病狂</label>
+                        <input type="checkbox" class="form-control-checkbox valid-input disabled" name="domain"
+                               data-valid-group="domain"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-control">
+                <input type="submit" class="form-control-submit button black" value="保存设置" />
+            </div>
+
+        </form>
+    </div>
+</div>
+<!--    content   -->
+
+<!--    footer    -->
+<footer class="footer">
+    <ul class="footer-nav">
+        <li class="footer-nav-item"><a class="footer-nav-link" href="#">关于我们</a></li>
+        <li class="footer-nav-item"><a class="footer-nav-link" href="#">版权说明</a></li>
+        <li class="footer-nav-item"><a class="footer-nav-link" href="#">联系我们</a></li>
+        <li class="footer-nav-item"><a class="footer-nav-link" href="#">意见反馈</a></li>
+    </ul>
+    <div class="footer-text">
+        广州公司
+    </div>
+</footer>
+<!--    footer    -->
+
+<script type="text/javascript" src="../../scripts/components/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../scripts/components/util/util.js"></script>
+<script type="text/javascript" src="../../scripts/public/public.js"></script>
+<script type="text/javascript" src="../../scripts/components/customUI/customUI.js"></script>
+<script type="text/javascript" src="../../scripts/pages/my.js"></script>
+
+</body>
+</html>

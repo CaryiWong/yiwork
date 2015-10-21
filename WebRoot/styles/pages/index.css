@@ -1,0 +1,152 @@
+body{
+    background: #eaebeb;
+}
+
+/*      activities      */
+.activities{
+    margin: 25px 0 ;
+}
+
+.activity-item{
+    width: 220px;
+    height: 280px;
+    position: relative;
+    float: left;
+    margin-left: 23px;
+}
+
+.activity-item:first-child{
+    margin-left: 0;
+}
+
+.activity-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.activity-title{
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    overflow: hidden;
+    font-size: 18px;
+    color: #fff;
+    padding: 10px 8px;
+    background: rgba(0,0,0,.7);
+    position: absolute;
+    box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+
+}
+
+.activity-title.expand{
+    height: auto;
+    overflow: auto;
+}
+
+.activity-title-small{
+    display: block;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 5px 0 0;
+}
+
+.activity-time{
+    position: absolute;
+    padding: 5px 15px;
+    color: #fff;
+    background: rgba(0,0,0,.7);
+}
+
+.activity-time-year{
+    font-size: 14px;
+}
+
+.activity-time-date{
+    font-size: 32px;
+}
+
+/*      other-panels     */
+.other-panels{
+    background-color: #dddddd;
+}
+
+/*      vip     */
+.vip{
+    padding: 30px 0;
+}
+
+/*      group       */
+.group{
+    padding: 40px 0 60px;
+}
+
+/*      member      */
+.member{
+    margin: 0 28px;
+    color: #666;
+    width: 180px;
+    float: left;
+}
+
+.member-imgArea{
+    position: relative;
+}
+
+.member-img{
+    width: 185px;
+    height: 185px;
+    border-radius: 100%;
+}
+
+.member-imgMask{
+    background-color: #000;
+    opacity: 0;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 185px;
+    height: 185px;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+}
+
+.member-imgMask:hover{
+    opacity: .3;
+}
+
+.member-info{
+    text-align: center;
+    margin: 15px 0 0;
+}
+
+.member-name{
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.mamber-job{
+    font-size: 16px;
+}
+
+.member-introduction{
+    margin: 20px 0 0;
+    border-top: 2px solid #797979;
+    padding-top: 15px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 22px;
+}

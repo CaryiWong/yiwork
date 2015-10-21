@@ -1,0 +1,53 @@
+@import "../../modules/reset";
+@import "../../modules/public";
+@import "../../modules/yiqi_icon";
+@import "../../modules/resultList";
+
+/*      myNotice        */
+.notice-blue {
+    color: #0090eb;
+}
+
+.myNotice {
+    padding: 20px 0 0;
+    width: 610px;
+    min-height: 600px;
+}
+
+.myNotice-header {
+    .myNotice-header-title {
+        font-size: 18px;
+    }
+
+    .myNotice-header-numbers {
+        padding: 10px 0 0;
+    }
+
+}
+
+.myNotice-list {
+    padding: 25px 0;
+
+    .myNotice-item-header {
+        padding: 0 0 5px;
+
+        &:after {
+            @include clearfixDefined
+        }
+    }
+
+    .myNotice-item-title {
+        float: left;
+        font-size: 14px;
+        color: #0090eb;
+    }
+
+    .myNotice-item-time {
+        float: right;
+        color: #b5b5b5;
+    }
+
+    .myNotice-item-content {
+        line-height: 24px;
+    }
+}

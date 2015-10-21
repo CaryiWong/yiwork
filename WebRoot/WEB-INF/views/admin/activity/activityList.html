@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>会员申请</title>
+    <link rel="stylesheet" href="../../styles/bootstrap.css"/>
+    <link rel="stylesheet" href="../../styles/public.css"/>
+</head>
+
+<body>
+        <div class="row row-flow need-list">
+            <div class="col-xs-12 member-list">
+                <div id="search-condition" class="panel panel-primary search">
+                    <a class="panel-heading" data-toggle="collapse" data-parent="#search-condition" href="#collapseSearch">
+                        查询条件
+                        <i class="pull-right glyphicon glyphicon-list"></i>
+                    </a>
+                    <div class="panel-body collapse in" id="collapseSearch">
+                        <div class="search-checkboxGroup  form-inline">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> 移动互联网
+                            </label>
+                          </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 设计与艺术
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 文化教育
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 社会创新
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 其他
+                                </label>
+                            </div>
+                        </div>
+                        <div class="search-otherGroup form-inline col-xs-12">
+                            <div class="form-group ">
+                                    <select class="form-control input-sm">
+                                        <option value="">费用</option>
+                                        <option value="">免费</option>
+                                        <option value="">收费</option>
+                                    </select>
+                            </div>
+                            <div class="form-group ">
+                                <select class="form-control input-sm">
+                                    <option value="">审核状态</option>
+                                    <option value="">待审核</option>
+                                    <option value="">通过</option>
+                                    <option value="">不通过</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control input-sm">
+                                    <option value="">活动状态</option>
+                                    <option value="">待开启</option>
+                                    <option value="">进行中</option>
+                                    <option value="">已完结</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                    <input type="email" class="form-control input-sm" placeholder="关键字">
+                            </div>
+                            <button type="submit" class=" btn btn-default btn-primary">查询</button>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered table-striped member-table">
+                    <thead>
+                    <tr>
+                        <th>标题</th>
+                        <th>发起者</th>
+                        <th>地点</th>
+                        <th>费用</th>
+                        <th>联系方法</th>
+                        <th>活动状态</th>
+                        <th>最高人数</th>
+                        <th>报名人数</th>
+                        <th>操作</th>
+                        <th>回顾</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a href="activityDetail.html">我是一个活动标题</a></td>
+                        <td><a href="../member/detail.html">Otto</a></td>
+                        <td>广州市荔湾区中山七路68号3楼</td>
+                        <td>免费</td>
+                        <td>020-81869804</td>
+                        <td>待开启</td>
+                        <td>100</td>
+                        <td>24</td>
+                        <td>
+                            <a class="btn-link btn-sm">推荐</a>
+                            <a class="btn-link btn-sm">banner出现</a>
+                        </td>
+                        <td>
+                            <a class="btn-link btn-sm">增加 </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="activityDetail.html">我是另一个活动标题</a></td>
+                        <td><a href="../member/detail.html">Otto</a></td>
+                        <td>广州市荔湾区中山七路68号3楼</td>
+                        <td>免费</td>
+                        <td>020-81869804</td>
+                        <td>待开启</td>
+                        <td>100</td>
+                        <td>24</td>
+                        <td>
+                            <a class="btn-link btn-sm">取消推荐</a>
+                            <a class="btn-link btn-sm">取消banner出现</a>
+                        </td>
+                        <td>
+                            <a class="btn-link btn-sm">查看回顾 </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="page clearfix">
+                    <ul class="pagination pull-left">
+                        <li><a href="#">&lt;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li class="active"><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                    <div class="page-jump pull-right">
+                        共171条 跳转至 <input type="text"/> 页
+                        <button class="btn btn-sm btn-default">GO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script type="text/javascript" src="../../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../../scripts/bootstrap.js"></script>
+        <script type="text/javascript" src="../../scripts/public.js"></script>
+</body>
+</html>

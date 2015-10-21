@@ -1,0 +1,67 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 ltc-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>合作意向书</title>
+    <meta name="description" content="">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <!-- build:css /styles/app.css -->
+    <link rel="stylesheet" href="/styles/pages/server/formAll.css"/>
+    <!-- endbuild -->
+</head>
+<body class="server-form">
+    <div  class="text-center ">
+        <div class="form-title">
+            <div class="line"></div>
+            <div class="title-box">合作意向书</div>
+        </div>
+        <form class="col-xs-12">
+            <div class="form-group right-input-group">
+                <label>姓名：</label>
+                <input type="text" class="form-control valid-input nickname"
+                       name="name"
+                    data-valid-rule="required">
+            </div>
+            <div class="form-group right-input-group">
+                <label>联系方式：</label>
+                <p class="declare">手机号码</p>
+                <input type="text" class="form-control valid-input phone"
+                       name="phone"
+                       data-valid-rule="required,phone" >
+                <p class="declare">微信/QQ/邮箱</p>
+                <input type="text" class="form-control valid-input"
+                       data-valid-rule="required"
+                       name="email">
+            </div>
+            <div class="form-group">
+                <label>你的机构：</label>
+                <input type="text" class="form-control valid-input"
+                       data-valid-rule="required"
+                       name="company"
+                       placeholder="你所在的机构名称（公司/团队/组织/个人）">
+                <textarea class="form-control valid-input"
+                          name="intro"
+                          data-valid-rule="required"
+                          placeholder="介绍一下，方便我们了解你以及你的机构哦～"></textarea>
+            </div>
+            <button class="btn form-button">提交申请</button>
+        </form>
+    </div>
+
+<!-- build:js /scripts/app.js -->
+    <script type="text/javascript" src="/scripts/components/jquery.js"></script>
+    <script type="text/javascript" src="/scripts/components/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/scripts/components/validation/validation.js"></script>
+    <script type="text/javascript" src="/scripts/server/form.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

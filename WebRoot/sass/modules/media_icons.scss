@@ -1,0 +1,7 @@
+@import "compass/utilities/sprites";
+$media-layout: smart;
+$media-use-percentages: true; // 使用百分比位置
+$media-sprite-dimensions: true; // 输出精灵尺寸
+
+@import "home/media/*.png";
+@include all-media-sprites;

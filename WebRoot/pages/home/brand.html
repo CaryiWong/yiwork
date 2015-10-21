@@ -1,0 +1,192 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 ltc-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>一起开工社区</title>
+    <meta name="description" content="">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="/styles/app.css">
+</head>
+<body class="detail">
+<div class="container-fluid detail-header">
+    <div class="header-bg bg-brand"></div>
+    <div class="header-area">
+        <div class="header-icon">
+            <img src="/images/home/mobile_icons/theme.png"/>
+        </div>
+        <div class="header-title">品牌商/企业</div>
+        <div class="header-en">Brand/Enterprise</div>
+        <div class="header-desc">如果你是创业团队、品牌商或企业，遇到的问题已无法创新高效地解决，“一起”的社区力量将积极尝试帮你解决。</div>
+        <div class="header-buttons">
+            <div class="label label-white" data-toggle="modal" data-target=".brand-modal">需要创新服务</div>
+        </div>
+    </div>
+</div>
+<div class="detail-content">
+    <ul class="content-feature-list">
+        <li class="feature-item">
+            <div class="feature-name"><span>1.</span>重新定义问题</div>
+            <div class="feature-desc">一起团队将对你的项目进行把脉，对问题的真实的挑战进行挖掘，重新定义问题</div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>2.</span>设计解决方法</div>
+            <div class="feature-desc">根据清晰定义的问题，设计解决的系列方法流程、工作坊、思维工具</div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>3.</span>组建社区智囊团</div>
+            <div class="feature-desc">通过社区力量组建适合解决当前问题的社区智囊团，搭配最佳的跨界资源高效攻克挑战</div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>4.</span>输出解决方案</div>
+            <div class="feature-desc">根据项目需求输出解决方案以及相应产出物
+            </div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>5.</span>制定原型以及快速测试</div>
+            <div class="feature-desc">制定MVP，侧重板块分别有：商业模式、互联网产品、品牌塑造、用户研究。MVP小型产品完成后，快速投入到社区进行测试，结合反馈进行迭代优化。</div>
+        </li>
+        <li class="feature-item">
+            <div class="feature-name"><span>6.</span>组建执行团队</div>
+            <div class="feature-desc">根据项目需求，在社区中组建执行团队，帮助方案执行落地
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade brand-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title text-center">请填写您的项目与需求</div>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form class="modal-form form-horizontal brand-form" novalidate>
+                    <div class="form-group">
+                        <label class="col-xs-2">姓名</label>
+
+                        <div class="col-xs-10">
+                            <input type="text" name="name" class="form-control valid-input"
+                                   data-valid-rule="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">电话</label>
+
+                        <div class="col-xs-10">
+                            <input type="text" name="phone_number" class="form-control valid-input"
+                                   data-valid-rule="required,phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">邮箱</label>
+
+                        <div class="col-xs-10">
+                            <input type="text" name="email" class="form-control valid-input"
+                                   data-valid-rule="required,email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">是否“一起”会员</label>
+
+                        <div class="radio-area col-xs-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="is_member" value="1" checked> 是
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="is_member" value="0"> 否
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">品牌/企业名称</label>
+
+                        <div class="col-xs-10">
+                            <input class="form-control valid-input"
+                                   name="enterprise_name"
+                                   type="text"
+                                   data-valid-rule="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">项目简介</label>
+
+                        <div class="col-xs-10">
+                            <textarea class="form-control valid-input"
+                                      name="project_introduction"
+                                      data-valid-rule="required"
+                                      cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">请选择你所需要的服务(多选)</label>
+
+                        <div class="col-xs-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="need_service" value="用户研究">
+                                    用户研究
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="need_service" value="品牌定位与塑造">
+                                    品牌定位与塑造
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="need_service" value="品牌创新传播">
+                                    品牌创新传播
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="need_service" value="商业模式梳理">
+                                    商业模式梳理
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="need_service" value="产品用户测试">
+                                    产品用户测试
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="need_service" value="商业原型MVP设计开发">
+                                    商业原型MVP设计开发
+                                </label>
+                            </div>
+                            <div>
+                                <label style="font-weight: normal">其他</label>
+
+                                <div>
+                                    <textarea class="form-control" name="need_service_other" cols="30"
+                                              rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <small class="form-tip">我们将会尽快与你联系，了解您的具体需求</small>
+                    <button class="label label-black form-button">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/scripts/app.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:9002/livereload.js"></script>
+</body>
+</html>

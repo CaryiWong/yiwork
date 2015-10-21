@@ -1,0 +1,220 @@
+@import "compass/css3";
+@import '_bootstrap_base.scss';
+
+//@import "compass/utilities/sprites";
+//$server-layout: smart;
+//$server-use-percentages: true;
+//$server-sprite-dimensions: true;
+//
+//@import "../../../images/pages/server/*.png";
+//@include all-server-sprites;
+body {
+  background-color: #f1f1f1;
+}
+
+.info-main {
+  display: none;
+}
+
+.btn {
+  &:focus, &:active {
+    outline: none;
+  }
+}
+
+.personal {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #999;
+  padding-bottom: 12px;
+  .list-box {
+    background: #fff;
+    box-shadow: 1px 1px 4px #ccc;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    height: 160px;
+    padding: 10px;
+    margin-top: 18px;
+  }
+  .list-box-left {
+    float: left;
+    position: relative;
+    width: 140px;
+    overflow: hidden;
+    .head-pic {
+      height: 140px;
+      vertical-align: top;
+    }
+  }
+  h2 {
+    font-size: 16px;
+    color: #666;
+    margin: 0 0 12px 0;
+    font-weight: bold;
+  }
+  .list-box-right {
+    padding-right: 0;
+    margin-left: 150px;
+    p {
+      font-size: 12px;
+      color: #666;
+      margin: 6px 0 10px 0;
+      font-weight: bold;
+    }
+    .text {
+      border-top: 1px solid #e5e5e5;
+      padding-top: 11px;
+      font-size: 12px;
+    }
+    .location {
+      margin-bottom: 6px;
+      img {
+        width: 10px;
+      }
+      span {
+        font-size: 12px;
+        color: #666;
+        font-weight: bold;
+        margin-left: 5px;
+      }
+    }
+    .marks-btn {
+      .marks-btn-box {
+        height: 28px;
+        overflow: hidden;
+      }
+      span {
+        display: inline-block;
+        padding: 0 5px;
+        margin-right: 3%;
+        border: 1px solid #ef583f;
+        color: #ef583f;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-bottom: 3px;
+      }
+      span:nth-child(3) {
+        margin-right: 0;
+      }
+      p {
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .list-box-right {
+    h2 {
+      margin-bottom: 5px;
+    }
+    .text {
+      padding-top: 8px;
+    }
+  }
+}
+
+.team {
+  .list-box {
+    margin-top: 18px;
+  }
+  .header-pic {
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+  .header-title {
+    margin-top: 18px;
+    padding: 0 5px;
+    h2 {
+      display: inline-block;
+      font-size: 16px;
+      color: #666;
+      margin: 0;
+    }
+    .location {
+      display: inline-block;
+      float: right;
+      color: #666;
+      img {
+        width: 10px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+}
+
+/*公用样式开始*/
+.content {
+  margin-top: 16px;
+  color: #333;
+  padding: 0 5px 12px;
+  font-size: 14px;
+  line-height: 22px;
+  p {
+    text-indent: 28px;
+  }
+}
+
+.detail-header {
+  margin-top: 18px;
+  h1 {
+    display: inline-block;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+  }
+  .head-class {
+    display: inline-block;
+    background: #ef583f;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 3px;
+    border-radius: 4px;
+    margin-left: 5px;
+    vertical-align: top;
+  }
+}
+
+.form-button {
+  width: 95%;
+  font-size: 16px;
+  margin-left: 2.5%;
+  background: #333333;
+  color: #fff;
+  padding: 10px 0;
+  @include box-shadow(none);
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.btn-group {
+  width: 100%;
+  .form-button {
+    width: 45.5%;
+  }
+}
+
+.get-info-erro {
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  position: absolute;
+  background: #fff;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  p{
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+/*公用样式结束*/

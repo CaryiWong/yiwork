@@ -1,0 +1,78 @@
+BODY {
+	FONT-SIZE: 12px; MARGIN: 0px; TEXT-ALIGN: left
+}
+TD {
+	FONT-SIZE: 12px; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica,	sans-serif; ALIGN: "LEFT"
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #a7a08a; FONT-FAMILY: Verdana, Arial, Helvetica,	sans-serif; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #a7a08a; FONT-FAMILY: Verdana, Arial, Helvetica,	sans-serif; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #ff0000; FONT-FAMILY: Verdana, Arial, Helvetica,	sans-serif
+}
+.en {
+	FONT-SIZE: 12px; COLOR: #fd7509; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
+}
+.bborder {
+	BORDER-BOTTOM: #e7e7e7 1px solid
+}
+.bborder1 {
+	BORDER-BOTTOM: #fc7e02 1px solid
+}
+IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+.input {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #333333 1px solid; FONT-SIZE: 12px; PADDING-BOTTOM: 1px; BORDER-LEFT: #333333 1px solid; COLOR: #7d7d7d; PADDING-TOP: 1px; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica,	sans-serif; HEIGHT: 18px; BACKGROUND-COLOR: #f0f0ee
+}
+.pagei {
+	COLOR: #ffffff
+}
+TEXTAREA {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #333333 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #333333 1px solid; COLOR: #7d7d7d; BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-REPEAT: repeat; FONT-FAMILY: Verdana, Arial, Helvetica,	sans-serif; BACKGROUND-COLOR: #f0f0ee
+}
+.button {
+	BORDER-RIGHT: #ae0505 1px solid; BORDER-TOP: #ffffff 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ffdbc1 1px solid; COLOR: #ffffff; BORDER-BOTTOM: #ae0505 1px solid; HEIGHT: 18px; BACKGROUND-COLOR: #fc7e02
+}
+.checkbox {
+	LEFT: -4px; POSITION: relative
+}
+.tl {
+	FONT-SIZE: 14px; COLOR: #4d4d4d; FONT-FAMILY: Verdana, Arial, Helvetica,	sans-serif
+}
+.t01 {
+	FONT-SIZE: 12px; COLOR: #ffffff
+}
+.txt {
+	FONT-SIZE: 12px; COLOR: #333333; LINE-HEIGHT: 18px; LETTER-SPACING: 1px; TEXT-DECORATION: none
+}
+.input {
+	FONT-SIZE: 12px
+}
+.txt1 {
+	FONT-SIZE: 12px; COLOR: #333333; LINE-HEIGHT: 22px; LETTER-SPACING: 1px; TEXT-DECORATION: none
+}
+.jd {
+	COLOR: #ffffff; FONT-FAMILY: Webdings
+}
+.menutd {
+	BACKGROUND-COLOR: #fdb179
+}
+.menubk {
+	BACKGROUND-COLOR: #ffe1cb
+}
+.listContent {
+	BACKGROUND-COLOR: #f7f7f7
+}
+INPUT.BT_TurnNo {
+	BORDER-RIGHT: #808080 1px solid; BORDER-TOP: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; WIDTH: 16px; CURSOR: hand; COLOR: #333333; LINE-HEIGHT: 0.8; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #808080 1px solid; FONT-FAMILY: Webdings; HEIGHT: 18px
+}
+SPAN.BT_TurnNo {
+	FONT-WEIGHT: bold; CURSOR: hand
+}
+SPAN.BT_TurnNoOn {
+	FONT-WEIGHT: bold; CURSOR: default
+}

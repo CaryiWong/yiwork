@@ -1,0 +1,96 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 ltc-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>
+    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+        <!--[if IE 8]>
+        <html class="no-js lt-ie9"> <![endif]-->
+            <!--[if gt IE 8]><!-->
+            <html class="no-js"> <!--<![endif]-->
+            <head>
+                <meta charset="utf-8">
+                <title>一起开工社区</title>
+                <meta name="description" content="">
+                <meta name="viewport"
+                content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+                <link rel="stylesheet" href="styles/app.css">
+            </head>
+            <body class="spaceForm">
+                <div class="modal-header">
+                    <div class="modal-title text-center">请填写您的空间基本信息
+                    </div>
+                </div>
+                <form class="modal-form form-horizontal space-form container" novalidate>
+                    <div class="form-group">
+                        <label class="col-xs-2">姓名</label>
+                        <div class="col-xs-10">
+                            <input type="text" name="name" class="form-control valid-input"
+                            data-valid-rule="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">电话</label>
+                        <div class="col-xs-10">
+                            <input type="text" name="phone_number" class="form-control valid-input"
+                            data-valid-rule="required,phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">邮箱</label>
+                        <div class="col-xs-10">
+                            <input type="text" name="email" class="form-control valid-input"
+                            data-valid-rule="required">
+                        </div>
+                    </div>
+                    <div class="form-group hide">
+                        <label class="col-xs-2">是否“一起”会员</label>
+                        <div class="radio-area col-xs-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="is_member" value="1"> 是
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="is_member" value="0" checked> 否
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">空间名称</label>
+                        <div class="col-xs-10">
+                            <input class="form-control valid-input"
+                            name="space_name"
+                            type="text"
+                            data-valid-rule="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">空间所在城市</label>
+                        <div class="col-xs-10">
+                            <input class="form-control valid-input"
+                            name="city"
+                            type="text"
+                            data-valid-rule="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">空间简介</label>
+                        <div class="col-xs-10">
+                            <textarea class="form-control valid-input"
+                            name="space_introduction"
+                            data-valid-rule="required"
+                            cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">合作想法</label>
+                        <div class="col-xs-10">
+                            <textarea class="form-control valid-input"
+                            name="idea"
+                            data-valid-rule="required"
+                            cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <small class="form-tip">我们的社区经理将会尽快与你联系，了解您的具体需求</small>
+                    <button class="label label-black form-button">提交</button>
+                </form>
+                <script src="scripts/app.js"></script>
+            </body>

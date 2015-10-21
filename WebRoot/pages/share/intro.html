@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>一起介绍</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="/styles/share/intro.css"/>
+</head>
+
+<body>
+<div class="icon"></div>
+<div class="article">
+    <div class="article-title">一起开工社区</div>
+    <img src="/images/share/intro_07.jpg"/>
+
+    <div class="article-text">
+        &nbsp;&nbsp;一起开工社区”是一个会员制的创新型社区。它创办于2013年11月，起初以联合办公空间（co-working space）的形态落地，倡导共享协作式的办公模式。随着不断探索与调整，逐渐从单一的共享空间进化成一个协同创造与学习的线上线下社区模式（co-create & co-learning community），致力于培育一个跨界社群价值传递的可持续社区生态。
+    </div>
+    <img src="/images/share/intro_10.jpg"/>
+    <img src="/images/share/intro_11.jpg"/>
+
+    <div class="article-text">
+        “一起”倡导开放、共享、协作、创新的价值理念，面向独立思考、拥抱变化、具有创新思维、并渴望探寻自我价值的你，打造一个充满灵感、跨界多元、平等开放的共用空间与协作互助社区，立志成为活跃的社会创新创业发生地与加速引擎，推动创新与积极改变的发生。
+    </div>
+    <div class="article-text">截止至2015年1月，“一起”社区有来自12个国家94个城市的1390名会员，会员间不仅在线下创新空间交流合作，更可以通过我们的线上社区App跨地区、零时差、无障碍交流合作。
+    </div>
+    <button id="button" class="button">下载APP</button>
+</div>
+<div id="mask" class="mask">
+    <div class="mask-text">请点击右上角，选择
+        <br/>“在浏览器中打开”，进行下载
+        </div>
+</div>
+<script type="text/javascript">
+    function isWeiXin() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        return (new RegExp(/micromessenger/i)).test(ua);
+    }
+    function getDevice() {
+        var ua = window.navigator.userAgent.toLowerCase(),
+            result = '';
+        if (/android/.test(ua)) {
+            result = 'android';
+        } else if (/iphone|ipad/.test(ua)) {
+            result = 'ios';
+        }
+        return result;
+    }
+    var device = getDevice();
+    document.getElementById('button').addEventListener('click', function () {
+        if(isWeiXin()){
+            document.getElementById('mask').style.display = 'block';
+        } else {
+            if (device === 'ios') {
+                window.open('itms-services://?action=download-manifest&url=https://fir.im/api/v2/app/install/54ffa600ccd98272040009ce/e30');
+            } else if (device === 'android') {
+                window.open('http://www.yi-gather.com/Yigather_2.0.apk');
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+@import "compass/css3";
+
+.page {
+    position: relative;
+
+    .page-describe {
+        width: 90%;
+        min-height: 30%;
+        font-size: 14px;
+        margin: 5px auto;
+
+        textarea {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .page-image {
+        width: 100%;
+        height: 50%;
+        border: 1px #ccc dashed;
+        text-align: center;
+        line-height: 80px;
+        font-size: 24px;
+        color: #999;
+        position: relative;
+
+        @at-root {
+            .page-article .page-image {
+                height: 250px;
+            }
+        }
+
+        &.active {
+            border: 0;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+        }
+
+        input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            opacity: 0;
+        }
+
+        &.image-sm {
+            height: 30%;
+        }
+
+        &.image-full {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: 1;
+        }
+    }
+
+    .page-guests {
+        height: 100%;
+        width: auto;
+        display: -webkit-box;
+
+        &:after {
+            content: '';
+            height: 0;
+            visibility: hidden;
+            clear: both;
+            display: block;
+        }
+
+        .page-guest {
+            width: 100%;
+            height: 100%;
+            @include box-sizing('border-box');
+
+            .page-image {
+                width: 100%;
+                height: 80%;
+                max-height: 300px;
+            }
+        }
+    }
+
+    .page-form {
+        width: 80%;
+        margin: 30px auto 0 auto;
+
+        textarea {
+            height: 90px;
+        }
+    }
+
+    .page-checkboxes {
+        .page-checkboxes-area {
+            .page-checkbox-add {
+
+            }
+
+            .page-checkbox-remove {
+
+            }
+        }
+    }
+
+    .page-radios{
+
+    }
+
+    .inline-text {
+        div {
+            display: inline;
+        }
+    }
+
+    .zIndex {
+        position: relative;
+
+        &.top {
+            z-index: 99;
+        }
+    }
+
+}

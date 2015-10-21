@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <form class="col-xs-12 edit-form">
+            <div class="form-group">
+                <label>文章标题</label>
+                <input type="text" ng-model="article.title"
+                       class="form-control" placeholder="文章标题" name="title">
+            </div>
+            <div class="form-group">
+                <label>Url</label>
+                <input type="text" ng-model="article.url"
+                       class="form-control" readonly name="url">
+            </div>
+            <div class="form-group">
+                <summernote
+                    ng-model="article.htmlcode"
+                    editor="article.editor"
+                    on-image-upload="imageUpLoad(files)"
+                    lang="zh-CN"></summernote>
+            </div>
+        </form>
+        <button save-button data-article="article"
+            class="btn btn-primary col-xs-2 col-xs-offset-5 ">保存</button>
+    </div>
+</div>

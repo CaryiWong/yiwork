@@ -1,0 +1,164 @@
+@import "compass/css3";
+@import "../../modules/reset";
+@import "../../modules/public";
+@import "../../modules/yiqi_icon";
+@import "../../modules/ui";
+@import "../../components/datepicker/classic";
+@import "../../modules/apply";
+
+.valid-error-input{
+    @include transition(background .5s ease);
+    background: rgba(247, 109, 48, .1);
+}
+
+.apply-form-member {
+    margin-top: 20px;
+
+    input[type="text"],textarea{
+        -webkit-appearance: none;
+        border-radius: 0;
+    }
+
+    .form-control {
+
+        &.name {
+            .valid-error {
+                top: 35px;
+                right: -140px;
+            }
+        }
+
+        &.email {
+            .valid-error {
+                top: 35px;
+                right: -140px;
+            }
+        }
+
+        &.sex,
+        &.phone {
+            margin: 0 0 0 50px;
+            width: 250px;
+
+            .form-control-label {
+                width: 37px;
+            }
+
+            .form-control-tip {
+                color: #f00;
+                float: right;
+                margin-top: -16px;
+            }
+        }
+
+        &.sex {
+            .form-control-customSelect {
+                width: 90px;
+            }
+        }
+
+        &.job {
+            .form-control-customSelect {
+                width: 48%;
+            }
+        }
+
+        &.work,
+        &.activityType,
+        &.activityFrequency {
+            .form-control-customSelect {
+                width: 60%;
+            }
+        }
+
+        &.together,
+        &.channel {
+            .form-control-customSelect {
+                width: 40%;
+            }
+        }
+
+        &.deal {
+            .valid-error {
+                top: 0;
+            }
+        }
+
+        .picker {
+            width: 150%;
+        }
+    }
+
+    .valid-error {
+        width: 200px;
+        position: absolute;
+        right: -210px;
+        text-align: left;
+        top: 9px;
+    }
+
+    .form-control-area{
+        .form-control-buttonGroup{
+            .form-button-submit{
+                font-size: 14px;
+                padding: 10px 0;
+            }
+        }
+    }
+}
+
+
+
+@media all and (max-width: 720px) {
+
+    .apply-form-member {
+        .valid-error {
+            position: static;
+            display: inline-block;
+            padding: 5px 0 0;
+        }
+
+        .phone .form-control-tip {
+            margin-top: -20px;
+        }
+
+        .form-control .picker {
+            width: 100%;
+        }
+
+        .form-control {
+            &.sex,
+            &.phone {
+                margin-left: 0;
+                width: 100%;
+
+                .form-control-label {
+                    width: 100%;
+                }
+            }
+
+            &.location {
+                .form-control-customSelect {
+                    width: 40%;
+                    display: inline-block;
+                }
+            }
+
+            &.job {
+                .form-control-customSelect {
+                    width: 100%;
+                    display: block;
+                    margin-bottom: 5px;
+                }
+
+                .valid-error{
+                    position: absolute;
+                    right: 50px;
+                    top: 5px;
+                    width: auto;
+                }
+            }
+        }
+
+    }
+}

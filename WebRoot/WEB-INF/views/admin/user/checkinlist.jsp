@@ -1,0 +1,172 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="/res/common/taglib.jsp"%>
+
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>在线列表</title>
+    <link rel="stylesheet" href="<%=basePath%>res/styles/bootstrap.css"/>
+    <link rel="stylesheet" href="<%=basePath%>res/styles/public.css"/>
+</head>
+
+
+<body>
+        <div class="row row-flow">
+            <div class="col-xs-12 member-list">
+                <div id="search-condition" class="panel panel-primary search">
+                <form id="mainForm" name="mainForm" action="<%=basePath %>admin/user/checkinlist" method="post">
+                    <a class="panel-heading" data-toggle="collapse" data-parent="#search-condition" href="#collapseSearch">
+                        查询条件
+                        <i class="pull-right glyphicon glyphicon-list"></i>
+                    </a>
+                    <div class="panel-body collapse" id="collapseSearch">
+                        <div class="search-otherGroup form-inline col-xs-12">
+                            <div class="form-group">
+                                    <input type="email" class="form-control input-sm" placeholder="会员号">
+                            </div>
+                            <div class="form-group ">
+                                    <select class="form-control input-sm">
+                                        <option value="">资费</option>
+                                    </select>
+                            </div>
+                            <div class="form-group ">
+                                    <select class="form-control input-sm">
+                                        <option value="">性别</option>
+                                        <option value="">男</option>
+                                        <option value="">女</option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                    <input type="email" class="form-control input-sm" placeholder="关键字">
+                            </div>
+                            <button type="submit" class=" btn btn-default btn-primary">查询</button>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered table-striped member-table">
+                    <thead>
+                    <tr>
+                        <th>会员号</th>
+                        <th>昵称</th>
+                        <th>性别</th>
+                        <th>职业</th>
+                        <th>签到时间</th>
+                        <th>签出</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td><a href="#">Otto</a></td>
+                        <td>男</td>
+                        <td>大地主</td>
+                        <td>2014-03-12 11:32:90</td>
+                        <td>
+                            <input class="" type="text"/> <a href="#" class="btn-link">签出</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td><a href="#">Otto</a></td>
+                        <td>男</td>
+                        <td>大地主</td>
+                        <td>2014-03-12 11:32:90</td>
+                        <td>
+                            <input class="" type="text"/> <a href="#" class="btn-link">签出</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td><a href="#">Otto</a></td>
+                        <td>男</td>
+                        <td>大地主</td>
+                        <td>2014-03-12 11:32:90</td>
+                        <td>
+                            <input class="" type="text"/> <a href="#" class="btn-link">签出</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td><a href="#">Otto</a></td>
+                        <td>男</td>
+                        <td>大地主</td>
+                        <td>2014-03-12 11:32:90</td>
+                        <td>
+                            <input class="" type="text"/> <a href="#" class="btn-link">签出</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td><a href="#">Otto</a></td>
+                        <td>男</td>
+                        <td>大地主</td>
+                        <td>2014-03-12 11:32:90</td>
+                        <td>
+                            <input class="" type="text"/> <a href="#" class="btn-link">签出</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td><a href="#">Otto</a></td>
+                        <td>男</td>
+                        <td>大地主</td>
+                        <td>2014-03-12 11:32:90</td>
+                        <td>
+                            <input class="" type="text"/> <a href="#" class="btn-link">签出</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td><a href="#">Otto</a></td>
+                        <td>男</td>
+                        <td>大地主</td>
+                        <td>2014-03-12 11:32:90</td>
+                        <td>
+                            <input class="" type="text"/> <a href="#" class="btn-link">签出</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td><a href="#">Otto</a></td>
+                        <td>男</td>
+                        <td>大地主</td>
+                        <td>2014-03-12 11:32:90</td>
+                        <td>
+                            <input class="" type="text"/> <a href="#" class="btn-link">签出</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td><a href="#">Otto</a></td>
+                        <td>男</td>
+                        <td>大地主</td>
+                        <td>2014-03-12 11:32:90</td>
+                        <td>
+                            <input class="" type="text"/> <a href="#" class="btn-link">签出</a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <ul class="pagination">
+                        <li><a href="#">&lt;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li class="active"><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    <script type="text/javascript" src="<%=basePath%>res/scripts/jquery.js"></script>
+    <script type="text/javascript" src="<%=basePath%>res/scripts/bootstrap.js"></script>
+</body>
+</html>

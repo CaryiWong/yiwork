@@ -1,0 +1,7 @@
+.menubg{margin: 0 0 0 0; height:68px; background: no-repeat url('images/topbg_01.png');}
+.menu_quanzi1{margin: 3px 0 0 333px; height: 61px; width: 94px; background-image: url('images/quanzi1.png'); float: left; cursor: pointer;}
+.menu_quanzi2{margin: 3px 0 0 333px; height: 61px; width: 94px; background-image: url('images/quanzi2.png'); float: left; cursor: pointer;}
+.menu_bowen1{margin: 3px 0 0 0; height: 61px; width: 94px; background-image: url('images/bowen1.png'); float: left; cursor: pointer;}
+.menu_bowen2{margin: 3px 0 0 0; height: 61px; width: 94px; background-image: url('images/bowen2.png'); float: left; cursor: pointer;}
+.menu_text{line-height: 68px; cursor: pointer; margin: 0 5px 0 5px; float: right;}
+.menu_select1{width: 212px; height: 36px; margin: 0 0 0 0; padding:0 0 0 10px; border: 0px; background: no-repeat url("images/sousuo1.png");}

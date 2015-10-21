@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>登录1</title>
+    <!--[if lte IE 8]>
+    <script type="text/javascript" src="../scripts/components/html5/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../styles/public/reset.css"/>
+    <link rel="stylesheet" href="../styles/public/public.css"/>
+    
+    <script type="text/javascript" src="../scripts/public/plug_login.js"></script>
+    <style type="text/css">
+        .login {
+            width: 400px;
+            position: relative;
+        }
+
+        .login-formArea {
+            background-color: #dfdfdf;
+            padding: 25px 20px 0 20px;
+        }
+
+        .login-close {
+            cursor: pointer;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e14338;
+            top: -20px;
+            right: -20px;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            font-size: 24px;
+        }
+
+        .login-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .login-form {
+            padding: 5px 0 0;
+        }
+
+        .form-control {
+            padding: 8px 0;
+        }
+
+        .form-control.buttonGroup {
+            padding: 15px 0 25px;
+        }
+
+        .form-control-text {
+            width: 100%;
+            height: 45px;
+            font-size: 14px;
+        }
+
+        .form-control-checkbox {
+            font-size: 14px;
+        }
+
+        .form-control-checkbox input {
+            width: 14px;
+            height: 14px;
+            margin: 0 3px 0 0;
+        }
+
+        .login-forget {
+            font-size: 14px;
+            color: #4a50df;
+        }
+
+        .form-button {
+            width: 48%;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+        }
+
+        .login-other {
+            background-color: #cecece;
+            border-top: 1px solid #b4b4b4;
+            padding: 10px 20px;
+        }
+
+        .login-other-text {
+            font-size: 14px;
+            color: #666;
+            padding: 12px 0 0;
+        }
+
+        .other-list {
+            vertical-align: middle;
+        }
+
+        .other-list-item {
+            float: left;
+            padding: 0 8px;
+        }
+
+        .other-item-link {
+            display: block;
+            color: #626262;
+            font-size: 32px;
+        }
+
+        .other-item-link:hover {
+            text-decoration: none;
+            color: #74a713;
+        }
+    </style>
+
+</head>
+<body>
+<div class="login">
+    <div class="login-close"><i class="yiqi-icon-close"></i></div>
+    <div class="login-formArea">
+        <div class="login-title">登录</div>
+        <form class="login-form">
+            <div class="form-control">
+                <input id="login_userName" class="form-control-text text" type="text" placeholder="用户名/邮箱"/>
+            </div>
+            <div class="form-control">
+                <input id="login_pwd" class="form-control-text text" type="password" placeholder="密码"/>
+            </div>
+            <div class="form-control clearfix">
+                <label class="form-control-checkbox fl">
+                    <input type="checkbox"/> 记住我
+                </label>
+                <a class="login-forget fr" href="#">忘记密码</a>
+            </div>
+            <div class="form-control buttonGroup clearfix">
+                <a href="#" class="button gray form-button fl">注册</a>
+                <a href="#" id="index_login" class="button form-button fr">登录</a>
+            </div>
+        </form>
+    </div>
+    <div class="login-other clearfix">
+        <div class="login-other-text fl">用其他账号登录</div>
+        <ul class="other-list fr">
+            <li class="other-list-item">
+                <a class="other-item-link" href="#">
+                    <i class="yiqi-icon-sina"></i>
+                </a></li>
+            <li class="other-list-item">
+                <a class="other-item-link" href="#">
+                    <i class="yiqi-icon-douban"></i>
+                </a></li>
+            <li class="other-list-item">
+                <a class="other-item-link" href="#">
+                    <i class="yiqi-icon-renren"></i>
+                </a></li>
+            <li class="other-list-item">
+                <a class="other-item-link" href="#">
+                    <i class="yiqi-icon-qq"></i>
+                </a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

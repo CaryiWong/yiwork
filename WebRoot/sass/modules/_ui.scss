@@ -1,0 +1,257 @@
+@import "compass/css3";
+
+/*      valid       */
+.valid-error {
+    color: #f76d30;
+}
+
+/*      input      */
+.button {
+    border: 0;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    line-height: 150%;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &.green {
+        background: #96ca00;
+    }
+
+    &.gray {
+        background-color: #bbb;
+    }
+
+    &.black {
+        background-color: #333;
+    }
+
+}
+
+.button-link {
+    border: 0;
+    background: transparent;
+    color: #358ced;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.button-icon {
+    border: 0;
+    background: transparent;
+}
+
+.text {
+    border: 1px solid #dcdcdc;
+    text-indent: 10px;
+    padding: 0;
+
+    &:focus {
+        border-color: #7fb715;
+        box-shadow: 0 0 5px 1px #7fb715;
+        outline: 0;
+    }
+
+    &[readonly] {
+        color: #999;
+        cursor: not-allowed;
+    }
+}
+
+.textarea {
+    border: 1px solid #dcdcdc;
+    padding: 5px;
+}
+
+.form-control-label-required {
+    color: #f00;
+}
+
+.form-control-space {
+    padding: 0 3px;
+}
+
+/*      customUI        */
+/*      customUI-checkbox        */
+.form-control-customCheckbox {
+    display: inline-block;
+    text-align: center;
+    line-height: 150%;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid transparent;
+    @include transition(color, background-color .2s linear);
+
+    &.disabled {
+        background: #bbb;
+        color: #fff;
+
+        &:hover {
+            border: 1px solid transparent;
+        }
+    }
+
+    & .form-control-customCheckbox-label {
+        cursor: pointer;
+
+        & i {
+            font-size: 18px;
+        }
+    }
+
+    &:hover {
+        border: 1px solid #96c900;
+        background: #fff;
+        color: #333;
+    }
+
+    &.active {
+        background: #333;
+        color: #fff;
+
+        &:hover {
+            border: 1px solid #333;
+        }
+    }
+
+    &.black {
+        background: #333;
+        color: #fff;
+    }
+
+    & .form-control-checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        @include opacity(0);
+        padding: 0;
+    }
+
+}
+
+/*      customUI-select     */
+.form-control-customSelect {
+    border: 1px solid #dcdcdc;
+    position: relative;
+    display: inline-block;
+    height: 38px;
+    background: #fff;
+
+    .form-control-customSelect-button {
+        position: absolute;
+        right: -1px;
+        height: 100%;
+        border: 1px solid #dcdcdc;
+        width: 40px;
+        top: -1px;
+        background: #fff;
+        z-index: 4;
+    }
+
+    .form-control-customSelect-arrows {
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-top-color: #9b9b9b;
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        top: 50%;
+        margin-top: -5px;
+    }
+
+    & select {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+
+        .lt-ie9 & {
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        }
+    }
+
+    .form-control-customSelect-value {
+        position: absolute;
+        line-height: 38px;
+        padding: 0 0 0 5px;
+    }
+}
+
+/*      image-preview       */
+.image-preview-area {
+    position: relative;
+
+    .image-preview-remove {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background: rgba(0, 0, 0, .8);
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+
+        & i {
+            color: #fff;
+            display: block;
+            margin: 10px auto 0 auto;
+        }
+    }
+}
+
+/*      confirm     */
+/*      confirm-dialog        */
+.confirm-dialog {
+    width: 400px;
+    line-height: 20px;
+    background: #fff;
+
+    .confirm-dialog-text {
+        padding: 25px 5px;
+        text-align: center;
+        display: block;
+    }
+
+    .confirm-dialog-buttonGroup {
+        text-align: center;
+        padding-bottom: 25px;
+        width: 100%;
+
+        .confirm-dialog-button {
+            width: 80px;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .confirm-button-sure {
+            margin: 0 0 0 20px;
+        }
+    }
+}

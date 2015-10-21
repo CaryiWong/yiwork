@@ -1,0 +1,65 @@
+.logo_input {
+    border: 1px solid #DBDBDB;
+    border-radius: 3px 3px 3px 3px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    margin-bottom: 3px;
+    overflow: visible;
+    padding: 12px 10px 11px 43px;
+    width: 320px;
+    background: url("../../images/input box_normal.png");
+}
+
+
+input.logo_input:focus {
+    border: 1px solid #DBDBDB;
+    border-radius: 3px 3px 3px 3px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    margin-bottom: 3px;
+    overflow: visible;
+    padding: 12px 10px 11px 43px;
+    width: 320px;
+    background: url("../../images/input_box_click.png");
+}
+
+
+
+.third_back
+{
+	height:60px;
+    width:410px; 
+	padding:10px 0 0 0px; 
+	margin:10px 0 0 0;
+	border:0px solid red; 
+	backgroud-color:gray;
+	filter£ºalpha(opacity=80)
+}
+
+.font
+{
+	font-family:Î¢ÈíÑÅºÚ
+}
+
+a:link { 
+color:#33FFFF; 
+text-decoration:none; 
+} 
+a:visited { 
+color:#00FF00; 
+text-decoration:none; 
+} 
+a:hover { 
+color:#000000; 
+text-decoration:none; 
+} 
+a:active { 
+color:#FFFFFF; 
+text-decoration:none; 
+} 
+
+.text_error
+{
+ color: red;
+ ba
+}

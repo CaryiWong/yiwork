@@ -1,0 +1,51 @@
+.homeArea{
+    text-align: center;
+    background: #333;
+    color: #fff;
+
+    .home-text{
+        padding: 100px 80px;
+        font-size: 18px;
+    }
+
+    .home-links{
+        .home-link{
+            display: inline-block;
+            width: 240px;
+            color: #fff;
+            padding: 125px 0;
+            box-shadow: 0 2px 5px #000;
+
+            &:hover{
+                text-decoration: none;
+            }
+
+            &:first-child{
+                margin-right: 160px;
+            }
+
+            &.home-link-article{
+                background: #ef593e;
+            }
+
+            &.home-link-interact{
+                background: #f4bc0d;
+            }
+
+            .home-link-text{
+                font-size: 60px;
+                font-weight: bold;
+            }
+
+            .home-link-desc{
+                font-size: 27px;
+                padding: 20px 0 0;
+            }
+
+            div[class^="icons"]{
+                margin: 0 auto;
+            }
+        }
+    }
+
+}

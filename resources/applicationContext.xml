@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                    http://www.springframework.org/schema/tx 
+                    http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+                    http://www.springframework.org/schema/aop 
+                    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                    http://www.springframework.org/schema/context      
+                    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                    http://www.springframework.org/schema/data/jpa
+                    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+                    http://www.springframework.org/schema/task
+                    http://www.springframework.org/schema/task/spring-task-4.0.xsd" default-lazy-init="true">
+
+	<!-- 定义受环境影响易变的变量 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:db.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 不扫描带有@Controller注解的类。因为这些类已经随容器启动时，在spring-servlet中扫描过一遍了 -->
+	<context:annotation-config/>
+    <!-- <context:component-scan base-package="cn.yi.gather.v11">
+    </context:component-scan> -->
+    <context:component-scan base-package="cn.yi.gather.v20">
+    </context:component-scan>
+    <context:component-scan base-package="cn.yi.gather.v22.yg100">
+    </context:component-scan>
+    
+    <!-- 配置c3p0数据源 v11-->
+	<!-- <bean name="dataSourceV11" id="dataSourceV11" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${db.driver}" />
+		<property name="jdbcUrl" value="${mysql.url.v11}" />
+		<property name="user" value="${mysql.username.v11}" />
+		<property name="password" value="${mysql.password.v11}" />
+		<property name="minPoolSize" value="${c3p0.minPoolSize}" />
+		<property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+		<property name="initialPoolSize" value="${c3p0.initialPoolSize}" />
+		<property name="maxIdleTime" value="${c3p0.maxIdleTime}"/>
+		<property name="acquireIncrement" value="${c3p0.acquireIncrement}"/>
+		<property name="idleConnectionTestPeriod" value="${c3p0.idleConnectionTestPeriod}"/>
+		<property name="automaticTestTable" value="${c3p0.automaticTestTable}"></property>
+	</bean> -->
+    
+    <!-- 配置c3p0数据源 v20-->
+	<bean name="dataSourceV20" id="dataSourceV20" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${db.driver}" />
+		<property name="jdbcUrl" value="${mysql.url.v20}" />
+		<property name="user" value="${mysql.username.v20}" />
+		<property name="password" value="${mysql.password.v20}" />
+		<property name="minPoolSize" value="${c3p0.minPoolSize}" />
+		<property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+		<property name="initialPoolSize" value="${c3p0.initialPoolSize}" />
+		<property name="maxIdleTime" value="${c3p0.maxIdleTime}"/>
+		<property name="acquireIncrement" value="${c3p0.acquireIncrement}"/>
+		<property name="idleConnectionTestPeriod" value="${c3p0.idleConnectionTestPeriod}"/>
+		<property name="automaticTestTable" value="${c3p0.automaticTestTable}"/>
+	</bean>
+	
+	<!-- JPA实体管理工厂的配置 v11-->  
+    <!-- <bean id="entityManagerFactoryV11" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">   
+        <property name="dataSource" ref="dataSourceV11"/>  
+        <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>  
+        <property name="persistenceProvider">
+            <bean class="org.hibernate.jpa.HibernatePersistenceProvider"/>
+        </property>
+        <property name="packagesToScan">
+        	<list>
+        		<value>cn.yi.gather.v11.entity</value>
+        	</list>
+        </property>
+        <property name="jpaPropertyMap">
+            <map>
+            	<entry key="hibernate.autoReconnect" value="true"/>
+                <entry key="hibernate.query.substitutions" value="true 1, false 0"/>
+                <entry key="hibernate.default_batch_fetch_size" value="50"/>
+                <entry key="hibernate.max_fetch_depth" value="2"/>
+                <entry key="hibernate.generate_statistics" value="true"/>
+                <entry key="hibernate.bytecode.use_reflection_optimizer" value="true"/>
+                <entry key="hibernate.cache.use_second_level_cache" value="false"/>
+                <entry key="hibernate.cache.use_query_cache" value="false"/>
+                <entry key="hibernate.show_sql" value="true"/>
+                <entry key="hibernate.format_sql" value="true"/>
+                <entry key="hibernate.hbm2ddl.auto" value="update"/>
+                <entry key="hibernate.ejb.entitymanager_factory_name" value="entityManagerFactoryV11"/>
+            </map>
+        </property>
+    </bean> -->
+	
+	<!-- JPA实体管理工厂的配置 v20-->  
+    <bean id="entityManagerFactoryV20" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">   
+        <property name="dataSource" ref="dataSourceV20"/>  
+        <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>  
+        <property name="persistenceProvider">
+            <bean class="org.hibernate.jpa.HibernatePersistenceProvider"/>
+        </property>
+        <property name="packagesToScan">
+        	<list>
+        		<value>cn.yi.gather.v20.entity</value>
+        		<value>cn.yi.gather.v20.editor.entity</value> 		
+        		<value>cn.yi.gather.v20.permission.entity</value>
+        	    <value>cn.yi.gather.v22.yg100.entity</value>
+        	</list>
+        </property>
+        <property name="jpaPropertyMap">
+            <map>
+            	<entry key="hibernate.autoReconnect" value="true"/>
+                <entry key="hibernate.query.substitutions" value="true 1, false 0"/>
+                <entry key="hibernate.default_batch_fetch_size" value="50"/>
+                <entry key="hibernate.max_fetch_depth" value="2"/>
+                <entry key="hibernate.generate_statistics" value="true"/>
+                <entry key="hibernate.bytecode.use_reflection_optimizer" value="true"/>
+                <!-- <entry key="hibernate.cache.use_second_level_cache" value="false"/>
+                <entry key="hibernate.cache.use_query_cache" value="false"/> -->
+                <entry key="hibernate.show_sql" value="true"/>
+                <entry key="hibernate.format_sql" value="false"/>
+                <entry key="hibernate.hbm2ddl.auto" value="update"/>
+                <entry key="hibernate.ejb.entitymanager_factory_name" value="entityManagerFactoryV20"/>
+            </map>
+        </property>
+    </bean>
+	
+	<!--指定实现JPA的适配器-->  
+    <bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">  
+        <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />  
+    </bean> 
+    
+    <!-- Jpa 事务配置 v11-->  
+    <!-- <bean id="transactionManagerV11" class="org.springframework.orm.jpa.JpaTransactionManager">  
+        <property name="entityManagerFactory" ref="entityManagerFactoryV11"/>  
+    </bean> -->
+    
+    <!-- Jpa 事务配置 v20-->  
+    <bean id="transactionManagerV20" class="org.springframework.orm.jpa.JpaTransactionManager">  
+        <property name="entityManagerFactory" ref="entityManagerFactoryV20"/>  
+    </bean> 
+    
+    <!-- 使用annotation定义事务 -->  
+    <!-- <tx:annotation-driven transaction-manager="transactionManagerV11" proxy-target-class="true"/>  -->
+    
+    <!-- 使用annotation定义事务 -->  
+    <tx:annotation-driven transaction-manager="transactionManagerV20" proxy-target-class="true"/> 
+    
+    <!-- <jpa:repositories 
+            base-package="cn.yi.gather.v11.dao" 
+            repository-impl-postfix="Repository" 
+            entity-manager-factory-ref="entityManagerFactoryV11" 
+            transaction-manager-ref="transactionManagerV11"> 
+    </jpa:repositories> -->
+    
+	<jpa:repositories 
+            base-package="cn.yi.gather.v20.dao" 
+            repository-impl-postfix="Repository" 
+            entity-manager-factory-ref="entityManagerFactoryV20" 
+            transaction-manager-ref="transactionManagerV20"> 
+    </jpa:repositories>
+    <jpa:repositories 
+            base-package="cn.yi.gather.v22.yg100.dao" 
+            repository-impl-postfix="Repository" 
+            entity-manager-factory-ref="entityManagerFactoryV20" 
+            transaction-manager-ref="transactionManagerV20"> 
+    </jpa:repositories>
+    <jpa:repositories 
+            base-package="cn.yi.gather.v20.editor.dao" 
+            repository-impl-postfix="Repository" 
+            entity-manager-factory-ref="entityManagerFactoryV20" 
+            transaction-manager-ref="transactionManagerV20"> 
+    </jpa:repositories>
+    
+     <jpa:repositories 
+            base-package="cn.yi.gather.v20.permission.dao" 
+            repository-impl-postfix="Repository" 
+            entity-manager-factory-ref="entityManagerFactoryV20" 
+            transaction-manager-ref="transactionManagerV20"> 
+    </jpa:repositories>
+    
+	<!-- quartz 定时任务
+	<task:scheduled-tasks>
+        <task:scheduled ref="crontab" method="doJob" cron="0 * * * * ?"/>   
+    </task:scheduled-tasks>
+     -->
+</beans>

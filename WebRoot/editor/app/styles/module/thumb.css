@@ -1,0 +1,130 @@
+/* line 152, ../../../thumbs/*.png */
+.thumbs-sprite, .thumbs-article-g1, .thumbs-article-normal, .thumbs-article-t1, .thumbs-article-title, .thumbs-de1, .thumbs-de2, .thumbs-de3, .thumbs-interacgt-stat, .thumbs-interact-checkbox, .thumbs-interact-g1, .thumbs-interact-radio, .thumbs-interact-t1, .thumbs-interact-t2, .thumbs-interact-text, .thumbs-article-de1,
+.thumbs-interact-de1, .thumbs-article-de2,
+.thumbs-interact-de2, .thumbs-article-de3,
+.thumbs-interact-de3 {
+  background-image: url('/images/thumbs-s9928e69971.png');
+  background-repeat: no-repeat;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-article-g1 {
+  background-position: 0 -342px;
+  height: 156px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-article-normal {
+  background-position: 0 -710px;
+  height: 282px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-article-t1 {
+  background-position: 0 -1962px;
+  height: 349px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-article-title {
+  background-position: 0 -498px;
+  height: 212px;
+  width: 150px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-de1 {
+  background-position: 0 -1314px;
+  height: 322px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-de2 {
+  background-position: 0 -992px;
+  height: 322px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-de3 {
+  background-position: 0 -3011px;
+  height: 397px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-interacgt-stat {
+  background-position: 0 -231px;
+  height: 111px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-interact-checkbox {
+  background-position: 0 -154px;
+  height: 77px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-interact-g1 {
+  background-position: 0 -1636px;
+  height: 326px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-interact-radio {
+  background-position: 0 -77px;
+  height: 77px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-interact-t1 {
+  background-position: 0 -2311px;
+  height: 350px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-interact-t2 {
+  background-position: 0 -2661px;
+  height: 350px;
+  width: 200px;
+}
+
+/* line 84, /Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.thumbs-interact-text {
+  background-position: 0 0;
+  height: 77px;
+  width: 200px;
+}
+
+/* line 8, ../../sass/module/thumb.scss */
+.thumbs-article-de1,
+.thumbs-interact-de1 {
+  background-position: 0 -1314px;
+  height: 322px;
+  width: 200px;
+}
+
+/* line 13, ../../sass/module/thumb.scss */
+.thumbs-article-de2,
+.thumbs-interact-de2 {
+  background-position: 0 -992px;
+  height: 322px;
+  width: 200px;
+}
+
+/* line 18, ../../sass/module/thumb.scss */
+.thumbs-article-de3,
+.thumbs-interact-de3 {
+  background-position: 0 -3011px;
+  height: 397px;
+  width: 200px;
+}

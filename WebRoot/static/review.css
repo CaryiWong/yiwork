@@ -1,0 +1,38 @@
+body {
+    max-width: 100%;
+}
+
+img, embed, p, div, iframe, strong {
+    width: 100% !important;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+iframe {
+    border: 0;
+    height: 400px;
+}
+
+@media all and (max-width: 580px) {
+    iframe {
+        height: 200px;
+    }
+}
+
+.tencentVideo{
+    position: relative;
+    text-align: center;
+}
+
+.tencentVideo span{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 30px solid transparent;
+    border-left-color: #fff;
+    top: 50%;
+    margin-top: -15px;
+    left: 50%;
+    margin-left: -15px;
+    display: block;
+}

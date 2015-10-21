@@ -1,0 +1,284 @@
+{
+    "cord": 0,
+    "data": {
+        "childtemplates": [
+            {
+                "childtemplates": [
+                    {
+                        "childtemplates": [],
+                        "createtime": "2014-11-18 15:28:02",
+                        "ename": "indexTemp",
+                        "id": "temp1416295682494",
+                        "options": [
+                            {
+                                "ename": "indextitle",
+                                "id": "option1416295144152",
+                                "options": "",
+                                "optionslist": [],
+                                "optiontype": "text",
+                                "zname": "首页标题"
+                            },
+                            {
+                                "ename": "indextitle1",
+                                "id": "option1417057932536",
+                                "options": "",
+                                "optionslist": [],
+                                "optiontype": "text",
+                                "zname": "首页标题1"
+                            },
+                            {
+                                "ename": "indeximg",
+                                "id": "option1417057964158",
+                                "options": "",
+                                "optionslist": [],
+                                "optiontype": "text",
+                                "zname": "首页标题图片"
+                            }
+                        ],
+                        "optionsstor": "option1416295144152,option1417057932536,option1417057964158",
+                        "optionszdysx": "<h1 class='text-center' editable-text='basic.title'></h1>,<h2 class='text-center' editable-text='page.texts[0]'></h2>,<div class='page-image' editable-image='page.images[0]'></div>",
+                        "optionszdysxlist": [
+                            "<h1 class='text-center' editable-text='basic.title'></h1>",
+                            "<h2 class='text-center' editable-text='page.texts[0]'></h2>",
+                            "<div class='page-image' editable-image='page.images[0]'></div>"
+                        ],
+                        "pid": "temp1417076291670",
+                        "templatenum": 1,
+                        "tempsx": "shouyemoban",
+                        "zname": "首页模版"
+                    }
+                ],
+                "createtime": "2014-11-27 16:18:11",
+                "ename": "indexTempType",
+                "id": "temp1417076291670",
+                "options": [],
+                "optionsstor": "",
+                "optionszdysx": "首页模版分类",
+                "optionszdysxlist": [
+                    "首页模版分类"
+                ],
+                "pid": "temp1416295646602",
+                "templatenum": 1,
+                "tempsx": "首页模版分类",
+                "zname": "首页模版分类"
+            },
+            {
+                "childtemplates": [],
+                "createtime": "2014-11-18 15:29:49",
+                "ename": "picAndTextTemp",
+                "id": "temp1416295789013",
+                "options": [
+                    {
+                        "ename": "imginstructions",
+                        "id": "option1416295181880",
+                        "options": "",
+                        "optionslist": [],
+                        "optiontype": "text",
+                        "zname": "图文介绍"
+                    }
+                ],
+                "optionsstor": "option1416295181880",
+                "optionszdysx": "自定义属性(待填)",
+                "optionszdysxlist": [
+                    "自定义属性(待填)"
+                ],
+                "pid": "temp1416295646602",
+                "templatenum": 2,
+                "tempsx": "tuwenmoban",
+                "zname": "图文介绍"
+            },
+            {
+                "childtemplates": [],
+                "createtime": "2014-11-18 15:32:21",
+                "ename": "detialTemp",
+                "id": "temp1416295941434",
+                "options": [
+                    {
+                        "ename": "opendate",
+                        "id": "option1416295206506",
+                        "options": "",
+                        "optionslist": [],
+                        "optiontype": "date",
+                        "zname": "开始时间"
+                    },
+                    {
+                        "ename": "location",
+                        "id": "option1416295228599",
+                        "options": "广州,北京,上海",
+                        "optionslist": [
+                            "广州",
+                            "北京",
+                            "上海"
+                        ],
+                        "optiontype": "select",
+                        "zname": "活动地点"
+                    },
+                    {
+                        "ename": "tel",
+                        "id": "option1416295271572",
+                        "options": "",
+                        "optionslist": [],
+                        "optiontype": "text",
+                        "zname": "联系电话"
+                    },
+                    {
+                        "ename": "enddate",
+                        "id": "option1416295356709",
+                        "options": "",
+                        "optionslist": [],
+                        "optiontype": "date",
+                        "zname": "结束时间"
+                    },
+                    {
+                        "ename": "jionnum",
+                        "id": "option1416295428015",
+                        "options": "",
+                        "optionslist": [],
+                        "optiontype": "text",
+                        "zname": "参加人数"
+                    },
+                    {
+                        "ename": "paytype",
+                        "id": "option1416295470340",
+                        "options": "收费,免费",
+                        "optionslist": [
+                            "收费",
+                            "免费"
+                        ],
+                        "optiontype": "radio",
+                        "zname": "收费类型"
+                    }
+                ],
+                "optionsstor": "option1416295206506,option1416295356709,option1416295228599,option1416295428015,option1416295271572,option1416295470340",
+                "optionszdysx": "详情页面自定义属性(待填)",
+                "optionszdysxlist": [
+                    "详情页面自定义属性(待填)"
+                ],
+                "pid": "temp1416295646602",
+                "templatenum": 3,
+                "tempsx": "xiangqingmoban",
+                "zname": "详情页面"
+            },
+            {
+                "childtemplates": [],
+                "createtime": "2014-11-18 15:33:28",
+                "ename": "guestTemp",
+                "id": "temp1416296008973",
+                "options": [
+                    {
+                        "ename": "imginstructions",
+                        "id": "option1416295181880",
+                        "options": "",
+                        "optionslist": [],
+                        "optiontype": "text",
+                        "zname": "图文介绍"
+                    }
+                ],
+                "optionsstor": "option1416295181880",
+                "optionszdysx": "嘉宾介绍自定义属性(待填)",
+                "optionszdysxlist": [
+                    "嘉宾介绍自定义属性(待填)"
+                ],
+                "pid": "temp1416295646602",
+                "templatenum": 4,
+                "tempsx": "jiabingmoban",
+                "zname": "嘉宾介绍"
+            },
+            {
+                "childtemplates": [],
+                "createtime": "2014-11-18 15:33:41",
+                "ename": "guestTemp",
+                "id": "temp1416296021488",
+                "options": [
+                    {
+                        "ename": "imginstructions",
+                        "id": "option1416295181880",
+                        "options": "",
+                        "optionslist": [],
+                        "optiontype": "text",
+                        "zname": "图文介绍"
+                    }
+                ],
+                "optionsstor": "option1416295181880",
+                "optionszdysx": "调查问卷自定义属性(待填)",
+                "optionszdysxlist": [
+                    "调查问卷自定义属性(待填)"
+                ],
+                "pid": "temp1416295646602",
+                "templatenum": 5,
+                "tempsx": "diaochawenjuan",
+                "zname": "调查问卷"
+            },
+            {
+                "childtemplates": [],
+                "createtime": "2014-11-18 15:33:59",
+                "ename": "guestTemp",
+                "id": "temp1416296039211",
+                "options": [
+                    {
+                        "ename": "imginstructions",
+                        "id": "option1416295181880",
+                        "options": "",
+                        "optionslist": [],
+                        "optiontype": "text",
+                        "zname": "图文介绍"
+                    }
+                ],
+                "optionsstor": "option1416295181880",
+                "optionszdysx": "反馈表自定义属性(待填)",
+                "optionszdysxlist": [
+                    "反馈表自定义属性(待填)"
+                ],
+                "pid": "temp1416295646602",
+                "templatenum": 6,
+                "tempsx": "fankuibiao",
+                "zname": "反馈表"
+            },
+            {
+                "childtemplates": [],
+                "createtime": "2014-11-18 15:34:09",
+                "ename": "guestTemp",
+                "id": "temp1416296049959",
+                "options": [
+                    {
+                        "ename": "imginstructions",
+                        "id": "option1416295181880",
+                        "options": "",
+                        "optionslist": [],
+                        "optiontype": "text",
+                        "zname": "图文介绍"
+                    }
+                ],
+                "optionsstor": "option1416295181880",
+                "optionszdysx": "报名表自定义属性(待填)",
+                "optionszdysxlist": [
+                    "报名表自定义属性(待填)"
+                ],
+                "pid": "temp1416295646602",
+                "templatenum": 7,
+                "tempsx": "baomingbiao",
+                "zname": "报名表"
+            }
+        ],
+        "createtime": "2014-11-18 15:27:26",
+        "ename": "usualTemp",
+        "id": "temp1416295646602",
+        "options": [],
+        "optionsstor": "",
+        "optionszdysx": "",
+        "optionszdysxlist": [],
+        "pid": "temp1416295646602",
+        "templatenum": 0,
+        "tempsx": "changguimoban",
+        "zname": "常规模版"
+    },
+    "data2": {},
+    "method": "gettemplate",
+    "msg": "",
+    "nowdatetime": "2014-11-28 11:13:48",
+    "nowtime": 1417144428451,
+    "pagecount": 0,
+    "pagenum": 0,
+    "pagesum": 12,
+    "total": 0
+}
