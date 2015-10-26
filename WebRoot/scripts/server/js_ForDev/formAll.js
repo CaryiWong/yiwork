@@ -1,9 +1,6 @@
-require('jquery.cookie');
-require('./validation.js');
-
 $(function () {
-    //var locationOriginalURL = window.location.origin,
-    var locationOriginalURL = 'http://test.yi-gather.com:1717',
+    var locationOriginalURL = window.location.origin,
+    //var locationOriginalURL = 'http://test.yi-gather.com:1717',
         userid = $.cookie('userid'),
         $individualForm = $("#individualForm"),
         $teamForm = $("#teamForm"),

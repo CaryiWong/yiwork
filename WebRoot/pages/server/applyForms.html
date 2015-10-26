@@ -1,19 +1,12 @@
 <!doctype html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 ltc-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<html>
 <head>
     <meta charset="utf-8">
     <title>服务申请</title>
     <meta name="description" content="">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <!-- build:css /styles/app.css -->
+    <!-- build:css /styles/pages/server/formAll.min.css -->
     <link rel="stylesheet" href="/styles/pages/server/formAll.css"/>
     <!-- endbuild -->
 </head>
@@ -31,7 +24,7 @@
         </div>
         <form class="col-xs-12" enctype="multipart/form-data" method="post" name="fileinfo" id="individualForm">
             <div class="form-group right-input-group uploadImg-group">
-                <label class="container-fluid">添加个人形象照片：</label>
+                <label class="container-fluid">添加个人形象照片</label>
                 <div class=" btn btn-primary fileUpload">
                 <input type="file" class=" uploadImage"
                        name="titleimg" accept="image/*">
@@ -41,13 +34,13 @@
 
 
             <div class="form-group right-input-group">
-                <label class="container-fluid">姓名：</label>
+                <label class="container-fluid">姓名</label>
                 <input type="text" class="form-control valid-input individual-nickname"
                        name="nickname"
                     data-valid-rule="required">
             </div>
             <div class="form-group right-input-group">
-                <label class="container-fluid">联系方式：</label>
+                <label class="container-fluid">联系方式</label>
                 <p class="declare">手机号码</p>
                 <input type="text" class="form-control valid-input individual-tel"
                        name="tel"
@@ -58,20 +51,20 @@
                        name="email">
             </div>
             <div class="form-group right-input-group">
-                <label class="container-fluid">提供的技能服务名称：</label>
+                <label class="container-fluid">提供的技能服务名称</label>
                 <input type="text" class="form-control valid-input"
                        data-valid-rule="required"
                        name="name">
             </div>
             <div class="form-group">
-                <label class="container-fluid">服务地区：</label>
+                <label class="container-fluid">服务地区</label>
                 <input type="text" class="form-control valid-input"
                        data-valid-rule="required"
                        name="city"
                        placeholder="请填写具体的服务地区，如全国、广东省、广州等">
             </div>
             <div class="form-group">
-                <label class="container-fluid">具体服务内容：</label>
+                <label class="container-fluid">具体服务内容</label>
                 <textarea class="form-control valid-input"
                           name="context"
                           data-valid-rule="required"
@@ -82,7 +75,7 @@
 
     <form class="col-xs-12 form-hidden" enctype="multipart/form-data" method="post" name="fileinfo" id="teamForm">
         <div class="form-group right-input-group uploadImg-group">
-            <label class="container-fluid">添加团队形象照片：</label>
+            <label class="container-fluid">添加团队形象照片</label>
             <div class=" btn btn-primary fileUpload">
                 <input type="file" class=" uploadImage"
                        name="titleimg" accept="image/*">
@@ -91,13 +84,13 @@
         </div>
 
         <div class="form-group right-input-group">
-            <label class="container-fluid">团队名称：</label>
+            <label class="container-fluid">团队名称</label>
             <input type="text" class="form-control valid-input"
                    name="servicesupplier"
                    data-valid-rule="required">
         </div>
         <div class="form-group right-input-group">
-            <label class="container-fluid">联系方式：</label>
+            <label class="container-fluid">联系方式</label>
             <p class="declare">手机号码</p>
             <input type="text" class="form-control valid-input"
                    name="tel"
@@ -108,20 +101,20 @@
                    name="email">
         </div>
         <div class="form-group right-input-group">
-            <label class="container-fluid">提供的技能服务名称：</label>
+            <label class="container-fluid">提供的技能服务名称</label>
             <input type="text" class="form-control valid-input"
                    data-valid-rule="required"
                    name="name">
         </div>
         <div class="form-group">
-            <label class="container-fluid">服务地区：</label>
+            <label class="container-fluid">服务地区</label>
             <input type="text" class="form-control valid-input"
                    data-valid-rule="required"
                    name="city"
                    placeholder="请填写具体的服务地区，如全国、广东省、广州等">
         </div>
         <div class="form-group">
-            <label class="container-fluid">具体服务内容：</label>
+            <label class="container-fluid">具体服务内容</label>
                 <textarea class="form-control valid-input"
                           name="context"
                           data-valid-rule="required"
@@ -132,7 +125,7 @@
 
     <form class="col-xs-12 form-hidden" enctype="multipart/form-data" method="post" name="fileinfo" id="companyForm">
         <div class="form-group right-input-group uploadImg-group">
-            <label class="container-fluid">添加产品/企业形象照片：</label>
+            <label class="container-fluid">添加产品/企业形象照片</label>
             <div class=" btn btn-primary fileUpload">
                 <input type="file" class=" uploadImage"
                        name="titleimg" accept="image/*">
@@ -141,13 +134,13 @@
         </div>
 
         <div class="form-group right-input-group">
-            <label class="container-fluid" id="nameLabel">产品/企业名称：</label>
+            <label class="container-fluid" id="nameLabel">产品/企业名称</label>
             <input type="text" class="form-control valid-input"
                    name="servicesupplier"
                    data-valid-rule="required">
         </div>
         <div class="form-group right-input-group">
-            <label class="container-fluid">联系方式：</label>
+            <label class="container-fluid">联系方式</label>
             <p class="declare">手机号码</p>
             <input type="text" class="form-control valid-input"
                    name="tel"
@@ -158,20 +151,20 @@
                    name="email">
         </div>
         <div class="form-group right-input-group">
-            <label class="container-fluid">提供的技能服务名称：</label>
+            <label class="container-fluid">提供的技能服务名称</label>
             <input type="text" class="form-control valid-input"
                    data-valid-rule="required"
                    name="name">
         </div>
         <div class="form-group">
-            <label class="container-fluid">服务地区：</label>
+            <label class="container-fluid">服务地区</label>
             <input type="text" class="form-control valid-input"
                    data-valid-rule="required"
                    name="city"
                    placeholder="请填写具体的服务地区，如全国、广东省、广州等">
         </div>
         <div class="form-group">
-            <label class="container-fluid">具体服务内容：</label>
+            <label class="container-fluid">具体服务内容</label>
                 <textarea class="form-control valid-input"
                           name="context"
                           data-valid-rule="required"
@@ -181,11 +174,12 @@
     </form>
 </div>
 
-<!-- build:js /scripts/app.js -->
-<script type="text/javascript" src="/scripts/components/jquery.js"></script>
-<script type="text/javascript" src="/scripts/components/jquery.cookie.js"></script>
-<script type="text/javascript" src="/scripts/components/validation/validation.js"></script>
-<script type="text/javascript" src="/scripts/server/formAll.js"></script>
+<!-- build:js /scripts/server/app_formAll.js -->
+<!--<script type="text/javascript" src="/scripts/components/jquery.js"></script>-->
+<!--<script type="text/javascript" src="/scripts/components/jquery.cookie.js"></script>-->
+<!--<script type="text/javascript" src="/scripts/server/validation.js"></script>-->
+<!--<script type="text/javascript" src="/scripts/server/formAll.js"></script>-->
+<script type="text/javascript" src="/scripts/server/formAll_app.js"></script>
 <!-- endbuild -->
 </body>
 </html>

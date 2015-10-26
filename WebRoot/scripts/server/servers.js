@@ -1,6 +1,6 @@
 $(function () {
-    //var locationOriginalURL = window.location.origin;
-    var locationOriginalURL = 'http://test.yi-gather.com:1717';
+    var locationOriginalURL = window.location.origin;
+    //var locationOriginalURL = 'http://test.yi-gather.com:1717';
     var serverId = $.cookie('serviceid');
     var userId = $.cookie('userid');
     var serverUser = '';
