@@ -1,3 +1,4 @@
+require('jquery.cookie');
 $(function () {
     var locationOriginalURL = window.location.origin;
     //var locationOriginalURL = 'http://test.yi-gather.com:1717';

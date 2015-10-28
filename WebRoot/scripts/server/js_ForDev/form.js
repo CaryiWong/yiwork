@@ -1,3 +1,5 @@
+require('jquery.cookie');
+require('./validation.js');
 $(function () {
     var serviceId = $.cookie('serviceid'),
         userId = $.cookie('userid'),

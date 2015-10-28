@@ -1,6 +1,37 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	var parentJsonpFunction = window["webpackJsonp"];
+/******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules) {
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, callbacks = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(installedChunks[chunkId])
+/******/ 				callbacks.push.apply(callbacks, installedChunks[chunkId]);
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			modules[moduleId] = moreModules[moduleId];
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules);
+/******/ 		while(callbacks.length)
+/******/ 			callbacks.shift().call(null, __webpack_require__);
+/******/ 		if(moreModules[0]) {
+/******/ 			installedModules[0] = 0;
+/******/ 			return __webpack_require__(0);
+/******/ 		}
+/******/ 	};
+
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// "0" means "already loaded"
+/******/ 	// Array means "loading", array contains callbacks
+/******/ 	var installedChunks = {
+/******/ 		3:0
+/******/ 	};
 
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -26,6 +57,29 @@
 /******/ 		return module.exports;
 /******/ 	}
 
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId, callback) {
+/******/ 		// "0" is the signal for "already loaded"
+/******/ 		if(installedChunks[chunkId] === 0)
+/******/ 			return callback.call(null, __webpack_require__);
+
+/******/ 		// an array means "currently loading".
+/******/ 		if(installedChunks[chunkId] !== undefined) {
+/******/ 			installedChunks[chunkId].push(callback);
+/******/ 		} else {
+/******/ 			// start chunk loading
+/******/ 			installedChunks[chunkId] = [callback];
+/******/ 			var head = document.getElementsByTagName('head')[0];
+/******/ 			var script = document.createElement('script');
+/******/ 			script.type = 'text/javascript';
+/******/ 			script.charset = 'utf-8';
+/******/ 			script.async = true;
+
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"formAll_wp","1":"form_wp","2":"servers_wp"}[chunkId]||chunkId) + ".js";
+/******/ 			head.appendChild(script);
+/******/ 		}
+/******/ 	};
 
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -35,175 +89,10 @@
 
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(2);
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"validation\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-	$(function () {
-	    //var locationOriginalURL = window.location.origin,
-	    var locationOriginalURL = 'http://test.yi-gather.com:1717',
-	        userid = $.cookie('userid'),
-	        $individualForm = $("#individualForm"),
-	        $teamForm = $("#teamForm"),
-	        $companyForm = $("#companyForm"),
-	        $showForm = $individualForm,
-	        chooseType = 'individual',
-	        $chooseButton = $('.choose-btn-group button'),
-	        $uploadImg = $(".uploadImage"),
-	        $allLocalImg = $(".localImage"),
-	        imgIsUploaded = false,
-	        titleImgURL = '';
-	    $('.form-button').on('touchstart', function (event) {
-	        event.preventDefault();
-	        var $thisForm = $(this),
-	            submitType = $thisForm.attr('data-submit'),
-	            $submitForm = $thisForm.parent("form");
-	        submitForm($submitForm, submitType);
-	    });
-
-	    $chooseButton.on('touchstart', function () {
-	        $showForm.hide();
-	        var $this = $(this);
-	        chooseType = $this.attr("id");
-	        $chooseButton.removeClass('on');
-	        $this.addClass('on');
-	        if (chooseType === 'individual') {
-	            $showForm = $individualForm;
-	        }
-	        else if (chooseType === 'team') {
-	            $showForm = $teamForm;
-	        }
-	        else {
-	            $showForm = $companyForm;
-	        }
-	        $showForm.show();
-	    });
-
-	    function submitForm(form, type) {
-	        form.valid(function (pass) {
-	            if (pass && imgIsUploaded === true) {
-	                $(".server-form").append("<div class='loading'></div>");
-	                $.ajax(
-	                    locationOriginalURL + '/v20/yqservice/apply_service', {
-	                        dataType: 'json',
-	                        type: 'POST',
-	                        data: {
-	                            type: 'web',
-	                            userid: userid,
-	                            servicetype: type,
-	                            name: form.find("input[name='name']").val(),
-	                            city: form.find("input[name='city']").val(),
-	                            titleimg: titleImgURL,
-	                            context: form.find("textarea[name='context']").val(),
-	                            email: form.find("input[name='email']").val(),
-	                            tel: form.find("input[name='tel']").val(),
-	                            servicesupplier: form.find("input[name='servicesupplier']").val()
-	                        }
-	                    }).success(function (data) {
-	                        if (data.cord === 0) {
-	                            $('.loading').remove();
-	                            alert('发送成功');
-	                            form[0].reset();
-	                            $allLocalImg.hide();
-	                            $uploadImg.replaceWith($uploadImg.val('').clone(true));
-	                            $('.valid-error').remove();
-	                        } else {
-	                            $loading.remove();
-	                            alert('发送失败 ' + data.msg);
-	                        }
-	                    }).fail(function () {
-	                        $loading.remove();
-	                        alert('发送失败');
-	                    });
-	            } else { imgIsUploaded === false ? alert('形象照片为必填项！') : alert(form.find('.valid-error').first().html());}
-
-
-	        })
-	    }
-
-	//利用userid获取用户信息
-	    $.ajax(
-	        locationOriginalURL + '/v20/user/getuser', {
-	            dataType: 'json',
-	            type: 'POST',
-	            data: {
-	                type: 'web',
-	                userid: userid
-	            }
-	        }).success(function (data) {
-	            if (data.cord === 0) {
-	                $(".individual-nickname").attr({value: data.data["nickname"], 'readonly': 'readonly'});
-	                $(".individual-tel").attr({value: data.data["telnum"], 'readonly': 'readonly'});
-	            } else {
-	                alert('获取用户信息失败 ' + data.msg);
-	            }
-	        }).fail(function () {
-	            alert('获取用户信息失败');
-	        });
-
-
-	//上传图片
-	    $uploadImg.on('change', function () {
-	        var $thisInput = $(this),
-	            $localImg = $thisInput.parent().next('.localImage'),
-	            $showImg = $localImg.find("#blah");
-	        readURL(this);
-	        if ($thisInput.val()) {
-	            if (typeof FormData === "undefined")
-	                throw new Error("FormData is not implemented");
-	            var request = new XMLHttpRequest();
-	            request.open('POST', locationOriginalURL + '/v20/upload/uploadimg');
-	            imgIsUploaded = false;
-	            $(".server-form").append("<div class='loading'></div>");
-	            var $loading = $('.loading');
-	            request.onreadystatechange = function () {
-	                $loading.remove();
-	                if (request.readyState === 4) {
-	                    if (request.status === 200) {
-	                        var data = JSON.parse(request.responseText);
-	                        if (data.cord === 0) {
-	                            imgIsUploaded = true;
-	                            titleImgURL = locationOriginalURL + 'download/img?path=' + data.data + '&type=web';
-	                        } else {
-	                            $localImg.hide();
-	                            alert('图片上传失败,请重新上传' + data.msg);
-	                        }
-	                    } else {
-	                        $localImg.hide();
-	                        alert("上传出错 " + request.status);
-	                    }
-	                }
-
-	            };
-	            var formdata = new FormData();
-	            formdata.append('img', $thisInput[0].files[0]);
-	            request.send(formdata);
-	        }
-	        function readURL(input) {
-	            if (input.files && input.files[0]) {
-	                var reader = new FileReader();
-	                reader.onload = function (e) {
-	                    $showImg.attr('src', e.target.result);
-	                    $localImg.show();
-	                };
-	                reader.readAsDataURL(input.files[0]);
-	            }
-	        }
-	    });
-	});
-
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ },
+/* 0 */,
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 

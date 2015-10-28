@@ -2,6 +2,8 @@
 // generator-webapp 1.0.1
 'use strict';
 var webpack = require('webpack');
+var commonPlugins =  require("webpack/lib/optimize/CommonsChunkPlugin");
+var isFunction = require('lodash.isfunction');
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt,{
     pattern: 'grunt-*',
@@ -230,19 +232,14 @@ module.exports = function (grunt) {
     uglify: {
       "my_target": {
         "files": [{
-          'dist/scripts/server/app_formAll.js': ['<%= config.app %>/scripts/components/jquery.js',
-            '<%= config.app %>/scripts/components/jquery.cookie.js',
-            '<%= config.app %>/scripts/server/validation.js',
-            '<%= config.app %>/scripts/server/formAll.js']
+          'dist/scripts/server/app_formAll.js': ['<%= config.app %>/scripts/server/common.js',
+            '<%= config.app %>/scripts/server/formAll_wp.js']
         },{
-          'dist/scripts/server/app_servers.js': ['<%= config.app %>/scripts/components/jquery.js',
-          '<%= config.app %>/scripts/components/jquery.cookie.js',
-            '<%= config.app %>/scripts/server/servers.js']
+          'dist/scripts/server/app_servers.js': ['<%= config.app %>/scripts/server/common.js',
+            '<%= config.app %>/scripts/server/servers_wp.js']
         },{
-          'dist/scripts/server/app_form.js': ['<%= config.app %>/scripts/components/jquery.js',
-            '<%= config.app %>/scripts/components/jquery.cookie.js',
-            '<%= config.app %>/scripts/server/validation.js',
-            '<%= config.app %>/scripts/server/form.js']
+          'dist/scripts/server/app_form.js': ['<%= config.app %>/scripts/server/common.js',
+            '<%= config.app %>/scripts/server/form_wp.js']
         }]
       }
     },
@@ -300,33 +297,22 @@ module.exports = function (grunt) {
     webpack: {
       build: {
         entry:{
-          formAll_app:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\formAll.js'
+          formAll_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\formAll.js',
+          form_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\form.js',
+          servers_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\servers.js'
         },
         output: {
           path: "<%= config.app %>/scripts/server/",
           filename: "[name].js"
         },
-        //module: {
-        //  loaders:[
-        //    { test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel-loader' },
-        //    {test: /\.css$/, loader: "style!css"},
-        //    {test: /\.(jpg|png)$/, loader: "url?limit=8192"},//inline base64 URLs for <=8k images, direct URLs for the rest
-        //    {test: /\.scss$/, loader: "style!css!sass"}   //对于scss文件，先用sass-loader,再用css-loader,再用style-loader，使用时 -loader可省略
-        //  ]
-        //},
-        //externals: {
-        //  // require('data') is external and available
-        //  //  on the global var data
-        //  'data': 'data2'
-        //},
         plugins:[
           new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
             "window.jQuery": "jquery"
-          })
+          }),
+           new commonPlugins('common.js')
         ]
-
       }
     }
   });
@@ -359,9 +345,9 @@ module.exports = function (grunt) {
     'sass:dist',
     'autoprefixer:dist',
     'concurrent:dist',  //并行的 cssmin uglify imagemin
-    'usemin'
-    //'copy:server',  //把处理好的在 dist/ 下的文件复制到工作目录中
-    //'copy:default'  //把原始的 scss js 文件复制到工作目录中
+    'usemin',
+    'copy:server',  //把处理好的在 dist/ 下的文件复制到工作目录中
+    'copy:default'  //把原始的 scss js 文件复制到工作目录中
   ]);
 
   grunt.registerTask('test', ['clean']);
