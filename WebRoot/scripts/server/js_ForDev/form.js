@@ -2,6 +2,7 @@ $(function () {
     var serviceId = $.cookie('serviceid'),
         userId = $.cookie('userid'),
         $form = $('form'),
+      //locationOriginalURL = window.location.origin;
         locationOriginalURL = 'http://test.yi-gather.com:1717';
     $('.form-button').on('touchstart', function (event) {
         event.preventDefault();

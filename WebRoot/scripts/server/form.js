@@ -37,8 +37,7 @@ $(function () {
                         $loading.remove();
                         alert('发送失败');
                     });
-                    $('.valid-error').remove();
-            }
+            }else { alert($form.find('.valid-error').first().html());}
         })
     });
 

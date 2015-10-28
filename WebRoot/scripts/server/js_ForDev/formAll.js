@@ -1,4 +1,5 @@
 $(function () {
+    //var locationOriginalURL = window.location.origin,
     var locationOriginalURL = 'http://test.yi-gather.com:1717',
         userid = $.cookie('userid'),
         $individualForm = $("#individualForm"),
@@ -21,6 +22,9 @@ $(function () {
 
     $chooseButton.on('touchstart', function () {
         $showForm.hide();
+        $allLocalImg.hide();
+        $uploadImg.replaceWith($uploadImg.val('').clone(true));
+        imgIsUploaded = false;
         var $this = $(this);
         chooseType = $this.attr("id");
         $chooseButton.removeClass('on');
@@ -64,7 +68,6 @@ $(function () {
                             form[0].reset();
                             $allLocalImg.hide();
                             $uploadImg.replaceWith($uploadImg.val('').clone(true));
-                            $('.valid-error').remove();
                         } else {
                             $loading.remove();
                             alert('发送失败 ' + data.msg);

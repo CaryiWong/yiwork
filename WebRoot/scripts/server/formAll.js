@@ -1,4 +1,5 @@
 $(function () {
+    //var locationOriginalURL = window.location.origin,
     var locationOriginalURL = 'http://test.yi-gather.com:1717',
         userid = $.cookie('userid'),
         $individualForm = $("#individualForm"),
@@ -11,7 +12,6 @@ $(function () {
         $allLocalImg = $(".localImage"),
         imgIsUploaded = false,
         titleImgURL = '';
-
     $('.form-button').on('touchstart', function (event) {
         event.preventDefault();
         var $thisForm = $(this),
@@ -22,6 +22,9 @@ $(function () {
 
     $chooseButton.on('touchstart', function () {
         $showForm.hide();
+        $allLocalImg.hide();
+        $uploadImg.replaceWith($uploadImg.val('').clone(true));
+        imgIsUploaded = false;
         var $this = $(this);
         chooseType = $this.attr("id");
         $chooseButton.removeClass('on');
@@ -65,7 +68,6 @@ $(function () {
                             form[0].reset();
                             $allLocalImg.hide();
                             $uploadImg.replaceWith($uploadImg.val('').clone(true));
-                            $('.valid-error').remove();
                         } else {
                             $loading.remove();
                             alert('发送失败 ' + data.msg);
@@ -74,9 +76,9 @@ $(function () {
                         $loading.remove();
                         alert('发送失败');
                     });
-            } else if (imgIsUploaded === false) {
-                form.find('.uploadImg-group').append("<span class='valid-error'>形象照片为必填项</span>")
-            }
+            } else { imgIsUploaded === false ? alert('形象照片为必填项！') : alert(form.find('.valid-error').first().html());}
+
+
         })
     }
 
@@ -122,7 +124,6 @@ $(function () {
                         var data = JSON.parse(request.responseText);
                         if (data.cord === 0) {
                             imgIsUploaded = true;
-                            $thisInput.parent().nextAll('.valid-error').remove();
                             titleImgURL = locationOriginalURL + 'download/img?path=' + data.data + '&type=web';
                         } else {
                             $localImg.hide();
