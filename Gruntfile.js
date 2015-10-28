@@ -1,29 +1,27 @@
 // Generated on 2015-09-15 using
 // generator-webapp 1.0.1
 'use strict';
-
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// If you want to recursively match all subfolders, use:
-// 'test/spec/**/*.js'
-
+var webpack = require('webpack');
+var commonPlugins =  require("webpack/lib/optimize/CommonsChunkPlugin");
+var isFunction = require('lodash.isfunction');
 module.exports = function (grunt) {
-
+  require('load-grunt-tasks')(grunt,{
+    pattern: 'grunt-*',
+    config: 'package.json'
+  });
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
   // Automatically load required grunt tasks
-  require('jit-grunt')(grunt, {
-      useminPrepare: 'grunt-usemin'
-  });
+  //require('jit-grunt')(grunt, {
+  //    useminPrepare: 'grunt-usemin'
+  //});
 
   // Configurable paths
   var config = {
     app: 'WebRoot',
-    dist: 'dist'
+    dist: 'dest'
   };
-
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -44,14 +42,19 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['<%= config.app %>/sass/pages/server/*.{scss,sass}'],
-        tasks: ['clean:server','compass','autoprefixer']
+        tasks: ['clean:server','sass:server','autoprefixer']
       }
-      //styles: {
-      //  files: ['<%= config.app %>/styles/**/*.css'],
-      //  tasks: ['newer:autoprefixer']
-      //}
     },
-
+    babel: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          '/scripts/server/**/*.js':'<%= config.app %>/scripts/server/**/*.js'
+        }
+      }
+    },
     browserSync: {
       options: {
         notify: false,
@@ -95,70 +98,45 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp'
+      server: ['.tmp','dist','dest']
     },
 
-    // Make sure code scss are up to par and there are no obvious mistakes
-    eslint: {
-      target: [
-        'Gruntfile.js',
-        '<%= config.app %>/scripts/**/*.js',
-        '!<%= config.app %>/scripts/vendor/*'
-      ]
-    },
-    // Compiles ES6 with Babel
-    babel: {
-      options: {
-          sourceMap: true
-      },
+    //   Compiles Sass to CSS and generates necessary files if requested
+    sass: {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/scripts/',
-          src: '**/*.js',
-          dest: '.tmp/scripts',
-          ext: '.js'
+          cwd: '<%= config.app %>/sass/pages/server/',
+          src: ['*.{scss,sass}'],
+          dest: '.tmp/',
+          ext: '.css'
+        }]
+      },
+      server: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/sass/pages/server/',
+          src: ['*.{scss,sass}'],
+          dest: '.tmp/',
+          ext: '.css'
         }]
       }
     },
 
-    // Compiles Sass to CSS and generates necessary files if requested
-    //sass: {
-    //  dist: {
-    //    files: [{
-    //      expand: true,
-    //      cwd: '<%= config.app %>/sass/pages/server/',
-    //      src: ['*.{scss,sass}'],
-    //      dest: '.tmp/',
-    //      ext: '.css'
-    //    }]
-    //  },
-    //  server: {
-    //    files: [{
-    //      expand: true,
-    //      cwd: '<%= config.app %>/sass/pages/server/',
-    //      src: ['*.{scss,sass}'],
-    //      dest: '.tmp/',
-    //      ext: '.css'
-    //    }]
-    //  }
-    //},
-    compass: {                  // Task
-      dist: {                   // Target
-        options: {              // Target options
-          sassDir: '<%= config.app %>/sass/pages/server/',
-          cssDir: '.tmp',
-          imagesDir: '<%= config.app %>/images/pages/server/',
-          environment: 'production'
-        }
-      }
-    },
     autoprefixer: {
       options: {
         map: true,
         browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
       },
       dist: {
+        files: [{
+          expand: true,
+          cwd: '.tmp/',
+          src: '**/*.css',
+          dest: 'dest/'
+        }]
+      },
+      server: {
         files: [{
           expand: true,
           cwd: '.tmp/',
@@ -199,119 +177,112 @@ module.exports = function (grunt) {
     // additional tasks can operate on them
     useminPrepare: {
       options: {
-        dest: '<%= config.dist %>'
+        dest: 'dist/pages/server'   //最终需修改引用路径的html文件所在的目录,预先通过 copy:dist 把html复制到此目录下
       },
-      html: '<%= config.app %>/pages/index.html'
+      html: '<%= config.app %>/pages/server/**/*.html'  //原始html路径 文件引用部分使用 <!--build:{type} <path> --> <!--end build-->来创建block
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       options: {
-        assetsDirs: [
-          '<%= config.dist %>',
-          '<%= config.dist %>/images',
-          '<%= config.dist %>/scss'
+        assetsDirs: [  //检测此目录下的被引用文件是否被修改
+          'dist/pages',
+          'dist/images',
+          'dist/styles'
         ]
       },
-      html: ['<%= config.dist %>/**/*.html'],
-      css: ['<%= config.dist %>/scss/**/*.css']
+      html:['dist/pages/server/**/*.html']  // 需修改引用路径的html文件
     },
 
     // The following *-min tasks produce minified files in the dist folder
     imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/images',
-          src: '**/*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.dist %>/images'
-        }]
-      }
-    },
-
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/images',
-          src: '**/*.svg',
-          dest: '<%= config.dist %>/images'
-        }]
-      }
-    },
-
-    htmlmin: {
+      /* 压缩优化图片大小 */
       dist: {
         options: {
-          collapseBooleanAttributes: true,
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          removeAttributeQuotes: true,
-          removeCommentsFromCDATA: true,
-          removeEmptyAttributes: true,
-          removeOptionalTags: true,
-          // true would impact scss with attribute selectors
-          removeRedundantAttributes: false,
-          useShortDoctype: true
+          optimizationLevel: 3
         },
-        files: [{
-          expand: true,
-          cwd: '<%= config.dist %>',
-          src: '**/*.html',
-          dest: '<%= config.dist %>'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.app %>/images/pages/server/',
+            src: '**/*', // 优化 img 目录下所有 png/jpg/jpeg/gif 图片
+            dest: 'dist/images/pages/server/' // 优化后的图片保存位置，默认覆盖
+          }
+        ]
       }
     },
 
     // By default, your `index.html`'s <!-- Usemin block --> will take care
     // of minification. These next options are pre-configured if you do not
     // wish to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= config.dist %>/scss/main.css': [
-    //         '.tmp/scss/{,*/}*.css',
-    //         '<%= config.app %>/scss/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    uglify: {
-      my_target: {
-        files: {
-          'dest/output.min.js': ['app/scripts/main.js']
-        }
+    cssmin: {
+      /*压缩 CSS 文件为 .min.css */
+      options: {
+        keepSpecialComments: 0 /* 移除 CSS 文件中的所有注释 */
       },
-      publicJs: {
-        files: {
-          'js/public.js': ['build/js/public.js']
-        }
+      minify: {
+        expand: true,
+        cwd: 'dest/',
+        src: '**/*.css',
+        dest: 'dist/styles/pages/server/',
+        ext: '.min.css'
       }
     },
-    // concat: {
-    //   dist: {}
-    // },
 
+    uglify: {
+      "my_target": {
+        "files": [{
+          'dist/scripts/server/app_formAll.js': ['<%= config.app %>/scripts/components/jquery.js',
+            '<%= config.app %>/scripts/components/jquery.cookie.js',
+            '<%= config.app %>/scripts/server/validation.js',
+            '<%= config.app %>/scripts/server/formAll.js']
+        },{
+          'dist/scripts/server/app_servers.js': ['<%= config.app %>/scripts/components/jquery.js',
+            '<%= config.app %>/scripts/components/jquery.cookie.js',
+            '<%= config.app %>/scripts/server/servers.js']
+        },{
+          'dist/scripts/server/app_form.js': ['<%= config.app %>/scripts/components/jquery.js',
+            '<%= config.app %>/scripts/components/jquery.cookie.js',
+            '<%= config.app %>/scripts/server/validation.js',
+            '<%= config.app %>/scripts/server/form.js']
+        }]
+      }
+    },
+    //concat: {
+    //  /* 合并 CSS 文件 */
+    //  css: {
+    //    src: '<%= config.app %>/styles/pages/server/**/*.css',
+    //    /* 根据目录下文件情况配置 */
+    //    dest: 'dest/css/all.css'
+    //  }
+    //},
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
         files: [{
           expand: true,
           dot: true,
-          cwd: '<%= config.app %>',
-          dest: '<%= config.dist %>',
-          src: [
-            '*.{ico,png,txt}',
-            'images/**/*.webp',
-            '**/*.html',
-            'scss/fonts/**/*.*'
-          ]
-        }, {
+          cwd: '<%= config.app %>/',
+          src: 'pages/server{,/*}',
+          dest: 'dist/'
+        }]
+      },
+      default: {
+        files: [{
           expand: true,
           dot: true,
-          cwd: '.',
-          src: 'bower_components/bootstrap-sass/assets/fonts/bootstrap/*',
-          dest: '<%= config.dist %>'
+          cwd: '<%= config.app %>/',
+          src: ['sass/pages/server{,/*}','scripts/server/js_ForDev/**/*'],
+          dest: 'D:\\workspace2\\yiwork_20150708\\WebRoot\\'
+        }]
+      },
+      server: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: 'dist/',
+          src: ['**'],
+          dest: 'D:\\workspace2\\yiwork_20150708\\WebRoot\\'
         }]
       }
     },
@@ -323,10 +294,9 @@ module.exports = function (grunt) {
         'sass:server'
       ],
       dist: [
-        'babel',
-        'sass',
+        'uglify',
         'imagemin',
-        'svgmin'
+        'cssmin'
       ]
     }
   });
@@ -340,10 +310,8 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      //'wiredep',
-      //'concurrent:server',
-      'compass',
-      'autoprefixer',
+      'sass:server',
+      'autoprefixer:server',
       'browserSync:livereload',
       'watch'
     ]);
@@ -355,29 +323,18 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build', [
-    'clean:dist',
-    'wiredep',
+    'clean',  //清除临时文件夹
+    'copy:dist',   //复制html文件供usemin使用
     'useminPrepare',
-    'concurrent:dist',
-    //'postcss',
-    'concat',
-    //'sass',
-    'cssmin',
-    'uglify',
-    'copy:dist',
-    'filerev',
+    'sass:dist',
+    'autoprefixer:dist',
+    'concurrent:dist',  //并行的 cssmin uglify imagemin
     'usemin',
-    'htmlmin'
+    'copy:server',  //把处理好的在 dist/ 下的文件复制到工作目录中
+    'copy:default'  //把原始的 scss js 文件复制到工作目录中
   ]);
 
-  grunt.registerTask('sassbuild', [
-    'sass',
-    'postcss'
-  ]);
-
-  grunt.registerTask('uglifybuild', [
-    'uglify'
-  ]);
+  grunt.registerTask('test', ['clean']);
 
   grunt.registerTask('default', [
     'newer:eslint',
