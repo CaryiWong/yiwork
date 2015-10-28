@@ -11,7 +11,6 @@ $(function () {
         $allLocalImg = $(".localImage"),
         imgIsUploaded = false,
         titleImgURL = '';
-
     $('.form-button').on('touchstart', function (event) {
         event.preventDefault();
         var $thisForm = $(this),
@@ -74,9 +73,9 @@ $(function () {
                         $loading.remove();
                         alert('发送失败');
                     });
-            } else if (imgIsUploaded === false) {
-                form.find('.uploadImg-group').append("<span class='valid-error'>形象照片为必填项</span>")
-            }
+            } else { imgIsUploaded === false ? alert('形象照片为必填项！') : alert(form.find('.valid-error').first().html());}
+
+
         })
     }
 
@@ -122,7 +121,6 @@ $(function () {
                         var data = JSON.parse(request.responseText);
                         if (data.cord === 0) {
                             imgIsUploaded = true;
-                            $thisInput.parent().nextAll('.valid-error').remove();
                             titleImgURL = locationOriginalURL + 'download/img?path=' + data.data + '&type=web';
                         } else {
                             $localImg.hide();
