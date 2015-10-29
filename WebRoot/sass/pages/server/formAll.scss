@@ -172,11 +172,25 @@
     height: 100%;
     z-index: 100;
     top: 0;
-    background: url('../../../images/pages/server/loading.gif') no-repeat 50% center #000;
-    opacity: 0.6;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    img {
+      margin: 0 auto;
+      margin-top: 60%;
+      animation: mymove linear .8s infinite;
+    }
+  }
+  @keyframes mymove {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+     transform: rotate(-360deg);
+    }
   }
   .form-hidden {
     display: none;
   }
 }
+
 

@@ -11,6 +11,7 @@ $(function () {
         $uploadImg = $(".uploadImage"),
         $allLocalImg = $(".localImage"),
         imgIsUploaded = false,
+        $loading = $('.loading'),
         titleImgURL = '';
     $('.form-button').on('touchstart', function (event) {
         event.preventDefault();
@@ -19,7 +20,6 @@ $(function () {
             $submitForm = $thisForm.parent("form");
         submitForm($submitForm, submitType);
     });
-
     $chooseButton.on('touchstart', function () {
         $showForm.hide();
         $allLocalImg.hide();
@@ -44,7 +44,7 @@ $(function () {
     function submitForm(form, type) {
         form.valid(function (pass) {
             if (pass && imgIsUploaded === true) {
-                $(".server-form").append("<div class='loading'></div>");
+                $loading.removeClass('hidden');
                 $.ajax(
                     locationOriginalURL + '/v20/yqservice/apply_service', {
                         dataType: 'json',
@@ -62,18 +62,17 @@ $(function () {
                             servicesupplier: form.find("input[name='servicesupplier']").val()
                         }
                     }).success(function (data) {
+                        $loading.addClass('hidden');
                         if (data.cord === 0) {
-                            $('.loading').remove();
-                            alert('发送成功');
+                            alert('已提交成为雁行者的申请，请耐心等候');
                             form[0].reset();
                             $allLocalImg.hide();
                             $uploadImg.replaceWith($uploadImg.val('').clone(true));
                         } else {
-                            $loading.remove();
                             alert('发送失败 ' + data.msg);
                         }
                     }).fail(function () {
-                        $loading.remove();
+                        $loading.addClass('hidden');
                         alert('发送失败');
                     });
             } else { imgIsUploaded === false ? alert('形象照片为必填项！') : alert(form.find('.valid-error').first().html());}
@@ -115,10 +114,9 @@ $(function () {
             var request = new XMLHttpRequest();
             request.open('POST', locationOriginalURL + '/v20/upload/uploadimg');
             imgIsUploaded = false;
-            $(".server-form").append("<div class='loading'></div>");
-            var $loading = $('.loading');
+            $loading.removeClass('hidden');
             request.onreadystatechange = function () {
-                $loading.remove();
+                $loading.addClass('hidden');
                 if (request.readyState === 4) {
                     if (request.status === 200) {
                         var data = JSON.parse(request.responseText);

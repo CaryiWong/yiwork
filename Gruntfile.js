@@ -42,7 +42,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['<%= config.app %>/sass/pages/server/*.{scss,sass}'],
-        tasks: ['clean:server','sass:server','autoprefixer']
+        tasks: ['newer:clean:server','newer:sass:server','newer:autoprefixer']
       }
     },
     babel: {
