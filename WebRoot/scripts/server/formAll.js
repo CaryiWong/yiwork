@@ -40,7 +40,7 @@ $(function () {
         }
         $showForm.show();
     });
-
+    var $warn = $('.warn');
     function submitForm(form, type) {
         form.valid(function (pass) {
             if (pass && imgIsUploaded === true) {
@@ -64,17 +64,22 @@ $(function () {
                     }).success(function (data) {
                         $loading.addClass('hidden');
                         if (data.cord === 0) {
-                            alert('已提交成为雁行者的申请，请耐心等候');
+                            $warn.find('p').html('已提交成为雁行者的申请，请耐心等候!');
+                            $warn.find('img').attr('src','../../images/pages/server/icon_succeed@2x.png');
                             form[0].reset();
                             $allLocalImg.hide();
                             $uploadImg.replaceWith($uploadImg.val('').clone(true));
                         } else {
-                            alert('发送失败 ' + data.msg);
+                            $warn.find('p').html('发送失败 ' + data.msg);
+                            $warn.find('img').attr('src','../../images/pages/server/icon_attention@2x.png');
                         }
                     }).fail(function () {
                         $loading.addClass('hidden');
-                        alert('发送失败');
+                        $warn.find('p').html('发送失败 !');
+                        $warn.find('img').attr('src','../../images/pages/server/icon_attention@2x.png');
                     });
+                $warn.fadeIn(800);
+                setTimeout(function(){ $warn.fadeOut(800); }, 3000);
             } else { imgIsUploaded === false ? alert('形象照片为必填项！') : alert(form.find('.valid-error').first().html());}
 
 
