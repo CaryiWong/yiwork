@@ -1,9 +1,26 @@
+function getArgs() {
+    var args = {},
+        query = location.search.substring(1),
+        pairs = query.split("&");
+    for (var i = 0; i < pairs.length; i++) {
+        var pos = pairs[i].indexOf('=');
+        if (pos == -1) continue;
+        var argname = pairs[i].substring(0, pos),
+            value = pairs[i].substring(pos + 1);
+        value = decodeURIComponent(value);
+        args[argname] = value;
+    }
+    return args;
+}
 $(function () {
-    var serviceId = $.cookie('serviceid'),
+    var args = getArgs();
+    var serviceId = args['serviceid'],
         userId = $.cookie('userid'),
         $form = $('form'),
         serviveName='',
+        serviceType='',
         $loading = $('.loading'),
+        $warn = $('.warn'),
     //locationOriginalURL = window.location.origin;
         locationOriginalURL = 'http://test.yi-gather.com:1717';
     $('.form-button').on('touchstart', function (event) {
@@ -28,16 +45,28 @@ $(function () {
                     }).success(function (data) {
                         $loading.addClass('hidden');
                         if (data.cord === 0) {
-                            alert("你对服务\"" + serviveName + "\"的合作申请表已提交");
-                            //location.href=;
+                            $warn.find('p').html("你对服务\"" + serviveName + "\"的合作申请表已提交");
+                            $warn.find('img').attr('src','/images/pages/server/icon_succeed@2x.png');
+                            setTimeout(function() {
+                                if (serviceType === 'individual') {
+                                    $form.append("<a class='hidden' id='fa' href = '/pages/server/personalServer.html?serviceid=" + serviceId + "'></a>");
+                                } else {
+                                    $form.append("<a class='hidden' id='fa' href = '/pages/server/teamServer.html?serviceid=" + serviceId + "'></a>");
+                                }
+                                document.getElementById("fa").click();
+                            },3200);
                             $form[0].reset();
                         } else {
-                            alert('发送失败 ' + data.msg);
+                            $warn.find('p').html('发送失败 ' + data.msg);
+                            $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
                         }
                     }).fail(function () {
                         $loading.addClass('hidden');
-                        alert('发送失败');
+                        $warn.find('p').html('发送失败 ');
+                        $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
                     });
+                $warn.fadeIn(600);
+                setTimeout(function(){ $warn.fadeOut(600); }, 2000);
             }else { alert($form.find('.valid-error').first().html());}
         })
     });
@@ -74,6 +103,7 @@ $(function () {
         }).success(function (sData) {
             if (sData.cord === 0) {
                 serviveName = sData.data["name"];
+                serviceType = sData.data['servicetype'];
             } else {
                 alert('获取服务信息失败 ' + sData.msg);
             }

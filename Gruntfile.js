@@ -273,7 +273,7 @@ module.exports = function (grunt) {
           dot: true,
           cwd: '<%= config.app %>/',
           src: ['sass/pages/server{,/*}','scripts/server/js_ForDev/**/*'],
-          dest: 'D:\\workspace2\\yiwork_20150708\\WebRoot\\'
+          dest: 'D:\\yiwork_0918\\yiwork_0918\\WebRoot\\'
         }]
       },
       server: {
@@ -282,7 +282,7 @@ module.exports = function (grunt) {
           dot: true,
           cwd: 'dist/',
           src: ['**'],
-          dest: 'D:\\workspace2\\yiwork_20150708\\WebRoot\\'
+          dest: 'D:\\yiwork_0918\\yiwork_0918\\WebRoot\\'
         }]
       }
     },

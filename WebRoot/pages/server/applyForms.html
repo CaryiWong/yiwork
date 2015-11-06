@@ -12,9 +12,9 @@
 </head>
 <body class="server-form" >
 <div>
-        <div class="head-declare">请耐心填完这份表格，完成申请后，我们的工作人员将在两个工作日内与你联系</div>
+        <div class="head-declare">请耐心填完这份表格，完成申请后，我们将会在两个工作日内与你取得联系</div>
         <div class="choose-type">
-            <p>请选择你提供的服务类型</p>
+            <p>选择你申请的类型</p>
             <!-- Split button -->
             <div class="choose-btn-group">
                 <button type="button" class="btn on" id="individual">个人服务</button>
@@ -24,12 +24,13 @@
         </div>
         <form class="col-xs-12" enctype="multipart/form-data" method="post" name="fileinfo" id="individualForm">
             <div class="form-group right-input-group uploadImg-group">
-                <label class="container-fluid">添加个人形象照片</label>
+                <label class="container-fluid">添加个人头像</label>
                 <div class=" btn btn-primary fileUpload">
                 <input type="file" class=" uploadImage"
                        name="titleimg" accept="image/*">
                 </div>
                 <div class="localImage" style="display: none"><img id="blah" src="" alt="your image" /></div>
+                <div class="suggest">建议上传 210px * 210px的图片</div>
             </div>
 
 
@@ -50,37 +51,38 @@
                        data-valid-rule="required"
                        name="email">
             </div>
-            <div class="form-group right-input-group">
-                <label class="container-fluid">提供的技能服务名称</label>
+            <div class="form-group">
+                <label class="container-fluid">愿意分享或可以向会员提供的资源、技能和服务</label>
                 <input type="text" class="form-control valid-input"
                        data-valid-rule="required"
-                       name="name">
+                       name="name" placeholder="准确描述你能分享或提供的资源和技能服务">
             </div>
             <div class="form-group">
                 <label class="container-fluid">服务地区</label>
                 <input type="text" class="form-control valid-input"
                        data-valid-rule="required"
                        name="city"
-                       placeholder="请填写具体的服务地区，如全国、广东省、广州等">
+                       placeholder="能够提供服务的范围，如：全国或具体的省、市">
             </div>
             <div class="form-group">
-                <label class="container-fluid">具体服务内容</label>
+                <label class="container-fluid">资源/技能/服务详情</label>
                 <textarea class="form-control valid-input"
                           name="context"
                           data-valid-rule="required"
-                          placeholder="请详细描述你所提供的技能服务，以便我们工作人员了解核实～"></textarea>
+                          placeholder="详细描述你分享或提供的技能和服务，以便我们更好的了解具体的服务内容"></textarea>
             </div>
             <button class="btn form-button " data-submit="individual">提交申请</button>
         </form>
 
     <form class="col-xs-12 form-hidden" enctype="multipart/form-data" method="post" name="fileinfo" id="teamForm">
         <div class="form-group right-input-group uploadImg-group">
-            <label class="container-fluid">添加团队形象照片</label>
+            <label class="container-fluid">添加团队照片或标识</label>
             <div class=" btn btn-primary fileUpload">
                 <input type="file" class=" uploadImage"
                        name="titleimg" accept="image/*">
             </div>
             <div class="localImage" style="display: none"><img id="blah" src="" alt="your image" /></div>
+            <div class="suggest">建议上传 420px * 210px的图片</div>
         </div>
 
         <div class="form-group right-input-group">
@@ -100,37 +102,38 @@
                    data-valid-rule="required"
                    name="email">
         </div>
-        <div class="form-group right-input-group">
-            <label class="container-fluid">提供的技能服务名称</label>
+        <div class="form-group">
+            <label class="container-fluid">愿意分享或可以向会员提供的资源、技能和服务</label>
             <input type="text" class="form-control valid-input"
                    data-valid-rule="required"
-                   name="name">
+                   name="name" placeholder="准确描述你能分享或提供的资源和技能服务">
         </div>
         <div class="form-group">
             <label class="container-fluid">服务地区</label>
             <input type="text" class="form-control valid-input"
                    data-valid-rule="required"
                    name="city"
-                   placeholder="请填写具体的服务地区，如全国、广东省、广州等">
+                   placeholder="能够提供服务的范围，如：全国或具体的省、市">
         </div>
         <div class="form-group">
-            <label class="container-fluid">具体服务内容</label>
+            <label class="container-fluid">资源/技能/服务详情</label>
                 <textarea class="form-control valid-input"
                           name="context"
                           data-valid-rule="required"
-                          placeholder="请详细描述你所提供的技能服务，以便我们工作人员了解核实～"></textarea>
+                          placeholder="详细描述你分享或提供的技能和服务，以便我们更好的了解具体的服务内容"></textarea>
         </div>
         <button class="btn form-button " data-submit="team">提交申请</button>
     </form>
 
     <form class="col-xs-12 form-hidden" enctype="multipart/form-data" method="post" name="fileinfo" id="companyForm">
         <div class="form-group right-input-group uploadImg-group">
-            <label class="container-fluid">添加产品/企业形象照片</label>
+            <label class="container-fluid">添加产品/企业照片或品牌标识</label>
             <div class=" btn btn-primary fileUpload">
                 <input type="file" class=" uploadImage"
                        name="titleimg" accept="image/*">
             </div>
             <div class="localImage" style="display: none"><img id="blah" src="" alt="your image"/></div>
+            <div class="suggest">建议上传 420px * 210px的图片</div>
         </div>
 
         <div class="form-group right-input-group">
@@ -150,25 +153,25 @@
                    data-valid-rule="required"
                    name="email">
         </div>
-        <div class="form-group right-input-group">
-            <label class="container-fluid">提供的技能服务名称</label>
+        <div class="form-group">
+            <label class="container-fluid">愿意分享或可以向会员提供的资源、技能和服务</label>
             <input type="text" class="form-control valid-input"
                    data-valid-rule="required"
-                   name="name">
+                   name="name" placeholder="准确描述你能分享或提供的资源和技能服务">
         </div>
         <div class="form-group">
             <label class="container-fluid">服务地区</label>
             <input type="text" class="form-control valid-input"
                    data-valid-rule="required"
                    name="city"
-                   placeholder="请填写具体的服务地区，如全国、广东省、广州等">
+                   placeholder="能够提供服务的范围，如：全国或具体的省、市">
         </div>
         <div class="form-group">
-            <label class="container-fluid">具体服务内容</label>
+            <label class="container-fluid">资源/技能/服务详情</label>
                 <textarea class="form-control valid-input"
                           name="context"
                           data-valid-rule="required"
-                          placeholder="请详细描述你所提供的技能服务，以便我们工作人员了解核实～"></textarea>
+                          placeholder="详细描述你分享或提供的技能和服务，以便我们更好的了解具体的服务内容"></textarea>
         </div>
         <button class="btn form-button " data-submit="company">提交申请</button>
     </form>

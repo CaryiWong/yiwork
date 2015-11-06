@@ -1,10 +1,26 @@
+function getArgs() {
+    var args = {},
+        query = location.search.substring(1),
+        pairs = query.split("&");
+    for (var i = 0; i < pairs.length; i++) {
+        var pos = pairs[i].indexOf('=');
+        if (pos == -1) continue;
+        var argname = pairs[i].substring(0, pos),
+            value = pairs[i].substring(pos + 1);
+        value = decodeURIComponent(value);
+        args[argname] = value;
+    }
+    return args;
+}
 $(function () {
     //var locationOriginalURL = window.location.origin;
     var locationOriginalURL = 'http://test.yi-gather.com:1717';
-    var serverId = $.cookie('serviceid');
+    var args = getArgs();
+    var serverId = args['serviceid'];
     var userId = $.cookie('userid');
     var serverUser = '';
     var $body = $('body');
+    var $teamHeadPic = $('.team-header-pic');
     $.ajax(
         locationOriginalURL + '/v20/yqservice/findyqservice', {
             dataType: 'json',
@@ -49,43 +65,44 @@ $(function () {
                 for (var i = 0; i < 3; i++) {
                     $main.find('.marks-btn-box').append('<span>' + user.focus[i]['zname'] + '</span>');
                 }
-                //$('.banner').attr("src",data['banner']);
             } else {
-                $body.append('<div class="get-info-erro"><p>网络出错了 T_T ' + respond.msg + '</p><button onclick="history.go(-1)" class="btn form-button"> 返回 </button></div>');
+                $body.append('<div class="get-info-erro"><p>网络出错了 T_T ' + respond.msg + '</p>' +
+                    //'<button onclick="history.go(-1)" class="btn form-button"> 返回 </button>' +
+                    '</div>');
             }
         }).fail(function () {
-            $body.append('<div class="get-info-erro"><p>网络出错了 T_T </p><button onclick="history.go(-1)" class="btn form-button"> 返回 </button></div>');
+            $body.append('<div class="get-info-erro"><p>网络出错了 T_T </p></div>');
         });
 
     //聊天室跳转按钮
     var $talkBtn = $('.btn-talk');
-    window.yiqi = {};
+    var Ua = navigator.userAgent;
+    var ua = Ua.toLocaleLowerCase();
     var talkAction = {
-        android: function (myId, talkToId) {
-            yiqi.talk(myId, talkToId);
-        },
-        ios: function (myId, talkToId) {
-            window.getTalk = function () {
-                return (myId+talkToId);
+        ios :function(method,params){
+            window.iosWebParams = function () {
+                return params;
             };
-            window.location.href = 'talk';
+            window.location.href = method ;
+        },
+        android : function(method,params){
+            if(window.yiqi && window.yiqi[method]){
+                window.yiqi[method](params);
+            }
         }
     };
-    var ua = navigator.userAgent;
-    if (ua.match(/iPhone|iPod/i) != null || ua.match(/iPad/i) != null) {
-        $talkBtn.on('touchstart', function(){
-            talkAction.ios(serverUser, userId);
-        });
+    function appLocation() {
+        if (ua.match('yiqi') && !ua.match('micromessenger')) {
+            if (ua.match('iphone' || 'ipod' || 'ipad')) {
+                talkAction.ios('myTalk', serverUser)
+            } else if (ua.match('android')) {
+                talkAction.android('myTalk', serverUser)
+            }
+        }
     }
-    else if (ua.match(/Android/i) != null) {
-        $talkBtn.on('touchstart', function() {
-            talkAction.android(serverUser, userId);
-        });
-    }
-
+    $talkBtn.on('touchstart',appLocation());
     //申请表跳转
     var $applyBtn = $('.btn-apply');
-    $applyBtn.on('touchstart',function(){
-        location.href='intentLetter.html';
-    })
+    $applyBtn.attr('href','/pages/server/intentLetter.html?serviceid=' + serverId);
+
 });

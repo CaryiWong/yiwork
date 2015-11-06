@@ -12,6 +12,7 @@ $(function () {
         $allLocalImg = $(".localImage"),
         imgIsUploaded = false,
         $loading = $('.loading'),
+        contexturl = locationOriginalURL + '/pages/server/personalServer.html',
         titleImgURL = '';
     $('.form-button').on('touchstart', function (event) {
         event.preventDefault();
@@ -31,12 +32,15 @@ $(function () {
         $this.addClass('on');
         if (chooseType === 'individual') {
             $showForm = $individualForm;
+            contexturl = locationOriginalURL + '/pages/server/personalServer.html'
         }
         else if (chooseType === 'team') {
             $showForm = $teamForm;
+            contexturl = locationOriginalURL + '/pages/server/teamServer.html'
         }
         else {
             $showForm = $companyForm;
+            contexturl = locationOriginalURL + '/pages/server/teamServer.html'
         }
         $showForm.show();
     });
@@ -59,24 +63,24 @@ $(function () {
                             context: form.find("textarea[name='context']").val(),
                             email: form.find("input[name='email']").val(),
                             tel: form.find("input[name='tel']").val(),
+                            contexturl : contexturl,
                             servicesupplier: form.find("input[name='servicesupplier']").val()
                         }
                     }).success(function (data) {
                         $loading.addClass('hidden');
                         if (data.cord === 0) {
                             $warn.find('p').html('已提交成为雁行者的申请，请耐心等候!');
-                            $warn.find('img').attr('src','../../images/pages/server/icon_succeed@2x.png');
+                            $warn.find('img').attr('src','/images/pages/server/icon_succeed@2x.png');
                             form[0].reset();
-                            $allLocalImg.hide();
-                            $uploadImg.replaceWith($uploadImg.val('').clone(true));
+                            setTimeout(function(){appLocation();},4200);
                         } else {
                             $warn.find('p').html('发送失败 ' + data.msg);
-                            $warn.find('img').attr('src','../../images/pages/server/icon_attention@2x.png');
+                            $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
                         }
                     }).fail(function () {
                         $loading.addClass('hidden');
                         $warn.find('p').html('发送失败 !');
-                        $warn.find('img').attr('src','../../images/pages/server/icon_attention@2x.png');
+                        $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
                     });
                 $warn.fadeIn(800);
                 setTimeout(function(){ $warn.fadeOut(800); }, 3000);
@@ -86,6 +90,30 @@ $(function () {
         })
     }
 
+    var Ua = navigator.userAgent;
+    var ua = Ua.toLocaleLowerCase();
+    var action = {
+                ios :function(method,params){
+                    window.iosWebParams = function () {
+                        return params;
+                    };
+                    window.location.href = method ;
+                },
+                android : function(method,params){
+                    if(window.yiqi && window.yiqi[method]){
+                        window.yiqi[method](params);
+                    }
+                }
+    };
+    function appLocation() {
+        if (ua.match('yiqi') && !ua.match('micromessenger')) {
+            if (ua.match('iphone' || 'ipod' || 'ipad')) {
+                action.ios('myServices', userid)
+            } else if (ua.match('android')) {
+                action.android('myServices', userid)
+            }
+        }
+    }
 //利用userid获取用户信息
     $.ajax(
         locationOriginalURL + '/v20/user/getuser', {
@@ -127,7 +155,7 @@ $(function () {
                         var data = JSON.parse(request.responseText);
                         if (data.cord === 0) {
                             imgIsUploaded = true;
-                            titleImgURL = locationOriginalURL + 'download/img?path=' + data.data + '&type=web';
+                            titleImgURL = locationOriginalURL + '/v20/download/img?path=' + data.data + '&type=web';
                         } else {
                             $localImg.hide();
                             alert('图片上传失败,请重新上传' + data.msg);
