@@ -182,9 +182,11 @@
     background-color: rgba(0, 0, 0, 0.6);
     text-align: center;
     img {
-      margin: 0 auto;
-      margin-top: 60%;
+      position: absolute;
       animation: mymove linear .8s infinite;
+      top: 50%;
+      left: 50%;
+      margin: -30px 0 0 -30px;
     }
   }
   @keyframes mymove {
@@ -206,11 +208,12 @@
     top: 0;
     z-index: 100;
     text-align: center;
-    transition: all .3s ease-in .0s;
     display: none;
     div{
-      margin: 0 auto;
-      margin-top: 70%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -55px 0 0 -75px;
       background-color: rgba(0, 0, 0, 0.7);
       width: 150px;
       height: 110px;

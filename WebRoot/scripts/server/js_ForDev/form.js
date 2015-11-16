@@ -48,12 +48,7 @@ $(function () {
                             $warn.find('p').html("你对服务\"" + serviveName + "\"的合作申请表已提交");
                             $warn.find('img').attr('src','/images/pages/server/icon_succeed@2x.png');
                             setTimeout(function() {
-                                if (serviceType === 'individual') {
-                                    $form.append("<a class='hidden' id='fa' href = '/pages/server/personalServer.html?serviceid=" + serviceId + "'></a>");
-                                } else {
-                                    $form.append("<a class='hidden' id='fa' href = '/pages/server/teamServer.html?serviceid=" + serviceId + "'></a>");
-                                }
-                                document.getElementById("fa").click();
+                                appLocation();
                             },3200);
                             $form[0].reset();
                         } else {
@@ -90,6 +85,31 @@ $(function () {
         }).fail(function () {
             alert('获取服务信息失败');
         });
+
+    var Ua = navigator.userAgent;
+    var ua = Ua.toLocaleLowerCase();
+    var action = {
+        ios :function(method,params){
+            window.iosWebParams = function () {
+                return params;
+            };
+            window.location.href = method ;
+        },
+        android : function(method,params){
+            if(window.yiqi && window.yiqi[method]){
+                window.yiqi[method](params);
+            }
+        }
+    };
+    function appLocation() {
+        if (ua.match('yiqi') && !ua.match('micromessenger')) {
+            if (ua.match('iphone' || 'ipod' || 'ipad')) {
+                action.ios('back', serviceId)
+            } else if (ua.match('android')) {
+                action.android('back', serviceId)
+            }
+        }
+    }
 
     //利用serviceid获取服务信息
     $.ajax(

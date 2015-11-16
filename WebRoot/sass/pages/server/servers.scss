@@ -195,6 +195,10 @@ body {
     width: 45.5%;
     display: inline-block;
     text-align: center;
+    &:link,&:hover,&:visited,&:focus,&:active{
+    color:#fff;
+    text-decoration:none;
+  }
   }
 }
 
@@ -241,6 +245,10 @@ body {
         padding: 12px 50px;
         font-size: 1.2857rem;
         display: block;
+        &:link,&:hover,&:visited,&:focus,&:active{
+          color:#ef583f;
+          text-decoration: none;
+        }
       }
     }
     @media screen and (min-width:321px){
@@ -280,6 +288,17 @@ body {
         line-height: 24px;
         color: #333;
       }
+    }
+  }
+  .contect-us{
+    border-top: 1px solid #ddd;
+    padding-top: 24px;
+    margin-top: 24px;
+    p{
+      color:#666;
+      font-size: 1rem;
+      margin: 0;
+      line-height: 24px;
     }
   }
 }
