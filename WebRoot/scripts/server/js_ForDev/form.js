@@ -16,7 +16,6 @@ $(function () {
     var args = getArgs();
     var serviceId = args['serviceid'],
         userId = $.cookie('userid'),
-        serviceUserId = '',
         $form = $('form'),
         serviveName='',
         serviceType='',
@@ -67,53 +66,6 @@ $(function () {
         })
     });
 
-    var Ua = navigator.userAgent;
-    var ua = Ua.toLocaleLowerCase();
-    var action = {
-        ios :function(method,params){
-            window.iosWebParams = function () {
-                return params;
-            };
-            window.location.href = method ;
-        },
-        iosShare :function(params){
-            window.iosIsShare = function () {
-                return params;
-            };
-        },
-        android : function(method,params){
-            if(window.yiqi && window.yiqi[method]){
-                if(method ==='back'){
-                    window.yiqi[method]();
-                }else{
-                    window.yiqi[method](params);
-                }
-            }
-        }
-    };
-    var uaNow = function(){
-        if (ua.match('yiqi') && !ua.match('micromessenger')) {
-            if (ua.match('iphone' || 'ipod' || 'ipad')) {
-                return 'ios';
-            } else if (ua.match('android')) {
-                return 'android';
-            }
-        }
-    };
-
-    if (uaNow() === 'ios') {
-        action.iosShare(0)
-    } else {
-        action[uaNow()]('isShare', 0);
-    }
-
-    function appLocation() {
-            if (uaNow() === 'ios') {
-                action[uaNow()]('back', serviceId)
-            } else if (uaNow() === 'android'){
-                action.android('back');
-            }
-    }
     //利用userid获取用户信息
     $.ajax(
         locationOriginalURL + '/v20/user/getuser', {
@@ -128,11 +80,36 @@ $(function () {
                 $(".nickname").attr({value:data.data["nickname"]});
                 $(".phone").attr({value:data.data["telnum"]});
             } else {
-                alert('获取用户信息失败，请检查您是否已登录');
+                alert('获取用户信息失败 ' + data.msg);
             }
         }).fail(function () {
-            alert('获取服务信息失败，请检查您是否已登录');
+            alert('获取服务信息失败');
         });
+
+    var Ua = navigator.userAgent;
+    var ua = Ua.toLocaleLowerCase();
+    var action = {
+        ios :function(method,params){
+            window.iosWebParams = function () {
+                return params;
+            };
+            window.location.href = method ;
+        },
+        android : function(method,params){
+            if(window.yiqi && window.yiqi[method]){
+                window.yiqi[method](params);
+            }
+        }
+    };
+    function appLocation() {
+        if (ua.match('yiqi') && !ua.match('micromessenger')) {
+            if (ua.match('iphone' || 'ipod' || 'ipad')) {
+                action.ios('back', serviceId)
+            } else if (ua.match('android')) {
+                action.android('back', serviceId)
+            }
+        }
+    }
 
     //利用serviceid获取服务信息
     $.ajax(
@@ -147,12 +124,11 @@ $(function () {
             if (sData.cord === 0) {
                 serviveName = sData.data["name"];
                 serviceType = sData.data['servicetype'];
-
             } else {
                 alert('获取服务信息失败 ' + sData.msg);
             }
         }).fail(function () {
-            alert('获取服务信息失败');
+            alert('获取用户信息失败');
         });
 
 });

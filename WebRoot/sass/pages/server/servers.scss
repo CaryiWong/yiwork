@@ -1,13 +1,7 @@
-@import "compass/css3";
 @import '_bootstrap_base.scss';
-
-//@import "compass/utilities/sprites";
-//$server-layout: smart;
-//$server-use-percentages: true;
-//$server-sprite-dimensions: true;
-//
-//@import "../../../images/pages/server/*.png";
-//@include all-server-sprites;
+html{
+  font-size: 14px;
+}
 body {
   background-color: #f1f1f1;
 }
@@ -199,6 +193,15 @@ body {
   width: 100%;
   .form-button {
     width: 45.5%;
+    display: inline-block;
+    text-align: center;
+    &:link,&:hover,&:visited,&:focus,&:active{
+    color:#fff;
+    text-decoration:none;
+  }
+  }
+  .btn-talk{
+    width: 90%;
   }
 }
 
@@ -218,3 +221,87 @@ body {
 }
 
 /*公用样式结束*/
+
+/*成为雁行者样式表*/
+.introduce{
+  .banner{
+    width: 100%;
+    position: relative;
+    text-align: center;
+    img{
+      width: 100%;
+    }
+    .text{
+      position: absolute;
+      bottom: 10px ;
+      width: 60%;
+      left: 20%;
+      p{
+        font-size: 1rem;
+        color:#fff;
+        margin-bottom: 10px;
+      }
+      .btn-introduce{
+        color: #ef583f;
+        border-radius: 22px;
+        background: #fff;
+        padding: 12px 50px;
+        font-size: 1.2857rem;
+        display: block;
+        &:link,&:hover,&:visited,&:focus,&:active{
+          color:#ef583f;
+          text-decoration: none;
+        }
+      }
+    }
+    @media screen and (min-width:321px){
+      .text {
+        bottom: 20px;
+      }
+    }
+  }
+  .intro-body{
+      padding: 12px;
+    .intro-article {
+      background: #fff;
+      padding: 24px;
+    }
+    .feature{
+        margin-top: 24px;
+      &:before {
+        content: '';
+        display: block;
+        width: 6.8vw;
+        height: 6.4vw;
+        background-image: url('/images/pages/server/feature_intro.png');
+        background-size: 100% 100%;
+        margin-bottom: 12px;
+      }
+      &:first-child{
+        margin-top: 0;
+      }
+      .feature-title{
+        color: #222;
+        font-size: 1.2857142857rem;
+        font-weight: 700;
+        padding-bottom: 3px;
+      }
+      .feature-content {
+        font-size: 1rem;
+        line-height: 24px;
+        color: #333;
+      }
+    }
+  }
+  .contect-us{
+    border-top: 1px solid #ddd;
+    padding-top: 24px;
+    margin-top: 24px;
+    p{
+      color:#666;
+      font-size: 1rem;
+      margin: 0;
+      line-height: 24px;
+    }
+  }
+}

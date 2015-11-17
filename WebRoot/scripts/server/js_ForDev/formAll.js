@@ -99,35 +99,20 @@ $(function () {
                     };
                     window.location.href = method ;
                 },
-                iosShare :function(params){
-                    window.iosIsShare = function () {
-                        return params;
-                    };
-                },
                 android : function(method,params){
                     if(window.yiqi && window.yiqi[method]){
                         window.yiqi[method](params);
                     }
                 }
     };
-    var uaNow = function(){
+    function appLocation() {
         if (ua.match('yiqi') && !ua.match('micromessenger')) {
             if (ua.match('iphone' || 'ipod' || 'ipad')) {
-                return 'ios';
+                action.ios('myServices', userid)
             } else if (ua.match('android')) {
-                return 'android';
+                action.android('myServices', userid)
             }
         }
-    };
-
-    if (uaNow() === 'ios') {
-        action.iosShare(0)
-    } else {
-        action[uaNow()]('isShare', 0);
-    }
-
-    function appLocation() {
-        action[uaNow()]('myServices', userid);
     }
 //利用userid获取用户信息
     $.ajax(

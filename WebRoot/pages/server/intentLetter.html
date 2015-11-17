@@ -1,19 +1,12 @@
 <!doctype html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 ltc-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<html>
 <head>
     <meta charset="utf-8">
     <title>合作意向书</title>
     <meta name="description" content="">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <!-- build:css /styles/app.css -->
+    <!-- build:css /styles/pages/server/formAll.min.css -->
     <link rel="stylesheet" href="/styles/pages/server/formAll.css"/>
     <!-- endbuild -->
 </head>
@@ -25,13 +18,13 @@
         </div>
         <form class="col-xs-12">
             <div class="form-group right-input-group">
-                <label>姓名：</label>
+                <label>姓名</label>
                 <input type="text" class="form-control valid-input nickname"
                        name="name"
                     data-valid-rule="required">
             </div>
             <div class="form-group right-input-group">
-                <label>联系方式：</label>
+                <label>联系方式</label>
                 <p class="declare">手机号码</p>
                 <input type="text" class="form-control valid-input phone"
                        name="phone"
@@ -42,7 +35,7 @@
                        name="email">
             </div>
             <div class="form-group">
-                <label>你的机构：</label>
+                <label>你的机构</label>
                 <input type="text" class="form-control valid-input"
                        data-valid-rule="required"
                        name="company"
@@ -55,11 +48,13 @@
             <button class="btn form-button">提交申请</button>
         </form>
     </div>
+    <div class='warn'><div><img src=''><p></p></div></div>
+    <div class='loading hidden'><img src='../../images/pages/server/icon_handin@2x.png'></div>
 
-<!-- build:js /scripts/app.js -->
+<!-- build:js /scripts/server/app_form.js -->
     <script type="text/javascript" src="/scripts/components/jquery.js"></script>
     <script type="text/javascript" src="/scripts/components/jquery.cookie.js"></script>
-    <script type="text/javascript" src="/scripts/components/validation/validation.js"></script>
+    <script type="text/javascript" src="/scripts/server/validation.js"></script>
     <script type="text/javascript" src="/scripts/server/form.js"></script>
 <!-- endbuild -->
 

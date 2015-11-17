@@ -18,7 +18,7 @@ $(function () {
     var args = getArgs();
     var serverId = args['serviceid'];
     var userId = $.cookie('userid');
-    var serverUserId = '';
+    var serverUser = '';
     var $body = $('body');
     var $teamHeadPic = $('.team-header-pic');
     $.ajax(
@@ -33,10 +33,7 @@ $(function () {
             if (respond.cord === 0) {
                 var data = respond.data;
                 var user = data.user;
-                serverUserId = user.id;
-                if(serverUserId === userId){
-                    $('.btn-group').hide();
-                }
+                serverUser = user.id;
                 var $main = $('.info-main');
                 $main.show();
                 $main.find('.serverName').html(data['name']);
@@ -44,15 +41,14 @@ $(function () {
                 var $type = data['servicetype'];
                 if ($type === 'individual') {
                     sType = '个人服务';
-                    $applyBtn.hide().parent().removeClass('btn-group');
                 }
                 else if ($type === 'team') {
                     sType = '团队服务';
-                    $applyBtn.hide().parent().removeClass('btn-group');
                 }
                 else {
                     sType = '企业服务';
                 }
+                $('title').html(sType);
                 $main.find('.head-class').html(sType);
                 $main.find('.supplier').html(data['servicesupplier']);
                 var $location = $main.find('.location');
@@ -89,44 +85,22 @@ $(function () {
             };
             window.location.href = method ;
         },
-        iosShare :function(params){
-            window.iosIsShare = function () {
-                return params;
-            };
-        },
         android : function(method,params){
             if(window.yiqi && window.yiqi[method]){
                 window.yiqi[method](params);
             }
         }
     };
-    var uaNow = function(){
+    function appLocation() {
         if (ua.match('yiqi') && !ua.match('micromessenger')) {
             if (ua.match('iphone' || 'ipod' || 'ipad')) {
-                return 'ios';
+                talkAction.ios('myTalk', serverUser)
             } else if (ua.match('android')) {
-                return 'android';
+                talkAction.android('myTalk', serverUser)
             }
         }
-    };
-
-    if (uaNow() === 'ios') {
-        talkAction.iosShare(1)
-    } else {
-        talkAction.android('isShare', 1);
     }
-
-    var appLocation = function() {
-        if (uaNow()==='ios') {
-            talkAction.ios('myTalk', serverUserId)
-        } else{
-            talkAction.android('myTalk', serverUserId)
-        }
-
-    };
-    $talkBtn.on('touchstart',function(){
-        appLocation();
-    });
+    $talkBtn.on('touchstart',appLocation());
     //申请表跳转
     var $applyBtn = $('.btn-apply');
     $applyBtn.attr('href','/pages/server/intentLetter.html?serviceid=' + serverId);
