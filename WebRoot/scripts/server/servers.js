@@ -44,9 +44,11 @@ $(function () {
                 var $type = data['servicetype'];
                 if ($type === 'individual') {
                     sType = '个人服务';
+                    $applyBtn.hide().parent().removeClass('btn-group');
                 }
                 else if ($type === 'team') {
                     sType = '团队服务';
+                    $applyBtn.hide().parent().removeClass('btn-group');
                 }
                 else {
                     sType = '企业服务';
