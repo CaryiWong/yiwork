@@ -13,7 +13,6 @@ $(function () {
         imgIsUploaded = false,
         $loading = $('.loading'),
         contexturl = locationOriginalURL + '/pages/server/personalServer.html',
-        aspectRatio = 1,
         titleImgURL = '';
     $('.form-button').on('touchstart', function (event) {
         event.preventDefault();
@@ -25,7 +24,7 @@ $(function () {
     $chooseButton.on('touchstart', function () {
         $showForm.hide();
         $allLocalImg.hide();
-        //$uploadImg.replaceWith($uploadImg.val('').clone(true));
+        $uploadImg.replaceWith($uploadImg.val('').clone(true));
         imgIsUploaded = false;
         var $this = $(this);
         chooseType = $this.attr("id");
@@ -33,18 +32,15 @@ $(function () {
         $this.addClass('on');
         if (chooseType === 'individual') {
             $showForm = $individualForm;
-            contexturl = locationOriginalURL + '/pages/server/personalServer.html';
-            aspectRatio = 1;
+            contexturl = locationOriginalURL + '/pages/server/personalServer.html'
         }
         else if (chooseType === 'team') {
             $showForm = $teamForm;
-            contexturl = locationOriginalURL + '/pages/server/teamServer.html';
-            aspectRatio = 9/5;
+            contexturl = locationOriginalURL + '/pages/server/teamServer.html'
         }
         else {
             $showForm = $companyForm;
-            contexturl = locationOriginalURL + '/pages/server/teamServer.html';
-            aspectRatio = 9/5;
+            contexturl = locationOriginalURL + '/pages/server/teamServer.html'
         }
         $showForm.show();
     });
@@ -97,22 +93,22 @@ $(function () {
     var Ua = navigator.userAgent;
     var ua = Ua.toLocaleLowerCase();
     var action = {
-                ios :function(method,params){
-                    window.iosWebParams = function () {
-                        return params;
-                    };
-                    window.location.href = method ;
-                },
-                iosShare :function(params){
-                    window.iosIsShare = function () {
-                        return params;
-                    };
-                },
-                android : function(method,params){
-                    if(window.yiqi && window.yiqi[method]){
-                        window.yiqi[method](params);
-                    }
-                }
+        ios :function(method,params){
+            window.iosWebParams = function () {
+                return params;
+            };
+            window.location.href = method ;
+        },
+        iosShare :function(params){
+            window.iosIsShare = function () {
+                return params;
+            };
+        },
+        android : function(method,params){
+            if(window.yiqi && window.yiqi[method]){
+                window.yiqi[method](params);
+            }
+        }
     };
     var uaNow = function(){
         if (ua.match('yiqi') && !ua.match('micromessenger')) {
@@ -124,11 +120,11 @@ $(function () {
         }
     };
 
-    //if (uaNow() === 'ios') {
-    //    action.iosShare(0)
-    //} else {
-    //    action[uaNow()]('isShare', 0);
-    //}
+    if (uaNow() === 'ios') {
+        action.iosShare(0)
+    } else {
+        action[uaNow()]('isShare', 0);
+    }
 
     function appLocation() {
         action[uaNow()]('myServices', userid);
@@ -153,8 +149,7 @@ $(function () {
             alert('获取用户信息失败');
         });
 
-    var $cropper = $('.cropper > img');
-    var $cropperBox = $('.cropper');
+
 //上传图片
     $uploadImg.on('change', function () {
         var $thisInput = $(this),
@@ -175,7 +170,7 @@ $(function () {
                         var data = JSON.parse(request.responseText);
                         if (data.cord === 0) {
                             imgIsUploaded = true;
-                            titleImgURL = locationOriginalURL + '/v20/download/img?type=web&path=' + data.data ;
+                            titleImgURL = locationOriginalURL + '/v20/download/img?type=web&path=' + data.data;
                         } else {
                             $localImg.hide();
                             alert('图片上传失败,请重新上传' + data.msg);
@@ -195,45 +190,12 @@ $(function () {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    var canvasData = '';
-                    $cropper.attr('src',e.target.result);
-                    cropper(aspectRatio,e.target.result);
+                    $showImg.attr('src', e.target.result);
+                    $localImg.show();
                 };
                 reader.readAsDataURL(input.files[0]);
             }
         }
     });
-
-    $('.choose').on('touchstart',function(){
-        canvasData = $cropper.cropper('getCroppedCanvas');
-        $allLocalImg.find('#blah').attr('src', canvasData.toDataURL("image/png"));
-        $allLocalImg.show();
-        $cropperBox.hide();
-        $('body').css('overflow','visible');
-    });
-    $('.cancel').on('touchstart',function(){
-        $cropperBox.hide();
-    });
-
-    function cropper(ratio,url){
-        $('body').css('overflow','hidden');
-        $cropper.cropper({
-            aspectRatio: ratio,
-            autoCropArea: 0.65,
-            strict: false,
-            guides: false,
-            background: false,
-            highlight: false,
-            dragCrop: false,
-            cropBoxMovable: false,
-            cropBoxResizable: false,
-            minCropBoxWidth: window.screen.width,
-            minCanvasWidth: 420
-        });
-        $cropper.cropper('replace',url);
-        $cropper.cropper('setAspectRatio',ratio);
-        $cropperBox.show();
-    }
-
 });
 
