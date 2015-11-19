@@ -63,6 +63,7 @@ $(function () {
                     $main.find('.content').append("<p>" + arr[j] + "</p>");
                 }
                 $main.find('.head-pic').attr('src', data['titleimg']);
+                $('.team-header-pic,.psn-header-pic').css('background-image',"url(" + data['titleimg'] + ")");
                 $main.find('.user').html(user['nickname']);
                 var introduction = user['introduction'].substring(0, 27);
                 $main.find('.introduction').html(introduction);
@@ -71,7 +72,6 @@ $(function () {
                 }
             } else {
                 $body.append('<div class="get-info-erro"><p>网络出错了 T_T ' + respond.msg + '</p>' +
-                    //'<button onclick="history.go(-1)" class="btn form-button"> 返回 </button>' +
                     '</div>');
             }
         }).fail(function () {

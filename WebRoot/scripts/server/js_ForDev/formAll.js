@@ -93,26 +93,41 @@ $(function () {
     var Ua = navigator.userAgent;
     var ua = Ua.toLocaleLowerCase();
     var action = {
-                ios :function(method,params){
-                    window.iosWebParams = function () {
-                        return params;
-                    };
-                    window.location.href = method ;
-                },
-                android : function(method,params){
-                    if(window.yiqi && window.yiqi[method]){
-                        window.yiqi[method](params);
-                    }
-                }
-    };
-    function appLocation() {
-        if (ua.match('yiqi') && !ua.match('micromessenger')) {
-            if (ua.match('iphone' || 'ipod' || 'ipad')) {
-                action.ios('myServices', userid)
-            } else if (ua.match('android')) {
-                action.android('myServices', userid)
+        ios :function(method,params){
+            window.iosWebParams = function () {
+                return params;
+            };
+            window.location.href = method ;
+        },
+        iosShare :function(params){
+            window.iosIsShare = function () {
+                return params;
+            };
+        },
+        android : function(method,params){
+            if(window.yiqi && window.yiqi[method]){
+                window.yiqi[method](params);
             }
         }
+    };
+    var uaNow = function(){
+        if (ua.match('yiqi') && !ua.match('micromessenger')) {
+            if (ua.match('iphone' || 'ipod' || 'ipad')) {
+                return 'ios';
+            } else if (ua.match('android')) {
+                return 'android';
+            }
+        }
+    };
+
+    if (uaNow() === 'ios') {
+        action.iosShare(0)
+    } else {
+        action[uaNow()]('isShare', 0);
+    }
+
+    function appLocation() {
+        action[uaNow()]('myServices', userid);
     }
 //利用userid获取用户信息
     $.ajax(
@@ -155,7 +170,7 @@ $(function () {
                         var data = JSON.parse(request.responseText);
                         if (data.cord === 0) {
                             imgIsUploaded = true;
-                            titleImgURL = locationOriginalURL + '/v20/download/img?path=' + data.data + '&type=web';
+                            titleImgURL = locationOriginalURL + '/v20/download/img?type=web&path=' + data.data;
                         } else {
                             $localImg.hide();
                             alert('图片上传失败,请重新上传' + data.msg);
