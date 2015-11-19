@@ -8,6 +8,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <!-- build:css /styles/pages/server/formAll.min.css -->
     <link rel="stylesheet" href="/styles/pages/server/formAll.css"/>
+    <link rel="stylesheet" href="/styles/pages/server/cropper.min.css"/>
     <!-- endbuild -->
 </head>
 <body class="server-form" >
@@ -176,11 +177,16 @@
         <button class="btn form-button " data-submit="company">提交申请</button>
     </form>
 </div>
+<div class="cropper">
+    <img alt=""/>
+    <div class="select-btn"><span class="cancel pull-left">取消</span><span class="choose pull-right">选择</span></div>
+</div>
 <div class='warn'><div><img src=''><p></p></div></div>
 <div class='loading hidden'><img src='/images/pages/server/icon_handin@2x.png'></div>
 <!-- build:js /scripts/server/app_formAll.js -->
 <script type="text/javascript" src="/scripts/components/jquery.js"></script>
 <script type="text/javascript" src="/scripts/components/jquery.cookie.js"></script>
+<script type="text/javascript" src="/scripts/server/cropper.min.js"></script>
 <script type="text/javascript" src="/scripts/server/validation.js"></script>
 <script type="text/javascript" src="/scripts/server/formAll.js"></script>
 <!-- endbuild -->
