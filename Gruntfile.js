@@ -346,8 +346,8 @@ module.exports = function (grunt) {
     'autoprefixer:dist',
     'concurrent:dist',  //并行的 cssmin uglify imagemin
     'usemin',
-    'copy:server',  //把处理好的在 dist/ 下的文件复制到工作目录中
-    'copy:default'  //把原始的 scss js 文件复制到工作目录中
+    //'copy:server',  //把处理好的在 dist/ 下的文件复制到工作目录中
+    //'copy:default'  //把原始的 scss js 文件复制到工作目录中
   ]);
 
   grunt.registerTask('test', ['clean']);
