@@ -28,7 +28,7 @@ $(function () {
         event.preventDefault();
         $form.valid(function (pass) {
             if (pass) {
-                $loading.removeClass('hidden');
+                $loading.show();
                 $.ajax(
                     locationOriginalURL + '/v20/yqserviceapply/apply', {
                         dataType: 'json',
@@ -44,7 +44,7 @@ $(function () {
                             introduction: $("input[name='intro']").val()
                         }
                     }).success(function (data) {
-                        $loading.addClass('hidden');
+                        $loading.hide();
                         if (data.cord === 0) {
                             $warn.find('p').html("你对服务\"" + serviveName + "\"的合作申请表已提交");
                             $warn.find('img').attr('src','/images/pages/server/icon_succeed@2x.png');
@@ -57,7 +57,7 @@ $(function () {
                             $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
                         }
                     }).fail(function () {
-                        $loading.addClass('hidden');
+                        $loading.hide();
                         $warn.find('p').html('发送失败 ');
                         $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
                     });
@@ -131,7 +131,7 @@ $(function () {
                 alert('获取用户信息失败，请检查您是否已登录');
             }
         }).fail(function () {
-            alert('获取服务信息失败，请检查您是否已登录');
+            alert('获取用户信息失败，请检查您是否已登录');
         });
 
     //利用serviceid获取服务信息

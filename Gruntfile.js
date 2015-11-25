@@ -245,6 +245,10 @@ module.exports = function (grunt) {
             '<%= config.app %>/scripts/components/jquery.cookie.js',
             '<%= config.app %>/scripts/server/validation.js',
             '<%= config.app %>/scripts/server/form.js']
+        },{
+          'dist/scripts/server/app_introduction.js': ['<%= config.app %>/scripts/components/jquery.js',
+            '<%= config.app %>/scripts/components/jquery.cookie.js',
+            '<%= config.app %>/scripts/server/introduction.js']
         }]
       }
     },

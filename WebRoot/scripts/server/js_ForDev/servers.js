@@ -21,6 +21,7 @@ $(function () {
     var serverUserId = '';
     var $body = $('body');
     var $teamHeadPic = $('.team-header-pic');
+    var talkParam = '';
     $.ajax(
         locationOriginalURL + '/v20/yqservice/findyqservice', {
             dataType: 'json',
@@ -52,6 +53,7 @@ $(function () {
                 }
                 else {
                     sType = '企业服务';
+                    $talkBtn.hide().parent().removeClass('btn-group');
                 }
                 $main.find('.head-class').html(sType);
                 $main.find('.supplier').html(data['servicesupplier']);
@@ -63,17 +65,18 @@ $(function () {
                     $main.find('.content').append("<p>" + arr[j] + "</p>");
                 }
                 $main.find('.head-pic').attr('src', data['titleimg']);
-
                 $('.team-header-pic,.psn-header-pic').css('background-image',"url(" + data['titleimg'] + ")");
                 $main.find('.user').html(user['nickname']);
                 var introduction = user['introduction'].substring(0, 27);
                 $main.find('.introduction').html(introduction);
                 for (var i = 0; i < 3; i++) {
-                    $main.find('.marks-btn-box').append('<span>' + user.focus[i]['zname'] + '</span>');
+                    if(user.focus[i]){
+                        $main.find('.marks-btn-box').append('<span>' + user.focus[i]['zname'] + '</span>');
+                    }
                 }
+                talkParam = serverUserId + ',' + user.nickname + ',' + user.minimg;
             } else {
                 $body.append('<div class="get-info-erro"><p>网络出错了 T_T ' + respond.msg + '</p>' +
-                    //'<button onclick="history.go(-1)" class="btn form-button"> 返回 </button>' +
                     '</div>');
             }
         }).fail(function () {
@@ -120,9 +123,9 @@ $(function () {
 
     var appLocation = function() {
         if (uaNow()==='ios') {
-            talkAction.ios('myTalk', serverUserId)
+            talkAction.ios('talk', talkParam)
         } else{
-            talkAction.android('myTalk', serverUserId)
+            talkAction.android('talk', talkParam)
         }
 
     };
