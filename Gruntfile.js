@@ -69,7 +69,7 @@ module.exports = function (grunt) {
             '<%= config.app %>/scripts/**/*.js'
           ],
           port: 8000,
-          hostname: '192.168.1.146',
+          host: 'localhost',
           server: {
             baseDir: ['<%= config.app %>/'],
             routes: {
