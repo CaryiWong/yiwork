@@ -56,6 +56,9 @@
     }
     input {
       color: #333333;
+      &:disabled{
+        color:#999;
+      }
     }
 
     input::-webkit-input-placeholder,
@@ -166,7 +169,7 @@
     height: 75px;
     position: absolute;
     overflow: hidden;
-    top: 35px;
+    top: 34px;
     left: 10px;
     border: 1px solid #ccc;
     background-position: center center;
@@ -188,9 +191,11 @@
       top: 50%;
       margin: -55px 0 0 -75px;
       background-color: rgba(0, 0, 0, 0.7);
-      width: 150px;
-      height: 110px;
+      width: 40%;
+      min-width: 150px;
+      min-height: 110px;
       border-radius: 4px;
+      padding: 0 8px;
     }
     img {
       animation: mymove linear .8s infinite;
@@ -228,9 +233,11 @@
       top: 50%;
       margin: -55px 0 0 -75px;
       background-color: rgba(0, 0, 0, 0.7);
-      width: 150px;
-      height: 110px;
+      width: 40%;
+      min-width: 150px;
+      min-height: 110px;
       border-radius: 4px;
+      padding: 0 8px;
     }
     img{
       width: 30px;

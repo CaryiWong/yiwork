@@ -22,6 +22,8 @@ $(function () {
     var $body = $('body');
     var $teamHeadPic = $('.team-header-pic');
     var talkParam = '';
+    var $applyBtn = $('.btn-apply');
+    var $talkBtn = $('.btn-talk');
     $.ajax(
         locationOriginalURL + '/v20/yqservice/findyqservice', {
             dataType: 'json',
@@ -35,6 +37,9 @@ $(function () {
                 var data = respond.data;
                 var user = data.user;
                 serverUserId = user.id;
+                if(ua.match('yiqi')){
+                    $('.toCards').attr('href','/pages/members/card.html?userid=' + serverUserId);
+                }
                 if(serverUserId === userId){
                     $('.btn-group').hide();
                 }
@@ -45,15 +50,14 @@ $(function () {
                 var $type = data['servicetype'];
                 if ($type === 'individual') {
                     sType = '个人服务';
-                    $applyBtn.hide().parent().removeClass('btn-group');
                 }
                 else if ($type === 'team') {
                     sType = '团队服务';
-                    $applyBtn.hide().parent().removeClass('btn-group');
+                    $applyBtn.hide();
                 }
                 else {
                     sType = '企业服务';
-                    $talkBtn.hide().parent().removeClass('btn-group');
+                    $talkBtn.hide();
                 }
                 $main.find('.head-class').html(sType);
                 $main.find('.supplier').html(data['servicesupplier']);
@@ -66,7 +70,7 @@ $(function () {
                 }
                 $main.find('.head-pic').attr('src', data['titleimg']);
                 $('.team-header-pic,.psn-header-pic').css('background-image',"url(" + data['titleimg'] + ")");
-                $main.find('.user').html(user['nickname']);
+                $main.find('.user').html(data['servicesupplier']);
                 var introduction = user['introduction'].substring(0, 27);
                 $main.find('.introduction').html(introduction);
                 for (var i = 0; i < 3; i++) {
@@ -75,6 +79,20 @@ $(function () {
                     }
                 }
                 talkParam = serverUserId + ',' + user.nickname + ',' + user.minimg;
+                var shareBody = {
+                    "title" : data['name'],
+                    "desc" : data['context'],
+                    "img" : data['titleimg'],
+                    "link" : window.location.href
+                };
+                var shareString = JSON.stringify(shareBody);
+                if (uaNow() === 'ios') {
+                    shareAction.iosShare(shareString);
+                    shareAction.iosIsShare('isShare',1)
+                } else {
+                    shareAction.androidShare(shareString);
+                    shareAction.androidIsShare('isShare', 1);
+                }
             } else {
                 $body.append('<div class="get-info-erro"><p>网络出错了 T_T ' + respond.msg + '</p>' +
                     '</div>');
@@ -83,8 +101,7 @@ $(function () {
             $body.append('<div class="get-info-erro"><p>网络出错了 T_T </p></div>');
         });
 
-    //聊天室跳转按钮
-    var $talkBtn = $('.btn-talk');
+    //聊天室跳转
     var Ua = navigator.userAgent;
     var ua = Ua.toLocaleLowerCase();
     var talkAction = {
@@ -94,17 +111,44 @@ $(function () {
             };
             window.location.href = method ;
         },
-        iosShare :function(params){
-            window.iosIsShare = function () {
-                return params;
-            };
-        },
         android : function(method,params){
             if(window.yiqi && window.yiqi[method]){
                 window.yiqi[method](params);
             }
         }
     };
+
+    var shareAction = {
+        iosShare :function(params){
+            window.iosGetShare = function () {
+                return params;
+            };
+        },
+        iosIsShare:function(method,params){
+            window.iosWebParams = function () {
+                return params;
+            };
+            window.location.href = method ;
+        },
+        androidIsShare : function(method,params){
+            if(window.yiqi && window.yiqi[method]){
+                window.yiqi[method](params);
+            }
+        },
+        androidShare : function(params){
+            window.yiqi.getShare = function () {
+                return params;
+            };
+        }
+    };
+
+    //分享打开的页面按钮
+    if(ua.match('micromessenger')){
+        $talkBtn.hide();
+        $applyBtn.hide();
+        $('.server-btn-group').append("<a class='btn form-button' href='/pages/other/download.html'>下载一起APP</a>")
+    }
+
     var uaNow = function(){
         if (ua.match('yiqi') && !ua.match('micromessenger')) {
             if (ua.match('iphone' || 'ipod' || 'ipad')) {
@@ -114,12 +158,6 @@ $(function () {
             }
         }
     };
-
-    if (uaNow() === 'ios') {
-        talkAction.iosShare(1)
-    } else {
-        talkAction.android('isShare', 1);
-    }
 
     var appLocation = function() {
         if (uaNow()==='ios') {
@@ -133,7 +171,6 @@ $(function () {
         appLocation();
     });
     //申请表跳转
-    var $applyBtn = $('.btn-apply');
     $applyBtn.attr('href','/pages/server/intentLetter.html?serviceid=' + serverId);
 
 });

@@ -71,16 +71,19 @@ $(function () {
                         if (data.cord === 0) {
                             $warn.find('p').html('已提交成为雁行者的申请，请耐心等候!');
                             $warn.find('img').attr('src','/images/pages/server/icon_succeed@2x.png');
+                            $allLocalImg.hide();
                             form[0].reset();
                             setTimeout(function(){appLocation();},4200);
                         } else {
                             $warn.find('p').html('发送失败 ' + data.msg);
                             $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
+                            $allLocalImg.hide();
                         }
                     }).fail(function () {
                         $loading.hide();
                         $warn.find('p').html('发送失败 !');
                         $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
+                        $allLocalImg.hide();
                     });
                 $warn.fadeIn(800);
                 setTimeout(function(){ $warn.fadeOut(800); }, 3000);
@@ -99,11 +102,6 @@ $(function () {
             };
             window.location.href = method ;
         },
-        iosShare :function(params){
-            window.iosIsShare = function () {
-                return params;
-            };
-        },
         android : function(method,params){
             if(window.yiqi && window.yiqi[method]){
                 window.yiqi[method](params);
@@ -120,12 +118,7 @@ $(function () {
         }
     };
 
-    if (uaNow() === 'ios') {
-        action.iosShare(0)
-    } else {
-        action[uaNow()]('isShare', 0);
-    }
-
+    action[uaNow()]('isShare', 0);
     function appLocation() {
         action[uaNow()]('myServices', userid);
     }
@@ -140,7 +133,9 @@ $(function () {
             }
         }).success(function (data) {
             if (data.cord === 0) {
-                $(".individual-nickname").attr({value: data.data["nickname"], 'readonly': 'readonly'});
+                var inputName = '';
+                inputName = data.data.realname ? data.data.realname : data.data.nickname;
+                $(".individual-nickname").attr({value: inputName, 'readonly': 'readonly'});
                 $(".individual-tel").attr({value: data.data["telnum"], 'readonly': 'readonly'});
             } else {
                 alert('获取用户信息失败 ' + data.msg);

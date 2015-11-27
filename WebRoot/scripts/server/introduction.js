@@ -12,18 +12,9 @@ $(function () {
             };
             window.location.href = method ;
         },
-        iosShare :function(params){
-            window.iosIsShare = function () {
-                return params;
-            };
-        },
         android : function(method,params){
             if(window.yiqi && window.yiqi[method]){
-                if(method ==='back'){
-                    window.yiqi[method]();
-                }else{
-                    window.yiqi[method](params);
-                }
+                window.yiqi[method](params);
             }
         }
     };
@@ -37,11 +28,7 @@ $(function () {
         }
     };
 
-    if (uaNow() === 'ios') {
-        action.iosShare(0)
-    } else {
-        action[uaNow()]('isShare', 0);
-    }
+    action[uaNow()]('isShare', 0);
     $('.btn-introduce').on('touchstart',function(event){
         var $this = $(this);
         if(isVIP){

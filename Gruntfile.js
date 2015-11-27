@@ -70,6 +70,7 @@ module.exports = function (grunt) {
           ],
           port: 8000,
           host: 'localhost',
+          hostname: '192.168.1.146',
           server: {
             baseDir: ['<%= config.app %>/'],
             routes: {

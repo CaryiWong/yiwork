@@ -62,7 +62,7 @@ $(function () {
                         $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
                     });
                 $warn.fadeIn(600);
-                setTimeout(function(){ $warn.fadeOut(600); }, 2000);
+                setTimeout(function(){ $warn.fadeOut(600); }, 3000);
             }else { alert($form.find('.valid-error').first().html());}
         })
     });
@@ -75,11 +75,6 @@ $(function () {
                 return params;
             };
             window.location.href = method ;
-        },
-        iosShare :function(params){
-            window.iosIsShare = function () {
-                return params;
-            };
         },
         android : function(method,params){
             if(window.yiqi && window.yiqi[method]){
@@ -101,12 +96,7 @@ $(function () {
         }
     };
 
-    if (uaNow() === 'ios') {
-        action.iosShare(0)
-    } else {
-        action[uaNow()]('isShare', 0);
-    }
-
+    action[uaNow()]('isShare', 0);
     function appLocation() {
             if (uaNow() === 'ios') {
                 action[uaNow()]('back', serviceId)
