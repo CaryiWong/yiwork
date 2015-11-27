@@ -69,6 +69,7 @@ module.exports = function (grunt) {
             '<%= config.app %>/scripts/**/*.js'
           ],
           port: 8000,
+          host: 'localhost',
           hostname: '192.168.1.146',
           server: {
             baseDir: ['<%= config.app %>/'],
@@ -245,6 +246,10 @@ module.exports = function (grunt) {
             '<%= config.app %>/scripts/components/jquery.cookie.js',
             '<%= config.app %>/scripts/server/validation.js',
             '<%= config.app %>/scripts/server/form.js']
+        },{
+          'dist/scripts/server/app_introduction.js': ['<%= config.app %>/scripts/components/jquery.js',
+            '<%= config.app %>/scripts/components/jquery.cookie.js',
+            '<%= config.app %>/scripts/server/introduction.js']
         }]
       }
     },

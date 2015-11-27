@@ -24,7 +24,7 @@ $(function () {
     $chooseButton.on('touchstart', function () {
         $showForm.hide();
         $allLocalImg.hide();
-        $uploadImg.replaceWith($uploadImg.val('').clone(true));
+        //$uploadImg.replaceWith($uploadImg.val('').clone(true));
         imgIsUploaded = false;
         var $this = $(this);
         chooseType = $this.attr("id");
@@ -48,7 +48,7 @@ $(function () {
     function submitForm(form, type) {
         form.valid(function (pass) {
             if (pass && imgIsUploaded === true) {
-                $loading.removeClass('hidden');
+                $loading.show();
                 $.ajax(
                     locationOriginalURL + '/v20/yqservice/apply_service', {
                         dataType: 'json',
@@ -67,20 +67,23 @@ $(function () {
                             servicesupplier: form.find("input[name='servicesupplier']").val()
                         }
                     }).success(function (data) {
-                        $loading.addClass('hidden');
+                        $loading.hide();
                         if (data.cord === 0) {
                             $warn.find('p').html('已提交成为雁行者的申请，请耐心等候!');
                             $warn.find('img').attr('src','/images/pages/server/icon_succeed@2x.png');
+                            $allLocalImg.hide();
                             form[0].reset();
                             setTimeout(function(){appLocation();},4200);
                         } else {
                             $warn.find('p').html('发送失败 ' + data.msg);
                             $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
+                            $allLocalImg.hide();
                         }
                     }).fail(function () {
-                        $loading.addClass('hidden');
+                        $loading.hide();
                         $warn.find('p').html('发送失败 !');
                         $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
+                        $allLocalImg.hide();
                     });
                 $warn.fadeIn(800);
                 setTimeout(function(){ $warn.fadeOut(800); }, 3000);
@@ -93,22 +96,17 @@ $(function () {
     var Ua = navigator.userAgent;
     var ua = Ua.toLocaleLowerCase();
     var action = {
-                ios :function(method,params){
-                    window.iosWebParams = function () {
-                        return params;
-                    };
-                    window.location.href = method ;
-                },
-                iosShare :function(params){
-                    window.iosIsShare = function () {
-                        return params;
-                    };
-                },
-                android : function(method,params){
-                    if(window.yiqi && window.yiqi[method]){
-                        window.yiqi[method](params);
-                    }
-                }
+        ios :function(method,params){
+            window.iosWebParams = function () {
+                return params;
+            };
+            window.location.href = method ;
+        },
+        android : function(method,params){
+            if(window.yiqi && window.yiqi[method]){
+                window.yiqi[method](params);
+            }
+        }
     };
     var uaNow = function(){
         if (ua.match('yiqi') && !ua.match('micromessenger')) {
@@ -120,12 +118,7 @@ $(function () {
         }
     };
 
-    if (uaNow() === 'ios') {
-        action.iosShare(0)
-    } else {
-        action[uaNow()]('isShare', 0);
-    }
-
+    action[uaNow()]('isShare', 0);
     function appLocation() {
         action[uaNow()]('myServices', userid);
     }
@@ -140,7 +133,9 @@ $(function () {
             }
         }).success(function (data) {
             if (data.cord === 0) {
-                $(".individual-nickname").attr({value: data.data["nickname"], 'readonly': 'readonly'});
+                var inputName = '';
+                inputName = data.data.realname ? data.data.realname : data.data.nickname;
+                $(".individual-nickname").attr({value: inputName, 'readonly': 'readonly'});
                 $(".individual-tel").attr({value: data.data["telnum"], 'readonly': 'readonly'});
             } else {
                 alert('获取用户信息失败 ' + data.msg);
@@ -155,22 +150,24 @@ $(function () {
         var $thisInput = $(this),
             $localImg = $thisInput.parent().next('.localImage'),
             $showImg = $localImg.find("#blah");
-        readURL(this);
+        //readURL(this);
         if ($thisInput.val()) {
             if (typeof FormData === "undefined")
                 throw new Error("FormData is not implemented");
             var request = new XMLHttpRequest();
             request.open('POST', locationOriginalURL + '/v20/upload/uploadimg');
             imgIsUploaded = false;
-            $loading.removeClass('hidden');
+            $loading.show();
             request.onreadystatechange = function () {
-                $loading.addClass('hidden');
+                $loading.hide();
                 if (request.readyState === 4) {
                     if (request.status === 200) {
                         var data = JSON.parse(request.responseText);
                         if (data.cord === 0) {
                             imgIsUploaded = true;
-                            titleImgURL = locationOriginalURL + '/v20/download/img?path=' + data.data + '&type=web';
+                            titleImgURL = locationOriginalURL + '/v20/download/img?type=web&path=' + data.data;
+                            $localImg.css('background-image',"url(" + titleImgURL + ")");
+                            $localImg.show();
                         } else {
                             $localImg.hide();
                             alert('图片上传失败,请重新上传' + data.msg);
@@ -186,16 +183,16 @@ $(function () {
             formdata.append('img', $thisInput[0].files[0]);
             request.send(formdata);
         }
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $showImg.attr('src', e.target.result);
-                    $localImg.show();
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+        //function readURL(input) {
+        //    if (input.files && input.files[0]) {
+        //        var reader = new FileReader();
+        //        reader.onload = function (e) {
+        //            $showImg.attr('src', e.target.result);
+        //            $localImg.show();
+        //        };
+        //        reader.readAsDataURL(input.files[0]);
+        //    }
+        //}
     });
 });
 

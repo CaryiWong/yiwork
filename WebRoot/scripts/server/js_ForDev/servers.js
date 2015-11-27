@@ -18,9 +18,10 @@ $(function () {
     var args = getArgs();
     var serverId = args['serviceid'];
     var userId = $.cookie('userid');
-    var serverUser = '';
+    var serverUserId = '';
     var $body = $('body');
     var $teamHeadPic = $('.team-header-pic');
+    var talkParam = '';
     $.ajax(
         locationOriginalURL + '/v20/yqservice/findyqservice', {
             dataType: 'json',
@@ -33,7 +34,10 @@ $(function () {
             if (respond.cord === 0) {
                 var data = respond.data;
                 var user = data.user;
-                serverUser = user.id;
+                serverUserId = user.id;
+                if(serverUserId === userId){
+                    $('.btn-group').hide();
+                }
                 var $main = $('.info-main');
                 $main.show();
                 $main.find('.serverName').html(data['name']);
@@ -41,14 +45,16 @@ $(function () {
                 var $type = data['servicetype'];
                 if ($type === 'individual') {
                     sType = '个人服务';
+                    $applyBtn.hide().parent().removeClass('btn-group');
                 }
                 else if ($type === 'team') {
                     sType = '团队服务';
+                    $applyBtn.hide().parent().removeClass('btn-group');
                 }
                 else {
                     sType = '企业服务';
+                    $talkBtn.hide().parent().removeClass('btn-group');
                 }
-                $('title').html(sType);
                 $main.find('.head-class').html(sType);
                 $main.find('.supplier').html(data['servicesupplier']);
                 var $location = $main.find('.location');
@@ -59,15 +65,18 @@ $(function () {
                     $main.find('.content').append("<p>" + arr[j] + "</p>");
                 }
                 $main.find('.head-pic').attr('src', data['titleimg']);
+                $('.team-header-pic,.psn-header-pic').css('background-image',"url(" + data['titleimg'] + ")");
                 $main.find('.user').html(user['nickname']);
                 var introduction = user['introduction'].substring(0, 27);
                 $main.find('.introduction').html(introduction);
                 for (var i = 0; i < 3; i++) {
-                    $main.find('.marks-btn-box').append('<span>' + user.focus[i]['zname'] + '</span>');
+                    if(user.focus[i]){
+                        $main.find('.marks-btn-box').append('<span>' + user.focus[i]['zname'] + '</span>');
+                    }
                 }
+                talkParam = serverUserId + ',' + user.nickname + ',' + user.minimg;
             } else {
                 $body.append('<div class="get-info-erro"><p>网络出错了 T_T ' + respond.msg + '</p>' +
-                    //'<button onclick="history.go(-1)" class="btn form-button"> 返回 </button>' +
                     '</div>');
             }
         }).fail(function () {
@@ -85,22 +94,44 @@ $(function () {
             };
             window.location.href = method ;
         },
+        iosShare :function(params){
+            window.iosIsShare = function () {
+                return params;
+            };
+        },
         android : function(method,params){
             if(window.yiqi && window.yiqi[method]){
                 window.yiqi[method](params);
             }
         }
     };
-    function appLocation() {
+    var uaNow = function(){
         if (ua.match('yiqi') && !ua.match('micromessenger')) {
             if (ua.match('iphone' || 'ipod' || 'ipad')) {
-                talkAction.ios('myTalk', serverUser)
+                return 'ios';
             } else if (ua.match('android')) {
-                talkAction.android('myTalk', serverUser)
+                return 'android';
             }
         }
+    };
+
+    if (uaNow() === 'ios') {
+        talkAction.iosShare(1)
+    } else {
+        talkAction.android('isShare', 1);
     }
-    $talkBtn.on('touchstart',appLocation());
+
+    var appLocation = function() {
+        if (uaNow()==='ios') {
+            talkAction.ios('talk', talkParam)
+        } else{
+            talkAction.android('talk', talkParam)
+        }
+
+    };
+    $talkBtn.on('touchstart',function(){
+        appLocation();
+    });
     //申请表跳转
     var $applyBtn = $('.btn-apply');
     $applyBtn.attr('href','/pages/server/intentLetter.html?serviceid=' + serverId);

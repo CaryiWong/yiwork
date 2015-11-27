@@ -24,7 +24,7 @@ $(function () {
     $chooseButton.on('touchstart', function () {
         $showForm.hide();
         $allLocalImg.hide();
-        $uploadImg.replaceWith($uploadImg.val('').clone(true));
+        //$uploadImg.replaceWith($uploadImg.val('').clone(true));
         imgIsUploaded = false;
         var $this = $(this);
         chooseType = $this.attr("id");
@@ -48,7 +48,7 @@ $(function () {
     function submitForm(form, type) {
         form.valid(function (pass) {
             if (pass && imgIsUploaded === true) {
-                $loading.removeClass('hidden');
+                $loading.show();
                 $.ajax(
                     locationOriginalURL + '/v20/yqservice/apply_service', {
                         dataType: 'json',
@@ -67,7 +67,7 @@ $(function () {
                             servicesupplier: form.find("input[name='servicesupplier']").val()
                         }
                     }).success(function (data) {
-                        $loading.addClass('hidden');
+                        $loading.hide();
                         if (data.cord === 0) {
                             $warn.find('p').html('已提交成为雁行者的申请，请耐心等候!');
                             $warn.find('img').attr('src','/images/pages/server/icon_succeed@2x.png');
@@ -78,7 +78,7 @@ $(function () {
                             $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
                         }
                     }).fail(function () {
-                        $loading.addClass('hidden');
+                        $loading.hide();
                         $warn.find('p').html('发送失败 !');
                         $warn.find('img').attr('src','/images/pages/server/icon_attention@2x.png');
                     });
@@ -93,26 +93,41 @@ $(function () {
     var Ua = navigator.userAgent;
     var ua = Ua.toLocaleLowerCase();
     var action = {
-                ios :function(method,params){
-                    window.iosWebParams = function () {
-                        return params;
-                    };
-                    window.location.href = method ;
-                },
-                android : function(method,params){
-                    if(window.yiqi && window.yiqi[method]){
-                        window.yiqi[method](params);
-                    }
-                }
-    };
-    function appLocation() {
-        if (ua.match('yiqi') && !ua.match('micromessenger')) {
-            if (ua.match('iphone' || 'ipod' || 'ipad')) {
-                action.ios('myServices', userid)
-            } else if (ua.match('android')) {
-                action.android('myServices', userid)
+        ios :function(method,params){
+            window.iosWebParams = function () {
+                return params;
+            };
+            window.location.href = method ;
+        },
+        iosShare :function(params){
+            window.iosIsShare = function () {
+                return params;
+            };
+        },
+        android : function(method,params){
+            if(window.yiqi && window.yiqi[method]){
+                window.yiqi[method](params);
             }
         }
+    };
+    var uaNow = function(){
+        if (ua.match('yiqi') && !ua.match('micromessenger')) {
+            if (ua.match('iphone' || 'ipod' || 'ipad')) {
+                return 'ios';
+            } else if (ua.match('android')) {
+                return 'android';
+            }
+        }
+    };
+
+    if (uaNow() === 'ios') {
+        action.iosShare(0)
+    } else {
+        action[uaNow()]('isShare', 0);
+    }
+
+    function appLocation() {
+        action[uaNow()]('myServices', userid);
     }
 //利用userid获取用户信息
     $.ajax(
@@ -140,22 +155,24 @@ $(function () {
         var $thisInput = $(this),
             $localImg = $thisInput.parent().next('.localImage'),
             $showImg = $localImg.find("#blah");
-        readURL(this);
+        //readURL(this);
         if ($thisInput.val()) {
             if (typeof FormData === "undefined")
                 throw new Error("FormData is not implemented");
             var request = new XMLHttpRequest();
             request.open('POST', locationOriginalURL + '/v20/upload/uploadimg');
             imgIsUploaded = false;
-            $loading.removeClass('hidden');
+            $loading.show();
             request.onreadystatechange = function () {
-                $loading.addClass('hidden');
+                $loading.hide();
                 if (request.readyState === 4) {
                     if (request.status === 200) {
                         var data = JSON.parse(request.responseText);
                         if (data.cord === 0) {
                             imgIsUploaded = true;
-                            titleImgURL = locationOriginalURL + '/v20/download/img?path=' + data.data + '&type=web';
+                            titleImgURL = locationOriginalURL + '/v20/download/img?type=web&path=' + data.data;
+                            $localImg.css('background-image',"url(" + titleImgURL + ")");
+                            $localImg.show();
                         } else {
                             $localImg.hide();
                             alert('图片上传失败,请重新上传' + data.msg);
@@ -171,16 +188,16 @@ $(function () {
             formdata.append('img', $thisInput[0].files[0]);
             request.send(formdata);
         }
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $showImg.attr('src', e.target.result);
-                    $localImg.show();
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+        //function readURL(input) {
+        //    if (input.files && input.files[0]) {
+        //        var reader = new FileReader();
+        //        reader.onload = function (e) {
+        //            $showImg.attr('src', e.target.result);
+        //            $localImg.show();
+        //        };
+        //        reader.readAsDataURL(input.files[0]);
+        //    }
+        //}
     });
 });
 
