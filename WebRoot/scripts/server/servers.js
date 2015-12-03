@@ -41,7 +41,7 @@ $(function () {
                     $('.toCards').attr('href','/pages/members/card.html?userid=' + serverUserId);
                 }
                 if(serverUserId === userId){
-                    $('.btn-group').hide();
+                    $('.server-btn-group').hide();
                 }
                 var $main = $('.info-main');
                 $main.show();

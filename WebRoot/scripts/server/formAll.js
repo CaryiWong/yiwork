@@ -69,7 +69,7 @@ $(function () {
                     }).success(function (data) {
                         $loading.hide();
                         if (data.cord === 0) {
-                            $warn.find('p').html('已提交成为雁行者的申请，请耐心等候!');
+                            $warn.find('p').html('已提交成为共建者的申请，请耐心等候!');
                             $warn.find('img').attr('src','/images/pages/server/icon_succeed@2x.png');
                             $allLocalImg.hide();
                             form[0].reset();
