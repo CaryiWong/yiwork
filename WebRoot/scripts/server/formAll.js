@@ -62,6 +62,7 @@ $(function () {
                             titleimg: titleImgURL,
                             context: form.find("textarea[name='context']").val(),
                             email: form.find("input[name='email']").val(),
+                            wechat: form.find("input[name='wechat']").val(),
                             tel: form.find("input[name='tel']").val(),
                             contexturl : contexturl,
                             servicesupplier: form.find("input[name='servicesupplier']").val()
