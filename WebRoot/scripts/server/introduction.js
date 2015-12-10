@@ -1,6 +1,7 @@
 $(function () {
     var userId = $.cookie('userid'),
-        locationOriginalURL = 'http://test.yi-gather.com:1717',
+        locationOriginalURL =  'http://' + window.location.host,
+        //locationOriginalURL = 'http://test.yi-gather.com:1717',
         isVIP = false;
     var $alert = $('.alert');
     var Ua = navigator.userAgent;

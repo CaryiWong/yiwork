@@ -13,8 +13,8 @@ function getArgs() {
     return args;
 }
 $(function () {
-    //var locationOriginalURL = window.location.origin;
-    var locationOriginalURL = 'http://test.yi-gather.com:1717';
+    var locationOriginalURL = 'http://' + window.location.host;
+    //var locationOriginalURL = 'http://test.yi-gather.com:1717';
     var args = getArgs();
     var serverId = args['serviceid'];
     var userId = $.cookie('userid');
@@ -63,11 +63,7 @@ $(function () {
                 $main.find('.supplier').html(data['servicesupplier']);
                 var $location = $main.find('.location');
                 $location.find('span').html(data['city']);
-                var contextStr = data['context'].trim();
-                var arr = contextStr.split(/\n/g);
-                for (var j = 0; j < arr.length; j++) {
-                    $main.find('.content').append("<p>" + arr[j] + "</p>");
-                }
+                $main.find('.content').html(data['context'].replace(/\n/g, '<br/>'));
                 $main.find('.head-pic').attr('src', data['titleimg']);
                 $('.team-header-pic,.psn-header-pic').css('background-image',"url(" + data['titleimg'] + ")");
                 $main.find('.user').html(data['servicesupplier']);

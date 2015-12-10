@@ -22,8 +22,8 @@ $(function () {
         serviceType='',
         $loading = $('.loading'),
         $warn = $('.warn'),
-    //locationOriginalURL = window.location.origin;
-        locationOriginalURL = 'http://test.yi-gather.com:1717';
+        locationOriginalURL =  'http://' +window.location.host;
+        //locationOriginalURL = 'http://test.yi-gather.com:1717';
     $('.form-button').on('touchstart', function (event) {
         event.preventDefault();
         $form.valid(function (pass) {
