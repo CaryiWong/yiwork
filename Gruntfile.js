@@ -34,8 +34,9 @@ module.exports = function (grunt) {
         files: ['bower.json'],
         tasks: ['wiredep']
       },
-      babel: {
-        files: ['<%= config.app %>/scripts/**/*.js']
+      webpack: {
+        files: ['<%= config.app %>/scripts/server/js_ForDev/**/*.js','<%= config.app %>/pages/server/**/*.handlebars'],
+        tasks: ['webpack']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -297,13 +298,27 @@ module.exports = function (grunt) {
     webpack: {
       build: {
         entry:{
-          formAll_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\formAll.js',
-          form_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\form.js',
-          servers_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\servers.js'
+          //formAll_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\formAll.js',
+          //form_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\form.js',
+          //servers_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\servers.js',
+          serverList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\serverList.js'
         },
         output: {
           path: "<%= config.app %>/scripts/server/",
           filename: "[name].js"
+        },
+        module: {
+          loaders: [
+             //{ test: /\.handlebars$/, loader: "handlebars-loader" }
+          ]
+        },
+        externals: {
+          // require('data') is external and available
+          //  on the global var data
+          'localOriginal': '\'http://www.yi-gather.com\''
+        },
+        node: {
+          fs: "empty"
         },
         plugins:[
           new webpack.ProvidePlugin({
@@ -311,7 +326,7 @@ module.exports = function (grunt) {
             jQuery: "jquery",
             "window.jQuery": "jquery"
           }),
-           new commonPlugins('common.js')
+           //new commonPlugins('common.js')
         ]
       }
     }
@@ -326,8 +341,9 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'sass:server',
-      'autoprefixer:server',
+      //'sass:server',
+      //'autoprefixer:server',
+        'webpack',
       'browserSync:livereload',
       'watch'
     ]);
