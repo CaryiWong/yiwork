@@ -5,8 +5,8 @@ $(function(){
     var Handlebars = require('handlebars/dist/handlebars.runtime.js');
     require('imports?Handlebars=handlebars/dist/handlebars.runtime.js!./Handlebars.templates.js');
     var lock = false;
-    //var localOriginal= require('localOriginal');
-    var localOriginal= "http://" + window.location.host;
+    var localOriginal= require('localOriginal');
+    //var localOriginal= "http://" + window.location.host;
     var page = 0;
     var $window = $(window),$body = $(document.body);
     var winH = $window.height(); //页面可视区域高度
@@ -14,6 +14,7 @@ $(function(){
     var isMove = false;
     var goLoad = true;
     var $serverList = $('.serverList');
+    var $info = $('.info');
     document.addEventListener('touchstart',function(event){
         startY = event.touches[0].clientY;
         isMove = false;
@@ -27,8 +28,8 @@ $(function(){
         var pageH = $body.height();
         var scrollT = $window.scrollTop(); //滚动条top
         var rate = (pageH - winH - scrollT) / winH;
-        if (goLoad && rate < 0.01 && slideY < -100 ) {
-            $('.info').remove();
+        if (goLoad && rate < 0.02 && slideY < -50 ) {
+            $info.html('加载中...').prepend("<img class='loading' src='/images/pages/server/icon_loading_loads@2x.png'>");
             if(lock) return false;
             lock = true;
             page++;
@@ -37,7 +38,6 @@ $(function(){
             });
         }
     });
-
     getData(0);
     function getData(page){
         return $.ajax( localOriginal + '/v20/yqservice/findallyqservice',{
@@ -80,9 +80,9 @@ $(function(){
                                 }
                             })
                     }
-                    $body.append("<div class='info'>上拉加载更多</div>");
+                    $info.html('上拉加载更多');
                 }else{
-                    $('body').append("<div class='info'>已经到底了</div>");
+                    $info.html('已经到底了！');
                     goLoad = false;
                 }
             }else{

@@ -324,7 +324,7 @@ module.exports = function (grunt) {
         externals: {
           // require('data') is external and available
           //  on the global var data
-          //'localOriginal': '\'http://www.yi-gather.com\''
+          'localOriginal': '\'http://www.yi-gather.com\''
           //'localOriginal': '\'http://\'' + location
         },
         node: {
@@ -369,7 +369,7 @@ module.exports = function (grunt) {
     'copy:dist',   //复制html文件供usemin使用
     'useminPrepare',
     'concurrent:preComplete',  //并行的 webpack sass:dist
-    //'sass:dist',
+    'sass:dist',
     'autoprefixer:dist',
     'concurrent:dist',  //并行的 cssmin uglify imagemin
     'usemin',
