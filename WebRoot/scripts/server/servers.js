@@ -139,7 +139,7 @@ $(function () {
     };
 
     //分享打开的页面按钮
-    if(ua.match('micromessenger')){
+    if(ua.match('micromessenger') || !ua.match('yiqi')){
         $talkBtn.hide();
         $applyBtn.hide();
         $('.server-btn-group').append("<a class='btn form-button' href='/pages/other/download.html'>下载一起APP</a>")
