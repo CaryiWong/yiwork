@@ -108,7 +108,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/sass/pages/server/',
-          src: ['*.{scss,sass}'],
+          src: ['serverList.{scss,sass}'],
           dest: '.tmp/',
           ext: '.css'
         }]
@@ -133,7 +133,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '.tmp/',
-          src: '**/*.css',
+          src: 'serverList.css',
           dest: 'dest/'
         }]
       },
@@ -180,7 +180,7 @@ module.exports = function (grunt) {
       options: {
         dest: 'dist/pages/server'   //最终需修改引用路径的html文件所在的目录,预先通过 copy:dist 把html复制到此目录下
       },
-      html: '<%= config.app %>/pages/server/**/*.html'  //原始html路径 文件引用部分使用 <!--build:{type} <path> --> <!--end build-->来创建block
+      html: '<%= config.app %>/pages/server/serverList.html'  //原始html路径 文件引用部分使用 <!--build:{type} <path> --> <!--end build-->来创建block
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -192,7 +192,7 @@ module.exports = function (grunt) {
           'dist/styles'
         ]
       },
-      html:['dist/pages/server/**/*.html']  // 需修改引用路径的html文件
+      html:['dist/pages/server/serverList.html']  // 需修改引用路径的html文件
 },
 
     // The following *-min tasks produce minified files in the dist folder
@@ -224,7 +224,7 @@ module.exports = function (grunt) {
       minify: {
         expand: true,
         cwd: 'dest/',
-        src: '**/*.css',
+        src: 'serverList.css',
         dest: 'dist/styles/pages/server/',
         ext: '.min.css'
       }
@@ -232,15 +232,19 @@ module.exports = function (grunt) {
 
     uglify: {
       "my_target": {
-        "files": [{
-          'dist/scripts/server/app_formAll.js': ['<%= config.app %>/scripts/server/common.js',
-            '<%= config.app %>/scripts/server/formAll_wp.js']
-        },{
-          'dist/scripts/server/app_servers.js': ['<%= config.app %>/scripts/server/common.js',
-            '<%= config.app %>/scripts/server/servers_wp.js']
-        },{
-          'dist/scripts/server/app_form.js': ['<%= config.app %>/scripts/server/common.js',
-            '<%= config.app %>/scripts/server/form_wp.js']
+        "files": [
+        //  {
+        //  'dist/scripts/server/app_formAll.js': ['<%= config.app %>/scripts/server/common.js',
+        //    '<%= config.app %>/scripts/server/formAll_wp.js']
+        //},{
+        //  'dist/scripts/server/app_servers.js': ['<%= config.app %>/scripts/server/common.js',
+        //    '<%= config.app %>/scripts/server/servers_wp.js']
+        //},{
+        //  'dist/scripts/server/app_form.js': ['<%= config.app %>/scripts/server/common.js',
+        //    '<%= config.app %>/scripts/server/form_wp.js']
+        //},
+          {
+          'dist/scripts/server/app_serverList.js': ['<%= config.app %>/scripts/server/serverList_wp.js']
         }]
       }
     },
@@ -259,7 +263,8 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= config.app %>/',
-          src: 'pages/server{,/*}',
+          //src: 'pages/server{,/*}',
+          src: 'pages/server/serverList.html',
           dest: 'dist/'
         }]
       },
@@ -269,7 +274,7 @@ module.exports = function (grunt) {
           dot: true,
           cwd: '<%= config.app %>/',
           src: ['sass/pages/server{,/*}','scripts/server/js_ForDev/**/*'],
-          dest: 'D:\\workspace2\\yiwork_20150708\\WebRoot\\'
+          dest: 'D:\\yiwork_0918\\yiwork_20150708\\WebRoot\\'
         }]
       },
       server: {
@@ -278,7 +283,7 @@ module.exports = function (grunt) {
           dot: true,
           cwd: 'dist/',
           src: ['**'],
-          dest: 'D:\\workspace2\\yiwork_20150708\\WebRoot\\'
+          dest: 'D:\\yiwork_0918\\yiwork_0918\\WebRoot\\'
         }]
       }
     },
@@ -288,6 +293,10 @@ module.exports = function (grunt) {
       server: [
         'babel:dist',
         'sass:server'
+      ],
+      preComplete: [
+        'webpack',
+        'sass:dist'
       ],
       dist: [
         'uglify',
@@ -315,7 +324,8 @@ module.exports = function (grunt) {
         externals: {
           // require('data') is external and available
           //  on the global var data
-          'localOriginal': '\'http://www.yi-gather.com\''
+          //'localOriginal': '\'http://www.yi-gather.com\''
+          //'localOriginal': '\'http://\'' + location
         },
         node: {
           fs: "empty"
@@ -341,9 +351,9 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      //'sass:server',
-      //'autoprefixer:server',
-        'webpack',
+      'sass:server',
+      'autoprefixer:server',
+      'webpack',
       'browserSync:livereload',
       'watch'
     ]);
@@ -358,11 +368,12 @@ module.exports = function (grunt) {
     'clean',  //清除临时文件夹
     'copy:dist',   //复制html文件供usemin使用
     'useminPrepare',
-    'sass:dist',
+    'concurrent:preComplete',  //并行的 webpack sass:dist
+    //'sass:dist',
     'autoprefixer:dist',
     'concurrent:dist',  //并行的 cssmin uglify imagemin
     'usemin',
-    //'copy:server',  //把处理好的在 dist/ 下的文件复制到工作目录中
+    'copy:server',  //把处理好的在 dist/ 下的文件复制到工作目录中
     //'copy:default'  //把原始的 scss js 文件复制到工作目录中
   ]);
 

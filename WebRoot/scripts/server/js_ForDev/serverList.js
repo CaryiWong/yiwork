@@ -5,7 +5,8 @@ $(function(){
     var Handlebars = require('handlebars/dist/handlebars.runtime.js');
     require('imports?Handlebars=handlebars/dist/handlebars.runtime.js!./Handlebars.templates.js');
     var lock = false;
-    var localOriginal= require('localOriginal');
+    //var localOriginal= require('localOriginal');
+    var localOriginal= "http://" + window.location.host;
     var page = 0;
     var $window = $(window),$body = $(document.body);
     var winH = $window.height(); //页面可视区域高度

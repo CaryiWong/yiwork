@@ -51,7 +51,8 @@
 	    var Handlebars = __webpack_require__(2);
 	    __webpack_require__(3);
 	    var lock = false;
-	    var localOriginal= __webpack_require__(4);
+	    //var localOriginal= require('localOriginal');
+	    var localOriginal= "http://" + window.location.host;
 	    var page = 0;
 	    var $window = $(window),$body = $(document.body);
 	    var winH = $window.height(); //页面可视区域高度
@@ -10644,12 +10645,6 @@
 	},"useData":true});
 	})();
 
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	module.exports = 'http://www.yi-gather.com';
 
 /***/ }
 /******/ ]);
