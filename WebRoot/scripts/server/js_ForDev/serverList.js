@@ -5,31 +5,41 @@ $(function(){
     var Handlebars = require('handlebars/dist/handlebars.runtime.js');
     require('imports?Handlebars=handlebars/dist/handlebars.runtime.js!./Handlebars.templates.js');
     var lock = false;
-    var localOriginal= require('localOriginal');
-    //var localOriginal= "http://" + window.location.host;
+    //var localOriginal= require('localOriginal');
+    var localOriginal= "http://" + window.location.host;
     var page = 0;
     var $window = $(window),$body = $(document.body);
     var winH = $window.height(); //页面可视区域高度
-    var startY = '',endY = '',slideY = 0;
+    var startY = '',endY = '',slideY = 0,moveY = 0;
     var isMove = false;
     var goLoad = true;
     var $serverList = $('.serverList');
     var $info = $('.info');
+    var UA = navigator.userAgent;
+    var ua = UA.toLocaleLowerCase();
+    if(!ua.match('yiqi')){
+        $body.addClass('body-app-download');
+        $('.app-download').show();
+        $('.download-close').on('touchend',function(){
+            $('.app-download').hide();
+            $body.removeClass('body-app-download');
+        })
+    }
+    $info.html("<img class='loading' src='/images/pages/server/icon_loading_loads@2x.png'>加载中...");
+
     document.addEventListener('touchstart',function(event){
         startY = event.touches[0].clientY;
         isMove = false;
     });
-    document.addEventListener('touchmove',function(){
+    document.addEventListener('touchmove',function(event){
         isMove = true;
-    });
-    document.addEventListener('touchend',function(event){
-        endY = event.changedTouches[0].clientY;
-        slideY = endY - startY;
+        moveY = event.touches[0].clientY;
+        slideY = moveY - startY;
         var pageH = $body.height();
         var scrollT = $window.scrollTop(); //滚动条top
         var rate = (pageH - winH - scrollT) / winH;
-        if (goLoad && rate < 0.02 && slideY < -50 ) {
-            $info.html('加载中...').prepend("<img class='loading' src='/images/pages/server/icon_loading_loads@2x.png'>");
+        if (goLoad && rate < 0.1 && slideY < -10 ) {
+            $info.html("<img class='loading' src='/images/pages/server/icon_loading_loads@2x.png'>加载中...");
             if(lock) return false;
             lock = true;
             page++;
@@ -82,12 +92,12 @@ $(function(){
                     }
                     $info.html('上拉加载更多');
                 }else{
-                    $info.html('已经到底了！');
+                    $info.remove();
                     goLoad = false;
                 }
             }else{
                 alert(data.msg)
             }
-        }).fail(function(){});
+        }).fail(function(){alert('加载失败，请刷新')});
     }
     });
