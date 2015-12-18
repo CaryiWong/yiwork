@@ -143,6 +143,12 @@ $(function () {
         $talkBtn.hide();
         $applyBtn.hide();
         $('.server-btn-group').append("<a class='btn form-button' href='/pages/other/download.html'>下载一起APP</a>")
+        $body.addClass('body-app-download');
+        $('.app-download').show();
+        $('.download-close').on('touchend',function(){
+            $('.app-download').hide();
+            $body.removeClass('body-app-download');
+        })
     }
 
     var uaNow = function(){
