@@ -35,14 +35,14 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       webpack: {
-        files: ['<%= config.app %>/scripts/server/js_ForDev/**/*.js','<%= config.app %>/pages/server/**/*.handlebars'],
+        files: ['<%= config.app %>/scripts/activityList/js_ForDev/**/*.js','<%= config.app %>/pages/activityList/**/*.handlebars'],
         tasks: ['webpack']
       },
       gruntfile: {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.app %>/sass/pages/server/*.{scss,sass}'],
+        files: ['<%= config.app %>/sass/pages/activityList/*.{scss,sass}'],
         tasks: ['clean:server','sass:server','autoprefixer']
       }
     },
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          '/scripts/server/**/*.js':'<%= config.app %>/scripts/server/**/*.js'
+          '/scripts/activityList/**/*.js':'<%= config.app %>/scripts/activityList/**/*.js'
         }
       }
     },
@@ -107,8 +107,8 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/sass/pages/server/',
-          src: ['serverList.{scss,sass}'],
+          cwd: '<%= config.app %>/sass/pages/activityList/',
+          src: ['activityList.{scss,sass}'],
           dest: '.tmp/',
           ext: '.css'
         }]
@@ -116,7 +116,7 @@ module.exports = function (grunt) {
       server: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/sass/pages/server/',
+          cwd: '<%= config.app %>/sass/pages/activityList/',
           src: ['*.{scss,sass}'],
           dest: '.tmp/',
           ext: '.css'
@@ -133,7 +133,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '.tmp/',
-          src: 'serverList.css',
+          src: 'activityList.css',
           dest: 'dest/'
         }]
       },
@@ -142,7 +142,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '.tmp/',
           src: '**/*.css',
-          dest: '<%= config.app %>/styles/pages/server/'
+          dest: '<%= config.app %>/styles/pages/activityList/'
         }]
       }
     },
@@ -155,7 +155,7 @@ module.exports = function (grunt) {
         ignorePath: /^(\.\.\/)*\.\./
       },
       sass: {
-        src: ['<%= config.app %>/sass/pages/server/*.{scss,sass}'],
+        src: ['<%= config.app %>/sass/pages/activityList/*.{scss,sass}'],
         ignorePath: /^(\.\.\/)+/
       }
     },
@@ -178,9 +178,9 @@ module.exports = function (grunt) {
     // additional tasks can operate on them
     useminPrepare: {
       options: {
-        dest: 'dist/pages/server'   //最终需修改引用路径的html文件所在的目录,预先通过 copy:dist 把html复制到此目录下
+        dest: 'dist/pages/activityList'   //最终需修改引用路径的html文件所在的目录,预先通过 copy:dist 把html复制到此目录下
       },
-      html: '<%= config.app %>/pages/server/serverList.html'  //原始html路径 文件引用部分使用 <!--build:{type} <path> --> <!--end build-->来创建block
+      html: '<%= config.app %>/pages/activityList/activityList.html'  //原始html路径 文件引用部分使用 <!--build:{type} <path> --> <!--end build-->来创建block
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -192,7 +192,7 @@ module.exports = function (grunt) {
           'dist/styles'
         ]
       },
-      html:['dist/pages/server/serverList.html']  // 需修改引用路径的html文件
+      html:['dist/pages/activityList/activityList.html']  // 需修改引用路径的html文件
 },
 
     // The following *-min tasks produce minified files in the dist folder
@@ -205,9 +205,9 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= config.app %>/images/pages/server/',
+            cwd: '<%= config.app %>/images/pages/activityList/',
             src: '**/*', // 优化 img 目录下所有 png/jpg/jpeg/gif 图片
-            dest: 'dist/images/pages/server/' // 优化后的图片保存位置，默认覆盖
+            dest: 'dist/images/pages/activityList/' // 优化后的图片保存位置，默认覆盖
           }
         ]
       }
@@ -224,8 +224,8 @@ module.exports = function (grunt) {
       minify: {
         expand: true,
         cwd: 'dest/',
-        src: 'serverList.css',
-        dest: 'dist/styles/pages/server/',
+        src: 'activityList.css',
+        dest: 'dist/styles/pages/activityList/',
         ext: '.min.css'
       }
     },
@@ -244,7 +244,7 @@ module.exports = function (grunt) {
         //    '<%= config.app %>/scripts/server/form_wp.js']
         //},
           {
-          'dist/scripts/server/app_serverList.js': ['<%= config.app %>/scripts/server/serverList_wp.js']
+          'dist/scripts/server/app_activityList.js': ['<%= config.app %>/scripts/server/activityList_wp.js']
         }]
       }
     },
@@ -264,7 +264,7 @@ module.exports = function (grunt) {
           dot: true,
           cwd: '<%= config.app %>/',
           //src: 'pages/server{,/*}',
-          src: 'pages/server/serverList.html',
+          src: 'pages/activityList/activityList.html',
           dest: 'dist/'
         }]
       },
@@ -273,7 +273,7 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= config.app %>/',
-          src: ['sass/pages/server{,/*}','scripts/server/js_ForDev/**/*'],
+          src: ['sass/pages/activityList{,/*}','scripts/activityList/js_ForDev/**/*'],
           dest: 'D:\\yiwork_0918\\yiwork_20150708\\WebRoot\\'
         }]
       },
@@ -310,10 +310,10 @@ module.exports = function (grunt) {
           //formAll_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\formAll.js',
           //form_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\form.js',
           //servers_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\servers.js',
-          serverList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\serverList.js'
+          activityList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\activityList\\js_ForDev\\activityList.js'
         },
         output: {
-          path: "<%= config.app %>/scripts/server/",
+          path: "<%= config.app %>/scripts/activityList/",
           filename: "[name].js"
         },
         module: {

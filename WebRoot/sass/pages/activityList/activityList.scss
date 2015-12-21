@@ -1,0 +1,90 @@
+@import '../server/bootstrap_base.scss';
+@import '../server/download.scss';
+$lblack: #222;
+$orange: #ef583f;
+body{
+  padding: 12px;
+  background: #eee;
+  color: $lblack;
+}
+a,a:active,a:hover,a:visited{text-decoration: none;color: $lblack;}
+.activity{
+  display: inline-flex;
+  width: 100%;
+  margin-bottom: 12px;
+  .left_date{
+    display: inline-block;
+    width: 50px;
+    border-top: 2px solid $lblack;
+    vertical-align: top;
+    margin-right: 9px;
+    p{
+      margin: 0;
+      margin-top: 6px;
+    }
+    .year{
+      font-size: 22px;
+      line-height: 22px;
+    }
+    .month{
+      line-height: 15px;
+      font-size: 15px;
+    }
+    .date{
+      font-size: 46px;
+      line-height: 34px;
+    }
+    .status{
+      display: block;
+      width: 100%;
+      text-align: center;
+      height: 18px;
+      line-height: 18px;
+      &.s_new,&.s_preBegin{
+        background: $orange;
+        color: #fff;
+      }
+      &.s_end{
+        background: #ccc;
+        color: #fff;
+      }
+    }
+  }
+  .right_banner{
+    display: block;
+    flex: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px #e8e8e8;
+    .banner_box{
+      width: 100%;
+      padding-bottom: 55.5555555556%;
+      background-size: cover ;
+    }
+    .title{
+      background: #fff;
+      padding :6px 8px;
+      display: inline-flex;
+      width: 100%;
+      .title_pic{
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        margin-right: 8px;
+        display: inline-block;
+        img{
+          width: 100%;
+        }
+      }
+      .title_text{
+        flex: 1;
+        line-height: 30px;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+}
