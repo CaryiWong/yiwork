@@ -1,17 +1,19 @@
 @import '../server/bootstrap_base.scss';
-@import '../server/download.scss';
 $lblack: #222;
 $orange: #ef583f;
 body{
-  padding: 12px;
   background: #eee;
   color: $lblack;
 }
 a,a:active,a:hover,a:visited{text-decoration: none;color: $lblack;}
+.activityList{
+  padding: 0 12px 12px;
+  //padding-bottom: 12px;
+}
 .activity{
   display: inline-flex;
   width: 100%;
-  margin-bottom: 12px;
+  margin-top: 12px;
   .left_date{
     display: inline-block;
     width: 50px;
@@ -27,8 +29,8 @@ a,a:active,a:hover,a:visited{text-decoration: none;color: $lblack;}
       line-height: 22px;
     }
     .month{
-      line-height: 15px;
-      font-size: 15px;
+      line-height: 14px;
+      font-size: 14px;
     }
     .date{
       font-size: 46px;
@@ -40,13 +42,36 @@ a,a:active,a:hover,a:visited{text-decoration: none;color: $lblack;}
       text-align: center;
       height: 18px;
       line-height: 18px;
-      &.s_new,&.s_preBegin{
+      &.s_new,&.s_preBegin,&.s_active{
         background: $orange;
         color: #fff;
       }
       &.s_end{
         background: #ccc;
         color: #fff;
+      }
+    }
+    .time_wrap{display: none;}
+    &.now{
+      border-top: none;
+      .year,.date,.month{
+        display: none;
+      }
+      .time_wrap{
+        display: block;
+        width: 100%;
+        border-left: 3px solid $orange;
+        padding-left: 6px;
+      }
+      .noon{
+        color: $orange;
+        font-size: 28px;
+        line-height: 28px;
+      }
+      .time{
+        font-size: 16px;
+        line-height: 16px;
+        color: $orange;
       }
     }
   }
@@ -58,6 +83,7 @@ a,a:active,a:hover,a:visited{text-decoration: none;color: $lblack;}
     box-shadow: 0 2px #e8e8e8;
     .banner_box{
       width: 100%;
+      height: 0;
       padding-bottom: 55.5555555556%;
       background-size: cover ;
     }
@@ -85,6 +111,28 @@ a,a:active,a:hover,a:visited{text-decoration: none;color: $lblack;}
         text-overflow:ellipsis;
         overflow: hidden;
       }
+    }
+  }
+}
+.info{
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #666;
+  background: #fff;
+  margin-top: 10px;
+  .loading{
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    animation: mymove linear .8s infinite;
+  }
+  @keyframes mymove {
+    from {
+      transform: rotate(-360deg);
+    }
+    to {
+      transform: rotate(0deg);
     }
   }
 }

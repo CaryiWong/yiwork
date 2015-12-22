@@ -11,7 +11,7 @@ module.exports = function (grunt) {
   });
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-
+  //var $ = require('expose?jQuery!../../scripts/components/jquery');
   // Automatically load required grunt tasks
   //require('jit-grunt')(grunt, {
   //    useminPrepare: 'grunt-usemin'
@@ -318,14 +318,20 @@ module.exports = function (grunt) {
         },
         module: {
           loaders: [
+            {
+              test:/\.scss$/,
+              loader: 'style!css!autoprefixer?{browsers:["last 3 version","Android 4"]}!sass'
+            }
              //{ test: /\.handlebars$/, loader: "handlebars-loader" }
           ]
         },
         externals: {
           // require('data') is external and available
           //  on the global var data
-          'localOriginal': '\'http://www.yi-gather.com\''
+          //'localOriginal': '\'http://www.yi-gather.com\'',
           //'localOriginal': '\'http://\'' + location
+          //jquery: 'jQuery',
+          'isDev': true,
         },
         node: {
           fs: "empty"

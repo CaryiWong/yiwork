@@ -3,6 +3,7 @@
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
     "concurrent": "^0.3.2",
+    "expose-loader": "^0.7.1",
     "file-loader": "^0.8.5",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^3.0.3",

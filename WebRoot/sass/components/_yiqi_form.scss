@@ -1,0 +1,60 @@
+
+.yiqi-form {
+    .yiqi-tip {
+        background: #fff;
+        padding: 12px;
+        font-size: 1rem;
+        color: #666;
+        @include gray_shadow();
+    }
+
+    .yiqi-control {
+        padding-top: 12px;
+
+        .yiqi-label {
+            padding: 0 12px;
+            font-size: (16/14) + rem;
+            &.yiqi-label-require {
+                &:after {
+                    content: '*';
+                    padding-left: 3px;
+                    color: #f15a38;
+                }
+            }
+        }
+
+        .yiqi-control-area{
+            padding-top: 6px;
+        }
+
+        .yiqi-input-area {
+            margin: 0 0 10px;
+
+            &.valid-error{
+                .yiqi-input-label{
+                    color: #f15a38;
+                }
+            }
+        }
+    }
+
+    .yiqi-input-textarea {
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        border-left: 0;
+        border-right: 0;
+        font-size: 1rem;
+        padding: 12px;
+        height: 180px;
+
+        &::-webkit-input-placeholder {
+            color: #ccc;
+        }
+    }
+
+    .yiqi-form-button{
+        @include yiqi_button();
+    }
+}
