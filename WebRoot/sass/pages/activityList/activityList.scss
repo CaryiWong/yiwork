@@ -17,7 +17,7 @@ a,a:active,a:hover,a:visited{text-decoration: none;color: $lblack;}
   .left_date{
     display: inline-block;
     width: 50px;
-    border-top: 2px solid $lblack;
+    border-top: 3px solid $lblack;
     vertical-align: top;
     margin-right: 9px;
     p{
@@ -42,7 +42,7 @@ a,a:active,a:hover,a:visited{text-decoration: none;color: $lblack;}
       text-align: center;
       height: 18px;
       line-height: 18px;
-      &.s_new,&.s_preBegin,&.s_active{
+      &.s_new,&.s_preBegin,&.s_begin,&.s_active{
         background: $orange;
         color: #fff;
       }

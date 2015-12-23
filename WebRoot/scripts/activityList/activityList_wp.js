@@ -50,21 +50,18 @@
 	var Handlebars = __webpack_require__(2);
 	__webpack_require__(3);
 	__webpack_require__(4);
-	//var isDev= require('isDev');
-	//var server = isDev ? 'http://www.yi-gather.com/' : "http://" + window.location.host;
-	//
-	var localOriginal= "http://www.yi-gather.com/";
+	var isDev = __webpack_require__(11);
+	var localOriginal = isDev ? 'http://test.yi-gather.com:1717' : "http://" + window.location.host;
 	var $activityList = $('.activityList');
 	var $info = $('.info');
 	var page = 0;
 	var $window = $(window),$body = $(document.body);
 	var winH = $window.height(); //页面可视区域高度
-	var startY = '',endY = '',slideY = 0,moveY = 0;
+	var startY = '',slideY = 0,moveY = 0;
 	var isMove = false;
 	var lock = false;
 	var goLoad = true;
 	$info.html("<img class='loading' src='/images/pages/server/icon_loading_loads@2x.png'>");
-
 	document.addEventListener('touchstart',function(event){
 	    startY = event.touches[0].clientY;
 	    isMove = false;
@@ -88,7 +85,7 @@
 	});
 	getData(page);
 	function getData(page){
-	    return $.ajax( localOriginal + '/v20/eventlog/trends',{
+	    return $.ajax( localOriginal + '/v20/activity/activitylist_fx',{
 	        dataType: 'json',
 	        type: 'POST',
 	        data: {
@@ -102,39 +99,41 @@
 	            var result = data.data;
 	            if( result && result.length != 0 ){
 	                for(var i = 0;i < result.length; i++){
-	                    var activity = result[i].activity;
-	                    var openDate = activity.opendate;
-	                    var year = openDate.substring(0,4);
-	                    var date = openDate.substring(8,10);
-	                    var time = openDate.substring(11,16);
-	                    var hour = openDate.substring(11,12);
-	                    var Noon = 'AM';
-	                    if( hour >=12){
-	                        Noon = 'PM';
+	                    var activity = result[i];
+	                    if( activity.length != 0){
+	                        var openDate = activity.opendate;
+	                        var year = openDate.substring(0,4);
+	                        var date = openDate.substring(8,10);
+	                        var time = openDate.substring(11,16);
+	                        var hour = openDate.substring(11,12);
+	                        var Noon = 'AM';
+	                        if( hour >=12){
+	                            Noon = 'PM';
+	                        }
+	                        var month = translateMon(openDate.substring(5,7)) + '.' + openDate.substring(5,7);
+	                        var status = activity.status;
+	                        var add_now = false;
+	                        if(status === 0){
+	                            add_now = true;
+	                        }
+	                        var status_class = translateStatus(status);
+	                        var context = {
+	                            Noon : Noon,
+	                            year : year,
+	                            month : month,
+	                            date : date,
+	                            time : time,
+	                            h5url : activity.imgtexturl,
+	                            cover : activity.cover,
+	                            spacelogo : activity.spaceinfo.spacelogo,
+	                            title : activity.title,
+	                            s_class : status_class.s_class,
+	                            status : status_class.s_text,
+	                            add_now: add_now
+	                        };
+	                        var html = Handlebars.templates.list(context);
+	                        $activityList.append(html);
 	                    }
-	                    var month = translateMon(openDate.substring(5,7)) + '.' + openDate.substring(5,7);
-	                    var status = activity.status;
-	                    var add_now = false;
-	                    if(status === 0){
-	                        add_now = true;
-	                    }
-	                    var status_class = translateStatus(status);
-	                    var context = {
-	                        Noon : Noon,
-	                        year : year,
-	                        month : month,
-	                        date : date,
-	                        time : time,
-	                        h5url : activity.h5url,
-	                        cover : activity.cover,
-	                        spacelogo : activity.spaceinfo.spacelogo,
-	                        title : activity.title,
-	                        s_class : status_class.s_class,
-	                        status : status_class.s_text,
-	                        add_now: add_now
-	                    };
-	                    var html = Handlebars.templates.list(context);
-	                    $activityList.append(html);
 	                }
 	                $info.html('上拉加载更多');
 	            }else{
@@ -149,18 +148,19 @@
 
 	function translateMon(month){
 	    switch (month){
-	        case '01' : {return 'JAN';break;}
-	        case '02' : {return 'FEB';break;}
-	        case '03' : {return 'MAR';break;}
-	        case '04' : {return 'APR';break;}
-	        case '05' : {return 'MAY';break;}
-	        case '06' : {return 'JUN';break;}
-	        case '07' : {return 'JUL';break;}
-	        case '08' : {return 'AUG';break;}
-	        case '09' : {return 'SEP';break;}
-	        case '10' : {return 'OCT';break;}
-	        case '11' : {return 'NOV';break;}
-	        case '12' : {return 'DEC';break;}
+	        case '01' : return 'JAN';break;
+	        case '02' : return 'FEB';break;
+	        case '03' : return 'MAR';break;
+	        case '04' : return 'APR';break;
+	        case '05' : return 'MAY';break;
+	        case '06' : return 'JUN';break;
+	        case '07' : return 'JUL';break;
+	        case '08' : return 'AUG';break;
+	        case '09' : return 'SEP';break;
+	        case '10' : return 'OCT';break;
+	        case '11' : return 'NOV';break;
+	        case '12' : return 'DEC';break;
+	        default : break;
 	    }
 	}
 
@@ -170,7 +170,8 @@
 	        case 0 : return {s_text:"进行中", s_class : 's_active'};break;
 	        case 1 : return  {s_text:"未开始", s_class : 's_preBegin'};break;
 	        case 2 : return  {s_text:"NEW", s_class : 's_new'};break;
-
+	        case 3 : return  {s_text:"未开始", s_class : 's_preBegin'};break;
+	        default : break;
 	    }
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
@@ -11198,6 +11199,12 @@
 
 	module.exports = device;
 
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	module.exports = false;
 
 /***/ }
 /******/ ]);

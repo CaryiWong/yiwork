@@ -35,6 +35,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       webpack: {
+        //files: ['<%= config.app %>/scripts/server/js_ForDev/**/*.js'],
         files: ['<%= config.app %>/scripts/activityList/js_ForDev/**/*.js','<%= config.app %>/pages/activityList/**/*.handlebars'],
         tasks: ['webpack']
       },
@@ -42,6 +43,7 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       sass: {
+        //files: ['<%= config.app %>/sass/pages/server/*.{scss,sass}'],
         files: ['<%= config.app %>/sass/pages/activityList/*.{scss,sass}'],
         tasks: ['clean:server','sass:server','autoprefixer']
       }
@@ -52,6 +54,7 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
+          //'/scripts/server/**/*.js':'<%= config.app %>/scripts/server/**/*.js',
           '/scripts/activityList/**/*.js':'<%= config.app %>/scripts/activityList/**/*.js'
         }
       }
@@ -107,6 +110,7 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
+          //cwd: '<%= config.app %>/sass/pages/server/',
           cwd: '<%= config.app %>/sass/pages/activityList/',
           src: ['activityList.{scss,sass}'],
           dest: '.tmp/',
@@ -116,6 +120,7 @@ module.exports = function (grunt) {
       server: {
         files: [{
           expand: true,
+          //cwd: '<%= config.app %>/sass/pages/server/',
           cwd: '<%= config.app %>/sass/pages/activityList/',
           src: ['*.{scss,sass}'],
           dest: '.tmp/',
@@ -127,12 +132,13 @@ module.exports = function (grunt) {
     autoprefixer: {
       options: {
         map: true,
-        browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+        browsers: ["last 3 version","Android 4"]
       },
       dist: {
         files: [{
           expand: true,
           cwd: '.tmp/',
+          //src: 'serverList.css',
           src: 'activityList.css',
           dest: 'dest/'
         }]
@@ -244,7 +250,7 @@ module.exports = function (grunt) {
         //    '<%= config.app %>/scripts/server/form_wp.js']
         //},
           {
-          'dist/scripts/server/app_activityList.js': ['<%= config.app %>/scripts/server/activityList_wp.js']
+          'dist/scripts/activityList/app_activityList.js': ['<%= config.app %>/scripts/activityList/activityList_wp.js']
         }]
       }
     },
@@ -264,7 +270,7 @@ module.exports = function (grunt) {
           dot: true,
           cwd: '<%= config.app %>/',
           //src: 'pages/server{,/*}',
-          src: 'pages/activityList/activityList.html',
+          src: ['pages/activityList/activityList.html'],
           dest: 'dist/'
         }]
       },
@@ -310,9 +316,11 @@ module.exports = function (grunt) {
           //formAll_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\formAll.js',
           //form_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\form.js',
           //servers_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\servers.js',
+          //serverList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\serverList.js',
           activityList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\activityList\\js_ForDev\\activityList.js'
         },
         output: {
+          //path: "<%= config.app %>/scripts/server/",
           path: "<%= config.app %>/scripts/activityList/",
           filename: "[name].js"
         },
@@ -328,10 +336,8 @@ module.exports = function (grunt) {
         externals: {
           // require('data') is external and available
           //  on the global var data
-          //'localOriginal': '\'http://www.yi-gather.com\'',
-          //'localOriginal': '\'http://\'' + location
           //jquery: 'jQuery',
-          'isDev': true,
+          'isDev': 'false',
         },
         node: {
           fs: "empty"
@@ -375,12 +381,11 @@ module.exports = function (grunt) {
     'copy:dist',   //复制html文件供usemin使用
     'useminPrepare',
     'concurrent:preComplete',  //并行的 webpack sass:dist
-    'sass:dist',
+    //'webpack',
+    //'sass:dist',
     'autoprefixer:dist',
     'concurrent:dist',  //并行的 cssmin uglify imagemin
     'usemin',
-      //'webpack',
-      //'uglify',
     'copy:server',  //把处理好的在 dist/ 下的文件复制到工作目录中
     //'copy:default'  //把原始的 scss js 文件复制到工作目录中
   ]);
