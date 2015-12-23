@@ -4,9 +4,10 @@
 $(function(){
     var Handlebars = require('handlebars/dist/handlebars.runtime.js');
     require('imports?Handlebars=handlebars/dist/handlebars.runtime.js!./Handlebars.templates.js');
+    require('../../../scripts_src/components/yiqi_app_download.js');
+    var isDev = require('isDev');
+    var localOriginal = isDev ? 'http://test.yi-gather.com:1717' : "http://" + window.location.host;
     var lock = false;
-    //var localOriginal= require('localOriginal');
-    var localOriginal= "http://" + window.location.host;
     var page = 0;
     var $window = $(window),$body = $(document.body);
     var winH = $window.height(); //页面可视区域高度
@@ -15,16 +16,16 @@ $(function(){
     var goLoad = true;
     var $serverList = $('.serverList');
     var $info = $('.info');
-    var UA = navigator.userAgent;
-    var ua = UA.toLocaleLowerCase();
-    if(!ua.match('yiqi')){
-        $body.addClass('body-app-download');
-        $('.app-download').show();
-        $('.download-close').on('touchend',function(){
-            $('.app-download').hide();
-            $body.removeClass('body-app-download');
-        })
-    }
+    //var UA = navigator.userAgent;
+    //var ua = UA.toLocaleLowerCase();
+    //if(!ua.match('yiqi')){
+    //    $body.addClass('body-app-download');
+    //    $('.app-download').show();
+    //    $('.download-close').on('touchend',function(){
+    //        $('.app-download').hide();
+    //        $body.removeClass('body-app-download');
+    //    })
+    //}
     $info.html("<img class='loading' src='/images/pages/server/icon_loading_loads@2x.png'>加载中...");
 
     document.addEventListener('touchstart',function(event){

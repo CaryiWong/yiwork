@@ -1,6 +1,11 @@
 @import '../server/bootstrap_base.scss';
+@import '../../../sass/modules/device';
 $lblack: #222;
 $orange: #ef583f;
+
+html{
+  font-size: 14px;
+}
 body{
   background: #eee;
   color: $lblack;

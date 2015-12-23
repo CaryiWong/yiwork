@@ -35,16 +35,16 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       webpack: {
-        //files: ['<%= config.app %>/scripts/server/js_ForDev/**/*.js'],
-        files: ['<%= config.app %>/scripts/activityList/js_ForDev/**/*.js','<%= config.app %>/pages/activityList/**/*.handlebars'],
+        files: ['<%= config.app %>/scripts/server/js_ForDev/**/*.js'],
+        //files: ['<%= config.app %>/scripts/server/js_ForDev/**/*.js','<%= config.app %>/scripts/activityList/js_ForDev/**/*.js'],
         tasks: ['webpack']
       },
       gruntfile: {
         files: ['Gruntfile.js']
       },
       sass: {
-        //files: ['<%= config.app %>/sass/pages/server/*.{scss,sass}'],
-        files: ['<%= config.app %>/sass/pages/activityList/*.{scss,sass}'],
+        files: ['<%= config.app %>/sass/pages/server/*.{scss,sass}'],
+        //files: ['<%= config.app %>/sass/pages/activityList/*.{scss,sass}'],
         tasks: ['clean:server','sass:server','autoprefixer']
       }
     },
@@ -54,8 +54,8 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          //'/scripts/server/**/*.js':'<%= config.app %>/scripts/server/**/*.js',
-          '/scripts/activityList/**/*.js':'<%= config.app %>/scripts/activityList/**/*.js'
+          '/scripts/server/**/*.js':'<%= config.app %>/scripts/server/**/*.js',
+          //'/scripts/activityList/**/*.js':'<%= config.app %>/scripts/activityList/**/*.js'
         }
       }
     },
@@ -110,9 +110,10 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          //cwd: '<%= config.app %>/sass/pages/server/',
-          cwd: '<%= config.app %>/sass/pages/activityList/',
-          src: ['activityList.{scss,sass}'],
+          cwd: '<%= config.app %>/sass/pages/server/',
+          src: ['serverList.{scss,sass}'],
+          //cwd: '<%= config.app %>/sass/pages/activityList/',
+          //src: ['activityList.{scss,sass}'],
           dest: '.tmp/',
           ext: '.css'
         }]
@@ -120,8 +121,8 @@ module.exports = function (grunt) {
       server: {
         files: [{
           expand: true,
-          //cwd: '<%= config.app %>/sass/pages/server/',
-          cwd: '<%= config.app %>/sass/pages/activityList/',
+          cwd: '<%= config.app %>/sass/pages/server/',
+          //cwd: '<%= config.app %>/sass/pages/activityList/',
           src: ['*.{scss,sass}'],
           dest: '.tmp/',
           ext: '.css'
@@ -138,8 +139,8 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '.tmp/',
-          //src: 'serverList.css',
-          src: 'activityList.css',
+          src: 'serverList.css',
+          //src: 'activityList.css',
           dest: 'dest/'
         }]
       },
@@ -148,7 +149,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '.tmp/',
           src: '**/*.css',
-          dest: '<%= config.app %>/styles/pages/activityList/'
+          dest: '<%= config.app %>/styles/pages/server/'
         }]
       }
     },
@@ -184,9 +185,11 @@ module.exports = function (grunt) {
     // additional tasks can operate on them
     useminPrepare: {
       options: {
-        dest: 'dist/pages/activityList'   //最终需修改引用路径的html文件所在的目录,预先通过 copy:dist 把html复制到此目录下
+        dest: 'dist/pages/server'
+        //dest: 'dist/pages/activityList'   //最终需修改引用路径的html文件所在的目录,预先通过 copy:dist 把html复制到此目录下
       },
-      html: '<%= config.app %>/pages/activityList/activityList.html'  //原始html路径 文件引用部分使用 <!--build:{type} <path> --> <!--end build-->来创建block
+      html: '<%= config.app %>/pages/server/serverList.html'
+      //html: '<%= config.app %>/pages/activityList/activityList.html'  //原始html路径 文件引用部分使用 <!--build:{type} <path> --> <!--end build-->来创建block
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -198,7 +201,8 @@ module.exports = function (grunt) {
           'dist/styles'
         ]
       },
-      html:['dist/pages/activityList/activityList.html']  // 需修改引用路径的html文件
+      html:['dist/pages/server/serverList.html']  // 需修改引用路径的html文件
+      //html:['dist/pages/activityList/activityList.html']  // 需修改引用路径的html文件
 },
 
     // The following *-min tasks produce minified files in the dist folder
@@ -230,8 +234,10 @@ module.exports = function (grunt) {
       minify: {
         expand: true,
         cwd: 'dest/',
-        src: 'activityList.css',
-        dest: 'dist/styles/pages/activityList/',
+        src: 'serverList.css',
+        dest: 'dist/styles/pages/server/',
+        //src: 'activityList.css',
+        //dest: 'dist/styles/pages/activityList/',
         ext: '.min.css'
       }
     },
@@ -250,7 +256,8 @@ module.exports = function (grunt) {
         //    '<%= config.app %>/scripts/server/form_wp.js']
         //},
           {
-          'dist/scripts/activityList/app_activityList.js': ['<%= config.app %>/scripts/activityList/activityList_wp.js']
+            'dist/scripts/server/app_serverList.js': ['<%= config.app %>/scripts/server/serverList_wp.js']
+            //'dist/scripts/activityList/app_activityList.js': ['<%= config.app %>/scripts/activityList/activityList_wp.js']
         }]
       }
     },
@@ -269,8 +276,8 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= config.app %>/',
-          //src: 'pages/server{,/*}',
-          src: ['pages/activityList/activityList.html'],
+          src: 'pages/server/serverList.html',
+          //src: ['pages/activityList/activityList.html'],
           dest: 'dist/'
         }]
       },
@@ -316,12 +323,12 @@ module.exports = function (grunt) {
           //formAll_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\formAll.js',
           //form_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\form.js',
           //servers_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\servers.js',
-          //serverList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\serverList.js',
-          activityList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\activityList\\js_ForDev\\activityList.js'
+          serverList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\serverList.js',
+          //activityList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\activityList\\js_ForDev\\activityList.js'
         },
         output: {
-          //path: "<%= config.app %>/scripts/server/",
-          path: "<%= config.app %>/scripts/activityList/",
+          path: "<%= config.app %>/scripts/server/",
+          //path: "<%= config.app %>/scripts/activityList/",
           filename: "[name].js"
         },
         module: {
@@ -381,8 +388,6 @@ module.exports = function (grunt) {
     'copy:dist',   //复制html文件供usemin使用
     'useminPrepare',
     'concurrent:preComplete',  //并行的 webpack sass:dist
-    //'webpack',
-    //'sass:dist',
     'autoprefixer:dist',
     'concurrent:dist',  //并行的 cssmin uglify imagemin
     'usemin',

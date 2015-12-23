@@ -50,9 +50,10 @@
 	$(function(){
 	    var Handlebars = __webpack_require__(2);
 	    __webpack_require__(3);
+	    __webpack_require__(4);
+	    var isDev = __webpack_require__(11);
+	    var localOriginal = isDev ? 'http://test.yi-gather.com:1717' : "http://" + window.location.host;
 	    var lock = false;
-	    //var localOriginal= require('localOriginal');
-	    var localOriginal= "http://" + window.location.host;
 	    var page = 0;
 	    var $window = $(window),$body = $(document.body);
 	    var winH = $window.height(); //页面可视区域高度
@@ -61,16 +62,16 @@
 	    var goLoad = true;
 	    var $serverList = $('.serverList');
 	    var $info = $('.info');
-	    var UA = navigator.userAgent;
-	    var ua = UA.toLocaleLowerCase();
-	    if(!ua.match('yiqi')){
-	        $body.addClass('body-app-download');
-	        $('.app-download').show();
-	        $('.download-close').on('touchend',function(){
-	            $('.app-download').hide();
-	            $body.removeClass('body-app-download');
-	        })
-	    }
+	    //var UA = navigator.userAgent;
+	    //var ua = UA.toLocaleLowerCase();
+	    //if(!ua.match('yiqi')){
+	    //    $body.addClass('body-app-download');
+	    //    $('.app-download').show();
+	    //    $('.download-close').on('touchend',function(){
+	    //        $('.app-download').hide();
+	    //        $body.removeClass('body-app-download');
+	    //    })
+	    //}
 	    $info.html("<img class='loading' src='/images/pages/server/icon_loading_loads@2x.png'>加载中...");
 
 	    document.addEventListener('touchstart',function(event){
@@ -10655,6 +10656,532 @@
 	},"useData":true});
 	})();
 
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(5);
+	var html = __webpack_require__(9);
+	var $ = __webpack_require__(1);
+	var device = __webpack_require__(10);
+
+	if(!device.yiqi){
+	    var $download = $(html);
+	    var $body = $('body').addClass('body-app-download').append($download);
+	    $download.find('.download-close').on('touchstart', function (event) {
+	        event.preventDefault();
+	        $download.remove();
+	        $body.removeClass('body-app-download');
+	    })
+	}
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(6);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/autoprefixer-loader/index.js?{browsers:[\"last 3 version\",\"Android 4\"]}!./../../../node_modules/sass-loader/index.js!./yiqi_app_download.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/autoprefixer-loader/index.js?{browsers:[\"last 3 version\",\"Android 4\"]}!./../../../node_modules/sass-loader/index.js!./yiqi_app_download.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "body.body-app-download {\n  padding-top: 18.66667%; }\n\n.app-download {\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 0;\n  right: 0;\n  padding: 12px 0;\n  background: rgba(239, 88, 63, 0.9);\n  color: #fff; }\n  .app-download:hover {\n    text-decoration: none;\n    color: #fff; }\n  .app-download:visited {\n    text-decoration: none;\n    color: #fff; }\n  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (device-aspect-ratio: 40 / 71) and (-webkit-device-pixel-ratio: 2) {\n    .app-download {\n      padding: 12px 0; } }\n  .app-download .download-close {\n    display: inline-block;\n    vertical-align: middle;\n    width: 5.33333vw;\n    height: 5.33333vw;\n    background: url(\"/images/public/yiqi_icons/close_fff.png\");\n    background-size: 100% 100%;\n    margin: 0 6px; }\n    html.android-vunit .app-download .download-close {\n      width: 1.42857rem; }\n    html.android-vunit .app-download .download-close {\n      height: 1.42857rem; }\n    .app-download .download-close:after {\n      content: '';\n      position: absolute;\n      top: 0;\n      left: 0;\n      bottom: 0;\n      width: 12%; }\n  .app-download .download-base {\n    display: inline-block; }\n  .app-download .download-logo {\n    width: 10.66667vw;\n    height: 10.66667vw;\n    display: inline-block;\n    vertical-align: middle;\n    background: url(\"/images/public/logo_icon.png\");\n    background-size: 100% 100%; }\n    html.android-vunit .app-download .download-logo {\n      width: 2.85714rem; }\n    html.android-vunit .app-download .download-logo {\n      height: 2.85714rem; }\n  .app-download .download-info {\n    display: inline-block;\n    vertical-align: middle;\n    margin-left: 6px; }\n    .app-download .download-info .info-title {\n      font-size: 1rem;\n      padding-bottom: 3px; }\n    .app-download .download-info .info-desc {\n      font-size: 0.85714rem; }\n  .app-download .download-button {\n    border-radius: 3px;\n    text-align: center;\n    background: #fff;\n    float: right;\n    color: #ef583f;\n    font-size: 0.85714rem;\n    box-shadow: 0 3px 3px rgba(205, 48, 23, 0.6);\n    width: 20vw;\n    padding: 0;\n    height: 32px;\n    line-height: 32px;\n    position: absolute;\n    right: 12px;\n    top: 50%;\n    margin-top: -16px; }\n    html.android-vunit .app-download .download-button {\n      width: 5.35714rem; }\n    @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (device-aspect-ratio: 40 / 71) and (-webkit-device-pixel-ratio: 2) {\n      .app-download .download-button {\n        right: 6px; } }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	module.exports = "<!--app下载提示-->\r\n<a class=\"app-download download-link\" href=\"/pages/other/download.html\">\r\n    <div class=\"download-closeArea\"></div>\r\n    <div class=\"download-close\"></div>\r\n    <div class=\"download-base\">\r\n        <div class=\"download-logo\"></div>\r\n        <div class=\"download-info\">\r\n            <div class=\"info-title\">一起</div>\r\n            <div class=\"info-desc\">联结年轻创新者的社区</div>\r\n        </div>\r\n        <div class=\"download-button\">下载APP</div>\r\n    </div>\r\n</a>";
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	var ua = window.navigator.userAgent.toLowerCase(),
+	    device = {
+	        android: false,
+	        ios: false,
+	        weixin: false,
+	        yiqi: false,
+	    };
+	if (ua.search(/android/) >= 0) {
+	    device.android = true;
+	    device.name = 'android';
+	    device.version = parseFloat((ua.match('android ([0-9.]+)') || [])[1]);
+	    document.documentElement.classList.add('android-body');
+	}
+	if (ua.search(/iphone|ipod|ipad/) >= 0) {
+	    device.ios = true;
+	    device.name = 'ios';
+	    device.version = parseFloat(ua.match(/os (\d)/));
+	    document.documentElement.classList.add('ios-body');
+	}
+	if (ua.search(/micromessenger/) >= 0) {
+	    device.weixin = true;
+	    document.documentElement.classList.add('weixin-body');
+	}
+	if (ua.search(/yiqi/) >= 0) {
+	    device.yiqi = true;
+	    document.documentElement.classList.add('yiqiApp-body');
+	}
+	if (device.android && device.version <= 6) {
+	    device.androidVunit = true;
+	    document.documentElement.classList.add('android-vunit');
+	}
+	if (device.android && device.version < 4.4) {
+	    device.androidFlex = true;
+	    document.documentElement.classList.add('android-flex');
+	}
+
+	function handleFunctionParams(params) {
+	    if (params instanceof Object) {
+	        if (params instanceof Array) {
+	            params = params.join(',');
+	        } else {
+	            params = JSON.stringify(params);
+	        }
+	    }
+	    return params;
+	}
+
+	device.iosCall = function (method, params) {
+	    if (device.weixin || !device.yiqi || !device.ios) {
+	        return false;
+	    }
+	    window.iosWebParams = function () {
+	        params = handleFunctionParams(params);
+	        return params;
+	    }
+	    window.location.href = method;
+	}
+
+	device.androidCall = function (method, params) {
+	    if (device.weixin || !device.yiqi || !device.android) {
+	        return false;
+	    }
+	    if (window.yiqi && window.yiqi[method]) {
+	        if (params === undefined) {
+	            yiqi[method]();
+	        } else {
+	            params = handleFunctionParams(params);
+	            yiqi[method](params);
+	        }
+	    }
+	}
+
+	device.call = function (method, params) {
+	    device.iosCall(method, params);
+	    device.androidCall(method, params);
+	}
+
+	device.params = function (method, params) {
+	    if (device.weixin || !device.yiqi) {
+	        return false;
+	    }
+	    var action = {
+	        ios: function () {
+	            method = method.replace(/\w/, method[0].toUpperCase());
+	            window['ios' + method] = function () {
+	                params = handleFunctionParams(params);
+	                return params;
+	            }
+	        },
+	        android: function () {
+	            if (window.yiqi) {
+	                window.yiqi[method] = function () {
+	                    params = handleFunctionParams(params);
+	                    return params;
+	                }
+	            }
+	        }
+	    };
+	    action[device.name]();
+	}
+
+	device.title = function (title) {
+	    document.title = title;
+	    if (device.ios) {
+	        var iframe = document.createElement('iframe');
+	        iframe.classList.add('normal-iframe');
+	        iframe.src = '/images/public/logo.png';
+	        iframe.style.opacity = 0;
+	        iframe.onload = function () {
+	            setTimeout(function () {
+	                iframe.onload = undefined;
+	                document.body.removeChild(iframe);
+	            }, 0);
+	        };
+	        document.body.appendChild(iframe);
+	    }
+	}
+
+	device.appShare = function (obj) {
+	    obj.img = obj.img || window.location.origin + '/images/public/logo_icon_share.png';
+	    obj.link = obj.link || window.location.href;
+	    device.params('getShare', obj);
+	}
+
+	device.back = function (obj) {
+	    if (device.weixin || !device.yiqi) {
+	        if (obj && obj.web) {
+	            obj.web();
+	        } else {
+	            window.history.go(-1);
+	        }
+	    } else {
+	        device.call('back');
+	    }
+	}
+
+
+	module.exports = device;
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	module.exports = false;
 
 /***/ }
 /******/ ]);
