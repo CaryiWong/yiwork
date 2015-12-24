@@ -1,0 +1,139 @@
+@keyframes quicktip-show {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes quicktip-hide {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+.yiqi-quicktip-area {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    transition: all .5s ease;
+
+    &.shown-animate{
+        display: flex;
+        animation: quicktip-show .5s ease;
+        animation-fill-mode: both;
+    }
+
+    &.hidden-animate{
+        animation: quicktip-hide .5s ease;
+    }
+
+    &.quicktip-success {
+        .quicktip-icon {
+            background-image: url('/images/public/yiqi_icons/quicktip_success.png');
+        }
+    }
+
+    &.quicktip-fail {
+        .quicktip-icon {
+            background-image: url('/images/public/yiqi_icons/quicktip_fail.png');
+        }
+    }
+
+    &.quicktip-loading {
+        @at-root {
+            @keyframes loading-circle {
+                from{
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(-360deg);
+                }
+            }
+        }
+
+        .quicktip-icon {
+            background-image: url('/images/public/yiqi_icons/loading_icon.png');
+            animation: loading-circle 2s linear 0s infinite;
+        }
+    }
+
+    .yiqi-quicktip {
+        display: inline-block;
+        //top: 50%;
+        //$height: 110px;
+        //height: $height;
+        //margin: -$height/2 auto 0 auto;
+        background: rgba(0, 0, 0, .7);
+        border-radius: 3px;
+        color: #fff;
+        text-align: center;
+        padding: 12px 24px;
+
+        .quicktip-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-size: 100% 100%;
+            margin: 6px auto;
+        }
+
+        .quicktip-text {
+            color: #fff;
+            font-size: 1rem;
+            padding: 0 12px;
+        }
+    }
+
+    &.quicktip-confirm{
+        background: rgba(0, 0, 0, .5);
+
+        .yiqi-quicktip{
+            border-radius: 3px;
+            background: #fff;
+            color: #666;
+            position: relative;
+            padding: 12px 70px 50px 70px;
+        }
+
+        .quicktip-title{
+            font-size: (16/14)+rem;
+            color: #333;
+        }
+
+        .quicktip-desc{
+            font-size: 1rem;
+            padding: 6px 0;
+        }
+
+        .quicktip-buttons{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            button{
+                font-size: 1rem;
+                width: 50%;
+                padding: 12px 0;
+                border: 0;
+                border-top: 1px solid #eee;
+                background: transparent;
+
+                &:first-child{
+                    border-right: 1px solid #eee;
+                }
+            }
+        }
+    }
+}

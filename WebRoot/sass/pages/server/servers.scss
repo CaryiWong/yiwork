@@ -1,12 +1,15 @@
 @import '_bootstrap_base.scss';
-@import '_download.scss';
+@import "../../../sass/components/yiqi_app_download";
+@import '../../../sass/modules/device';
+.app-download{
+  display: none;
+}
 html{
   font-size: 14px;
 }
 body {
   background-color: #f1f1f1;
 }
-
 .info-main {
   display: none;
 }

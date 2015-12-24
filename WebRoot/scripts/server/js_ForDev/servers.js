@@ -117,14 +117,15 @@ $(function () {
 
     if (uaNow() === 'ios') {
         talkAction.iosShare(1)
-    } else {
+    } else if (uaNow() === 'android'){
         talkAction.android('isShare', 1);
+        $('html').addClass('android-body');
     }
 
     var appLocation = function() {
         if (uaNow()==='ios') {
             talkAction.ios('talk', talkParam)
-        } else{
+        } else if (uaNow() === 'android'){
             talkAction.android('talk', talkParam)
         }
 

@@ -1,0 +1,35 @@
+.image-display {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: opacity .2s ease;
+
+    &.is-loading{
+        opacity: 0;
+    }
+
+    &[data-display-method="pic"]{ // 加载时的样式
+        opacity: 1;
+        position: relative;
+        transition-duration: .2s;
+
+        &:after{
+            opacity: 1;
+            transition: opacity .2s ease;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("/images/public/default_pic.png") no-repeat center center #ddd;
+            background-size: contain;
+        }
+
+        &.is-loadingPic-hide{
+            &:after{
+                opacity: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,175 @@
+.pulldown-indicator {
+    text-align: center;
+    margin: -20px auto 0 auto;
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 100%;
+    top: -20px;
+    transition: top .2s linear;
+    color: #de4c3c;
+    white-space: nowrap;
+    font-size: 1rem;
+
+    &.pulldown-moving {
+        margin-bottom: 12px;
+    }
+
+    &.pulldown-rotating {
+        .pulldown-slider {
+            .slider-icon {
+                transform: rotate(-180deg) !important;
+            }
+
+            &:after {
+                content: '松开刷新';
+            }
+        }
+    }
+
+    &.pulldown-loading {
+        top: 0px !important;
+        margin: 12px auto;
+        // transition: all .5s linear;
+
+        .pulldown-slider {
+            display: none;
+        }
+
+        .pulldown-load {
+            display: block;
+        }
+    }
+
+    &.pulldown-success {
+        transition: margin .2s linear, top .2s linear;
+
+        .pulldown-slider {
+            display: none;
+        }
+
+        .pulldown-load {
+            display: block;
+        }
+
+        .pulldown-load {
+            .load-icon {
+                background-image: url('/images/public/yiqi_icons/loading_success.png');
+                animation-name: none;
+            }
+
+            &:after {
+                content: '加载成功';
+            }
+        }
+    }
+}
+
+.pulldown-slider {
+    .slider-icon {
+        width: 18px;
+        height: 18px;
+        background-size: 100% 100%;
+        background-image: url('/images/public/yiqi_icons/loading_slide.png');
+        display: inline-block;
+        vertical-align: middle;
+        transition: transform .5s ease;
+    }
+
+    &:after {
+        content: '下拉刷新';
+        padding-left: 6px;
+        display: inline-block;
+    }
+}
+
+.pulldown-load, .pullup-load {
+    text-align: center;
+    display: none;
+
+    .load-icon {
+        background-image: url('/images/public/yiqi_icons/loading_refresh.png');
+        width: 18px;
+        height: 18px;
+        background-size: 100% 100%;
+        display: inline-block;
+        vertical-align: middle;
+        animation: pulldown-refresh-loading 2s linear 0s infinite;
+    }
+
+    &:after {
+        content: '正在加载';
+        padding-left: 6px;
+        display: inline-block;
+    }
+}
+
+.pulldown-list{
+    transition: transform .2s ease;
+}
+
+.pullup-indicator {
+    padding: 12px 0;
+    text-align: center;
+    display: none;
+    animation: pullup-show .5s ease both;
+    color: #de4c3c;
+
+    &.pullup-loading {
+        display: block;
+        // position: absolute;
+        // left: 0;
+        // right: 0;
+        // bottom: 10px;
+
+        .pullup-load {
+            display: block;
+        }
+    }
+
+    &.pullup-success {
+        .pullup-load {
+            .load-icon {
+                background-image: url('/images/public/yiqi_icons/loading_success.png');
+                animation-name: none;
+            }
+
+            &:after {
+                content: '加载成功';
+            }
+        }
+    }
+
+    &.pullup-hide{
+        animation: pullup-hide .2s both;
+    }
+}
+
+@keyframes pulldown-refresh-loading {
+    from {
+        transform: rotate(0deg) translateZ(0);
+    }
+    to {
+        transform: rotate(-360deg) translateZ(0);
+    }
+}
+
+@keyframes pullup-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pullup-hide {
+    from {
+        opacity: 1;
+        margin-top: 0;
+    }
+    to {
+        opacity: 0;
+        margin-top: -40px;
+    }
+}

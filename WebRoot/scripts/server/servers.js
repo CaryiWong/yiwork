@@ -138,17 +138,30 @@ $(function () {
         }
     };
 
+    if(ua.match('android')){
+        document.documentElement.classList.add('android-body');
+        var version = parseFloat((ua.match('android ([0-9.]+)') || [])[1]);
+        if (version <= 6) {
+            document.documentElement.classList.add('android-vunit');
+        }
+        if (version < 4.4) {
+            document.documentElement.classList.add('android-flex');
+        }
+    }
+
     //分享打开的页面按钮
-    if(ua.match('micromessenger') || !ua.match('yiqi')){
+    if(!ua.match('yiqi')){
         $talkBtn.hide();
         $applyBtn.hide();
-        $('.server-btn-group').append("<a class='btn form-button' href='/pages/other/download.html'>下载一起APP</a>")
+        //$('.server-btn-group').append("<a class='btn form-button' href='/pages/other/download.html'>下载一起APP</a>")
         $body.addClass('body-app-download');
         $('.app-download').show();
         $('.download-close').on('touchend',function(){
             $('.app-download').hide();
             $body.removeClass('body-app-download');
         })
+    }else{
+        $('.app-download').hide();
     }
 
     var uaNow = function(){

@@ -1,0 +1,78 @@
+$font-defined: Arial, Helvetica, Heiti SC, Microsoft Yahei, SimSun;
+$font-defined-mobile: Arial, Helvetica, Heiti SC, STHeiti, Droidsansfallback, Dengxian;
+$font-base-size: 14;
+$origin-width: 750;
+$origin-height: 1254;
+
+@import "../lib/media-queries";
+
+body, input, select, textarea, button {
+    font-family: $font-defined;
+}
+
+@media all and (max-width: 720px) {
+    body, input, select, textarea, button {
+        font-family: $font-defined-mobile;
+    }
+}
+
+input[type="text"], textarea {
+    -webkit-appearance: none;
+    border-radius: 0;
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+    }
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+html, body {    
+    font-size: $font-base-size + px;
+    background: #eee;
+
+    @include min-screen(414px) {
+        font-size: $font-base-size + 2 + px;
+    }
+
+    @include max-screen(375px) {
+            font-size: $font-base-size + px;
+        }
+
+    @include max-screen(320px) {
+        font-size: $font-base-size - 2 + px;
+    }
+}
+
+@mixin yiqi_button {
+    display: block;
+    border: 0;
+    border-radius: 3px;
+    background: #000;
+    color: #fff;
+    font-size: (16/14) + rem;
+    padding: 12px 0;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover,
+    &:visited {
+        text-decoration: none;
+    }
+}
+
+@mixin gray_shadow {
+    box-shadow: 0 2px #e8e8e8;
+}
+
+@mixin scroll-smooth {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.hide {
+    display: none !important;
+}

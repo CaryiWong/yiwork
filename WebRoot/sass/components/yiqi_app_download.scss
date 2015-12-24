@@ -1,0 +1,104 @@
+@import "../lib/media-queries";
+@import "../modules/device";
+
+$font-base-size: 14;
+$origin-width: 750;
+
+body.body-app-download{
+    padding-top: percentage(140/750);
+}
+
+.app-download {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 0;
+    background: rgba(239, 88, 63, .9);
+    color: #fff;
+
+    &:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    &:visited {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    @include iphone5 {
+        padding: 12px 0;
+    }
+
+    .download-close {
+        display: inline-block;
+        vertical-align: middle;
+        @include width-vw(40);
+        @include height-vw(40);
+        background: url("/images/public/yiqi_icons/close_fff.png");
+        background-size: 100% 100%;
+        margin: 0 6px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 12%;
+        }
+    }
+
+    .download-base {
+        display: inline-block;
+    }
+
+    .download-logo {
+        @include width-vw(80);
+        @include height-vw(80);
+        display: inline-block;
+        vertical-align: middle;
+        background: url("/images/public/logo_icon.png");
+        background-size: 100% 100%;
+    }
+
+    .download-info {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 6px;
+
+        .info-title {
+            font-size: 1rem;
+            padding-bottom: 3px;
+        }
+
+        .info-desc {
+            font-size: (12/14)+rem;
+        }
+    }
+
+    .download-button {
+        border-radius: 3px;
+        text-align: center;
+        background: #fff;
+        float: right;
+        color: #ef583f;
+        font-size: (12/14)+rem;
+        box-shadow: 0 3px 3px rgba(205, 48, 23, .6);
+        @include width-vw(150);
+        padding: 0;
+        $height: 32px;
+        height: $height;
+        line-height: $height;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        margin-top: -$height/2;
+
+        @include iphone5 {
+            right: 6px;
+        }
+    }
+}
