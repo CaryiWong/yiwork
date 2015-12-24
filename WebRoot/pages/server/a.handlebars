@@ -1,0 +1,18 @@
+<div class="list-box" data-action="{{contextUrl}}">
+    <div class="signal">
+        {{#if individual}}<span class="signal-bg"></span>{{/if}}
+        <img src="/images/pages/server/{{#if individual}}individual{{else if team}}team{{else}}company{{/if}}.png" alt=""/>
+    </div>
+    <div class="list-box-left" style="background: url({{headpic}}) no-repeat center center/auto 100%">
+        <div class="location"><span class="city">{{city}}</span></div>
+    </div>
+    <div class="list-box-right">
+        <p class="title">{{title}}</p>
+        <p class="user">{{user}}</p>
+        <div class="text">
+            {{context}}
+        </div>
+    </div>
+</div>
+
+

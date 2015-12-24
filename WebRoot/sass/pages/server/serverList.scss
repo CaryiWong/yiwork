@@ -1,0 +1,131 @@
+@import '_bootstrap_base.scss';
+@import '../../../sass/modules/device';
+html,body {
+  background-color: #f1f1f1;
+  font-size: 14px;
+}
+.serverList {
+  a,a:hover,a:active,a:visited,a:focus{
+    text-decoration: none;
+    color: #999;
+  }
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #999;
+  padding-bottom: 12px;
+  margin: 0 12px;
+  .list-box {
+    display: block;
+    background: #fff;
+    box-shadow: 0 2px #e8e8e8;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    height: 150px;
+    margin-top: 10px;
+    .signal{
+      position: absolute;
+      right: 0;
+      top: 0;
+      .signal-bg{
+        display: block;
+        transform:rotate(45deg);
+        width: 50px;
+        height: 50px;
+        background: #ef583f;
+        margin-right: -28px;
+        margin-top: -26px;
+      }
+      img{
+        position: absolute;
+        width: 14px;
+        right: 3px;
+        top: 3px;
+      }
+    }
+  }
+  .list-box-left {
+    float: left;
+    position: relative;
+    width: 150px;
+    overflow: hidden;
+    height: 150px;
+    .location{
+      height: 26px;
+      color:#fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      line-height: 26px;
+      background: rgba(0, 0, 0, .6);
+      width: 100%;
+      &:before {
+        content: '';
+        display: block;
+        float: left;
+        height: 26px;
+        width: 26px;
+        background: url('/images/pages/server/location.png') no-repeat center center/16px auto;
+      }
+    }
+  }
+  p{line-height: 17px;}
+  .list-box-right {
+    margin-left: 150px;
+    padding: 10px;
+    overflow: hidden;
+    height: 150px;
+    .title {
+      display: block;
+      font-size: 16px;
+      color: #333;
+      margin: 0 0 12px 0;
+      font-weight: bold;
+      width: 100%;
+      overflow: hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      line-height: 22px;
+    }
+    .user{
+      display: block;
+      color: #666;
+      font-size: 12px;
+      width: 100%;
+      overflow: hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+    .text {
+      border-top: 1px solid #e5e5e5;
+      color: #999;
+      padding-top: 8px;
+      font-size: 12px;
+      height: 70px;
+      overflow: hidden;
+      line-height: 20px;
+    }
+  }
+
+}
+.info{
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #666;
+  background: #fff;
+  margin-top: 10px;
+  .loading{
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    animation: mymove linear .8s infinite;
+  }
+  @keyframes mymove {
+    from {
+      transform: rotate(-360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+}

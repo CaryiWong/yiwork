@@ -11,7 +11,7 @@ module.exports = function (grunt) {
   });
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-
+  //var $ = require('expose?jQuery!../../scripts/components/jquery');
   // Automatically load required grunt tasks
   //require('jit-grunt')(grunt, {
   //    useminPrepare: 'grunt-usemin'
@@ -34,15 +34,22 @@ module.exports = function (grunt) {
         files: ['bower.json'],
         tasks: ['wiredep']
       },
-      babel: {
-        files: ['<%= config.app %>/scripts/**/*.js']
+      webpack: {
+        files: ['<%= config.app %>/scripts/server/js_ForDev/**/*.js'],
+        //files: ['<%= config.app %>/scripts/server/js_ForDev/**/*.js','<%= config.app %>/scripts/activityList/js_ForDev/**/*.js'],
+        tasks: ['webpack']
       },
       gruntfile: {
         files: ['Gruntfile.js']
       },
       sass: {
         files: ['<%= config.app %>/sass/pages/server/*.{scss,sass}'],
+<<<<<<< HEAD
         tasks: ['newer:clean:server','newer:sass:server','newer:autoprefixer']
+=======
+        //files: ['<%= config.app %>/sass/pages/activityList/*.{scss,sass}'],
+        tasks: ['clean:server','sass:server','autoprefixer']
+>>>>>>> feature/webpack
       }
     },
     babel: {
@@ -51,7 +58,12 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
+<<<<<<< HEAD
           '/scripts/server/**/*.js':'<%= config.app %>/scripts/server/**/*.js'
+=======
+          '/scripts/server/**/*.js':'<%= config.app %>/scripts/server/**/*.js',
+          //'/scripts/activityList/**/*.js':'<%= config.app %>/scripts/activityList/**/*.js'
+>>>>>>> feature/webpack
         }
       }
     },
@@ -102,13 +114,23 @@ module.exports = function (grunt) {
       server: ['.tmp','dist','dest']
     },
 
+<<<<<<< HEAD
     //   Compiles Sass to CSS and generates necessary files if requested
+=======
+  //   Compiles Sass to CSS and generates necessary files if requested
+>>>>>>> feature/webpack
     sass: {
       dist: {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/sass/pages/server/',
+<<<<<<< HEAD
           src: ['*.{scss,sass}'],
+=======
+          src: ['serverList.{scss,sass}'],
+          //cwd: '<%= config.app %>/sass/pages/activityList/',
+          //src: ['activityList.{scss,sass}'],
+>>>>>>> feature/webpack
           dest: '.tmp/',
           ext: '.css'
         }]
@@ -117,6 +139,10 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/sass/pages/server/',
+<<<<<<< HEAD
+=======
+          //cwd: '<%= config.app %>/sass/pages/activityList/',
+>>>>>>> feature/webpack
           src: ['*.{scss,sass}'],
           dest: '.tmp/',
           ext: '.css'
@@ -127,9 +153,18 @@ module.exports = function (grunt) {
     autoprefixer: {
       options: {
         map: true,
-        browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+        browsers: ["last 3 version","Android 4"]
       },
       dist: {
+        files: [{
+          expand: true,
+          cwd: '.tmp/',
+          src: 'serverList.css',
+          //src: 'activityList.css',
+          dest: 'dest/'
+        }]
+      },
+      server: {
         files: [{
           expand: true,
           cwd: '.tmp/',
@@ -155,7 +190,7 @@ module.exports = function (grunt) {
         ignorePath: /^(\.\.\/)*\.\./
       },
       sass: {
-        src: ['<%= config.app %>/sass/pages/server/*.{scss,sass}'],
+        src: ['<%= config.app %>/sass/pages/activityList/*.{scss,sass}'],
         ignorePath: /^(\.\.\/)+/
       }
     },
@@ -178,9 +213,17 @@ module.exports = function (grunt) {
     // additional tasks can operate on them
     useminPrepare: {
       options: {
+<<<<<<< HEAD
         dest: 'dist/pages/server'   //最终需修改引用路径的html文件所在的目录,预先通过 copy:dist 把html复制到此目录下
       },
       html: '<%= config.app %>/pages/server/**/*.html'  //原始html路径 文件引用部分使用 <!--build:{type} <path> --> <!--end build-->来创建block
+=======
+        dest: 'dist/pages/server'
+        //dest: 'dist/pages/activityList'   //最终需修改引用路径的html文件所在的目录,预先通过 copy:dist 把html复制到此目录下
+      },
+      html: '<%= config.app %>/pages/server/serverList.html'
+      //html: '<%= config.app %>/pages/activityList/activityList.html'  //原始html路径 文件引用部分使用 <!--build:{type} <path> --> <!--end build-->来创建block
+>>>>>>> feature/webpack
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -192,8 +235,14 @@ module.exports = function (grunt) {
           'dist/styles'
         ]
       },
+<<<<<<< HEAD
       html:['dist/pages/server/**/*.html']  // 需修改引用路径的html文件
     },
+=======
+      html:['dist/pages/server/serverList.html']  // 需修改引用路径的html文件
+      //html:['dist/pages/activityList/activityList.html']  // 需修改引用路径的html文件
+},
+>>>>>>> feature/webpack
 
     // The following *-min tasks produce minified files in the dist folder
     imagemin: {
@@ -205,9 +254,15 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
+<<<<<<< HEAD
             cwd: '<%= config.app %>/images/pages/server/',
             src: '**/*', // 优化 img 目录下所有 png/jpg/jpeg/gif 图片
             dest: 'dist/images/pages/server/' // 优化后的图片保存位置，默认覆盖
+=======
+            cwd: '<%= config.app %>/images/pages/activityList/',
+            src: '**/*', // 优化 img 目录下所有 png/jpg/jpeg/gif 图片
+            dest: 'dist/images/pages/activityList/' // 优化后的图片保存位置，默认覆盖
+>>>>>>> feature/webpack
           }
         ]
       }
@@ -224,14 +279,22 @@ module.exports = function (grunt) {
       minify: {
         expand: true,
         cwd: 'dest/',
+<<<<<<< HEAD
         src: '**/*.css',
         dest: 'dist/styles/pages/server/',
+=======
+        src: 'serverList.css',
+        dest: 'dist/styles/pages/server/',
+        //src: 'activityList.css',
+        //dest: 'dist/styles/pages/activityList/',
+>>>>>>> feature/webpack
         ext: '.min.css'
       }
     },
 
     uglify: {
       "my_target": {
+<<<<<<< HEAD
         "files": [{
           'dist/scripts/server/app_formAll.js': ['<%= config.app %>/scripts/components/jquery.js',
             '<%= config.app %>/scripts/components/jquery.cookie.js',
@@ -250,6 +313,22 @@ module.exports = function (grunt) {
           'dist/scripts/server/app_introduction.js': ['<%= config.app %>/scripts/components/jquery.js',
             '<%= config.app %>/scripts/components/jquery.cookie.js',
             '<%= config.app %>/scripts/server/introduction.js']
+=======
+        "files": [
+        //  {
+        //  'dist/scripts/server/app_formAll.js': ['<%= config.app %>/scripts/server/common.js',
+        //    '<%= config.app %>/scripts/server/formAll_wp.js']
+        //},{
+        //  'dist/scripts/server/app_servers.js': ['<%= config.app %>/scripts/server/common.js',
+        //    '<%= config.app %>/scripts/server/servers_wp.js']
+        //},{
+        //  'dist/scripts/server/app_form.js': ['<%= config.app %>/scripts/server/common.js',
+        //    '<%= config.app %>/scripts/server/form_wp.js']
+        //},
+          {
+            'dist/scripts/server/app_serverList.js': ['<%= config.app %>/scripts/server/serverList_wp.js']
+            //'dist/scripts/activityList/app_activityList.js': ['<%= config.app %>/scripts/activityList/activityList_wp.js']
+>>>>>>> feature/webpack
         }]
       }
     },
@@ -268,7 +347,12 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= config.app %>/',
+<<<<<<< HEAD
           src: 'pages/server{,/*}',
+=======
+          src: 'pages/server/serverList.html',
+          //src: ['pages/activityList/activityList.html'],
+>>>>>>> feature/webpack
           dest: 'dist/'
         }]
       },
@@ -277,8 +361,13 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= config.app %>/',
+<<<<<<< HEAD
           src: ['sass/pages/server{,/*}','scripts/server/js_ForDev/**/*'],
           dest: 'D:\\yiwork_0918\\yiwork_0918\\WebRoot\\'
+=======
+          src: ['sass/pages/activityList{,/*}','scripts/activityList/js_ForDev/**/*'],
+          dest: 'D:\\yiwork_0918\\yiwork_20150708\\WebRoot\\'
+>>>>>>> feature/webpack
         }]
       },
       server: {
@@ -298,11 +387,57 @@ module.exports = function (grunt) {
         'babel:dist',
         'sass:server'
       ],
+      preComplete: [
+        'webpack',
+        'sass:dist'
+      ],
       dist: [
         'uglify',
         'imagemin',
         'cssmin'
       ]
+    },
+    webpack: {
+      build: {
+        entry:{
+          //formAll_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\formAll.js',
+          //form_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\form.js',
+          //servers_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\servers.js',
+          serverList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\serverList.js',
+          //activityList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\activityList\\js_ForDev\\activityList.js'
+        },
+        output: {
+          path: "<%= config.app %>/scripts/server/",
+          //path: "<%= config.app %>/scripts/activityList/",
+          filename: "[name].js"
+        },
+        module: {
+          loaders: [
+            {
+              test:/\.scss$/,
+              loader: 'style!css!autoprefixer?{browsers:["last 3 version","Android 4"]}!sass'
+            }
+             //{ test: /\.handlebars$/, loader: "handlebars-loader" }
+          ]
+        },
+        externals: {
+          // require('data') is external and available
+          //  on the global var data
+          //jquery: 'jQuery',
+          'isDev': 'false',
+        },
+        node: {
+          fs: "empty"
+        },
+        plugins:[
+          new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+          }),
+           //new commonPlugins('common.js')
+        ]
+      }
     }
   });
 
@@ -317,6 +452,10 @@ module.exports = function (grunt) {
       'clean:server',
       'sass:server',
       'autoprefixer:server',
+<<<<<<< HEAD
+=======
+      'webpack',
+>>>>>>> feature/webpack
       'browserSync:livereload',
       'watch'
     ]);
@@ -331,12 +470,20 @@ module.exports = function (grunt) {
     'clean',  //清除临时文件夹
     'copy:dist',   //复制html文件供usemin使用
     'useminPrepare',
+<<<<<<< HEAD
     'sass:dist',
+=======
+    'concurrent:preComplete',  //并行的 webpack sass:dist
+>>>>>>> feature/webpack
     'autoprefixer:dist',
     'concurrent:dist',  //并行的 cssmin uglify imagemin
     'usemin',
     'copy:server',  //把处理好的在 dist/ 下的文件复制到工作目录中
+<<<<<<< HEAD
     'copy:default'  //把原始的 scss js 文件复制到工作目录中
+=======
+    //'copy:default'  //把原始的 scss js 文件复制到工作目录中
+>>>>>>> feature/webpack
   ]);
 
   grunt.registerTask('test', ['clean']);
