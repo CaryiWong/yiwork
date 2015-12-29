@@ -63,7 +63,7 @@ $(function () {
                 $main.find('.supplier').html(data['servicesupplier']);
                 var $location = $main.find('.location');
                 $location.find('span').html(data['city']);
-                $main.find('.content').html(data['context'].replace(/\n/g, '<br/>'));
+                $main.find('.content').html(data['context'].replace(/\n/g, '<br/>').httpHtml());
                 $main.find('.head-pic').attr('src', data['titleimg']);
                 $('.team-header-pic,.psn-header-pic').css('background-image',"url(" + data['titleimg'] + ")");
                 $main.find('.user').html(data['servicesupplier']);
@@ -188,4 +188,8 @@ $(function () {
     //申请表跳转
     $applyBtn.attr('href','/pages/server/intentLetter.html?serviceid=' + serverId);
 
+    String.prototype.httpHtml = function(){
+        var reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/g;
+        return this.replace(reg, '<a href="$1$2">$1$2</a>');
+    };
 });
