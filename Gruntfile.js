@@ -188,7 +188,7 @@ module.exports = function (grunt) {
         dest: 'dist/pages/accredit'
         //dest: 'dist/pages/activityList'   //最终需修改引用路径的html文件所在的目录,预先通过 copy:dist 把html复制到此目录下
       },
-      html: '<%= config.app %>/pages/accredit/login.html'
+      html: '<%= config.app %>/pages/accredit/**/*.html'
       //html: '<%= config.app %>/pages/activityList/activityList.html'  //原始html路径 文件引用部分使用 <!--build:{type} <path> --> <!--end build-->来创建block
     },
 
@@ -201,7 +201,7 @@ module.exports = function (grunt) {
           'dist/styles'
         ]
       },
-      html:['dist/pages/accredit/login.html']  // 需修改引用路径的html文件
+      html:['dist/pages/accredit/**/*.html']  // 需修改引用路径的html文件
       //html:['dist/pages/activityList/activityList.html']  // 需修改引用路径的html文件
 },
 
@@ -234,7 +234,7 @@ module.exports = function (grunt) {
       minify: {
         expand: true,
         cwd: 'dest/',
-        src: 'accredit.css',
+        src: '**/*.css',
         dest: 'dist/styles/pages/accredit/',
         //src: 'activityList.css',
         //dest: 'dist/styles/pages/activityList/',
@@ -256,7 +256,8 @@ module.exports = function (grunt) {
         //    '<%= config.app %>/scripts/server/form_wp.js']
         //},
           {
-            'dist/scripts/accredit/app_login.js': ['<%= config.app %>/scripts/accredit/login_wp.js']
+            'dist/scripts/accredit/app_login.js': ['<%= config.app %>/scripts/accredit/login_wp.js'],
+            'dist/scripts/accredit/app_accredit.js': ['<%= config.app %>/scripts/accredit/accredit_wp.js']
             //'dist/scripts/activityList/app_activityList.js': ['<%= config.app %>/scripts/activityList/activityList_wp.js']
         }]
       }
@@ -276,7 +277,7 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= config.app %>/',
-          src: 'pages/accredit/login.html',
+          src: 'pages/accredit/**/*.html',
           //src: ['pages/activityList/activityList.html'],
           dest: 'dist/'
         }]
@@ -324,6 +325,7 @@ module.exports = function (grunt) {
           //form_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\form.js',
           //servers_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\server\\js_ForDev\\servers.js',
           login_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\accredit\\js_ForDev\\login.js',
+          accredit_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\accredit\\js_ForDev\\accredit.js',
           //activityList_wp:'D:\\mywork\\yiwork_20150708\\WebRoot\\scripts\\activityList\\js_ForDev\\activityList.js'
         },
         output: {
